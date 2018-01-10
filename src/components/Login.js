@@ -22,7 +22,7 @@ class Login extends Component{
     render(){
         return(
             <div id="signup">
-                <h1>Üye Ol</h1>
+                <h1>Giris Yap</h1>
                 <form onSubmit={this.loginSubmit}>
                     <input type="text" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})} className="form-control" placeholder="Username" />
                     <input type="text" value={this.state.pass} onChange={(e) => this.setState({pass:e.target.value})} className="form-control" placeholder="Password" />    

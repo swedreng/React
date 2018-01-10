@@ -10,7 +10,7 @@ export default (state = defaultState, action = {}) => {
       return {
         username: action.payload.username,
         pass: action.payload.pass,
-        isAuth: true
+        isAuth:action.payload.auth
       }
       break
     case RESET_AUTH:
