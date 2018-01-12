@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as authActions from "../actions/auth"
 
+
 class Logout extends Component{
 
     constructor(props){
@@ -12,6 +13,7 @@ class Logout extends Component{
     componentWillMount() {
         let { resetLogin } = this.props.authActions;
         resetLogin();
+        window.location = '#/'
     }
   
     render(){

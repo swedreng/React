@@ -20,14 +20,25 @@ class Login extends Component{
       }
 
     render(){
+      
+        const {isAuth} = this.props.auth
+        const {message} = this.props.description
+        const { name, pass} = this.state
+        const isEnabled = (name  && pass)
+        const alertTrue = "alert alert-success"
+        const alertFalse = "alert alert-danger"
+               
         return(
             <div id="signup">
                 <h1>Giris Yap</h1>
-                <form onSubmit={this.loginSubmit}>
+                <form>
                     <input type="text" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})} className="form-control" placeholder="Username" />
                     <input type="text" value={this.state.pass} onChange={(e) => this.setState({pass:e.target.value})} className="form-control" placeholder="Password" />    
-                    <button type="button" className="btn btn-warning" onClick={this.loginSubmit}>Giris Yap</button>
+                    <button type="button" disabled={!isEnabled}className="btn btn-warning" onClick={this.loginSubmit}>Giris Yap</button>
                 </form>    
+                <div>
+                    {(message ? <p className={isAuth === true ? alertTrue : isAuth === false ? alertFalse: null}>{message}</p> :null)}
+                </div> 
             </div>
         );
     }
@@ -35,9 +46,13 @@ class Login extends Component{
 
 // component
 // container 
+const mapStateToProps = ({ auth,description }) => ({
+    auth,description
+})
+
 
 const mapDispatchToProps = dispatch => ({
     authActions: bindActionCreators(authActions, dispatch)
 })
   
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

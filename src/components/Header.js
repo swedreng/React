@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import * as authActions from "../actions/user"
 
 class Header extends Component {
   render() {
+    const {username} = this.props.auth
     return (
       
 <nav className="navbar navbar-default" id="header">
@@ -30,7 +34,7 @@ class Header extends Component {
       </form>
       <ul className="nav navbar-nav navbar-right">
         <li className="dropdown">
-          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User<span className="caret"></span></a>
+          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{username ? username: <p>User</p>}<span className="caret"></span></a>
           <ul className="dropdown-menu" role="menu">
             <li><Link to="/login">Giris Yap</Link></li>
             <li><Link to="/signup">Üye Ol</Link></li>
@@ -48,4 +52,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = ({ auth }) => ({
+    auth
+})
+
+export default connect(mapStateToProps, null)(Header)

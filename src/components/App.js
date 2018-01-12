@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
+import { Router, Route, Redirect, IndexRoute, Link, hashHistory } from 'react-router';
 import { Provider } from "react-redux";
 import Store from "../store/index.js";
 import './app.scss';
@@ -24,7 +24,7 @@ class App extends Component {
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/signup" component={SignUp} />
-                <Route path="/logout" component={Logout} />
+                <Route path="/logout"  component={Logout} />
               </Route>
           </Router>
         </Provider>

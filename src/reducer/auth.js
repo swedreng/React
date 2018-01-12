@@ -1,7 +1,7 @@
 import { SET_AUTH_LOGIN, RESET_AUTH } from "../constants"
 const defaultState = {
   username: "",
-  pass: "",
+  isAuth:null,
 }
 
 export default (state = defaultState, action = {}) => {
@@ -9,12 +9,11 @@ export default (state = defaultState, action = {}) => {
     case SET_AUTH_LOGIN:
       return {
         username: action.payload.username,
-        pass: action.payload.pass,
-        isAuth:action.payload.auth
+        isAuth:action.payload.success
       }
       break
     case RESET_AUTH:
-      return state
+      return {username:""}
       break
     default:
       return state
