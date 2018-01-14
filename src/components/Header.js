@@ -7,6 +7,7 @@ import * as authActions from "../actions/user"
 class Header extends Component {
   render() {
     const {username} = this.props.auth
+   
     return (
       
 <nav className="navbar navbar-default" id="header">

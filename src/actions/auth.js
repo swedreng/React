@@ -4,7 +4,7 @@ import {alertMessage} from "./desc"
 export function setAuth(payload) {
   return (dispatch, getState, api) => { 
     
-    let { user } = getState()
+   // let { user } = getState()
     fetch('http://localhost:8000/api/users/login', {
       method: 'POST',
       headers: {

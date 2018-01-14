@@ -10,6 +10,7 @@ import Layout from './Layout.js';
 import Logout from './Logout.js';
 import About from './About.js';
 import Contact from './Contact.js';
+import Admin from './Admin.js';
 
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
                 <Route path="/login" component={Logout} />
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
+                <Route path="/admin" component={Admin} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/logout"  component={Logout} />
               </Route>
