@@ -6,12 +6,12 @@ import * as authActions from "../actions/user"
 
 class Header extends Component {
   render() {
-    const {username} = this.props.auth
-   
+    const {username,isAuth} = this.props.auth
+     console.log(isAuth)
     return (
       
 <nav className="navbar navbar-default" id="header">
-  <div className="container-fluid">
+  <div className="container-full">
     <div className="navbar-header">
       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span className="sr-only">Navigasyonu aç/kapa</span>
@@ -35,12 +35,22 @@ class Header extends Component {
       </form>
       <ul className="nav navbar-nav navbar-right">
         <li className="dropdown">
-          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{username ? username: <p>User</p>}<span className="caret"></span></a>
+          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{username ? username: 'User'}<span className="caret"></span></a>
           <ul className="dropdown-menu" role="menu">
-            <li><Link to="/login">Giris Yap</Link></li>
-            <li><Link to="/signup">Üye Ol</Link></li>
-            <li className="divider"></li>
-            <li><Link to="/logout">Cıkıs Yap</Link></li>
+          
+          {(isAuth ?  
+            [
+            <li key="1"><Link to="/profile">Profil</Link></li>,
+            <li key="2"className="divider"></li>,
+            <li key="3"><Link to="/logout">Cıkıs Yap</Link></li>
+            ]
+            :
+            [
+            <li key="1"><Link to="/login">Giris Yap</Link></li>,
+            <li key="2"><Link to="/signup">Üye Ol</Link></li>
+            ]
+          )}
+      
           </ul>
         </li>
       </ul>
@@ -52,6 +62,8 @@ class Header extends Component {
     );
   }
 }
+
+
 
 const mapStateToProps = ({ auth }) => ({
     auth

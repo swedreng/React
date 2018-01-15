@@ -15,7 +15,6 @@ class Login extends Component{
   
       loginSubmit(event) {
           let { setAuth } = this.props.authActions;
-
           setAuth({username: this.state.name, pass:this.state.pass});
       }
 
@@ -29,7 +28,7 @@ class Login extends Component{
         const alertFalse = "alert alert-danger"
                
         return(
-            <div id="signup">
+            <div id="signup" className="well">
                 <h1>Giris Yap</h1>
                 <form>
                     <input type="text" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})} className="form-control" placeholder="Username" />

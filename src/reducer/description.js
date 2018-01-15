@@ -1,6 +1,7 @@
 import { SET_LOGIN_DESC} from "../constants"
 const defaultState = {
-  message:""
+  message:"",
+  result:null
 }
 
 export default (state = defaultState, action = {}) => {
@@ -8,7 +9,8 @@ export default (state = defaultState, action = {}) => {
   switch (action.type) {
     case SET_LOGIN_DESC:
       return {
-        message:action.payload.message
+        message:action.payload.message,
+        result:action.payload.success
       }
       break
     default:

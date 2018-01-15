@@ -3,6 +3,7 @@ import { Router, Route, Redirect, IndexRoute, Link, hashHistory } from 'react-ro
 import { Provider } from "react-redux";
 import Store from "../store/index.js";
 import './app.scss';
+import './profile.scss';
 import Content from './Content.js';
 import Login from './Login.js';
 import SignUp from './SignUp.js';
@@ -11,6 +12,8 @@ import Logout from './Logout.js';
 import About from './About.js';
 import Contact from './Contact.js';
 import Admin from './Admin.js';
+import Profile from './Profile.js';
+import ProfileDetail from'./ProfileDetail'
 
 
 class App extends Component {
@@ -25,6 +28,7 @@ class App extends Component {
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/admin" component={Admin} />
+                <Route path="/profile" component={Profile} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/logout"  component={Logout} />
               </Route>

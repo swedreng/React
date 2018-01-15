@@ -11,11 +11,11 @@ class Content extends Component{
         return(
                 <div id="content">   
                     <div className="row"> 
-                        <div className="col-xs-6 col-md-6">          
+                        <div className="col-xs-12 col-md-6">          
                            <Main/>
                            <Pagination/> 
                         </div>
-                        <div className="col-xs-6 col-md-6">          
+                        <div className="col-xs-12 col-md-6">          
                            <Comments/>
                            <Comment/> 
                         </div>    

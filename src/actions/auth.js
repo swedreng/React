@@ -4,7 +4,6 @@ import {alertMessage} from "./desc"
 export function setAuth(payload) {
   return (dispatch, getState, api) => { 
     
-   // let { user } = getState()
     fetch('http://localhost:8000/api/users/login', {
       method: 'POST',
       headers: {
@@ -16,19 +15,19 @@ export function setAuth(payload) {
         password: payload.pass
         })
       }).then(response => response.json()).then(response => {
-        console.log(response.message)
-        console.log(response.success)
         dispatch(alertMessage({message:response.message}))
         dispatch({ type: SET_AUTH_LOGIN, payload:{ success: response.success, username:payload.username} })
-        if(response.success){
-          setTimeout(() => {
-            window.location = "#/"
-        }, 3000);
+          if(response.success){
+            // setter
+            // localStorage.setItem('myData', data);
+            // getter
+            // localStorage.getItem('myData');
+            setTimeout(() => {
+             window.location = "#/"
+          },   3000);
         }
-         
     })
   }
-  
 }
 export function resetLogin() {
   return { type: RESET_AUTH }

@@ -1,9 +1,9 @@
 
-import {GET_USERS} from "../constants"
+import {GET_USERS,USER_DELETE} from "../constants"
+import {alertMessage} from "./desc"
 export function getUsers() {
   return (dispatch, getState, api) => { 
     
-    //let { user } = getState()
     fetch('http://localhost:8000/api/users', {
       method: 'POST',
       }).then(response => response.json()).then(response => {
@@ -11,6 +11,19 @@ export function getUsers() {
          dispatch({type: GET_USERS, payload:response})
     })
   }
+}
+
+export function deleteUser(payload) { 
   
+  return (dispatch, getState, api) => { 
+    let user_id = payload.user_id
+    console.log(user_id)
+    //let { user } = getState()
+     return fetch(`http://localhost:8000/api/users/delete/${user_id}`, {
+      method: 'DELETE',
+      }).then(response => response.json()).then(response => {
+        return dispatch(alertMessage({ success: response.success, message:response.message}))   
+    })
+  }
 }
 

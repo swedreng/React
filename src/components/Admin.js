@@ -1,23 +1,38 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import * as authActions from "../actions/users"
+import * as userActions from "../actions/users"
 
 
 class Admin extends Component{
 
     constructor(props){
         super(props);
-        
+        this.deleteUsers = this.deleteUsers.bind(this)
     }
+
     componentWillMount() {
-        let { getUsers } = this.props.authActions;
-        getUsers();    
+        let { getUsers } = this.props.userActions;
+        getUsers() 
+    }
+
+    deleteUsers(e) {
+        let user_id = e.target.value;
+        let { getUsers } = this.props.userActions;
+        let { deleteUser } = this.props.userActions
+        deleteUser({user_id:user_id}).then(() => {
+            getUsers()
+        })
     }
     
     render(){
-        const {users} = this.props.users
-        console.log(users)
+        const { users: { data } } = this.props
+        const {message} = this.props.description
+        const {result} = this.props.description
+        console.log(result)
+        const alertTrue = "alert alert-success"
+        const alertFalse = "alert alert-danger"
+        
         return(
         <div>
             <table className="table">
@@ -33,20 +48,25 @@ class Admin extends Component{
                     </tr>
                 </thead>
                 <tbody>
-                
-                    <tr>
-                        <td>1</td>
-                        <td>Anıl</td>
-                        <td>Gurler</td>
-                        <td>Swedreng</td>
-                        <td>anil-swedreng@hotmail.com</td>
-                        <td>12.01.2018</td>
-                        <td><button type="button" className="btn btn-danger">Sil</button></td>
-                    </tr>
+
+                {(data.length > 0
+                 ? data.map((user, i) => {
+                          return ( 
+                        <tr key={i}>
+                          <td>{i+1}</td>
+                          <td>{user.firstname}</td>
+                          <td>{user.lastname}</td>
+                          <td>{user.username}</td>
+                          <td>{user.email}</td>
+                          <td>{user.created_at}</td>
+                          <td><button type="button" className="btn btn-danger" value={user.id} onClick={this.deleteUsers}>Sil</button></td>
+                      </tr>)
+                }) : null)}
+                    
                 </tbody> 
             </table>
             <nav id="paginationadmin"aria-label="Page navigation">
-                    <ul class="pagination">
+                    <ul className="pagination">
                         <li>
                             <a href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
@@ -64,20 +84,21 @@ class Admin extends Component{
                         </li>
                     </ul>
                 </nav>
+                <div>
+                    {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
+                </div> 
         </div>
            
         );
     }
 }
 
-
-
-const mapStateToProps = ({ users }) => ({
-    users
+const mapStateToProps = ({ users,description }) => ({
+    users,description
 })
 
 const mapDispatchToProps = dispatch => ({
-    authActions: bindActionCreators(authActions, dispatch)
+    userActions: bindActionCreators(userActions, dispatch)
 })
   
 export default connect(mapStateToProps, mapDispatchToProps)(Admin)
