@@ -80,18 +80,21 @@ body {
     border-bottom: none;
   }
   
-  .profile-usermenu ul li a {
+  .profile-usermenu ul li span {
     color: #93a3b5;
     font-size: 14px;
     font-weight: 400;
+    display: block;
+    padding:10px;
+    cursor: pointer;
   }
   
-  .profile-usermenu ul li a i {
+  .profile-usermenu ul li span i {
     margin-right: 8px;
     font-size: 14px;
   }
   
-  .profile-usermenu ul li a:hover {
+  .profile-usermenu ul li span:hover {
     background-color: #fafcfd;
     color: #5b9bd1;
   }
@@ -100,7 +103,7 @@ body {
     border-bottom: none;
   }
   
-  .profile-usermenu ul li.active a {
+  .profile-usermenu ul li.active span {
     color: #5b9bd1;
     background-color: #f6f9fb;
     border-left: 2px solid #5b9bd1;
@@ -111,5 +114,41 @@ body {
   .profile-content {
     padding: 20px;
     background: #fff;
-    min-height: 350px;
+    min-height: 250px;
+    -webkit-border-radius: 5% !important;
+    -moz-border-radius: 5% !important;
+    border-radius: 5% !important;
   }
+  @media screen and (min-width:768px){ //768 pikselden küçükse Mobil ve Tablet
+    
+    .profile-userpic img {
+      
+      margin-left: 30%;
+      margin-right:30%; 
+      width: 40%;
+      height: 20%;
+  
+      -webkit-border-radius: 5% !important;
+      -moz-border-radius: 5% !important;
+      border-radius: 20% !important;
+    }
+    .profile-sidebar {
+      padding: 20px 0 10px 0;
+      background: #fff;
+    
+      width: 100%;
+      height: 100%;
+      -webkit-border-radius: 50% !important;
+      -moz-border-radius: 20% !important;
+      border-radius: 5% !important;
+    }
+    .profile-content {
+      padding: 20px;
+      background: #fff;
+      min-height: 350px;
+      -webkit-border-radius: 5% !important;
+      -moz-border-radius: 5% !important;
+      border-radius: 5% !important;
+    }
+    
+}

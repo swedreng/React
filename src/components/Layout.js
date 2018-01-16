@@ -4,10 +4,12 @@ import Section from './Section.js';
 import Section2 from './Section2.js';
 import Footer from './Footer.js';
 
+
 class Layout extends Component{
 
     render(){
         return(
+            
                <div id="content">
                     <div className="row">
                         <div className="col-xs-12 col-lg-12 nopadding">
@@ -15,11 +17,11 @@ class Layout extends Component{
                         </div>    
                     </div>   
                     <div className="row">
-                        <div className="col-xs-12 col-md-2">
-                            <Section/>
-                        </div>   
-                        <div className="col-xs-12 col-md-8">
+                        <div className="col-xs-12 col-md-8 col-md-push-2">
                             {this.props.children} 
+                        </div>   
+                        <div className="col-xs-12 col-md-2 col-md-pull-8">
+                            <Section/>
                         </div> 
                         <div className="col-xs-12 col-md-2">
                             <Section2/>
@@ -30,8 +32,8 @@ class Layout extends Component{
                             <Footer/>
                         </div>
                     </div>
-            </div>
-        );
+                </div>     
+            )
     }
 }
 export default Layout;

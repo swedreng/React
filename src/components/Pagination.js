@@ -6,7 +6,7 @@ class Pagination extends Component{
         return (
             <div>
                 <nav aria-label="Page navigation">
-                    <ul class="pagination">
+                    <ul className="pagination">
                         <li>
                             <a href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>

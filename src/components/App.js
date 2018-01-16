@@ -14,6 +14,7 @@ import Contact from './Contact.js';
 import Admin from './Admin.js';
 import Profile from './Profile.js';
 import ProfileDetail from'./ProfileDetail'
+import UserHome from './UserHome'
 
 
 class App extends Component {
@@ -28,9 +29,12 @@ class App extends Component {
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/admin" component={Admin} />
-                <Route path="/profile" component={Profile} />
+                <Route path="/profile" component={Profile}/>
                 <Route path="/signup" component={SignUp} />
                 <Route path="/logout"  component={Logout} />
+              </Route>
+              <Route component={Profile}>
+                <Route path="/userhome" component={UserHome} />
               </Route>
           </Router>
         </Provider>

@@ -34,7 +34,7 @@ class SignUp extends Component{
               email)  
         return(
         
-            <div id="signup">
+            <div id="signup" className="well">
                 <h1>Üye Ol</h1>
                 <form>
                     <input type="text" value={this.state.firstname} onChange={(e) => this.setState({firstname:e.target.value})} className="form-control" placeholder="İsminiz" />

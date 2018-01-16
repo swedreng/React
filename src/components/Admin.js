@@ -34,8 +34,8 @@ class Admin extends Component{
         const alertFalse = "alert alert-danger"
         
         return(
-        <div>
-            <table className="table">
+        <div className="table-responsive">
+            <table className="table" id="admin">
                 <thead>
                     <tr>
                         <th>#</th>

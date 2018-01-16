@@ -1,6 +1,16 @@
+.navbar-default{
+    background-color: #FDD017 !important
+}
+
 .row{
     margin-left:0;
     margin-right:0;
+}
+.navbar-nav > li > a, .navbar-brand{
+    color:white !important;
+}
+#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right > li > a {
+    background-color:#ff973e;
 }
 #login {
     bottom:50px;
@@ -25,7 +35,7 @@
 #footer {
     left:0;
     bottom:0;
-    position:sticky;
+    position:fixed;
     width:100%; 
 }   
 #root {
@@ -39,19 +49,21 @@
     padding:10px;
     margin:10px;
 }
+#signup input{
+    margin-left:35%;
+    margin-right: 35%;
+    width: 30%
+}  
 #signup h1{
-    text-align: center;
+    text-align: center
 }
+
 #signup button{
     display: block;
     margin:0px auto;
     padding: 10px;
-    width: 60%;
-} 
-#signup input{
-    margin:5px auto 15px;   
-    width:60%;
-}  
+    width: 20%;
+}
 #header{
     padding:10px;   
 }
@@ -79,3 +91,54 @@
 #footer .panel {
     margin: 0!important;
 }
+@media screen and (max-width:768px) { //768 pikselden küçükse Mobil ve Tablet
+    
+    #signup button{
+        display: block;
+        margin:0px auto;
+        padding: 10px;
+        width: 60%;
+    } 
+    #signup h1{
+        text-align: center;
+    }
+    #signup input{
+        margin:5px auto 15px;   
+        width:60%;
+    } 
+    
+    
+}
+
+.show-loading-animation {
+    &.rect-shape,
+    &.round-shape,
+    &.text-row,
+    .rect-shape,
+    .round-shape,
+    .text-row {
+      animation: react-placeholder-pulse 1.5s infinite;
+    }
+  }
+  
+  
+  @keyframes react-placeholder-pulse {
+    0% {
+      opacity: .6;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: .6;
+    }
+  }
+
+
+  @media screen and (min-width:768px) { 
+      .well{
+          background-color: transparent;
+          box-shadow: none;
+          border:none;
+      }
+  }
