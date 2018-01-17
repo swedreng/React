@@ -33,7 +33,7 @@ class Login extends Component{
                 <form>
                     <input type="text" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})} className="form-control" placeholder="Username" />
                     <input type="text" value={this.state.pass} onChange={(e) => this.setState({pass:e.target.value})} className="form-control" placeholder="Password" />    
-                    <button type="button" disabled={!isEnabled}className="btn btn-warning" onClick={this.loginSubmit}>Giris Yap</button>
+                    <button type="button" disabled={!isEnabled} className="btn btn-warning" onClick={this.loginSubmit}>Giris Yap</button>
                 </form>    
                 <div>
                     {(message ? <p className={isAuth === true ? alertTrue : isAuth === false ? alertFalse: null}>{message}</p> :null)}

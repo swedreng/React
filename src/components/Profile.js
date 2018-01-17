@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import './profile.scss'
 import ProfileDetail from './ProfileDetail'
-import { Link } from 'react-router'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as authActions from "../actions/user"
@@ -16,6 +15,10 @@ const tabs = [
     {
         name: 'Hesap ayarları',
         icon: 'user',
+    },
+    {
+        name: 'Paylaşım yap',
+        icon: 'pencil',
     },
     {
         name: 'Bilgi',
@@ -62,7 +65,15 @@ class Profile extends Component{
             })
                 return <Account /> 
                 break
-                case 2:
+            case 2:
+            const Share = Loadable({
+                    loader: () => import('./profile/share.js'),
+                    loading: Loading,
+                    delay:3000
+                })
+                return <Share /> 
+                break    
+            case 3:
             const Info = Loadable({
                 loader: () => import('./profile/info.js'),
                 loading: Loading,

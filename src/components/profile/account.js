@@ -31,7 +31,7 @@ class Account extends Component{
             //  email)  
         return(
             <div className="container">
-                <h1>Hesap bilgilerini olustur</h1>
+               Hesap bilgilerini olustur
             </div>
         );
     }
