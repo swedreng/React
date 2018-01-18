@@ -15,20 +15,27 @@ export function setAuth(payload) {
         password: payload.pass
         })
       }).then(response => response.json()).then(response => {
+        console.log(response.token)
+        console.log(response.username)
+        console.log(response.role)
         dispatch(alertMessage({message:response.message}))
-        dispatch({ type: SET_AUTH_LOGIN, payload:{ success: response.success, username:payload.username} })
+        dispatch({ type: SET_AUTH_LOGIN, payload:{ success: response.success, username:payload.username, role:response.role} })
           if(response.success){
-            // setter
-            // localStorage.setItem('myData', data);
-            // getter
-            // localStorage.getItem('myData');
+            
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('username', response.username);
+            localStorage.setItem('role', response.role)
+            
             setTimeout(() => {
-             window.location = "#/"
+            window.location = "#/"
           },   3000);
         }
     })
   }
 }
 export function resetLogin() {
+  localStorage.removeItem('token')
+  localStorage.removeItem('username')
+  
   return { type: RESET_AUTH }
 }

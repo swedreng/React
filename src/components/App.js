@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, Redirect, IndexRoute, Link, hashHistory } from 'react-router';
-import { Provider } from "react-redux";
 import Store from "../store/index.js";
+import { Provider } from "react-redux";
 import './app.scss';
 import './profile.scss';
 import Content from './Content.js';
@@ -15,10 +15,13 @@ import Admin from './Admin.js';
 import Profile from './Profile.js';
 import ProfileDetail from'./ProfileDetail'
 import UserHome from './UserHome'
-
+import Access from './Access'
+import AuthAccess from './AuthAccess'
 
 class App extends Component {
+
   render() {
+
     return (
       <Provider store={Store}>
         <Router history={hashHistory}>  
@@ -28,13 +31,10 @@ class App extends Component {
                 <Route path="/login" component={Logout} />
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
-                <Route path="/admin" component={Admin} />
-                <Route path="/profile" component={Profile}/>
+                <Route path="/admin" component={(props) => <AuthAccess roles={[1]} Comp={Admin} />} />
+                <Route path="/profile" component={(props) => <AuthAccess roles={[1,0]} Comp={Profile} />} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/logout"  component={Logout} />
-              </Route>
-              <Route component={Profile}>
-                <Route path="/userhome" component={UserHome} />
               </Route>
           </Router>
         </Provider>
@@ -42,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default(App)

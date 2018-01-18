@@ -3,9 +3,15 @@ import {GET_USERS,USER_DELETE} from "../constants"
 import {alertMessage} from "./desc"
 export function getUsers() {
   return (dispatch, getState, api) => { 
-    
-    fetch('http://localhost:8000/api/users', {
-      method: 'POST',
+
+    fetch(`http://localhost:8000/api/users`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')} `
+      },
+      
       }).then(response => response.json()).then(response => {
         console.log(response)
          dispatch({type: GET_USERS, payload:response})
