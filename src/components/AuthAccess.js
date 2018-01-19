@@ -13,7 +13,7 @@ class AuthAccess extends Component{
             const Comp = this.props.Comp
             let rank = parseInt(role);
             if(isAuth && this.props.roles.includes(rank)){
-                return <Comp />
+                return <Comp/>
             }else{
                 return <Access/>
             }
