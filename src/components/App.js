@@ -14,7 +14,6 @@ import Contact from './Contact.js';
 import Admin from './Admin.js';
 import Profile from './Profile.js';
 import ProfileDetail from'./ProfileDetail'
-import UserHome from './UserHome'
 import Access from './Access'
 import AuthAccess from './AuthAccess'
 
