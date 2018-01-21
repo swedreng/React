@@ -22,8 +22,8 @@ class Account extends Component{
 
     render(){
        
-        return(
-            <div className="container">
+        return( // tastıgı ıcın yana kayıyo cozum bul
+            <div className="container"  >
                <div class="container">
                 <div class="row col-md-5 col-md-offset-2 custyle">
                   <table class="table table-striped custab">
@@ -38,7 +38,7 @@ class Account extends Component{
                       <td> 
                       <ul className="list-group"> 
                           <li  className="list-group-item list-group-item-primary">dsad</li>
-                      </ul>
+                        </ul>
                       </td>
                       <td> 
                       <ul className="list-group">
