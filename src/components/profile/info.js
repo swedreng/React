@@ -6,6 +6,8 @@ class info extends Component{
         return(
             <div className="container">
                Bilgiler
+               -Telefon numarası ekle
+               -Kendinle ilgili bir açıklama ekle
             </div>
         );
     }

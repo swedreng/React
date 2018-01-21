@@ -109,13 +109,13 @@ class Profile extends Component{
                             {username ? username:'user'}
                         </div>
                         <div className="profile-usertitle-job">
-                            Admin
+                          Admin
                         </div>
                     </div>
                 
                     <div className="profile-userbuttons">
                        
-                        <button type="button" className="btn btn-warning btn-sm">Mesaj</button>
+                        <button type="button" className="btn btn-warning btn-sm">Profil resmi ekle</button>
                     </div>
                 
                     <div className="profile-usermenu">

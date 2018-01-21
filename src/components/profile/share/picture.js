@@ -6,7 +6,7 @@ class picture extends Component{
     render(){
         return(
             <div className="container">
-                resim  
+                    resim
             </div>          
            
         );

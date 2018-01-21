@@ -1,38 +1,60 @@
 import React, {Component} from 'react';
-
+//import './account.scss'
+const area = [
+    {
+      area:"Adı"
+    },
+    {
+      area:"Soyadı"
+    },
+    {
+      area:"Kullanıcı Adı"  
+    },
+    {
+      area:"Sifre" 
+    },
+    {
+      area:"Email"
+    }
+]
 class Account extends Component{
-    
-    //constructor(props){
-      //  super(props);
-
-    //    this.state = {username : '',password: '', email:'',firstname:'',lastname:''};
-      //  this.handleSubmit = this.handleSubmit.bind(this);
-       
-    //}
-  
-      //handleSubmit(event) {
-
-       // let { signUp } = this.props.authActions
-        //signUp({username:this.state.username,password:this.state.password,email:this.state.email,firstname:this.state.firstname,lastname:this.state.lastname})
-      
-     // }
+ 
 
     render(){
-       // const {result} = this.props.user
-       // const {message} = this.props.description
-       // const { username, password, firstname, lastname, email} = this.state
-       // const alertTrue = "alert alert-success"
-       // const alertFalse = "alert alert-danger"
-       // const isEnabled =
-    //      (username  &&
-      //        password && 
-        //      firstname  && 
-          //    lastname && 
-            //  email)  
+       
         return(
             <div className="container">
-               Hesap bilgilerini olustur
+               <div class="container">
+                <div class="row col-md-5 col-md-offset-2 custyle">
+                  <table class="table table-striped custab">
+                  <thead>
+                    <tr>
+                      <th>Özellik</th>
+                      <th>Bilgi</th>
+                      <th class="text-center">Aksiyon</th>
+                    </tr>
+                  </thead>
+                    <tr>    
+                      <td> 
+                      <ul className="list-group"> 
+                          <li  className="list-group-item list-group-item-primary">dsad</li>
+                      </ul>
+                      </td>
+                      <td> 
+                      <ul className="list-group">
+                        <li className="list-group-item list-group-item-primary">dsad</li> 
+                      </ul>
+                      </td>
+                      <td> 
+                      <ul className="list-group" >
+                        <li className="list-group-item"><a style={{marginLeft:"30%",marginRight:"30%"}} class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Duzenle</a></li> 
+                      </ul>
+                      </td>
+                    </tr>
+                </table>
             </div>
+        </div>
+    </div>
         );
     }
 }
