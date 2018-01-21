@@ -1,5 +1,5 @@
 
-import { SET_AUTH_LOGIN, RESET_AUTH , SET_USER, SET_LOGIN_DESC} from "../constants"
+import { SET_AUTH_LOGIN, RESET_AUTH , SET_LOGIN_DESC} from "../constants"
 import {alertMessage} from "./desc"
 export function setAuth(payload) {
   return (dispatch, getState, api) => { 

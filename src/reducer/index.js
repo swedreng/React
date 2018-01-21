@@ -1,14 +1,14 @@
 import { combineReducers } from "redux"
 
 import auth from "./auth" 
-import user from "./user" 
+import signup from "./signup" 
 import description from "./description" 
 import users from "./users" 
 
 
 const appReducer = combineReducers({  
     auth,
-    user,
+    signup,
     description,
     users
 })

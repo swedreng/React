@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import * as authActions from "../actions/user"
+import * as authActions from "../actions/signup"
 
 class Header extends Component {
   render() {

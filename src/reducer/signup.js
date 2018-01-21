@@ -1,4 +1,4 @@
-import { SET_USER } from "../constants"
+import { USER_SIGNUP } from "../constants"
 
 const defaultState = {
   result: null
@@ -6,7 +6,7 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
  switch (action.type) {
-    case SET_USER:
+    case USER_SIGNUP:
      const  result  = action.payload.result
      return {result} 
       break

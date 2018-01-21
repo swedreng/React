@@ -27,6 +27,11 @@ export function deleteUser(payload) {
     //let { user } = getState()
      return fetch(`http://localhost:8000/api/users/delete/${user_id}`, {
       method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')} `
+      },
       }).then(response => response.json()).then(response => {
         return dispatch(alertMessage({ success: response.success, message:response.message}))   
     })

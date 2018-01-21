@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import * as authActions from "../actions/user"
+import * as authActions from "../actions/signup"
 
 class SignUp extends Component{
 
@@ -21,7 +21,7 @@ class SignUp extends Component{
       }
    
     render(){
-        const {result} = this.props.user
+        const {result} = this.props.signup
         const {message} = this.props.description
         const { username, password, firstname, lastname, email} = this.state
         const alertTrue = "alert alert-success"
@@ -53,8 +53,8 @@ class SignUp extends Component{
 }
 
 
-const mapStateToProps = ({ user,description }) => ({
-    user,description
+const mapStateToProps = ({ signup,description }) => ({
+    signup,description
   })
 const mapDispatchToProps = dispatch => ({
     authActions: bindActionCreators(authActions, dispatch)

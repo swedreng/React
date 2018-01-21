@@ -3,7 +3,7 @@ import './profile.scss'
 import ProfileDetail from './ProfileDetail'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import * as authActions from "../actions/user"
+import * as authActions from "../actions/signup"
 import Loading from './loading'
 import Loadable from 'react-loadable';
 
