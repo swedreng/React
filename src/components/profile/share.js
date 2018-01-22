@@ -58,7 +58,7 @@ class share extends Component{
     render(){
         return(
 
-            <div className="container"  id="userShare" className="col-xs-12 col-md-12" >
+            <div  id="userShare" className="col-xs-12 col-md-12" >
                    <div className="row">
                     <h4>Yapmak istediğiniz paylaşımın türünü seçin</h4>
                     <select id="cusSelectbox" name="subject" className="form-control" required="required" value={this.state.selectedPost}  onChange={(e) => this.changepostKind(e)}>

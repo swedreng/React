@@ -23,9 +23,8 @@ class Account extends Component{
     render(){
        
         return( // tastıgı ıcın yana kayıyo cozum bul
-            <div className="container"  >
-               <div class="container">
-                <div class="row col-md-5 col-md-offset-2 custyle">
+               <div className="row">
+                <div class="col-md-5 col-md-offset-2 custyle">
                   <table class="table table-striped custab">
                   <thead>
                     <tr>
@@ -54,7 +53,6 @@ class Account extends Component{
                 </table>
             </div>
         </div>
-    </div>
         );
     }
 }

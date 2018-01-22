@@ -42,3 +42,25 @@
   .image-preview-input-title {
       margin-left:2px;
   }
+  .imageB {
+      height:150px;
+      width:200px;
+      border:1px rgb(201, 181, 181) solid;
+      margin:0 auto;  
+      overflow: hidden;
+      span{
+          font-size:60px !important;
+          display: table;
+          margin: 32px auto;
+      }
+      img{
+          width: 200px;
+          height:150px;
+      }
+  }
+.write {
+    button{
+        float: right !important; 
+    
+    }
+}
