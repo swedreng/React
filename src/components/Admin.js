@@ -13,7 +13,10 @@ class Admin extends Component{
 
     componentWillMount() {
         let { getUsers } = this.props.userActions;
-        getUsers() 
+        if(this.props.users.data.length <= 0){
+            getUsers()
+        }
+         
     }
 
     deleteUsers(e) {

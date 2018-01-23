@@ -1,5 +1,5 @@
 
-import {GET_USERS,USER_DELETE} from "../constants"
+import {GET_USERS,USER_DELETE,GETUSER_INFO} from "../constants"
 import {alertMessage} from "./desc"
 export function getUsers() {
   return (dispatch, getState, api) => { 
@@ -37,4 +37,48 @@ export function deleteUser(payload) {
     })
   }
 }
+export function getUsersInfo() {
+
+  return (dispatch, getState) => { 
+    let user_id = localStorage.getItem("user_id");
+    console.log(user_id)
+    return fetch(`http://localhost:8000/api/users/userinfo/${user_id}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')} `
+      },
+      }).then(response => response.json()).then(response => {
+        console.log(response)
+         dispatch({type: GETUSER_INFO, payload:response})
+    })
+  }
+}
+export function getuserinfoUpdate(payload) {
+  
+    return (dispatch, getState) => { 
+      let user_id = localStorage.getItem("user_id");
+      console.log(user_id)
+      return fetch(`http://localhost:8000/api/users/userinfoupdate`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')} `
+        },
+        body: JSON.stringify({
+          firstname: payload.firstname,
+          lastname: payload.lastname,
+          username: payload.username,
+          email: payload.email,
+          user_id:user_id
+          })
+        
+        }).then(response => response.json()).then(response => {
+          console.log(response)
+           dispatch({type: GETUSER_INFO, payload:response})
+      })
+    }
+  }
 

@@ -4,11 +4,11 @@ const defaultState = {
 }
 
 export default (state = defaultState, action = {}) => {
-   
   switch (action.type) {
     case FILE_UPLOAD:
       return {
-        result:action.payload.success
+        ...state,
+        result:action.payload
       }
       break
     default:

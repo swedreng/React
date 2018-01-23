@@ -5,6 +5,7 @@ import signup from "./signup"
 import description from "./description" 
 import users from "./users" 
 import fileupload from "./fileupload"
+import posts from "./posts"
 
 
 const appReducer = combineReducers({  
@@ -12,7 +13,9 @@ const appReducer = combineReducers({
     signup,
     description,
     users,
-    fileupload
+    fileupload,
+    posts
+
 })
 
 export default appReducer

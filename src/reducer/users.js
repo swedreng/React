@@ -1,16 +1,22 @@
-import { GET_USERS, USER_DELETE } from "../constants"
+import { GET_USERS, USER_DELETE, GETUSER_INFO } from "../constants"
 
 const users = {
-  data: []
+  data: [],
+  user_info:null
 }
 
 export default (state = users, action) => {
  switch (action.type) {
     case GET_USERS:
       const  users  = action.payload
-     return { data: users }
+     return { 
+       ...state,
+       data: users }
       break
-    
+    case GETUSER_INFO:
+      
+      return { ...state,
+        user_info: action.payload }
    default:
      return state
   }

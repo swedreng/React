@@ -1,5 +1,6 @@
 
 var htmlWebpack = require('html-webpack-plugin');
+const webpack = require('webpack');
 var htmlWebpackConfig = new htmlWebpack({
     template : "src/index.html",
     filename : 'index.html',
@@ -27,5 +28,10 @@ module.exports = {
             }
         ]
     },
-    plugins : [htmlWebpackConfig]
+    plugins : [
+        htmlWebpackConfig,
+        new webpack.DefinePlugin({
+            'process.env.URL': JSON.stringify("http://localhost:8000"),
+              }),
+            ]
 }

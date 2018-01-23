@@ -24,13 +24,14 @@ class Picture extends Component{
     }
     render(){
         const { write } = this.state
-        //const { result } = this.state.fileupload // burda hata var
+        const { result } = this.props.fileupload 
         const isEnabled = (write)
         const {message} = this.props.description
         const alertTrue = "alert alert-success"
         const alertFalse = "alert alert-danger"
         
         return(
+        <div>
             <div className="row" style={{padding:"5px"}}>
                 <section>
                     <div className="dropzone">
@@ -52,12 +53,12 @@ class Picture extends Component{
                             <button className="pull-right" type="button" disabled={!isEnabled} className="btn btn-success" onClick={this.postSubmit}>Gönderiyi paylaş</button>    
                         </form>
                     </aside>
-                    <div>
-                    {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
-                    </div>  
                 </section>
-            </div>          
-           
+            </div>    
+              <div>
+              {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
+          </div>       
+        </div>
         );
     }
 }
