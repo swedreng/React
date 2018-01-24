@@ -1,5 +1,5 @@
 
-import {GET_USERS,USER_DELETE,GETUSER_INFO} from "../constants"
+import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE} from "../constants"
 import {alertMessage} from "./desc"
 export function getUsers() {
   return (dispatch, getState, api) => { 
@@ -63,7 +63,7 @@ export function getuserinfoUpdate(payload) {
       return fetch(`http://localhost:8000/api/users/userinfoupdate`, {
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
+          //'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('token')} `
         },
@@ -77,7 +77,8 @@ export function getuserinfoUpdate(payload) {
         
         }).then(response => response.json()).then(response => {
           console.log(response)
-           dispatch({type: GETUSER_INFO, payload:response})
+           dispatch(alertMessage({message:response.message}))
+           dispatch({type: USERINFO_UPDATE, payload:response.success})
       })
     }
   }

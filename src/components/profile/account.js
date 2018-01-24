@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as userActions from "../../actions/users"
 import Loading from "../loading"
-//import './account.scss'
+import './account.scss'
 
 class Account extends Component{
   constructor(props){
@@ -24,29 +24,34 @@ class Account extends Component{
       getuserinfoUpdate({firstname:this.state.firstname,lastname:this.state.lastname,username:this.state.username,email:this.state.email})
     }
     render(){
-        
-      const { user_info } = this.props.users
-       console.log(user_info)
+      const {user_info} = this.props.users
+      const {result} = this.props.users
+      const {message} = this.props.description
+      const alertTrue = "alert alert-success"
+      const alertFalse = "alert alert-danger"
+       
        if(user_info != null){
         return( 
         
-        <div className="row">
-                <form>
+        <div className="row ">
+                <form className="updateForm">
                   <input type="text" value={this.state.firstname} onChange={(e) => this.setState({firstname:e.target.value})} className="form-control" placeholder="İsminiz" />
                   <input type="text" value={this.state.lastname} onChange={(e) => this.setState({lastname:e.target.value})} className="form-control" placeholder="Soyisminiz" />
                   <input type="text" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} className="form-control" placeholder="Kullanıcı adı" />
                   <input type="text" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} className="form-control" placeholder="Email" />    
-                  <button type="button" className="btn btn-warning" onClick={this.handleSubmit}>Güncelle</button>
+                  <button type="button" className="btn btn-warning updateButton" onClick={this.handleSubmit}>Güncelle</button>
                 </form> 
-            
+                <div>
+                    {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
+                </div>       
         </div>
         );
       }
       return <Loading/>
     }
 }
-const mapStateToProps = ({ users }) => ({
-  users
+const mapStateToProps = ({ users,description }) => ({
+  users,description
 })
 const mapDispatchToProps = dispatch => ({
   userActions: bindActionCreators(userActions, dispatch)

@@ -1,8 +1,9 @@
-import { GET_USERS, USER_DELETE, GETUSER_INFO } from "../constants"
+import { GET_USERS, USER_DELETE, GETUSER_INFO, USERINFO_UPDATE } from "../constants"
 
 const users = {
   data: [],
-  user_info:null
+  user_info:null,
+  result:null
 }
 
 export default (state = users, action) => {
@@ -14,9 +15,13 @@ export default (state = users, action) => {
        data: users }
       break
     case GETUSER_INFO:
-      
       return { ...state,
         user_info: action.payload }
+      break
+    case USERINFO_UPDATE:
+      return { ...state,
+        result: action.payload }
+      break  
    default:
      return state
   }
