@@ -7,14 +7,16 @@ import Dropzone from 'react-dropzone'
 import './picture.scss'
 
 class Picture extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {files: [], write:''}
         this.postSubmit = this.postSubmit.bind(this);
     }
     postSubmit(event) {
         let { fileUpload } = this.props.fileActions;
-        fileUpload({files: this.state.files[0], writing:this.state.write});
+        fileUpload({files: this.state.files[0], writing:this.state.write}).then(()=>{
+            this.setState({files: [], write:''})
+        })
     }
   
     onDrop(acceptedFiles,rejectedFiles){
@@ -34,19 +36,19 @@ class Picture extends Component{
         <div>
             <div className="row" style={{padding:"5px"}}>
                 <section>
+                
                     <div className="dropzone">
-                        <Dropzone className="imageB" accept="image/jpeg, image/png" onDrop={this.onDrop.bind(this)}>
+                        <Dropzone className="imageA" accept="image/jpeg, image/png" onDrop={this.onDrop.bind(this)}>
                         
                         {(
                             this.state.files.length <= 0 ?
-                            <span className="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                            <img className="defaultP" src="src/images/imageee.png"/>
                             :
                             <img src={(this.state.files.length > 0 ? this.state.files[0].preview : null)}/>
                         )}
                         
                         </Dropzone>
                     </div>
-                    <h3 style={{textAlign:"center"}}>Resim yükle</h3>
                     <aside>
                         <form className="write">
                             <textarea  rows="4" cols="50" value={this.state.write} onChange={(e) => this.setState({write:e.target.value})} className="form-control" placeholder="Yazı ekle"/>    

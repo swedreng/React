@@ -10,13 +10,21 @@
     transition: 0.5s;
     }
 .updateForm{
-    width:500px;
+    width:80%;
     margin:0px auto;
     input{
     padding:10px;
     }
-}    
+} 
 .updateButton{
    display:block;
    margin:10px auto;
+}
+@media screen and (max-width:768px) { 
+    .updateForm{
+        display: block;
+        margin:0px auto;
+        padding: 10px;
+        width: 100%;
+    }
 }

@@ -42,25 +42,31 @@
   .image-preview-input-title {
       margin-left:2px;
   }
-  .imageB {
-      height:150px;
-      width:200px;
-      border:1px rgb(201, 181, 181) solid;
+  .imageA {
+      height:120px;
+      width:103px;
+      border:0px rgb(201, 181, 181) solid;
       margin:0 auto;  
       overflow: hidden;
-      span{
-          font-size:60px !important;
-          display: table;
-          margin: 32px auto;
+      .defaultP{
+    
+        width: 103px;
+        height:120px;
+        margin:0px auto;
+        
       }
       img{
-          width: 200px;
-          height:150px;
+        padding-top: 10px;
+        width: 103px;
+        height:120px;
+        margin:0px auto;
+        cursor:pointer;
       }
+    
   }
 .write {
+    padding:15px;
     button{
         float: right !important; 
-    
     }
 }

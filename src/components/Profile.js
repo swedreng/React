@@ -3,7 +3,7 @@ import './profile.scss'
 import ProfileDetail from './ProfileDetail'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import * as fileActions from "../actions/fileupload"
+import * as ppuploadActions from "../actions/ppupload"
 import Dropzone from 'react-dropzone'
 import Loading from './loading'
 import Loadable from 'react-loadable'
@@ -37,26 +37,28 @@ class Profile extends Component{
     constructor(props){
         super(props);
         
-        this.state = { selectedTab:0,file:null }
+        this.state = { selectedTab:0, pictureC:null }
         
     }   
     changeTab(index){
         this.setState({selectedTab:index})
     }
     componentWillMount(){
-        let {getpp} = this.props.fileActions
+        let {getpp} = this.props.ppuploadActions
         getpp().then(()=>{
-            const { pp_result } = this.props.fileupload
+            const { pp_result } = this.props.ppupload
             console.log(pp_result,10)
-            if(pp_result != null){
-                this.setState({file:pp_result})
+            if(pp_result == null){
+                this.setState({pictureC:false})
+            }else{
+                this.setState({pictureC:true})
             }
             
           })
     }
     
     onDrop(acceptedFiles,rejectedFiles){
-        let { profilpictureUpload } = this.props.fileActions;
+        let { profilpictureUpload } = this.props.ppuploadActions;
         profilpictureUpload({files:acceptedFiles[0]});
     }
 
@@ -116,14 +118,17 @@ class Profile extends Component{
                 
                     <div className="profile-userpic">
                     <div className="dropzone">
-                    {this.props.fileupload.pp_result}
                         <Dropzone className="imageB" accept="image/jpeg, image/png" onDrop={this.onDrop.bind(this)}>
                         
                         {(
-                            this.props.fileupload.pp_result == null ?
+                            this.state.pictureC === null ?
+                            <div className="defaultimage">
+                            <Loading/>
+                            </div>
+                            : this.state.pictureC === false ?
                             <img className="defaultimage" src="src/images/boy.png" />
-                            :
-                            <img className="activeimage" src={this.props.fileupload.pp_result}/>
+                            : 
+                            <img className="activeimage" src={this.props.ppupload.pp_result}/>
                         )}
                         
                         </Dropzone>
@@ -163,11 +168,11 @@ class Profile extends Component{
 }
 
 
-const mapStateToProps = ({ auth,fileupload }) => ({
-    auth,fileupload
+const mapStateToProps = ({ auth,ppupload }) => ({
+    auth,ppupload
 })
 const mapDispatchToProps = dispatch => ({
-    fileActions: bindActionCreators(fileActions, dispatch)
+    ppuploadActions: bindActionCreators(ppuploadActions, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

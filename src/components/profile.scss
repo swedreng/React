@@ -119,12 +119,15 @@ body {
     -moz-border-radius: 5% !important;
     border-radius: 5% !important;
   }
-  .defaultimage:hover{
-    cursor:pointer;
+  .imageB{
+    .defaultimage:hover{
+      cursor:pointer;
+    }
+    .activeimage{
+      cursor:pointer;
+    }
   }
-  .activeimage{
-    cursor:pointer;
-  }
+ 
   @media screen and (min-width:768px){ //768 pikselden küçükse Mobil ve Tablet
     
     .profile-userpic img {
