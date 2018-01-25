@@ -1,9 +1,10 @@
-import {PP_UPLOAD} from "../constants"
+import {PP_UPLOAD,SET_AUTH_LOGIN} from "../constants"
 import {alertMessage} from "./desc"
 export function profilpictureUpload(payload) {
     
    return (dispatch, getState) => { 
-  
+     let { auth } = getState()
+
      let { files} = payload
      let data = new FormData()
      data.append('files', files)
@@ -13,28 +14,27 @@ export function profilpictureUpload(payload) {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
-         'Authorization': `Bearer ${localStorage.getItem('token')} `
+         'Authorization': `Bearer ${auth.token} `
        },
        body : data
        }).then(response => response.json()).then(response => {
-             dispatch({type: PP_UPLOAD, payload:response.success})  
-             dispatch(getpp())
+              if(response.success){
+                const newAuth = {
+                  username: auth.username,
+                  role: auth.role,
+                  user_id: auth.id,
+                  token: auth.token,
+                  user_pp: response.user_pp,
+                  isAuth: auth.isAuth
+                }
+                console.log(newAuth.user_pp,1)
+                localStorage.setItem('auth',JSON.stringify(newAuth))
+                dispatch({type:SET_AUTH_LOGIN, payload:{ success: response.success, username:newAuth.username, role:newAuth.role , username:newAuth.username, id:newAuth.user_id, pp:newAuth.user_pp, token:newAuth.token}})
+                dispatch({type: PP_UPLOAD, payload:response.success}) 
+              }
+              
+             
      })
    }
   }
-  export function getpp() {
-    
-   return (dispatch, getState) => { 
   
-      return fetch(`http://localhost:8000/api/users/picture`, {
-       method: 'GET',
-       headers: {
-         'Accept': 'application/json',
-         'Authorization': `Bearer ${localStorage.getItem('token')} `
-       },
-       }).then(response => response.json()).then(response => {
-         console.log(response.result,5)
-             dispatch({type: PP_UPLOAD, payload:response.result})  
-     })
-   }
-  }

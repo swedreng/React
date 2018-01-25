@@ -26,7 +26,6 @@ class Login extends Component{
         const isEnabled = (name  && pass)
         const alertTrue = "alert alert-success"
         const alertFalse = "alert alert-danger"
-        console.log(isAuth)
         return(
             <div id="signup" className="well">
                 <h1>Giris Yap</h1>

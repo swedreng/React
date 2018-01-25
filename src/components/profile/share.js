@@ -29,7 +29,7 @@ class share extends Component{
     }
 
     changepostKind(e){
-        console.log(e.target.value,0)
+       
         let index = e.target.value
         this.setState({selectedPost:parseInt(index)})
     }

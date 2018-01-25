@@ -32,7 +32,6 @@ class Admin extends Component{
         const { users: { data } } = this.props
         const {message} = this.props.description
         const {result} = this.props.description
-        console.log(result)
         const alertTrue = "alert alert-success"
         const alertFalse = "alert alert-danger"
         

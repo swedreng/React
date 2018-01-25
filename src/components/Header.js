@@ -7,8 +7,7 @@ import * as authActions from "../actions/signup"
 class Header extends Component {
   render() {
     const {username,isAuth} = this.props.auth
-     console.log(isAuth)
-     console.log("sdasd")
+  
     return (
       
 <nav className="navbar navbar-default" id="header">

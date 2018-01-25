@@ -32,8 +32,7 @@ class Main extends Component{
 
     render(){
         const { posts: { data } } = this.props
-        console.log(data)
-        console.log(data.length > 0)
+
         return(
             <div>
                 <div className="jumbotron">

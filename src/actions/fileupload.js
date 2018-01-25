@@ -11,13 +11,13 @@ export function fileUpload(payload) {
 
     data.append('files', files)
     data.append('writing', writing)
-    data.append('id', auth.id)
+    data.append('id', parseInt(auth.id))
     
    return fetch(`http://localhost:8000/api/users/createpost`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')} `
+        'Authorization': `Bearer ${auth.token} `
       },
       body : data
       }).then(response => response.json()).then(response => {

@@ -39,7 +39,7 @@ class Contact extends Component{
     }
 
     save(){
-        console.log(choose[this.state.choose].value);
+       
     }
   
     render(){

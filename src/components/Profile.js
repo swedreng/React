@@ -43,19 +43,7 @@ class Profile extends Component{
     changeTab(index){
         this.setState({selectedTab:index})
     }
-    componentWillMount(){
-        let {getpp} = this.props.ppuploadActions
-        getpp().then(()=>{
-            const { pp_result } = this.props.ppupload
-            console.log(pp_result,10)
-            if(pp_result == null){
-                this.setState({pictureC:false})
-            }else{
-                this.setState({pictureC:true})
-            }
-            
-          })
-    }
+
     
     onDrop(acceptedFiles,rejectedFiles){
         let { profilpictureUpload } = this.props.ppuploadActions;
@@ -63,7 +51,7 @@ class Profile extends Component{
     }
 
     renderTab(){
-        console.log(this.state.files)
+      
         switch (this.state.selectedTab) {
             case 0:
             const Posts = Loadable({
@@ -109,7 +97,7 @@ class Profile extends Component{
     }
 
     render(){
-        const { username, isAuth, role } = this.props.auth
+        const { username, isAuth, role, user_pp } = this.props.auth
         return(
         
         <div className="row profile">
@@ -121,14 +109,10 @@ class Profile extends Component{
                         <Dropzone className="imageB" accept="image/jpeg, image/png" onDrop={this.onDrop.bind(this)}>
                         
                         {(
-                            this.state.pictureC === null ?
-                            <div className="defaultimage">
-                            <Loading/>
-                            </div>
-                            : this.state.pictureC === false ?
+                            this.props.auth.user_pp === null ?
                             <img className="defaultimage" src="src/images/boy.png" />
                             : 
-                            <img className="activeimage" src={this.props.ppupload.pp_result}/>
+                            <img className="activeimage" src={this.props.auth.user_pp}/>
                         )}
                         
                         </Dropzone>
@@ -168,8 +152,8 @@ class Profile extends Component{
 }
 
 
-const mapStateToProps = ({ auth,ppupload }) => ({
-    auth,ppupload
+const mapStateToProps = ({ auth }) => ({
+    auth
 })
 const mapDispatchToProps = dispatch => ({
     ppuploadActions: bindActionCreators(ppuploadActions, dispatch)

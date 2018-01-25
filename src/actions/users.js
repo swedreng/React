@@ -3,13 +3,13 @@ import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE} from "../constants"
 import {alertMessage} from "./desc"
 export function getUsers() {
   return (dispatch, getState, api) => { 
-
+    let { auth } = getState()
     fetch(`http://localhost:8000/api/users`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')} `
+        'Authorization': `Bearer ${auth.token} `
       },
       
       }).then(response => response.json()).then(response => {
@@ -22,15 +22,16 @@ export function getUsers() {
 export function deleteUser(payload) { 
   
   return (dispatch, getState, api) => { 
+    let { auth } = getState()
     let user_id = payload.user_id
-    console.log(user_id)
-    //let { user } = getState()
-     return fetch(`http://localhost:8000/api/users/delete/${user_id}`, {
+    
+   
+     return fetch(`http://localhost:8000/api/delete/${user_id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')} `
+        'Authorization': `Bearer ${auth.token} `
       },
       }).then(response => response.json()).then(response => {
         return dispatch(alertMessage({ success: response.success, message:response.message}))   
@@ -40,14 +41,15 @@ export function deleteUser(payload) {
 export function getUsersInfo() {
 
   return (dispatch, getState) => { 
-    let user_id = localStorage.getItem("user_id");
+    let { auth } = getState()
+    let user_id = parseInt(auth.id)
     console.log(user_id)
     return fetch(`http://localhost:8000/api/users/userinfo/${user_id}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')} `
+        'Authorization': `Bearer ${auth.token} `
       },
       }).then(response => response.json()).then(response => {
         console.log(response)
@@ -58,14 +60,16 @@ export function getUsersInfo() {
 export function getuserinfoUpdate(payload) {
   
     return (dispatch, getState) => { 
+
+      let { auth } = getState()
       let user_id = localStorage.getItem("user_id");
-      console.log(user_id)
+    
       return fetch(`http://localhost:8000/api/users/userinfoupdate`, {
         method: 'POST',
         headers: {
           //'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')} `
+          'Authorization': `Bearer ${auth.token} `
         },
         body: JSON.stringify({
           firstname: payload.firstname,
