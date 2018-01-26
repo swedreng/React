@@ -11,7 +11,7 @@ export function fileUpload(payload) {
 
     data.append('files', files)
     data.append('writing', writing)
-    data.append('id', parseInt(auth.id))
+    data.append('id', parseInt(auth.user_id))
     
    return fetch(`http://localhost:8000/api/users/createpost`, {
       method: 'POST',

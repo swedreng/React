@@ -39,7 +39,11 @@
     width:100%; 
 }   
 #root {
-  padding:0px;
+    padding:0px;
+    overflow:-moz-scrollbars-vertical;
+    overflow-x:hidden; 
+    overflow:-moz-scrollbars-vertical; 
+  
 }
 #signup {
     overflow: auto;

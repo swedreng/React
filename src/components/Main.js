@@ -32,7 +32,7 @@ class Main extends Component{
 
     render(){
         const { posts: { data } } = this.props
-
+        console.log(data,11)
         return(
             <div>
                 <div className="jumbotron">

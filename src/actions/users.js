@@ -23,7 +23,7 @@ export function deleteUser(payload) {
   
   return (dispatch, getState, api) => { 
     let { auth } = getState()
-    let user_id = payload.user_id
+    let user_id = parseInt(auth.user_id)
     
    
      return fetch(`http://localhost:8000/api/delete/${user_id}`, {
@@ -42,8 +42,8 @@ export function getUsersInfo() {
 
   return (dispatch, getState) => { 
     let { auth } = getState()
-    let user_id = parseInt(auth.id)
-    console.log(user_id)
+    let user_id = parseInt(auth.user_id)
+    console.log(user_id,33)
     return fetch(`http://localhost:8000/api/users/userinfo/${user_id}`, {
       method: 'GET',
       headers: {
@@ -62,7 +62,7 @@ export function getuserinfoUpdate(payload) {
     return (dispatch, getState) => { 
 
       let { auth } = getState()
-      let user_id = localStorage.getItem("user_id");
+      let user_id = parseInt(auth.user_id)
     
       return fetch(`http://localhost:8000/api/users/userinfoupdate`, {
         method: 'POST',

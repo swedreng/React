@@ -5,7 +5,7 @@ const { auth } = getlocalStore('auth')
 const defaultState = {
   username:auth.username,
   role:auth.role,
-  id:auth.id,
+  user_id:auth.user_id,
   token:auth.token,
   user_pp:auth.user_pp,
   isAuth:auth.isAuth ? true : false,
@@ -20,7 +20,7 @@ export default (state = defaultState, action = {}) => {
         username: action.payload.username,
         isAuth:action.payload.success,
         role:action.payload.role,
-        id:action.payload.id,
+        user_id:action.payload.user_id,
         user_pp:action.payload.pp,
         token:action.payload.token
       }
