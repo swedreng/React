@@ -9,8 +9,7 @@ export function profilpictureUpload(payload) {
      let data = new FormData()
      data.append('files', files)
      
-     
-     fetch(`http://localhost:8000/api/users/pp`, {
+     fetch(`http://localhost:8000/api/user/pp`, {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
@@ -27,13 +26,10 @@ export function profilpictureUpload(payload) {
                   user_pp: response.user_pp,
                   isAuth: auth.isAuth
                 }
-                console.log(newAuth.user_pp,1)
                 localStorage.setItem('auth',JSON.stringify(newAuth))
                 dispatch({type:SET_AUTH_LOGIN, payload:{ success: response.success, username:newAuth.username, role:newAuth.role , username:newAuth.username, user_id:newAuth.user_id, pp:newAuth.user_pp, token:newAuth.token}})
                 dispatch({type: PP_UPLOAD, payload:response.success}) 
               }
-              
-             
      })
    }
   }

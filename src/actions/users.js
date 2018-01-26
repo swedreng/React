@@ -25,8 +25,7 @@ export function deleteUser(payload) {
     let { auth } = getState()
     let user_id = parseInt(auth.user_id)
     
-   
-     return fetch(`http://localhost:8000/api/delete/${user_id}`, {
+     return fetch(`http://localhost:8000/api/users/${user_id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -42,9 +41,8 @@ export function getUsersInfo() {
 
   return (dispatch, getState) => { 
     let { auth } = getState()
-    let user_id = parseInt(auth.user_id)
-    console.log(user_id,33)
-    return fetch(`http://localhost:8000/api/users/userinfo/${user_id}`, {
+  
+    return fetch(`http://localhost:8000/api/user`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -60,12 +58,10 @@ export function getUsersInfo() {
 export function getuserinfoUpdate(payload) {
   
     return (dispatch, getState) => { 
-
-      let { auth } = getState()
-      let user_id = parseInt(auth.user_id)
-    
-      return fetch(`http://localhost:8000/api/users/userinfoupdate`, {
-        method: 'POST',
+      let { auth } = getState() 
+      
+      return fetch(`http://localhost:8000/api/user`, {
+        method: 'PUT',
         headers: {
           //'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -75,8 +71,7 @@ export function getuserinfoUpdate(payload) {
           firstname: payload.firstname,
           lastname: payload.lastname,
           username: payload.username,
-          email: payload.email,
-          user_id:user_id
+          email: payload.email
           })
         
         }).then(response => response.json()).then(response => {

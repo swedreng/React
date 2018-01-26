@@ -15,6 +15,7 @@ export default (state = users, action) => {
        data: users }
       break
     case GETUSER_INFO:
+      
       return { ...state,
         user_info: action.payload }
       break

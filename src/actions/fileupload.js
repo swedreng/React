@@ -6,14 +6,12 @@ export function fileUpload(payload) {
     let { files,writing } = payload
     let { auth } = getState()
  
-
     let data = new FormData()
 
     data.append('files', files)
     data.append('writing', writing)
-    data.append('id', parseInt(auth.user_id))
     
-   return fetch(`http://localhost:8000/api/users/createpost`, {
+   return fetch(`http://localhost:8000/api/user/createpp`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

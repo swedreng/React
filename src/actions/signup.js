@@ -20,8 +20,8 @@ export function signUp(payload) {
     
       }).then(response => response.json()).then(response => {
         dispatch(alertMessage({message:response.message}))
-        if(response.success === true){
-          dispatch({ type: USER_SIGNUP, payload: { result: response.success}})
+        dispatch({ type: USER_SIGNUP, payload: { result: response.success}})
+        if(response.success){
           setTimeout(function(){ 
             window.location = "#/login"
            }, 3000);
