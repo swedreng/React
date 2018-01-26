@@ -60,12 +60,26 @@ class share extends Component{
 
             <div  id="userShare" className="col-xs-12 col-md-12" >
                    <div className="row">
-                    <h4>Yapmak istediğiniz paylaşımın türünü seçin</h4>
-                    <select id="cusSelectbox" name="subject" className="form-control" required="required" value={this.state.selectedPost}  onChange={(e) => this.changepostKind(e)}>
-                            {postKind.map((post,index) => {
-                                return (<option key={index} value={index}>{post.name}</option>)
-                            })}
-                    </select>
+                        <form class="form-horizontal">
+                            <fieldset>
+
+                            <legend>Paylaşım yap</legend>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="selectbasic">Paylaşım türü</label>
+                                    <div class="col-md-5">
+
+                                        <select id="selectbasic" name="selectbasic" class="form-control" value={this.state.selectedPost} onChange={(e) => this.changepostKind(e)}>
+                                        {postKind.map((post,index) => {
+                                            return (<option key={index} value={index}>{post.name}</option>)
+                                        })}
+                                        
+                                        </select>
+
+                                    </div>
+                            </div>
+                            </fieldset>
+                        </form>
+                 
                     </div>
                     <div className="row">
                         {this.renderTab()}
@@ -75,4 +89,7 @@ class share extends Component{
         );
     }
 }
+
+
+
 export default share;

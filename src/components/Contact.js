@@ -82,7 +82,7 @@ class Contact extends Component{
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary pull-right" id="btnContactUs" onClick={() => this.save()}>Gönder</button>
+                            <button type="submit" class="btn btn-warning pull-right" id="btnContactUs" onClick={() => this.save()}>Gönder</button>
                         </div>
                     </div>
                     </form>

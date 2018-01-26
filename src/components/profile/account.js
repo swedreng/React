@@ -20,6 +20,7 @@ class Account extends Component{
     })
     }
     handleSubmit(){
+      console.log(this.state.firstname)
       let {getuserinfoUpdate} = this.props.userActions
       getuserinfoUpdate({firstname:this.state.firstname,lastname:this.state.lastname,username:this.state.username,email:this.state.email})
     }
@@ -34,22 +35,57 @@ class Account extends Component{
         return( 
         
         <div className="row ">
-                <form className="updateForm">
-                  <input type="text" value={this.state.firstname} onChange={(e) => this.setState({firstname:e.target.value})} className="form-control" placeholder="İsminiz" />
-                  <input type="text" value={this.state.lastname} onChange={(e) => this.setState({lastname:e.target.value})} className="form-control" placeholder="Soyisminiz" />
-                  <input type="text" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} className="form-control" placeholder="Kullanıcı adı" />
-                  <input type="text" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} className="form-control" placeholder="Email" />    
-                  <button type="button" className="btn btn-warning updateButton" onClick={this.handleSubmit}>Güncelle</button>
-                </form> 
-                <div>
-                    {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
-                </div>       
+            <form class="form-horizontal">
+                <fieldset>   
+                  <legend>Hesap ayarları</legend>
+
+                    <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Firstname</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.firstname} onChange={(e) => this.setState({firstname:e.target.value})} type="text" placeholder="Adınız" class="form-control"/>
+                          </div>
+                        </div>
+
+                    <div class="form-group">
+                          <label class="col-md-4 control-label" for="lastname">Lastname</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.lastname} onChange={(e) => this.setState({lastname:e.target.value})} type="text" placeholder="Soyadınız" class="form-control"/>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                          <label class="col-md-4 control-label" for="username">Username</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} type="text" placeholder="Kullanıcı adınız" class="form-control"/>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Email</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} type="text" placeholder="Email adresiniz" class="form-control"/>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                          <label class="col-md-4 control-label" for="singlebutton"></label>
+                          <div class="col-md-4">
+                            <button  onClick={this.handleSubmit} class="btn btn-warning">Güncelle</button>
+                          </div>
+                    </div>
+
+                  </fieldset>
+              </form>
+              <div>
+                  {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
+              </div>  
         </div>
         );
       }
       return <Loading/>
     }
 }
+
 const mapStateToProps = ({ users,description }) => ({
   users,description
 })
