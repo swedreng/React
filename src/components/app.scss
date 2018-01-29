@@ -12,22 +12,22 @@
 #bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right > li > a {
     background-color:#fd8733;
 }
-#login {
+.login {
     bottom:50px;
 }
-#login input,button,h1{
+.login input,button,h1{
     padding:10px;
     margin:10px;
 }
-#login h1{
+.login h1{
     margin-left: 42%;
     margin-right:42%;
 }
-#login button{
+.login button{
     margin-left: 45%;
     margin-right:45%;
 } 
-#login input{
+.login input{
     margin-left: 35%;
     margin-right:35%;   
     width:30%;
@@ -45,24 +45,24 @@
     overflow:-moz-scrollbars-vertical; 
   
 }
-#signup {
+.signup {
     overflow: auto;
     bottom:50px;
 }
-#signup input,button,h1{
+.signup input,button,h1{
     padding:10px;
     margin:10px;
 }
-#signup input{
+.signup input{
     margin-left:35%;
     margin-right: 35%;
     width: 30%
 }  
-#signup h1{
+.signuph1{
     text-align: center
 }
 
-#signup button{
+.signup button{
     display: block;
     margin:0px auto;
     padding: 10px;
@@ -97,16 +97,16 @@
 }
 @media screen and (max-width:768px) { //768 pikselden küçükse Mobil ve Tablet
     
-    #signup button{
+    .signup button{
         display: block;
         margin:0px auto;
         padding: 10px;
         width: 60%;
     } 
-    #signup h1{
+    .signup h1{
         text-align: center;
     }
-    #signup input{
+    .signup input{
         margin:5px auto 15px;   
         width:60%;
     } 

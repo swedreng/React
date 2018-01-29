@@ -19,15 +19,13 @@ class Content extends Component{
 
     render(){
         return(
-                <div id="content">   
+                  
                 
                     <div className="row"> 
                         <div className="col-xs-12 col-md-12">          
                             <Main />
-                        </div>
-                         
+                        </div> 
                     </div>  
-                </div>  
         );
     }
 }

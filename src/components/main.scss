@@ -1,12 +1,96 @@
 .MainImage{
-   
-    height:250px;
-    width:400px; 
+    height: 50%;
+    
     img{
-        height:250px;
-        width:400px;  
+        margin-left: 1%;
+        margin-right:1%; 
+        height:100%;
+        width:392px; 
+        margin-bottom:10px;
+        overflow: hidden !important;
     }
 }
+
+.imagediv{
+    
+}
 .Main{
-    overflow: hidden !important;
+    padding: 10px;
+    padding-bottom:10px;
+    margin-right:0 auto;
+    margin-bottom:10px;
+}
+.ppimage{
+
+    height: 40px;
+    width: 40px;
+    padding-right: 3px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.MainText{
+    display:table;
+    padding:3px;
+    
+    p{
+        display: table;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        padding-top:11px !important;
+        
+    }
+}
+
+.icon{
+    
+    img{
+    width:30px;
+    height:30px;
+    
+    }
+}
+
+
+@media screen and(max-width:768px){ 
+    .MainImage{
+        width:100%;
+        
+        
+    img{
+        margin-left: 1%;
+        margin-right:1%; 
+        height:100%;
+        width:100%;  
+        margin-bottom:10px;
+        overflow: hidden !important;
+    }
+    }
+}
+@media screen and(min-width:768px){ 
+    .MainImage{
+       
+    img{
+        margin-left: 1%;
+        margin-right:1%; 
+        height:100%;
+        width:100%;  
+        
+        margin-bottom:10px;
+        overflow: hidden !important;
+    }
+    }
+}
+@media screen and(max-width:425px){ 
+    .MainImage{
+    img{
+        margin-left: 1%;
+        margin-right:1%; 
+        height:100%;
+        width:100%;  
+        min-height: 50p;
+        margin-bottom:10px;
+        overflow: hidden !important;
+    }
+    }
 }

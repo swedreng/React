@@ -27,7 +27,7 @@ class Login extends Component{
         const alertTrue = "alert alert-success"
         const alertFalse = "alert alert-danger"
         return(
-            <div id="signup" className="well">
+            <div className="login well">
                 <h1>Giris Yap</h1>
                 <form>
                     <input type="text" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})} className="form-control" placeholder="Username" />

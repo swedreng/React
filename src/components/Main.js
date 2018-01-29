@@ -34,26 +34,36 @@ class Main extends Component{
         const { posts: { data } } = this.props
         console.log(data,11)
         return(
-            <div>
+            
                 <div className="jumbotron">
                 {(data.length > 0 ? 
                 (
                    data.map((post) => { 
                        return (
+                
                         <div className="row Main">
-                        <div className="img-thumbnail col-xs-12 col-md-6"> 
+                        <div className="img-thumbnail col-xs-12 col-md-6 imagediv"> 
+                            <div className="caption MainText">
+                                <img className="ppimage" src="/src/images/Profilresmi.jpg"/><b>{post.user.firstname} {post.user.lastname}</b>
+                                <p>{post.writing}</p>
+                            </div>
                             <div className="MainImage">
                                 <img src={post.image}/>
                             </div>
-                            <div className="caption MainText">
-                                <p><span>{post.user.firstname} {post.user.lastname} :</span> {post.writing}</p>
+                            <div className="icon">
+                                <a><img clasName="imagelike" src="src/images/thumbs-up.png"/></a><a><img src="src/images/commenting.png"/></a>
                             </div>
-                        </div>  
-                        <div className="col-xs-12 col-md-6">
-                        <Comments/>
-                        <Comment/>
-                        </div>  
+                            <Comment/>
+                            
+                        </div> 
+                        <div className="col-xs-12 col-md-6 commentbest">
+                            <Comments/>
+                        </div> 
+                        
+                       
                         </div>
+                        
+
                         
                        )
                    })
@@ -64,7 +74,7 @@ class Main extends Component{
                 )}
                 
                 </div>
-            </div>
+           
         );
     }
 }
