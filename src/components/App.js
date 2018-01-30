@@ -3,7 +3,7 @@ import { Router, Route, Redirect, IndexRoute, Link, hashHistory } from 'react-ro
 import Store from "../store/index.js";
 import { Provider } from "react-redux";
 import './app.scss';
-import './profile.scss';
+
 import Content from './Content.js';
 import Login from './Login.js';
 import SignUp from './SignUp.js';

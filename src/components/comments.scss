@@ -1,6 +1,7 @@
-.commentmain{
-    display:table;
-    overflow:visible;
+.commentssmain{
+    .row{
+        padding-bottom:7px;
+    }
 }
 .commetpp{
     height: 50px;
@@ -8,22 +9,40 @@
 
     display: table;
     img{
-        display: table-cell;
         width: 40px;
         height: 50px;
+        margin-left:-10px;
 
     }
 }
 
+
 .commentdiv{
-    position:relative ;
-    
+    position:relative;
     overflow:hidden;
     p{
     word-wrap:break-word;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
-   
+        
+    }
+    img{
+        margin:6px;
+    }
+
+    hr{
+        margin-top:5px;
+        margin-bottom:5px;
+    }
+    .clap{
+        width: 25px;
+        height: 25px;
+        cursor:pointer;
+    }
+    .crown{
+        width: 25px;
+        height: 25px;
+        cursor:pointer;
     }
    
 }
@@ -31,7 +50,7 @@
 @media screen and(min-width:1024px){ 
     .commentdiv{
         position:relative ;
-        width:70%;
+    
         overflow:hidden;
         p{
         word-wrap:break-word;
@@ -44,10 +63,10 @@
 }
 @media screen and(min-width:1024px){ 
      height: 50px;
-     display: table;
+     //display: table;
      img{
          width: 0px !important;
-         display: table-cell;
+         //display: table-cell;
          width: 40px;
          height: 50px;
  

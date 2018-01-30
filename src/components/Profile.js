@@ -7,7 +7,7 @@ import * as ppuploadActions from "../actions/ppupload"
 import Dropzone from 'react-dropzone'
 import Loading from './loading'
 import Loadable from 'react-loadable'
-
+import './profile.scss';
 const tabs = [
     {
         name: 'Gönderiler',

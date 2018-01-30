@@ -7,9 +7,9 @@ class Comment extends Component{
 
         return(
                               
-        <div class="row comment">
-            <div className="col-lg-9"> 
-                <input type="text" className="form-control input" placeholder="Yorum yap"/>    
+        <div class="row">
+            <div className="col-lg-9 yorumyap"> 
+                <input type="text" className="form-control" placeholder="Yorum yap"/>    
             </div>
             <div className="col-lg-3"> 
                 <button type="button" className="btn btn-primary btn-sm">Yorum Yap</button>

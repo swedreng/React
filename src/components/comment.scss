@@ -1,14 +1,19 @@
-.yorumyap{
-    
-    
- 
-    input{
-        
-    }
-}
-
-
 .comment{
     
     margin-top:10px;
+}
+.commentmain{
+    padding:10px;
+}
+
+@media only screen and (max-device-width: 1024px)  {
+    .row{
+        .yorumyap{
+            
+                padding:10px !important;
+           
+        }
+    }
+       
+   
 }

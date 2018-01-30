@@ -1,7 +1,6 @@
 .navbar-default{
     background-color: rgba(255, 184, 5, 1) !important
 }
-
 .row{
     margin-left:0;
     margin-right:0;
@@ -15,7 +14,7 @@
 .login {
     bottom:50px;
 }
-.login input,button,h1{
+.login input,.login button,.login h1{
     padding:10px;
     margin:10px;
 }
@@ -49,7 +48,7 @@
     overflow: auto;
     bottom:50px;
 }
-.signup input,button,h1{
+.signup input,.signup button,.signup h1{
     padding:10px;
     margin:10px;
 }
@@ -58,7 +57,7 @@
     margin-right: 35%;
     width: 30%
 }  
-.signuph1{
+.signup h1{
     text-align: center
 }
 

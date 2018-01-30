@@ -13,6 +13,11 @@ const Comments = Loadable({
     loading: Loading,
     delay:4000
 });
+const UserComments = Loadable({
+    loader: () => import('./UserComment.js'),
+    loading: Loading,
+    delay:4000
+});
 
 const Comment = Loadable({
     loader: () => import('./Comment.js'),
@@ -40,31 +45,35 @@ class Main extends Component{
                 (
                    data.map((post) => { 
                        return (
-                
+                <div>
                         <div className="row Main">
-                        <div className="img-thumbnail col-xs-12 col-md-6 imagediv"> 
+                        <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <img className="ppimage" src="/src/images/Profilresmi.jpg"/><b>{post.user.firstname} {post.user.lastname}</b>
                                 <p>{post.writing}</p>
                             </div>
+                            <hr />
                             <div className="MainImage">
                                 <img src={post.image}/>
                             </div>
+                            <hr />
                             <div className="icon">
-                                <a><img clasName="imagelike" src="src/images/thumbs-up.png"/></a><a><img src="src/images/commenting.png"/></a>
+                                <i className="glyphicon glyphicon-heart"></i><b>Beğen</b>
+                                <i className="glyphicon glyphicon-comment"></i><b>Yorum</b>
                             </div>
                             <Comment/>
                             
+                            <div className="row Usercomment">
+                                <UserComments/>
+                            </div>
+                            
                         </div> 
-                        <div className="col-xs-12 col-md-6 commentbest">
+                        <div className="col-xs-12 col-lg-5 col-md-5 commentbest">
                             <Comments/>
                         </div> 
-                        
-                       
                         </div>
-                        
 
-                        
+                        </div>
                        )
                    })
                 ) :
