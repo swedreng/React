@@ -37,7 +37,7 @@ class Main extends Component{
 
     render(){
         const { posts: { data } } = this.props
-        console.log(data,11)
+
         return(
             
                 <div className="jumbotron">
@@ -49,7 +49,7 @@ class Main extends Component{
                         <div className="row Main">
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
-                                <img className="ppimage" src="/src/images/Profilresmi.jpg"/><b>{post.user.firstname} {post.user.lastname}</b>
+                                <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                 <p>{post.writing}</p>
                             </div>
                             <hr />
@@ -61,10 +61,10 @@ class Main extends Component{
                                 <i className="glyphicon glyphicon-heart"></i><b>Beğen</b>
                                 <i className="glyphicon glyphicon-comment"></i><b>Yorum</b>
                             </div>
-                            <Comment/>
+                                <Comment post_id={post.postpicture_id}/>
                             
                             <div className="row Usercomment">
-                                <UserComments/>
+                                <UserComments comments={post.comments}/>
                             </div>
                             
                         </div> 
@@ -78,7 +78,7 @@ class Main extends Component{
                    })
                 ) :
                 (
-                    <h3>Yükleniyor.. </h3>
+                    <div><Loading/></div>
                 )
                 )}
                 
