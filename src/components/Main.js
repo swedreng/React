@@ -28,13 +28,18 @@ class Main extends Component{
     constructor(props){
         super(props)
         this.state = {}
+        this.likeSubmit = this.likeSubmit.bind(this)
         
     }
     componentWillMount(){
-        let {getPosts} = this.props.postsActions
+        let { getPosts } = this.props.postsActions
         getPosts()
     }
-
+    likeSubmit(index){
+        console.log(index)
+        let { postLike } = this.props.postsActions
+        postLike({like:1,post_id:index})
+    }
     render(){
         const { posts: { data } } = this.props
 
@@ -58,8 +63,11 @@ class Main extends Component{
                             </div>
                             <hr />
                             <div className="icon">
-                                <i className="glyphicon glyphicon-heart"></i><b>Beğen</b>
-                                <i className="glyphicon glyphicon-comment"></i><b>Yorum</b>
+                                <span onClick={() => this.likeSubmit(post.postpicture_id)}> 
+                                <img src={post.Isliked ? 'src/images/like (2).png' : 'src/images/like (1).png'} className="likeicon"></img>
+                                <b>Beğen</b></span>
+                                <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
+                                <img src="src/images/comment-white-oval-bubble.png"></img><b>{post.CommentCount}</b>
                             </div>
                                 <Comment post_id={post.postpicture_id}/>
                             

@@ -20,7 +20,7 @@ class UserComment extends Component{
                         this.props.comments.map((comment,index) =>{
                             return (
                                 <li>
-                                <div className="row img-thumbnail">
+                                <div className="row">
                                     <div className="col-lg-1">
                                         <div className="Usercommentpicture">
                                             <img src={comment.user.pp}/>
@@ -34,7 +34,7 @@ class UserComment extends Component{
                                         <hr className="break" />
                                         <div className="UserComment--action"> 
                                             <div>
-                                                <img src="src/images/clapping.png" class="clap" />
+                                                <img src="src/images/clapping (2).png" class="clap" />
                                                 <b> {comment.like}</b>
                                             </div>
                                             <span> {comment.user.created_at} </span>

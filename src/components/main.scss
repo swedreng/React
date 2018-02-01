@@ -1,5 +1,5 @@
 .MainImage{
-    height: 55%;
+    height: 60%;
     
     img{ 
         height:100%;
@@ -48,15 +48,22 @@
 }
 
 .icon{
-    padding:5px;
+    padding:13px;
     font-size:18px;
-    i{
-    cursor:pointer;
-    font-size:18px;
-    margin-left:10px;
+    img{
+        width: 20px;
+        height: 20px;
+        margin-left:30px;
+    }
+    .likeicon{
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-left:10px;   
     }
     b{
         margin-left:10px;
+        margin-right:10px;
     }
 }
 

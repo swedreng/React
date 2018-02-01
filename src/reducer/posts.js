@@ -1,6 +1,7 @@
 import { GET_POSTS} from "../constants"
+import {POST_LIKE} from "../constants"
 const defaulState = {
-  data: []
+  data: [],
 }
 
 export default (state = defaulState, action = {}) => {
@@ -8,6 +9,10 @@ export default (state = defaulState, action = {}) => {
     case GET_POSTS:
       return {...state, data:action.payload}
       break
+    case POST_LIKE:
+      console.log(action.payload,11)
+      return {...state, postlike:action.payload}
+      break  
     default:
       return state
   }
