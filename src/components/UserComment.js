@@ -8,16 +8,23 @@ class UserComment extends Component{
 
     constructor(props){
         super(props);
+        this.commentLike = this.commentLike.bind(this)
         
-        
+      console.log(this.props.comments.comments.IsLikedComment,0)
+    }
+
+    commentLike(comment_id){
+        let { commentLike } = this.props.postsActions
+        commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id})
     }
     render(){
-        console.log(this.props.comments)
+       const a = this.props.comments.comments
+       console.log(a,99)
         return(
             <div className="col-xs-12 col-md-12 col-lg-12 ana comments">
                 <ul>
                     {
-                        this.props.comments.map((comment,index) =>{
+                        a.map((comment,index) =>{
                             return (
                                 <li>
                                 <div className="row">
@@ -34,7 +41,7 @@ class UserComment extends Component{
                                         <hr className="break" />
                                         <div className="UserComment--action"> 
                                             <div>
-                                                <img src="src/images/clapping (2).png" class="clap" />
+                                                <img src={comment.IsLikedComment ? 'src/images/clapping.png' : 'src/images/clapping (4).png'} class="clap" onClick={() => this.commentLike(comment.comment_id)}/>
                                                 <b> {comment.like}</b>
                                             </div>
                                             <span> {comment.user.created_at} </span>
@@ -56,4 +63,7 @@ class UserComment extends Component{
 const mapStateToProps = ({ posts }) => ({
   posts
 })
-export default connect(mapStateToProps, null)(UserComment)
+const mapDispatchToProps = dispatch => ({
+    postsActions: bindActionCreators(postsActions, dispatch)
+})
+export default connect(mapStateToProps, mapDispatchToProps)(UserComment)

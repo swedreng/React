@@ -53,7 +53,29 @@ export function postLike(payload) {
       },
       body: JSON.stringify({
           like:payload.like,
-          post_id:payload.post_id
+          post_id:payload.post_id,
+          like_kind:'post'
+      })
+      }).then(response => response.json()).then(response => {
+            dispatch(commentUpdate(payload.post_id))
+    })
+  }
+}
+
+export function commentLike(payload) {
+  return (dispatch, getState) => { 
+    let { auth } = getState()
+    fetch(`http://localhost:8000/api/comment`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+          comment_id: payload.comment_id,
+          post_id: payload.post_id,
+          like_kind:'comment'
       })
       }).then(response => response.json()).then(response => {
             dispatch(commentUpdate(payload.post_id))

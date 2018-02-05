@@ -64,7 +64,7 @@ class Main extends Component{
                             <hr />
                             <div className="icon">
                                 <span onClick={() => this.likeSubmit(post.postpicture_id)}> 
-                                <img src={post.Isliked ? 'src/images/like (2).png' : 'src/images/like (1).png'} className="likeicon"></img>
+                                <img src={post.IslikedPost ? 'src/images/like (2).png' : 'src/images/like (1).png'} className="likeicon"></img>
                                 <b>Beğen</b></span>
                                 <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
                                 <img src="src/images/comment-white-oval-bubble.png"></img><b>{post.CommentCount}</b>
@@ -72,12 +72,12 @@ class Main extends Component{
                                 <Comment post_id={post.postpicture_id}/>
                             
                             <div className="row Usercomment">
-                                <UserComments comments={post.comments}/>
+                                <UserComments comments={post}/>
                             </div>
                             
                         </div> 
                         <div className="col-xs-12 col-lg-5 col-md-5 commentbest">
-                            <Comments/>
+                            <Comments comments={post}/>
                         </div> 
                         </div>
 
