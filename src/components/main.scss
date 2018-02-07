@@ -1,5 +1,5 @@
 .MainImage{
-    height: 60%;
+    height: 55%;
     
     img{ 
         height:100%;
@@ -8,7 +8,6 @@
         overflow: hidden !important;
     }
 }
-
 
 .Main{
     padding-left: 0px;
@@ -35,7 +34,11 @@
     border-radius: 50%;
     vertical-align: middle;
 }
-
+.postTime{
+    float: right;
+    padding:10px;
+    color: #b4b6bd;
+}
 .MainText{
     
     p{
@@ -84,3 +87,17 @@
         height:50%
     }
 }
+
+.like{
+    width: 25px;
+    height: 25px;
+    float:left;
+    background-image:url('../images/like.png');
+    background-size:cover;
+}
+.active{
+    background-image:url('../images/like_active.png');
+    
+}
+
+

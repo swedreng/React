@@ -27,9 +27,7 @@ const Comment = Loadable({
 class Main extends Component{
     constructor(props){
         super(props)
-        this.state = {}
-        this.likeSubmit = this.likeSubmit.bind(this)
-        
+        this.state = {comment:{}}
     }
     componentWillMount(){
         let { getPosts } = this.props.postsActions
@@ -40,11 +38,18 @@ class Main extends Component{
         let { postLike } = this.props.postsActions
         postLike({like:1,post_id:index})
     }
+    actionComment(post_id){
+        const commentnew =  {...this.state.comment};
+        if(commentnew[post_id]){
+            commentnew[post_id] = false;
+        } else {
+            commentnew[post_id] = true;
+        }
+        this.setState({comment: commentnew})
+    }
     render(){
         const { posts: { data } } = this.props
-
         return(
-            
                 <div className="jumbotron">
                 {(data.length > 0 ? 
                 (
@@ -55,6 +60,7 @@ class Main extends Component{
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                <span className="postTime">{post.Time}</span>
                                 <p>{post.writing}</p>
                             </div>
                             <hr />
@@ -64,15 +70,16 @@ class Main extends Component{
                             <hr />
                             <div className="icon">
                                 <span onClick={() => this.likeSubmit(post.postpicture_id)}> 
-                                <img src={post.IslikedPost ? 'src/images/like (2).png' : 'src/images/like (1).png'} className="likeicon"></img>
+                                <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                
                                 <b>Beğen</b></span>
                                 <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
-                                <img src="src/images/comment-white-oval-bubble.png"></img><b>{post.CommentCount}</b>
+                                <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b>{post.CommentCount}</b>
                             </div>
                                 <Comment post_id={post.postpicture_id}/>
                             
                             <div className="row Usercomment">
-                                <UserComments comments={post}/>
+                                <UserComments status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
                             </div>
                             
                         </div> 

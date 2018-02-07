@@ -10,7 +10,7 @@ class UserComment extends Component{
         super(props);
         this.commentLike = this.commentLike.bind(this)
         
-      console.log(this.props.comments.comments.IsLikedComment,0)
+      console.log(this.props.comments.CommentLast,0)
     }
 
     commentLike(comment_id){
@@ -18,8 +18,10 @@ class UserComment extends Component{
         commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id})
     }
     render(){
-       const a = this.props.comments.comments
-       console.log(a,99)
+       const a = this.props.comments.CommentLast
+       if(!this.props.status){
+           return null
+       }
         return(
             <div className="col-xs-12 col-md-12 col-lg-12 ana comments">
                 <ul>
@@ -44,7 +46,7 @@ class UserComment extends Component{
                                                 <img src={comment.IsLikedComment ? 'src/images/clapping.png' : 'src/images/clapping (4).png'} class="clap" onClick={() => this.commentLike(comment.comment_id)}/>
                                                 <b> {comment.like}</b>
                                             </div>
-                                            <span> {comment.user.created_at} </span>
+                                            <span> {comment.Time} </span>
                                         </div>
                                     </div>
                                 </div>
