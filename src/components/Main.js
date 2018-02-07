@@ -76,10 +76,10 @@ class Main extends Component{
                                 <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
                                 <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b>{post.CommentCount}</b>
                             </div>
-                                <Comment post_id={post.postpicture_id}/>
+                                <Comment status={(this.state.comment[post.postpicture_id] ? true : false)} post_id={post.postpicture_id}/>
                             
                             <div className="row Usercomment">
-                                <UserComments status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
+                                <UserComments  status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
                             </div>
                             
                         </div> 
@@ -87,7 +87,7 @@ class Main extends Component{
                             <Comments comments={post}/>
                         </div> 
                         </div>
-
+                        
                         </div>
                        )
                    })

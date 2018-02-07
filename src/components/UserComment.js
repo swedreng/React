@@ -8,17 +8,25 @@ class UserComment extends Component{
 
     constructor(props){
         super(props);
+        this.state = {value:3}
         this.commentLike = this.commentLike.bind(this)
-        
-      console.log(this.props.comments.CommentLast,0)
+       
+    
     }
 
     commentLike(comment_id){
         let { commentLike } = this.props.postsActions
         commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id})
     }
+    getComment(){
+        let a = this.state.value + 3
+        this.setState({value: a})
+        let { getComment } = this.props.postsActions
+        getComment({value:a,post_id:this.props.comments.postpicture_id})
+    }
     render(){
        const a = this.props.comments.CommentLast
+       console.log(a.length,this.state.value,0)
        if(!this.props.status){
            return null
        }
@@ -42,9 +50,9 @@ class UserComment extends Component{
                                         </div>
                                         <hr className="break" />
                                         <div className="UserComment--action"> 
-                                            <div>
-                                                <img src={comment.IsLikedComment ? 'src/images/clapping.png' : 'src/images/clapping (4).png'} class="clap" onClick={() => this.commentLike(comment.comment_id)}/>
-                                                <b> {comment.like}</b>
+                                            <div className="UserComment--like" onClick={() => this.commentLike(comment.comment_id)}>
+                                                <div className={`clap ${comment.IsLikedComment ? 'active' : null}`}></div>
+                                                <b>{comment.like}</b>
                                             </div>
                                             <span> {comment.Time} </span>
                                         </div>
@@ -56,6 +64,11 @@ class UserComment extends Component{
                     }
                    
                 </ul>
+                <div>
+
+                    {( a.length >= this.state.value ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
+                    
+                </div>    
             </div>
             
         );

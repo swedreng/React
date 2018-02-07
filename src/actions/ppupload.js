@@ -9,7 +9,7 @@ export function profilpictureUpload(payload) {
      let data = new FormData()
      data.append('files', files)
      
-     fetch(`http://localhost:8000/api/user/pp`, {
+     fetch(`${process.env.URL}/api/user/pp`, {
        method: 'POST',
        headers: {
          'Accept': 'application/json',

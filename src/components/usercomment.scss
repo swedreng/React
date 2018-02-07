@@ -72,22 +72,39 @@
             }
             .UserComment--action{
                 position: relative;
-                img{
-                    width:30px;
-                    height:30px;
+                .UserComment--like{
+                    display:inline-flex;
+                }
+                .clap{
+                    width: 25px;
+                    height: 25px;
+                    background-image:url('../images/clapping (4).png');
+                    background-size:cover;
+                }
+                .active{
+                    background-image:url('../images/clapping.png');
                 }
                 b{
-                    font-size: 16px
+                    font-size: 16px;
+                    margin-left: 5px;
                 }
                 span{
                     position: absolute;
                     right:0;
                     bottom: 0;
-                    
                     color: #b4b6bd;
                     cursor: pointer;
                 }
             }
         }
     }
+}
+
+.continue{
+    margin-left: 35%;
+    margin-right:10%;
+    a{
+        text-decoration: none;
+    }
+    
 }

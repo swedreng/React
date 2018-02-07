@@ -106,7 +106,7 @@ class Profile extends Component{
                 
                     <div className="profile-userpic">
                     <div className="dropzone">
-                        <Dropzone className="imageB" accept="image/jpeg, image/png" onDrop={this.onDrop.bind(this)}>
+                        <Dropzone className="imageB" accept="image/jpeg, image/png , image/gif" onDrop={this.onDrop.bind(this)}>
                         
                         {(
                             <img className="activeimage" src={this.props.auth.user_pp}/>

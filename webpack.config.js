@@ -40,7 +40,7 @@ module.exports = {
     plugins : [
         htmlWebpackConfig,
         new webpack.DefinePlugin({
-            'process.env.URL': JSON.stringify("http://localhost:8000"),
+            'process.env.URL': JSON.stringify("http://192.168.1.99:8080"),
               }),
             ]
 }

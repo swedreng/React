@@ -1,11 +1,13 @@
-import {GET_POSTS} from "../constants"
-import {POST_LIKE} from "../constants"
+import {GET_POSTS,POST_LIKE,COMMENT_UPDATE} from "../constants"
+
+
 import {alertMessage} from "./desc"
 import {commentUpdate} from "./commentupdate"
+import {getUserComment} from "./getcomment"
 export function getPosts() {
   return (dispatch, getState) => { 
     let { auth } = getState()
-    fetch(`http://localhost:8000/api/posts`, {
+    fetch(`${process.env.URL}/api/posts`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -22,7 +24,7 @@ export function getPosts() {
 export function comment(payload) {
   return (dispatch, getState) => { 
     let { auth } = getState()
-    return fetch(`http://localhost:8000/api/comment`, {
+    return fetch(`${process.env.URL}/api/comment`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -34,8 +36,9 @@ export function comment(payload) {
           postpicture_id: payload.post_id
       })
       }).then(response => response.json()).then(response => {
-          console.log(response.post_id,99)
-          dispatch(commentUpdate(response.post_id))
+          console.log(response,88)
+          const data = {post_id:payload.post_id,data:response}
+          dispatch({type:COMMENT_UPDATE, payload:data})
          
     })
   }
@@ -44,7 +47,7 @@ export function comment(payload) {
 export function postLike(payload) {
   return (dispatch, getState) => { 
     let { auth } = getState()
-    fetch(`http://localhost:8000/api/postlike`, {
+    fetch(`${process.env.URL}/api/postlike`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -65,7 +68,7 @@ export function postLike(payload) {
 export function commentLike(payload) {
   return (dispatch, getState) => { 
     let { auth } = getState()
-    fetch(`http://localhost:8000/api/comment`, {
+    fetch(`${process.env.URL}/api/comment`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -79,6 +82,27 @@ export function commentLike(payload) {
       })
       }).then(response => response.json()).then(response => {
             dispatch(commentUpdate(payload.post_id))
+    })
+  }
+}
+
+export function getComment(payload) {
+  return (dispatch, getState) => { 
+    let { auth } = getState()
+    fetch(`${process.env.URL}/api/getcomment`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+         value:payload.value,
+         post_id: payload.post_id
+      })
+      }).then(response => response.json()).then(response => {
+            const data = {post_id:payload.post_id,data:response,value:payload.value}
+            dispatch({type:COMMENT_UPDATE, payload:data})
     })
   }
 }

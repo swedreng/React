@@ -38,7 +38,7 @@ class Picture extends Component{
                 <section>
                 
                     <div className="dropzone">
-                        <Dropzone className="imageA" accept="image/jpeg, image/png" onDrop={this.onDrop.bind(this)}>
+                        <Dropzone className="imageA" accept="image/jpeg, image/png , image/gif" onDrop={this.onDrop.bind(this)}>
                         
                         {(
                             this.state.files.length <= 0 ?

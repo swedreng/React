@@ -22,6 +22,7 @@ class Comments extends Component{
         <div className="commentssmain">
             
             {comments.map((comment, index) => {
+                
                 return (
                 <div className="row">
                     <div className="col-xs-12 col-lg-2 hidden-md hidden-xs">
@@ -33,7 +34,11 @@ class Comments extends Component{
                         <b>{comment.user.firstname} {comment.user.lastname}</b>
                         <p>{comment.writing}</p>  
                         <hr/>
-                        <img src={comment.IsLikedComment ? 'src/images/crown.png' : 'src/images/crown (2).png'} className="crown"/><b>Kral</b><img src={comment.IsLikedComment ? 'src/images/clapping.png' : 'src/images/clapping (4).png'} className="clap" onClick={() => this.commentLike(comment.comment_id)}/><b>{comment.like}</b>
+                        <div className="commentdiv--area" onClick={() => this.commentLike(comment.comment_id)}>
+                            <div className={index == 0 ? 'crownactive' : 'null'}></div>
+                            <div className={`clap ${comment.IsLikedComment ? 'active' : null}`}></div>
+                            <b>{comment.like}</b>
+                        </div>
                         <span className="commentdate">{comment.Time}</span>
                     </div>
                 </div>  

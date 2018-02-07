@@ -4,7 +4,7 @@ import {alertMessage} from "./desc"
 export function getUsers() {
   return (dispatch, getState, api) => { 
     let { auth } = getState()
-    fetch(`http://localhost:8000/api/users`, {
+    fetch(`${process.env.URL}/api/users`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -25,7 +25,7 @@ export function deleteUser(payload) {
     let { auth } = getState()
     let user_id = parseInt(auth.user_id)
     
-     return fetch(`http://localhost:8000/api/users/${user_id}`, {
+     return fetch(`${process.env.URL}/api/users/${user_id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -42,7 +42,7 @@ export function getUsersInfo() {
   return (dispatch, getState) => { 
     let { auth } = getState()
   
-    return fetch(`http://localhost:8000/api/user`, {
+    return fetch(`${process.env.URL}/api/user`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -60,7 +60,7 @@ export function getuserinfoUpdate(payload) {
     return (dispatch, getState) => { 
       let { auth } = getState() 
       
-      return fetch(`http://localhost:8000/api/user`, {
+      return fetch(`${process.env.URL}/api/user`, {
         method: 'PUT',
         headers: {
           //'Accept': 'application/json',

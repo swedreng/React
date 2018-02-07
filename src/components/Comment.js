@@ -24,6 +24,9 @@ class Comment extends Component{
     render(){
         const { comment } = this.state
         const isEnabled = (comment)
+        if(!this.props.status){
+            return null
+        }
         return(
                               
         <div class="row">

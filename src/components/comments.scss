@@ -1,6 +1,6 @@
 .commentssmain{
     .row{
-        padding-bottom:10px;
+        padding-bottom:20px;
     }
 }
 .commetpp{
@@ -30,24 +30,56 @@
     font-size: 14px;
         
     }
-    img{
-        margin:6px;
-    }
+    .commentdiv--area{
+        padding:5px;
+        .clap{
+            width: 28px;
+            height: 28px;
+            background-image:url('../images/clapping (4).png');
+            background-size:cover;
+            float:left;
+            margin-top:8px;
+        }
+       
+        b{
+            float:left;
+            padding:5px;
+            margin-top: 8px; 
+        }
+        .active{
+            background-image:url('../images/clapping.png');
+            
+        }
+        span{
+            float: right;
+            margin-bottom:10px;
+        }
+        .crown{
+            width: 28px;
+            height: 28px;
+            background-image:url('../images/crown (2).png');
+            background-size:cover;
+            float:left;
+            margin-top:8px;
+            margin-right: 10px;
+        }
 
+        .crownactive{
+            width: 32px;
+            height: 32px;
+            background-image:url('../images/crown (2).png');
+            background-size:cover;
+            float:left;
+            margin-top:8px;
+            background-image:url('../images/crown.png');
+            margin-right: 10px;
+        }
+    }
     hr{
         margin-top:5px;
         margin-bottom:5px;
     }
-    .clap{
-        width: 25px;
-        height: 25px;
-        cursor:pointer;
-    }
-    .crown{
-        width: 25px;
-        height: 25px;
-        cursor:pointer;
-    }
+    
    
 }
 

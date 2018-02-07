@@ -4,7 +4,7 @@ import {alertMessage} from "./desc"
 export function setAuth(payload) {
   return (dispatch, getState) => { 
     
-    fetch('http://localhost:8000/api/login', {
+    fetch(`${process.env.URL}/api/login`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

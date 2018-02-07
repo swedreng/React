@@ -4,7 +4,7 @@ import {GET_POSTS} from "../constants"
 export function commentUpdate(payload) {
     return (dispatch, getState) => { 
       let { auth } = getState()
-    fetch(`http://localhost:8000/api/comment?post_id=${payload}`, {
+    fetch(`${process.env.URL}/api/comment?post_id=${payload}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -24,3 +24,4 @@ export function commentUpdate(payload) {
       })
     }
   }
+

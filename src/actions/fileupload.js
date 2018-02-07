@@ -11,7 +11,7 @@ export function fileUpload(payload) {
     data.append('files', files)
     data.append('writing', writing)
     
-   return fetch(`http://localhost:8000/api/user/createpp`, {
+   return fetch(`${process.env.URL}/api/user/createpp`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

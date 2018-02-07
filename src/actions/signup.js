@@ -4,7 +4,7 @@ import {alertMessage} from "./desc"
 export function signUp(payload) { 
   console.log(payload)
   return (dispatch, getState, api) => { 
-    fetch('http://localhost:8000/api/signup', {
+    fetch(`${process.env.URL}/api/signup`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
