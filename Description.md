@@ -32,3 +32,6 @@ bu kısmı  css dosyana ekle
 /bitis
 yarn add react-loadable // page uploading 
 import Loadable from 'react-loadable';
+
+
+--host 192.168.1.99 --port 3000

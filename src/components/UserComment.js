@@ -16,7 +16,7 @@ class UserComment extends Component{
 
     commentLike(comment_id){
         let { commentLike } = this.props.postsActions
-        commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id})
+        commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id,commentCount:this.state.value})
     }
     getComment(){
         let a = this.state.value + 3
@@ -26,7 +26,6 @@ class UserComment extends Component{
     }
     render(){
        const a = this.props.comments.CommentLast
-       console.log(a.length,this.state.value,0)
        if(!this.props.status){
            return null
        }
