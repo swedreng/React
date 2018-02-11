@@ -8,21 +8,22 @@ class UserComment extends Component{
 
     constructor(props){
         super(props);
-        this.state = {value:3}
+        this.state = {clickCount:3}
         this.commentLike = this.commentLike.bind(this)
        
     
     }
 
     commentLike(comment_id){
+        //console.log(this.props.comments.CommentLast.length,2)
         let { commentLike } = this.props.postsActions
         commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id,commentCount:this.state.value})
     }
     getComment(){
-        let a = this.state.value + 3
-        this.setState({value: a})
+        let temp = this.state.clickCount + 3
+        this.setState({clickCount:temp})
         let { getComment } = this.props.postsActions
-        getComment({value:a,post_id:this.props.comments.postpicture_id})
+        getComment({clickCount:temp,post_id:this.props.comments.postpicture_id})
     }
     render(){
        const a = this.props.comments.CommentLast
@@ -64,8 +65,8 @@ class UserComment extends Component{
                    
                 </ul>
                 <div>
-
-                    {( a.length >= this.state.value ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
+                    {( console.log(a.length >= this.state.clickCount,a.length,this.state.clickCount))}
+                    {( a.length >= this.state.clickCount ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
                     
                 </div>    
             </div>

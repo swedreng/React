@@ -1,4 +1,4 @@
-import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE} from "../constants"
+import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT} from "../constants"
 import {alertMessage} from "./desc"
 import {commentUpdate} from "./commentupdate"
 import {commentLastUpdate} from "./commentLastUpdate"
@@ -30,8 +30,8 @@ export function getPosts(payload) {
 }
 
 export function comment(payload) {
-  return (dispatch, getState) => { 
-    let { auth } = getState()
+  return (dispatch, getState) => {    
+    let { auth, posts} = getState()
     return fetch(`${process.env.URL}/api/comment`, {
       method: 'POST',
       headers: {
@@ -45,6 +45,8 @@ export function comment(payload) {
           commentCount:payload.commentCount
       })
       }).then(response => response.json()).then(response => {
+          
+         
           const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
           dispatch({type:COMMENT_UPDATE, payload:data})
           dispatch(commentUpdate(payload.post_id))
@@ -113,11 +115,12 @@ export function getComment(payload) {
       },
       body: JSON.stringify({
          value:payload.value,
-         post_id: payload.post_id
+         post_id: payload.post_id,
+         clickCount: payload.clickCount
       })
       }).then(response => response.json()).then(response => {
-            const data = {post_id:payload.post_id,data:response.data,value:payload.value,commentCount:response.commentCount}
-            dispatch({type:COMMENT_UPDATE, payload:data})
+            const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
+            dispatch({type:GET_COMMENT, payload:data})
     })
   }
 }
