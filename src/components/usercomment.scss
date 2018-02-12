@@ -99,12 +99,19 @@
         }
     }
 }
-
+.LoadingComment{
+   img{
+    margin-left: 40%;
+    width: 75px;
+    height: 75px;
+   } 
+}
 .continue{
     margin-left: 35%;
     margin-right:10%;
     a{
         text-decoration: none;
+        cursor:pointer;
     }
     
 }

@@ -24,7 +24,7 @@ class Comments extends Component{
             {comments.map((comment, index) => {
                 
                 return (
-                <div className="row">
+                <div className="row" key={index}>
                     <div className="col-xs-12 col-lg-2 hidden-md hidden-xs">
                     <div className="commetpp">
                         <img src={comment.user.pp}/>       

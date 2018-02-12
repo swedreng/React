@@ -8,22 +8,24 @@ class UserComment extends Component{
 
     constructor(props){
         super(props);
-        this.state = {clickCount:3}
+        this.state = {clickCount:3,loadMore:false}
         this.commentLike = this.commentLike.bind(this)
        
-    
     }
 
     commentLike(comment_id){
-        //console.log(this.props.comments.CommentLast.length,2)
+        
         let { commentLike } = this.props.postsActions
-        commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id,commentCount:this.state.value})
+        commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id,commentCount:this.props.comments.CommentLast.length})
     }
     getComment(){
         let temp = this.state.clickCount + 3
         this.setState({clickCount:temp})
+        this.setState({loadMore:true})
         let { getComment } = this.props.postsActions
-        getComment({clickCount:temp,post_id:this.props.comments.postpicture_id})
+        getComment({clickCount:temp,post_id:this.props.comments.postpicture_id}).then(() => {
+            this.setState({loadMore:false})
+        })
     }
     render(){
        const a = this.props.comments.CommentLast
@@ -36,7 +38,7 @@ class UserComment extends Component{
                     {
                         a.map((comment,index) =>{
                             return (
-                                <li>
+                                <li key={index}>
                                 <div className="row">
                                     <div className="col-lg-1">
                                         <div className="Usercommentpicture">
@@ -65,8 +67,12 @@ class UserComment extends Component{
                    
                 </ul>
                 <div>
-                    {( console.log(a.length >= this.state.clickCount,a.length,this.state.clickCount))}
-                    {( a.length >= this.state.clickCount ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
+                    {( this.state.loadMore ? (
+                                <div className="LoadingComment">
+                                    <img src="src/images/loading_commentt.gif"/>
+                                </div>
+                            ) : null)} 
+                    {( a.length == this.state.clickCount ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
                     
                 </div>    
             </div>

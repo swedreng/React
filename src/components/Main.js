@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
+import * as noLoginPostsActions from "../actions/noLogin"
 import Loading from './loading'
 import Loadable from 'react-loadable';
 import ScrollContainer from './ScrollContainer'
@@ -33,7 +34,12 @@ class Main extends Component{
 
    componentWillMount(){
         let { getPosts } = this.props.postsActions
-        getPosts(0)
+        let { getNoLogin } = this.props.noLoginPostsActions
+
+        if(this.props.auth.isAuth){
+            getPosts({value:0,event:true})
+        }
+            //getNoLogin(0)      
     }
     likeSubmit(index){
         
@@ -53,12 +59,12 @@ class Main extends Component{
     onUpdate(){
         let { getPosts } = this.props.postsActions
         let { postCount } = this.props.posts
-        
+
         if(this.props.posts.data.length < postCount){
             if(this.state.status == true){
                 this.setState({loadMoar:true})
                 this.setState({status:false})
-                getPosts((this.props.posts.data.length > 0 ? this.props.posts.data.length : 0)).then(()=>{
+                getPosts((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(()=>{
                     this.setState({status:true})
                     this.setState({loadMoar:false})
                 })
@@ -68,72 +74,146 @@ class Main extends Component{
 
     render(){
         const { posts: { data } } = this.props
-        console.log(data)
+        const { isAuth } = this.props.auth
+
         return(
-            <div className="jumbotron">
-                {(data.length > 0 ? 
-                    (
-                        <ScrollContainer onUpdate={this.onUpdate}>
-                            {data.map((post) => ( 
-                                
-                                <div>
+            <div className="BigMain">
+            {(isAuth ? 
+
+                (
+                    <div className="jumbotron">
+                    {(data.length > 0 ? 
+                        (
+                            <ScrollContainer onUpdate={this.onUpdate}>
+                                {data.map((post,index) => ( 
                                     
-                                    <div className="row Main">
-                                        <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
-                                            <div className="caption MainText">
-                                                <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
-                                                <span className="postTime">{post.Time}</span>
-                                                <p>{post.writing}</p>
-                                            </div>
-                                            <hr />
-                                            <div className="MainImage">
-                                                <img src={post.image}/>
-                                            </div>
-                                            <hr />
-                                            <div className="icon">
-                                                <span onClick={() => this.likeSubmit(post.postpicture_id)}> 
-                                                <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                    <div key={index}>
+                                        
+                                        <div className="row Main">
+                                            <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
+                                                <div className="caption MainText">
+                                                    <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                                    <span className="postTime">{post.Time}</span>
+                                                    <p>{post.writing}</p>
+                                                </div>
+                                                <hr />
+                                                <div className="MainImage">
+                                                    <img src={post.image}/>
+                                                </div>
+                                                <hr />
+                                                <div className="icon">
+                                                    <span onClick={() => this.likeSubmit(post.postpicture_id)}> 
+                                                    <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                                    
+                                                    <b>Beğen</b></span>
+                                                    <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
+                                                    <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
+                                                </div>
+                                                    <Comment status={(this.state.comment[post.postpicture_id] ? true : false)} post={post}/>
                                                 
-                                                <b>Beğen</b></span>
-                                                <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
-                                                <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b>{post.CommentCount}</b>
-                                            </div>
-                                                <Comment status={(this.state.comment[post.postpicture_id] ? true : false)} post={post}/>
-                                            
-                                            <div className="row Usercomment">
-                                                <UserComments  status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
-                                            </div>
-                                            
-                                        </div> 
-                                        <div className="col-xs-12 col-lg-5 col-md-5 commentbest">
-                                            <Comments comments={post}/>
-                                        </div> 
-                                    </div>     
-                            </div>
-                            ))}
-                            
-                            {( this.state.loadMoar ? (
-                                <div className="Loading">
-                                    <img src="src/images/l.gif"/>
+                                                <div className="row Usercomment">
+                                                    <UserComments  status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
+                                                </div>
+                                                
+                                            </div> 
+                                            <div className="col-xs-12 col-lg-5 col-md-5 commentbest">
+                                                <Comments comments={post}/>
+                                            </div> 
+                                        </div>     
                                 </div>
-                            ) : null)} 
-                        </ScrollContainer>
-                    )
-                : 
-                <Loading/>
-                )}
-                   
+                                ))}
+                                
+                                {( this.state.loadMoar ? (
+                                    <div className="Loading">
+                                        <img src="src/images/l.gif"/>
+                                    </div>
+                                ) : null)} 
+
+                            </ScrollContainer>
+                        )
+                    : 
+                    <Loading/>
+                    )}
+                       
+                </div>
+                
+                )
+
+                :
+                
+                (
+                    <div className="jumbotron">
+                    {(data.length > 0 ? 
+                        (
+                            <ScrollContainer onUpdate={this.onUpdate}>
+                                {data.map((post,index) => ( 
+                                    
+                                    <div key={index}>
+                                        
+                                        <div className="row Main">
+                                            <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
+                                                <div className="caption MainText">
+                                                    <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                                    <span className="postTime">{post.Time}</span>
+                                                    <p>{post.writing}</p>
+                                                </div>
+                                                <hr />
+                                                <div className="MainImage">
+                                                    <img src={post.image}/>
+                                                </div>
+                                                <hr />
+                                                <div className="icon">
+                                                    <span onClick={() => this.likeSubmit(post.postpicture_id)}>
+                                                    <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                                    
+                                                    <b>Beğen</b></span>
+                                                    <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
+                                                    <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
+                                                </div>
+                                                    <Comment status={(this.state.comment[post.postpicture_id] ? true : false)} post={post}/>
+                                                
+                                                <div className="row Usercomment">
+                                                    <UserComments  status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
+                                                </div>
+                                                
+                                            </div> 
+                                            <div className="col-xs-12 col-lg-5 col-md-5 commentbest">
+                                                <Comments comments={post}/>
+                                            </div> 
+                                        </div>     
+                                </div>
+                                ))}
+                                
+                                {( this.state.loadMoar ? (
+                                    <div className="Loading">
+                                        <img src="src/images/l.gif"/>
+                                    </div>
+                                ) : null)} 
+
+                            </ScrollContainer>
+                        )
+                    : 
+                    <Loading/>
+                    )}
+                       
+                </div>
+                )
+            
+            )}
+                
+
             </div>
         )
     }
 }
 
 
-const mapStateToProps = ({ posts }) => ({
-    posts
+const mapStateToProps = ({ posts,auth }) => ({
+    posts,auth
 })
 const mapDispatchToProps = dispatch => ({
-    postsActions: bindActionCreators(postsActions, dispatch)
+    postsActions: bindActionCreators(postsActions, dispatch) ,
+    noLoginPostsActions : bindActionCreators(noLoginPostsActions, dispatch)
 })
   
 export default connect(mapStateToProps, mapDispatchToProps)(Main)

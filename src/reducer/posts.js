@@ -1,4 +1,4 @@
-import {GET_POSTS,POST_LIKE,COMMENT_UPDATE, COMMENT_LIKE,COMMENT_BEST, COMMENTLAST_UPDATE,GET_COMMENT} from "../constants"
+import {GET_POSTS,POST_LIKE,COMMENT_UPDATE, COMMENT_LIKE,COMMENT_BEST, COMMENTLAST_UPDATE,GET_COMMENT, PP_UPLOAD} from "../constants"
 
 const defaulState = {
   data: [],
@@ -6,7 +6,9 @@ const defaulState = {
 }
 
 export default (state = defaulState, action = {}) => {
+ 
   switch (action.type) {
+    
     case GET_POSTS:
       return {...state, data:action.payload.data, postCount:action.payload.postCount}
       break
@@ -62,7 +64,7 @@ export default (state = defaulState, action = {}) => {
     }
       break  
     case COMMENTLAST_UPDATE:
-      console.log(action.payload,32)
+
       return {...state, data:state.data.map(post =>{
             if(post.postpicture_id == action.payload.post_id){
                   post.CommentLast = action.payload.comments
@@ -74,7 +76,7 @@ export default (state = defaulState, action = {}) => {
 
 
     case POST_LIKE:
-      console.log(action.payload,33)
+    
       return {...state,data:state.data.map(post =>{
             if(post.postpicture_id == action.payload.post_id){
                   post.IslikedPost = action.payload.result
@@ -84,8 +86,8 @@ export default (state = defaulState, action = {}) => {
             return post
           })
         }    
-      break  
-    default:
+      break   
+      default:
       return state
   }
 }

@@ -14,12 +14,20 @@ export function getPosts(payload) {
         'Authorization': `Bearer ${auth.token} `
       },
       body: JSON.stringify({
-        postReq: payload
+        postReq: payload.value,
+        status: payload.event
       })
       }).then(response => response.json()).then(response => { 
+
         if(response.data){
-          var data = posts.data.concat(response.data)
-          var postCount = response.postCount
+          if(response.event){
+            var data = response.data
+            var postCount = response.postCount
+          }else{
+            var data = posts.data.concat(response.data)
+            var postCount = response.postCount
+          }
+           
         }else{
           var data = []
           var postCount = 0
@@ -28,6 +36,7 @@ export function getPosts(payload) {
     })
   }
 }
+
 
 export function comment(payload) {
   return (dispatch, getState) => {    
@@ -46,7 +55,6 @@ export function comment(payload) {
       })
       }).then(response => response.json()).then(response => {
           
-         
           const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
           dispatch({type:COMMENT_UPDATE, payload:data})
           dispatch(commentUpdate(payload.post_id))
@@ -96,7 +104,7 @@ export function commentLike(payload) {
             const commentUpdateData = {commentCount:payload.commentCount,post_id:payload.post_id}
             const data = {post_id:payload.post_id,result:response.result,likeCount:response.likeCount,comment_id:payload.comment_id}
             dispatch({type:COMMENT_LIKE, payload:data})
-            dispatch(commentLastUpdate(commentUpdateData))
+            //dispatch(commentLastUpdate(commentUpdateData))
             dispatch(commentUpdate(payload.post_id))
             
     })
@@ -106,7 +114,7 @@ export function commentLike(payload) {
 export function getComment(payload) {
   return (dispatch, getState) => { 
     let { auth } = getState()
-    fetch(`${process.env.URL}/api/getcomment`, {
+    return fetch(`${process.env.URL}/api/getcomment`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -119,8 +127,11 @@ export function getComment(payload) {
          clickCount: payload.clickCount
       })
       }).then(response => response.json()).then(response => {
-            const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
-            dispatch({type:GET_COMMENT, payload:data})
+        if(response.data){
+          const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
+          dispatch({type:GET_COMMENT, payload:data})
+        }
+            
     })
   }
 }

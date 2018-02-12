@@ -46,16 +46,16 @@ class Contact extends Component{
     //const { name,email,message} = this.state
     //const isEnabled = (name && email && message)   
     return(    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
+    <div className="row">    
+        <div class="col-md-12">
+            <div class="row">
                 <div class="well well-sm">
                     <form>
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-5 col-lg-5">
                             <div class="form-group">
-                                <label for="name">Adınız</label>
-                                <input type="text" class="form-control" id="name" placeholder="Adınızı giriniz" required="required"/>
+                                <label for="name">Adınız Soyadınız</label>
+                                <input type="text" class="form-control" id="name" placeholder="Ad Soyad" required="required"/>
                             </div>
                             <div class="form-group">
                                 <label for="email">
@@ -63,7 +63,7 @@ class Contact extends Component{
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                     </span>
-                                    <input type="email" class="form-control" id="email" placeholder="Soyadınızı giriniz" required="required" />
+                                    <input type="email" class="form-control" id="email" placeholder="Email" required="required" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -75,7 +75,7 @@ class Contact extends Component{
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-7 col-lg-7">
                             <div class="form-group">
                                 <label htmlFor="name">Mesaj</label>
                                 <textarea id="message" class="form-control" rows="9" cols="25" required="required"placeholder="Mesajınız giriniz"></textarea>
@@ -90,7 +90,7 @@ class Contact extends Component{
             </div>  
         </div>
 
-        <div class="col-md-5">
+        <div class="col-md-5 col-lg-5">
                 <form>
                     <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
                         <address>

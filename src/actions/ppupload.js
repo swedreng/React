@@ -1,4 +1,5 @@
 import {PP_UPLOAD,SET_AUTH_LOGIN} from "../constants"
+import {getPosts} from "./posts"
 import {alertMessage} from "./desc"
 export function profilpictureUpload(payload) {
     
@@ -27,8 +28,9 @@ export function profilpictureUpload(payload) {
                   isAuth: auth.isAuth
                 }
                 localStorage.setItem('auth',JSON.stringify(newAuth))
+                data = {user_id: auth.user_id,newUserpp:newAuth.user_pp}
                 dispatch({type:SET_AUTH_LOGIN, payload:{ success: response.success, username:newAuth.username, role:newAuth.role , username:newAuth.username, user_id:newAuth.user_id, pp:newAuth.user_pp, token:newAuth.token}})
-                dispatch({type: PP_UPLOAD, payload:response.success}) 
+                dispatch(getPosts({value:0,event:true})) 
               }
      })
    }

@@ -6,9 +6,9 @@ class AboutUs extends Component{
         return(
                 <div>
                     <div class="about-section paddingTB60 gray-bg">
-                        <div class="container">
+                       
                             <div class="row">
-                                <div class="col-md-4 col-sm-6">
+                                <div class="col-md-6 col-sm-12 col-lg-8">
                                 <div class="about-title clearfix">
                                     <h1>About <span>Us</span></h1>
                                     <h3>Lorem ipsum dolor sit amet </h3>
@@ -24,13 +24,11 @@ class AboutUs extends Component{
                                 </div>
                             </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="about-img">
-                                    <img src="https://devitems.com/preview/appmom/img/mobile/2.png" alt=""/>
-                                </div>
+                            <div class="col-md-2 col-sm-12 col-lg-4">
+                                    <img src="./src/images/bizkimiz.png" alt=""/>
                             </div>	
                         </div>
-                    </div>
+                   
                 </div>
             </div>
         );
