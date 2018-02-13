@@ -6,6 +6,7 @@ import description from "./description"
 import users from "./users" 
 import fileupload from "./fileupload"
 import posts from "./posts"
+import sharewrite from "./sharewrite"
 
 
 
@@ -16,6 +17,7 @@ const appReducer = combineReducers({
     users,
     fileupload,
     posts,
+    sharewrite
 
 })
 

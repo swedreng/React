@@ -8,6 +8,7 @@ import Loadable from 'react-loadable';
 import ScrollContainer from './ScrollContainer'
 import './main.scss'
 
+
 const Comments = Loadable({
     loader: () => import('./Comments.js'),
     loading: Loading,
@@ -19,16 +20,28 @@ const UserComments = Loadable({
     delay:4000
 });
 
+
 const Comment = Loadable({
     loader: () => import('./Comment.js'),
+    loading: Loading,
+    delay:4000
+});
+
+const NoLoginUserComments = Loadable({
+    loader: () => import('./NoLoginUserComments.js'),
+    loading: Loading,
+    delay:4000
+});
+
+const NoLoginBestComments = Loadable({
+    loader: () => import('./NoLoginBestComments.js'),
     loading: Loading,
     delay:4000
 });
 class Main extends Component{
     constructor(props){
         super(props)
-        this.state = {loadMoar:false, comment:{}, status:true}
-
+        this.state = {loadMore:false, comment:{}, status:true}
         this.onUpdate = this.onUpdate.bind(this)
     }
 
@@ -38,8 +51,10 @@ class Main extends Component{
 
         if(this.props.auth.isAuth){
             getPosts({value:0,event:true})
+        }else{
+            getNoLogin(0)   
         }
-            //getNoLogin(0)      
+               
     }
     likeSubmit(index){
         
@@ -57,19 +72,39 @@ class Main extends Component{
     }
 
     onUpdate(){
-        let { getPosts } = this.props.postsActions
-        let { postCount } = this.props.posts
+        if(this.props.auth.isAuth){
 
-        if(this.props.posts.data.length < postCount){
-            if(this.state.status == true){
-                this.setState({loadMoar:true})
-                this.setState({status:false})
-                getPosts((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(()=>{
-                    this.setState({status:true})
-                    this.setState({loadMoar:false})
-                })
+            let { getPosts } = this.props.postsActions
+            let { postCount } = this.props.posts
+    
+            if(this.props.posts.data.length < postCount){
+                if(this.state.status == true){
+                    this.setState({loadMore:true})
+                    this.setState({status:false})
+                    getPosts((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(()=>{
+                        this.setState({status:true})
+                        this.setState({loadMore:false})
+                    })
+                }  
             }  
-        }   
+        }else{
+
+            let { getNoLogin } = this.props.noLoginPostsActions
+            let { postCount } = this.props.posts
+
+            if(this.props.posts.data.length < postCount){
+                if(this.state.status == true){
+                    console.log(3,4)
+                    this.setState({loadMore:true})
+                    this.setState({status:false})
+                    getNoLogin((this.props.posts.data.length > 0 ? this.props.posts.data.length : 0)).then(() =>{
+                        this.setState({status:true})
+                        this.setState({loadMore:false})
+                    })
+                }
+            }
+        }
+         
     }
 
     render(){
@@ -96,23 +131,24 @@ class Main extends Component{
                                                     <span className="postTime">{post.Time}</span>
                                                     <p>{post.writing}</p>
                                                 </div>
-                                                <hr />
-                                                <div className="MainImage">
+                                                <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
+                                                
+                                                <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>
                                                     <img src={post.image}/>
                                                 </div>
                                                 <hr />
                                                 <div className="icon">
                                                     <span onClick={() => this.likeSubmit(post.postpicture_id)}> 
                                                     <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
-                                                    
+                                                    {console.log(post.IslikedPost,5)}
                                                     <b>Beğen</b></span>
                                                     <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
                                                     <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
                                                 </div>
-                                                    <Comment status={(this.state.comment[post.postpicture_id] ? true : false)} post={post}/>
+                                                    <Comment status={(this.state.comment[post.postpicture_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
                                                 
                                                 <div className="row Usercomment">
-                                                    <UserComments  status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
+                                                    <UserComments  status={(this.state.comment[post.postpicture_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
                                                 </div>
                                                 
                                             </div> 
@@ -123,7 +159,7 @@ class Main extends Component{
                                 </div>
                                 ))}
                                 
-                                {( this.state.loadMoar ? (
+                                {( this.state.loadMore ? (
                                     <div className="Loading">
                                         <img src="src/images/l.gif"/>
                                     </div>
@@ -158,33 +194,32 @@ class Main extends Component{
                                                     <p>{post.writing}</p>
                                                 </div>
                                                 <hr />
-                                                <div className="MainImage">
+                                                <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>
                                                     <img src={post.image}/>
                                                 </div>
                                                 <hr />
                                                 <div className="icon">
-                                                    <span onClick={() => this.likeSubmit(post.postpicture_id)}>
-                                                    <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                                    <span>
+                                                    <div className={`like`}></div>
                                                     
                                                     <b>Beğen</b></span>
                                                     <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
                                                     <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
                                                 </div>
-                                                    <Comment status={(this.state.comment[post.postpicture_id] ? true : false)} post={post}/>
-                                                
+                                        
                                                 <div className="row Usercomment">
-                                                    <UserComments  status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
+                                                    <NoLoginUserComments  status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
                                                 </div>
                                                 
                                             </div> 
                                             <div className="col-xs-12 col-lg-5 col-md-5 commentbest">
-                                                <Comments comments={post}/>
+                                                <NoLoginBestComments comments={post}/>
                                             </div> 
                                         </div>     
                                 </div>
                                 ))}
                                 
-                                {( this.state.loadMoar ? (
+                                {( this.state.loadMore ? (
                                     <div className="Loading">
                                         <img src="src/images/l.gif"/>
                                     </div>

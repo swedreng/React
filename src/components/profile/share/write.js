@@ -1,18 +1,52 @@
 
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import * as shareWrite from "../../../actions/sharewrite"
 import './write.scss'
 
 class write extends Component{
+    constructor(props){
+        super(props)
+        this.state = {write:''}
+    }
+    shareWrite(){
+        let { shareWrite } = this.props.shareWrite
+        shareWrite({write:this.state.write}).then(()=>{
+            this.setState({write:''})
+        })
+    }
     render(){
+
+        const { write } = this.state
+        const { result } = this.props.sharewrite 
+        const isEnabled = (write)
+        const {message} = this.props.description
+        const alertTrue = "alert alert-success"
+        const alertFalse = "alert alert-danger"
+
         return(
+            <div>
             <div className="row">
                 <div className="form-group write">
-                    <textarea className="form-control" rows="5" id="comment" placeholder="Bir şeylerden bahset .."></textarea>
-                    <button className="pull-right" type="button" className="btn btn-success">Gönderiyi paylaş</button>
-                </div>
+                    <textarea className="form-control" rows="5" value={this.state.write} placeholder="Bir şeylerden bahset .." onChange={(e) => this.setState({write:e.target.value})}></textarea>
+                    <button className="pull-right" type="button" className="btn btn-success" onClick={() => this.shareWrite()}>Gönderiyi paylaş</button>
+                </div> 
             </div>
+            <hr/>
+            <div>
+                {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
+            </div> 
+           </div> 
         );
     }
 }
 
-export default write;
+const mapStateToProps = ({ description,sharewrite }) => ({
+    description,sharewrite
+})
+const mapDispatchToProps = dispatch => ({
+    shareWrite: bindActionCreators(shareWrite, dispatch)
+})
+  
+export default connect(mapStateToProps, mapDispatchToProps)(write)

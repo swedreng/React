@@ -1,0 +1,118 @@
+.ana{
+    
+    }
+    .UserComment{
+        margin-bottom:15px;
+    }
+    .usercommentpp{
+        width: 30px;
+        height: 30px;
+        
+    }
+    .Usercommentpicture{
+        margin-left:-15px;
+    }
+    .clap{
+        width: 30px;
+        height: 30px;
+       
+    }
+    .usercommentwrite{
+        p{
+            word-wrap:break-word;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+        }
+    }
+    .Userclap{
+        margin-left:18%;
+    }
+    
+    @media screen and(max-width:1024px){ 
+        
+        .ana{
+            padding-right: 10px !important;
+            padding-left: 10px !important;
+        }
+        .Userclap{
+            margin-left:3%;
+        }
+    }
+    
+    .comments{
+        ul {
+            margin:10px 0 0 0;
+            padding: 0;
+            list-style: none;
+            li{ 
+                margin-top:2px;
+                .row{
+                  width: 100%; 
+                  padding: 5px; 
+                }
+                .break{
+                    margin-top:0px;
+                    margin-bottom: 0px;
+                    display: none;
+                }
+                .Usercommentpicture{
+                    img{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+                .UserComment--name{
+                    display: block;
+                    font-weight: bold;
+                }
+                .UserComment--comment > * {
+                    word-wrap: break-word;
+                    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font-size: 14px;
+                }
+                .UserComment--action{
+                    position: relative;
+                    .UserComment--like{
+                        display:inline-flex;
+                    }
+                    .clap{
+                        width: 25px;
+                        height: 25px;
+                        background-image:url('../images/clapping (4).png');
+                        background-size:cover;
+                    } 
+                    .active{
+                        background-image:url('../images/clapping.png');
+                        
+                    }
+                    b{
+                        font-size: 16px;
+                        margin-left: 5px;
+                    }
+                    span{
+                        position: absolute;
+                        right:0;
+                        bottom: 0;
+                        color: #b4b6bd;
+                       
+                    }
+                }
+            }
+        }
+    }
+    .LoadingComment{
+       img{
+        margin-left: 40%;
+        width: 75px;
+        height: 75px;
+       } 
+    }
+    .continue{
+        margin-left: 35%;
+        margin-right:10%;
+        a{
+            text-decoration: none;
+            cursor:pointer !important;
+        }
+        
+    }

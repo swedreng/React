@@ -8,9 +8,8 @@ class Comment extends Component{
 
     constructor(props){
         super(props);
-
-        this.state = {comment : ''};
-        this.commentSubmit = this.commentSubmit.bind(this);
+        this.state = {comment : ''}
+       
     }
 
     commentSubmit(event) {
@@ -37,7 +36,7 @@ class Comment extends Component{
                 <input type="text" className="form-control" value={this.state.comment} onChange={(e) => this.setState({comment:e.target.value})} placeholder="Yorum yap"/>    
             </div>
             <div className="col-lg-3"> 
-                <button type="submit" disabled={!isEnabled} onClick={this.commentSubmit} className="btn btn-primary btn-sm">Yorum Yap</button>
+                <button type="submit" disabled={!isEnabled} onClick={() => this.commentSubmit()} className="btn btn-primary btn-sm">Yorum Yap</button>
             </div>
          </div>
             

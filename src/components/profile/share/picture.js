@@ -57,9 +57,10 @@ class Picture extends Component{
                     </aside>
                 </section>
             </div>    
-              <div>
-              {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
-          </div>       
+            <hr/>
+            <div>
+                {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
+            </div>       
         </div>
         );
     }

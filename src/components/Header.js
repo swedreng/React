@@ -6,7 +6,7 @@ import * as authActions from "../actions/signup"
 
 class Header extends Component {
   render() {
-    const {username,isAuth} = this.props.auth
+    const {username,isAuth,role} = this.props.auth
   
     return (
       
@@ -41,13 +41,15 @@ class Header extends Component {
           {(isAuth ?  
             [
             <li key="1"><Link to="/profile">Profil</Link></li>,
-            <li key="2"><Link to="/admin">Admin</Link></li>,
+            
+            <li key="2">{role ? <Link to="/admin">Admin</Link>: null}</li>,
             <li key="3"className="divider"></li>,
             <li key="4"><Link to="/logout">Cıkıs Yap</Link></li>
             ]
             :
             [
             <li key="1"><Link to="/login">Giris Yap</Link></li>,
+            <li key="3"className="divider"></li>,
             <li key="2"><Link to="/signup">Üye Ol</Link></li>
             ]
           )}

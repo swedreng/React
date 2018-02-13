@@ -15,7 +15,8 @@ class Login extends Component{
   
       loginSubmit(event) {
           let { setAuth } = this.props.authActions;
-          setAuth({username: this.state.name, pass:this.state.pass});
+          setAuth({username: this.state.name, pass:this.state.pass})
+          
       }
 
     render(){

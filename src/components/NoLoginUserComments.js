@@ -2,28 +2,21 @@ import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
-import './usercomment.scss'
+import * as noLoginPostsActions from "../actions/noLogin"
+import './NoLoginUserComments.scss'
 
-class UserComment extends Component{
+class NoLoginUserComments extends Component{
 
     constructor(props){
         super(props);
-        this.state = {clickCount:3,loadMore:false}
-        this.commentLike = this.commentLike.bind(this)
-       
+        this.state = {loadMore:false,clickCount:3}
     }
-
-    commentLike(comment_id){
-        
-        let { commentLike } = this.props.postsActions
-        commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id,commentCount:this.props.comments.CommentLast.length})
-    }
-
+    
     getComment(){
         let temp = this.state.clickCount + 3
         this.setState({clickCount:temp})
         this.setState({loadMore:true})
-        let { getComment } = this.props.postsActions
+        let { getComment } = this.props.noLoginPostsActions
         getComment({clickCount:temp,post_id:this.props.comments.postpicture_id}).then(() => {
             this.setState({loadMore:false})
         })
@@ -54,8 +47,8 @@ class UserComment extends Component{
                                         </div>
                                         <hr className="break" />
                                         <div className="UserComment--action"> 
-                                            <div className="UserComment--like" onClick={() => this.commentLike(comment.comment_id)}>
-                                                <div className={`clap ${comment.IsLikedComment ? 'active' : null}`}></div>
+                                            <div className="UserComment--like">
+                                                <div className={'clap'}></div>
                                                 <b>{comment.like}</b>
                                             </div>
                                             <span> {comment.Time} </span>
@@ -74,7 +67,7 @@ class UserComment extends Component{
                                     <img src="src/images/loading_commentt.gif"/>
                                 </div>
                             ) : null)} 
-                    {( a.length >= this.state.clickCount ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
+                    {( a.length == this.state.clickCount ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
                     
                 </div>    
             </div>
@@ -87,6 +80,7 @@ const mapStateToProps = ({ posts }) => ({
   posts
 })
 const mapDispatchToProps = dispatch => ({
-    postsActions: bindActionCreators(postsActions, dispatch)
+    postsActions: bindActionCreators(postsActions, dispatch),
+    noLoginPostsActions : bindActionCreators(noLoginPostsActions, dispatch)
 })
-export default connect(mapStateToProps, mapDispatchToProps)(UserComment)
+export default connect(mapStateToProps, mapDispatchToProps)(NoLoginUserComments)
