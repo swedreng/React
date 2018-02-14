@@ -39,6 +39,33 @@
     }
 }
 
+@media screen and(max-width:425px){ 
+    .comments{
+        .UserComment--organize > * {
+            
+            margin-left: -15px;
+            word-wrap: break-word;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            .button{
+                margin-bottom: 10px !important;
+            }
+            .input{
+                width:150px !important;
+            }
+           
+        }
+    }
+    
+    
+}
+.buttonO{
+
+}
+
+.inputO{
+
+}
 .comments{
     ul {
         margin:10px 0 0 0;
@@ -66,9 +93,19 @@
                 font-weight: bold;
             }
             .UserComment--comment > * {
+                
                 word-wrap: break-word;
                 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
                 font-size: 14px;
+               
+            }
+            .UserComment--organize > * {
+                
+                margin-left: -15px;
+                word-wrap: break-word;
+                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size: 14px;
+               
             }
             .UserComment--action{
                 position: relative;

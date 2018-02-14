@@ -136,3 +136,103 @@ export function getComment(payload) {
   }
 }
 
+export function deletePost(payload) {
+  
+  return (dispatch, getState) => { 
+    let { auth,posts } = getState()
+    return fetch(`${process.env.URL}/api/user/deletepost`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+        post_id:payload.post_id
+      })
+      }).then(response => response.json()).then(response => {
+        console.log(posts.data,34)
+
+        if(response.result){
+
+          function deletePost(index){
+            if(index == 0){
+              return posts.data.shift()
+            }
+
+            return posts.data.splice(index,1)
+          }
+
+          posts.data.map((post,index) => {
+
+              if(post.postpicture_id == payload.post_id){
+                  deletePost(index)
+              }
+              return post
+        })
+          
+          dispatch({type: GET_POSTS, payload:{data:posts.data,postCount:response.postCount}})
+        }
+            
+      })
+    }
+}
+
+
+export function deleteComment(payload) {
+  
+  return (dispatch, getState) => { 
+    let { auth,posts } = getState()
+    return fetch(`${process.env.URL}/api/user/deletecomment`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+        comment_id:payload.comment_id,
+        post_id:payload.post_id
+      })
+      }).then(response => response.json()).then(response => {
+
+        if(response.result){
+
+          posts.data.map((post,index) => {
+
+              if(post.postpicture_id == payload.post_id){
+                
+                function deleteComment(index){
+                  if(index == 0){
+                    post.CommentCount = response.commentCount
+                    return post.CommentLast.shift()
+                  }
+                    post.CommentCount = response.commentCount
+                    return post.CommentLast.splice(index,1)
+                }
+                    post.CommentLast.map((comment,index) => {
+                      
+                        if(comment.comment_id == payload.comment_id){
+                          deleteComment(index)
+                        }
+                        return comment   
+   
+                    })
+              }
+              return post
+        })
+          
+          dispatch({type: GET_POSTS, payload:{data:posts.data}})
+          dispatch(commentUpdate(payload.post_id))
+        }
+            
+      })
+    }
+}
+
+
+
+
+
+
+

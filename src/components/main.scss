@@ -37,9 +37,13 @@
     margin-left: 10px;
 }
 .postTime{
-    float: right;
-    padding:10px;
+   
+   margin-left:47%;
     color: #b4b6bd;
+}
+.option{
+    float: right;
+    margin-top: 10px;
 }
 .MainText{
     
@@ -73,6 +77,7 @@
         margin-right:10px;
         cursor: pointer;
     }
+   
 }
 
 
@@ -104,6 +109,14 @@
 .active{
     background-image:url('../images/like_active.png');
     
+}
+.delete{
+    width: 20px;
+    height: 20px;
+    float:right;
+    background-image:url('../images/delete.png');
+    background-size:cover;
+    cursor: pointer;
 }
 .jumbotron{
     .Loading{

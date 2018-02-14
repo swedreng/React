@@ -106,10 +106,15 @@ class Main extends Component{
         }
          
     }
-
+    deletePost(post_id){
+        let { deletePost } = this.props.postsActions
+        deletePost({post_id:post_id})
+    }
     render(){
+       
         const { posts: { data } } = this.props
         const { isAuth } = this.props.auth
+        const { user_id } = this.props.auth
 
         return(
             <div className="BigMain">
@@ -129,6 +134,18 @@ class Main extends Component{
                                                 <div className="caption MainText">
                                                     <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                                     <span className="postTime">{post.Time}</span>
+                                                    <div className="dropdown option">
+                                                        <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                            <span className="caret"></span>
+                                                        </button>
+                                                        <ul className="dropdown-menu">
+                                                            <li><a href="#">Bunu görmek istemiyorum</a></li>
+                                                            <li><a href="#">Kullanıcıyı engelle</a></li>
+                                                            <li role="separator" className="divider"></li>
+                                                            {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.postpicture_id)}>Sil</a></li> : null}
+                                                            
+                                                        </ul>
+                                                    </div>
                                                     <p>{post.writing}</p>
                                                 </div>
                                                 <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
@@ -140,7 +157,7 @@ class Main extends Component{
                                                 <div className="icon">
                                                     <span onClick={() => this.likeSubmit(post.postpicture_id)}> 
                                                     <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
-                                                    {console.log(post.IslikedPost,5)}
+                                                    
                                                     <b>Beğen</b></span>
                                                     <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
                                                     <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
@@ -193,7 +210,7 @@ class Main extends Component{
                                                     <span className="postTime">{post.Time}</span>
                                                     <p>{post.writing}</p>
                                                 </div>
-                                                <hr />
+                                                <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
                                                 <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>
                                                     <img src={post.image}/>
                                                 </div>
@@ -205,10 +222,11 @@ class Main extends Component{
                                                     <b>Beğen</b></span>
                                                     <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
                                                     <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
+                                                   
                                                 </div>
                                         
                                                 <div className="row Usercomment">
-                                                    <NoLoginUserComments  status={(this.state.comment[post.postpicture_id] ? true : false)} comments={post}/>
+                                                    <NoLoginUserComments  status={(this.state.comment[post.postpicture_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
                                                 </div>
                                                 
                                             </div> 

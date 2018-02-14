@@ -8,7 +8,7 @@ class UserComment extends Component{
 
     constructor(props){
         super(props);
-        this.state = {clickCount:3,loadMore:false}
+        this.state = {clickCount:3,loadMore:false,organizeComment:false,organizeID:0}
         this.commentLike = this.commentLike.bind(this)
        
     }
@@ -28,9 +28,19 @@ class UserComment extends Component{
             this.setState({loadMore:false})
         })
     }
+    deleteComment(comment_id,post_id){
+        let { deleteComment } = this.props.postsActions
 
+        deleteComment({comment_id:comment_id,post_id:post_id})
+    }
+    updateComment(comment_id,post_id){
+        this.setState({organizeComment:true})
+        this.setState({organizeID:comment_id})
+    }
     render(){
-       const a = this.props.comments.CommentLast
+        const post_id = this.props.comments.postpicture_id
+        const a = this.props.comments.CommentLast
+        const { user_id } = this.props.auth
        if(!this.props.status){
            return null
        }
@@ -40,16 +50,71 @@ class UserComment extends Component{
                     {
                         a.map((comment,index) =>{
                             return (
-                                <li key={index}>
-                                <div className="row">
-                                    <div className="col-lg-1">
-                                        <div className="Usercommentpicture">
-                                            <img src={comment.user.pp}/>
+                                <div>
+                                     {comment.comment_id == this.state.organizeID ? 
+                                     
+                                     (
+                                        <div>
+                                            <li key={index}>
+                                                <div className="row">
+                                                <div className="col-lg-1 col-xs-1 col-md-1">
+                                                    <div className="Usercommentpicture">
+                                                        <img src={comment.user.pp}/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-11 col-xs-10 col-md-10">
+                                                    <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
+                                                <div className="UserComment--organize">
+                                                <div className="row">
+                                                <div className="col-lg-10 col-xs-12 col-md-10">
+                                                    <input type="text" className="form-control inputO" value={this.state.comment} onChange={(e) => this.setState({comment:e.target.value})} placeholder="Yeni yorumunu yaz"/>
+                                                </div>
+                                                <div className="col-lg-2 col-xs-12 col-md-2">
+                                                <button type="submit" className="btn btn-success btn-sm buttonO">Kaydet</button>
+                                                </div>
+                                                   </div> 
+                                                    
+                                                </div>
+                                                <hr className="break" />
+                                                <div className="UserComment--action"> 
+                                                    <div className="UserComment--like" onClick={() => this.commentLike(comment.comment_id)}>
+                                                        <div className={`clap ${comment.IsLikedComment ? 'active' : null}`}></div>
+                                                        <b>{comment.like}</b>
+                                                    </div>
+                                                    <span> {comment.Time} </span>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="col-lg-11">
-                                        <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
-                                        <div className="UserComment--comment">
+                                    </li> 
+
+                                    </div>        
+
+                                     ) 
+                                     :
+                                     (
+                                    <li key={index}>
+                                        <div className="row">
+                                        <div className="col-lg-1 col-xs-1">
+                                            <div className="Usercommentpicture">
+                                                <img src={comment.user.pp}/>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-11 col-xs-10">
+                                            <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
+                                            <div className="UserComment--comment">
+
+                                        {user_id == comment.id ? (
+                                            <div className="dropdown option">
+                                              <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                  <span className="caret"></span>
+                                              </button>
+                                              <ul className="dropdown-menu">
+                                                  <li><a onClick = {() => this.updateComment(comment.comment_id,post_id)}>Düzenle</a></li>
+                                                  <li><a onClick = {() => this.deleteComment(comment.comment_id,post_id)}>Sil</a></li>
+                                              </ul>
+                                            </div>
+                                        ): null}
+
                                             <p>{comment.writing}</p>
                                         </div>
                                         <hr className="break" />
@@ -63,6 +128,9 @@ class UserComment extends Component{
                                     </div>
                                 </div>
                             </li> 
+                            )}
+                            </div>    
+                                   
                             )
                         })
                     }
@@ -79,12 +147,12 @@ class UserComment extends Component{
                 </div>    
             </div>
             
-        );
+        )
     }
 }
 
-const mapStateToProps = ({ posts }) => ({
-  posts
+const mapStateToProps = ({ posts,auth }) => ({
+  posts,auth
 })
 const mapDispatchToProps = dispatch => ({
     postsActions: bindActionCreators(postsActions, dispatch)

@@ -63,7 +63,7 @@ export function getuserinfoUpdate(payload) {
       return fetch(`${process.env.URL}/api/user`, {
         method: 'PUT',
         headers: {
-          //'Accept': 'application/json',
+          'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
