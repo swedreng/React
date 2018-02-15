@@ -2,34 +2,44 @@ import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as userActions from "../actions/users"
+import Pagination from "react-js-pagination"
 
 
 class Admin extends Component{
 
     constructor(props){
         super(props);
-        this.deleteUsers = this.deleteUsers.bind(this)
+        this.state = {
+            activePage: 1
+        }
+        this.handlePageChange = this.handlePageChange.bind(this)
     }
 
     componentWillMount() {
         let { getUsers } = this.props.userActions;
-        if(this.props.users.data.length <= 0){
-            getUsers()
+        
+        if(this.props.users.Users.length <= 0){
+            getUsers(1)
         }
          
     }
 
-    deleteUsers(e) {
-        let user_id = e.target.value;
+    deleteUser(user_id) {
         let { getUsers } = this.props.userActions;
         let { deleteUser } = this.props.userActions
         deleteUser({user_id:user_id}).then(() => {
             getUsers()
         })
     }
-    
+   
+    handlePageChange(pageNumber) {
+        let { getUsers } = this.props.userActions
+        console.log(`active page is ${pageNumber}`)
+        this.setState({activePage: pageNumber})
+        getUsers(pageNumber)
+    }
     render(){
-        const { users: { data } } = this.props
+        const { Users } = this.props.users
         const {message} = this.props.description
         const {result} = this.props.description
         const alertTrue = "alert alert-success"
@@ -40,7 +50,7 @@ class Admin extends Component{
             <table className="table" id="admin">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        
                         <th>Ad</th>
                         <th>Soyad</th>
                         <th>Kullanıcı Adı</th>
@@ -51,41 +61,31 @@ class Admin extends Component{
                 </thead>
                 <tbody>
 
-                {(data.length > 0
-                 ? data.map((user, i) => {
+                {(Users.to > 0
+                 ? Users.data.map((user, i) => {
+                     
                           return ( 
                         <tr key={i}>
-                          <td>{i+1}</td>
+                         
                           <td>{user.firstname}</td>
                           <td>{user.lastname}</td>
                           <td>{user.username}</td>
                           <td>{user.email}</td>
                           <td>{user.created_at}</td>
-                          <td><button type="button" className="btn btn-danger" value={user.id} onClick={this.deleteUsers}>Sil</button></td>
+                          <td><button type="button" className="btn btn-danger" onClick={() => this.deleteUser(user.id)}>Sil</button></td>
                       </tr>)
                 }) : null)}
                     
                 </tbody> 
             </table>
-            <nav id="paginationadmin"aria-label="Page navigation">
-                    <ul className="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+            <div>
+                <Pagination
+                activePage={this.state.activePage}
+                itemsCountPerPage={7}
+                totalItemsCount={Users.total}
+                pageRangeDisplayed={2}
+                onChange={this.handlePageChange}/>
+            </div>
                 <div>
                     {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
                 </div> 

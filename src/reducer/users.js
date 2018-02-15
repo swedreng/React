@@ -1,7 +1,7 @@
 import { GET_USERS, USER_DELETE, GETUSER_INFO, USERINFO_UPDATE } from "../constants"
 
 const users = {
-  data: [],
+  Users: [],
   user_info:null,
   result:null
 }
@@ -10,9 +10,10 @@ export default (state = users, action) => {
  switch (action.type) {
     case GET_USERS:
       const  users  = action.payload
+      console.log(users,2)
      return { 
        ...state,
-       data: users }
+       Users: users }
       break
     case GETUSER_INFO:
       

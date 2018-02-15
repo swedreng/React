@@ -1,10 +1,10 @@
 
 import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE} from "../constants"
 import {alertMessage} from "./desc"
-export function getUsers() {
+export function getUsers(payload) {
   return (dispatch, getState, api) => { 
     let { auth } = getState()
-    fetch(`${process.env.URL}/api/users`, {
+    fetch(`${process.env.URL}/api/users?page=${payload}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -23,7 +23,7 @@ export function deleteUser(payload) {
   
   return (dispatch, getState, api) => { 
     let { auth } = getState()
-    let user_id = parseInt(auth.user_id)
+    let user_id = payload.user_id
     
      return fetch(`${process.env.URL}/api/users/${user_id}`, {
       method: 'DELETE',
