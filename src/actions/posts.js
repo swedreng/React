@@ -224,11 +224,53 @@ export function deleteComment(payload) {
           
           dispatch({type: GET_POSTS, payload:{data:posts.data}})
           dispatch(commentUpdate(payload.post_id))
+        }else{
+          alert('Size ait olmayan bir gönderiyi silmeye çalışıyorsunuz..')
         }
+          
             
       })
     }
 }
+
+export function commentSave(payload) {
+  return (dispatch, getState) => {    
+    let { auth, posts} = getState()
+    return fetch(`${process.env.URL}/api/user/updatecomment`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+          comment: payload.comment,
+          post_id: payload.post_id,
+          comment_id:payload.comment_id
+      })
+      }).then(response => response.json()).then(response => {
+          if(response.result){
+              posts.data.map((post) => {
+                  if(post.postpicture_id == payload.post_id){
+                      post.CommentLast.map((comment) => {
+                          if(comment.comment_id == payload.comment_id){
+                              comment.writing = payload.comment
+                          }
+                          return comment
+                      })
+                  }
+                  return post
+              })
+              console.log(posts.data,2)
+              dispatch({type:GET_POSTS, payload:{data:posts.data}})
+              dispatch(commentUpdate(payload.post_id))
+          }else{
+            alert('Size ait olmayan bir gönderiyi düzenlemeye çalışıyorsunuz..')
+          }  
+    })
+  }
+}
+
 
 
 
