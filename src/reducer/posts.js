@@ -14,7 +14,7 @@ export default (state = defaulState, action = {}) => {
       break
     case COMMENT_UPDATE:
       return {...state, data:state.data.map(post =>{
-            if(post.postpicture_id == action.payload.post_id){
+            if(post.post_id == action.payload.post_id){
                   var data = post.CommentLast.concat(action.payload.data)
                   post.CommentLast = data
                   post.CommentCount = action.payload.commentCount
@@ -26,7 +26,7 @@ export default (state = defaulState, action = {}) => {
 
     case GET_COMMENT:
       return {...state, data:state.data.map(post =>{
-            if(post.postpicture_id == action.payload.post_id){
+            if(post.post_id == action.payload.post_id){
                   var data = action.payload.data.concat(post.CommentLast)
                   post.CommentLast = data
                   
@@ -39,7 +39,7 @@ export default (state = defaulState, action = {}) => {
     case COMMENT_LIKE:
       
       return {...state, data:state.data.map(post =>{
-            if(post.postpicture_id == action.payload.post_id){
+            if(post.post_id == action.payload.post_id){
                   post.CommentLast.map(comment => {
                     if(comment.comment_id == action.payload.comment_id){
                       comment.IsLikedComment = action.payload.result
@@ -56,7 +56,7 @@ export default (state = defaulState, action = {}) => {
     case COMMENT_BEST:
 
       return {...state, data:state.data.map(post =>{
-            if(post.postpicture_id == action.payload.post_id){
+            if(post.post_id == action.payload.post_id){
                   post.CommentBest = action.payload.comments
             }
             return post
@@ -66,7 +66,7 @@ export default (state = defaulState, action = {}) => {
     case COMMENTLAST_UPDATE:
 
       return {...state, data:state.data.map(post =>{
-            if(post.postpicture_id == action.payload.post_id){
+            if(post.post_id == action.payload.post_id){
                   post.CommentLast = action.payload.comments
             }
             return post
@@ -78,7 +78,7 @@ export default (state = defaulState, action = {}) => {
     case POST_LIKE:
     
       return {...state,data:state.data.map(post =>{
-            if(post.postpicture_id == action.payload.post_id){
+            if(post.post_id == action.payload.post_id){
                   post.IslikedPost = action.payload.result
                   post.like = action.payload.likeCount
                   

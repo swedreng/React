@@ -50,7 +50,7 @@ export function comment(payload) {
       },
       body: JSON.stringify({
           writing: payload.comment,
-          postpicture_id: payload.post_id,
+          post_id: payload.post_id,
           commentCount:payload.commentCount
       })
       }).then(response => response.json()).then(response => {
@@ -165,7 +165,7 @@ export function deletePost(payload) {
 
           posts.data.map((post,index) => {
 
-              if(post.postpicture_id == payload.post_id){
+              if(post.post_id == payload.post_id){
                   deletePost(index)
               }
               return post
@@ -200,7 +200,7 @@ export function deleteComment(payload) {
 
           posts.data.map((post,index) => {
 
-              if(post.postpicture_id == payload.post_id){
+              if(post.post_id == payload.post_id){
                 
                 function deleteComment(index){
                   if(index == 0){
@@ -251,7 +251,7 @@ export function commentSave(payload) {
       }).then(response => response.json()).then(response => {
           if(response.result){
               posts.data.map((post) => {
-                  if(post.postpicture_id == payload.post_id){
+                  if(post.post_id == payload.post_id){
                       post.CommentLast.map((comment) => {
                           if(comment.comment_id == payload.comment_id){
                               comment.writing = payload.comment

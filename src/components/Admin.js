@@ -78,13 +78,15 @@ class Admin extends Component{
                     
                 </tbody> 
             </table>
-            <div>
+            <div className="page col-md-12 col-lg-12 col-sm-12">
+                <div className="row">
                 <Pagination
                 activePage={this.state.activePage}
                 itemsCountPerPage={7}
                 totalItemsCount={Users.total}
-                pageRangeDisplayed={2}
+                pageRangeDisplayed={5}
                 onChange={this.handlePageChange}/>
+                </div>
             </div>
                 <div>
                     {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  

@@ -16,7 +16,7 @@ class UserComment extends Component{
     commentLike(comment_id){
         
         let { commentLike } = this.props.postsActions
-        commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id,commentCount:this.props.comments.CommentLast.length})
+        commentLike({comment_id:comment_id,post_id:this.props.comments.post_id,commentCount:this.props.comments.CommentLast.length})
     }
 
     getComment(){
@@ -24,7 +24,7 @@ class UserComment extends Component{
         this.setState({clickCount:temp})
         this.setState({loadMore:true})
         let { getComment } = this.props.postsActions
-        getComment({clickCount:temp,post_id:this.props.comments.postpicture_id}).then(() => {
+        getComment({clickCount:temp,post_id:this.props.comments.post_id}).then(() => {
             this.setState({loadMore:false})
         })
     }
@@ -50,7 +50,7 @@ class UserComment extends Component{
         this.setState({organizeID:''})
     }
     render(){
-        const post_id = this.props.comments.postpicture_id
+        const post_id = this.props.comments.post_id
         const a = this.props.comments.CommentLast
         const { user_id } = this.props.auth
        if(!this.props.status){

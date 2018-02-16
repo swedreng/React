@@ -17,7 +17,7 @@ class NoLoginUserComments extends Component{
         this.setState({clickCount:temp})
         this.setState({loadMore:true})
         let { getComment } = this.props.noLoginPostsActions
-        getComment({clickCount:temp,post_id:this.props.comments.postpicture_id}).then(() => {
+        getComment({clickCount:temp,post_id:this.props.comments.post_id}).then(() => {
             this.setState({loadMore:false})
         })
     }

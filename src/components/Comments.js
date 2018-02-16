@@ -13,7 +13,7 @@ class Comments extends Component{
     
     commentLike(comment_id){
         let { commentLike } = this.props.postsActions
-        commentLike({comment_id:comment_id,post_id:this.props.comments.postpicture_id})
+        commentLike({comment_id:comment_id,post_id:this.props.comments.post_id})
     }
     
     render(){

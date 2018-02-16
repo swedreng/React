@@ -52,7 +52,7 @@ class Main extends Component{
         if(this.props.auth.isAuth){
             getPosts({value:0,event:true})
         }else{
-            getNoLogin(0)   
+            getNoLogin({value:0,event:true})   
         }
                
     }
@@ -97,7 +97,7 @@ class Main extends Component{
                     console.log(3,4)
                     this.setState({loadMore:true})
                     this.setState({status:false})
-                    getNoLogin((this.props.posts.data.length > 0 ? this.props.posts.data.length : 0)).then(() =>{
+                    getNoLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(() =>{
                         this.setState({status:true})
                         this.setState({loadMore:false})
                     })
@@ -142,7 +142,7 @@ class Main extends Component{
                                                             <li><a href="#">Bunu görmek istemiyorum</a></li>
                                                             <li><a href="#">Kullanıcıyı engelle</a></li>
                                                             <li role="separator" className="divider"></li>
-                                                            {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.postpicture_id)}>Sil</a></li> : null}
+                                                            {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
                                                             
                                                         </ul>
                                                     </div>
@@ -155,17 +155,17 @@ class Main extends Component{
                                                 </div>
                                                 <hr />
                                                 <div className="icon">
-                                                    <span onClick={() => this.likeSubmit(post.postpicture_id)}> 
+                                                    <span onClick={() => this.likeSubmit(post.post_id)}> 
                                                     <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
                                                     
                                                     <b>Beğen</b></span>
                                                     <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
-                                                    <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
+                                                    <img onClick={() => this.actionComment(post.post_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
                                                 </div>
-                                                    <Comment status={(this.state.comment[post.postpicture_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
+                                                    <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
                                                 
                                                 <div className="row Usercomment">
-                                                    <UserComments  status={(this.state.comment[post.postpicture_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                                    <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
                                                 </div>
                                                 
                                             </div> 
@@ -221,12 +221,12 @@ class Main extends Component{
                                                     
                                                     <b>Beğen</b></span>
                                                     <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
-                                                    <img onClick={() => this.actionComment(post.postpicture_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
+                                                    <img onClick={() => this.actionComment(post.post_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
                                                    
                                                 </div>
                                         
                                                 <div className="row Usercomment">
-                                                    <NoLoginUserComments  status={(this.state.comment[post.postpicture_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                                    <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
                                                 </div>
                                                 
                                             </div> 

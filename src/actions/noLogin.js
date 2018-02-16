@@ -11,17 +11,25 @@ export function getNoLogin(payload) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          postReq: payload
+          postReq: payload.value,
+          status: payload.event
         })
         }).then(response => response.json()).then(response => { 
+          
           if(response.data){
-            var data = posts.data.concat(response.data)
-            var postCount = response.postCount
+            if(response.event){
+              var data = response.data
+              var postCount = response.postCount
+            }else{
+              var data = posts.data.concat(response.data)
+              var postCount = response.postCount
+            }
+             
           }else{
             var data = []
             var postCount = 0
           }
-          
+         
           dispatch({type: GET_POSTS, payload:{data:data,postCount:postCount}})
       })
     }
