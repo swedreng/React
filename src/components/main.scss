@@ -29,17 +29,19 @@
 }
 
 .ppimage{
-
+   
     height: 40px;
     width: 40px;
     padding-right: 3px;
     border-radius: 50%;
     vertical-align: middle;
     margin-top:10px;
-    margin-left: 10px;
+    margin-left:-10px;
+    
 }
 .postTime{
-    margin-left:47%;
+    margin-top:10px;
+    float: right;
     color: #b4b6bd;
 }
 .option{
@@ -129,6 +131,24 @@
         }
         
     }
+}
+
+.confirmation{
+    margin-top: 0px;
+    width: 27px;
+    height: 27px;
+    background-image:url('../images/confirmation.png');
+    background-size:cover;
+    cursor: pointer;
+}
+.confirmation_active{
+    margin-top: 0px;
+    width: 27px;
+    height: 27px;
+    background-image:url('../images/confirmation_active.png');
+    background-size:cover;
+    
+
 }
 
 

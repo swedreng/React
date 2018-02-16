@@ -110,17 +110,22 @@ class Main extends Component{
         let { deletePost } = this.props.postsActions
         deletePost({post_id:post_id})
     }
+    postConfirmation(post_id){
+        let { postConfirmation } = this.props.postsActions
+        postConfirmation({post_id:post_id})
+    }
     render(){
        
         const { posts: { data } } = this.props
         const { isAuth } = this.props.auth
         const { user_id } = this.props.auth
+        const { role } = this.props.auth
 
         return(
             <div className="BigMain">
-            {(isAuth ? 
+            {(isAuth && role == 2 ? 
 
-                (
+                ( 
                     <div className="jumbotron">
                     {(data.length > 0 ? 
                         (
@@ -132,21 +137,20 @@ class Main extends Component{
                                         <div className="row Main">
                                             <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                                 <div className="caption MainText">
-                                                    <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
-                                                    <span className="postTime">{post.Time}</span>
-                                                    <div className="dropdown option">
-                                                        <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
-                                                            <span className="caret"></span>
-                                                        </button>
-                                                        <ul className="dropdown-menu">
-                                                            <li><a href="#">Bunu görmek istemiyorum</a></li>
-                                                            <li><a href="#">Kullanıcıyı engelle</a></li>
-                                                            <li role="separator" className="divider"></li>
-                                                            {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
-                                                            
-                                                        </ul>
+                                                    <div className="row">
+                                                        <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+                                                            <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                                        </div>    
+                                                        <div className="col-lg-7 col-md-5 col-sm-6 col-xs-2">
+                                                            <span className="postTime">{post.Time}</span>
+                                                        </div>    
+                                                        <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2">
+                                                           {role == 2 ?  <div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation ${post.confirmation ? 'confirmation_active' : null}`}></div> : null}                                                           
+                                                        </div>   
                                                     </div>
+                                                    <div className="row">
                                                     <p>{post.writing}</p>
+                                                    </div>       
                                                 </div>
                                                 <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
                                                 
@@ -161,6 +165,19 @@ class Main extends Component{
                                                     <b>Beğen</b></span>
                                                     <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
                                                     <img onClick={() => this.actionComment(post.post_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
+
+                                                    <div className="dropdown option">
+                                                        <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                            <span className="caret"></span>
+                                                        </button>
+                                                        <ul className="dropdown-menu">
+                                                            <li><a href="#">Bunu görmek istemiyorum</a></li>
+                                                            <li><a href="#">Kullanıcıyı engelle</a></li>
+                                                            <li role="separator" className="divider"></li>
+                                                            {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
+                                                            
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                                     <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
                                                 
@@ -202,12 +219,21 @@ class Main extends Component{
                                 {data.map((post,index) => ( 
                                     
                                     <div key={index}>
-                                        
-                                        <div className="row Main">
+                                        {post.confirmation == 1 ? (
+                                            <div className="row Main">
                                             <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                                 <div className="caption MainText">
-                                                    <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
-                                                    <span className="postTime">{post.Time}</span>
+                                                    <div className="row">
+                                                    <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+                                                        <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                                    </div>    
+                                                    <div className="col-lg-7 col-md-5 col-sm-6 col-xs-2">
+                                                        <span className="postTime">{post.Time}</span>
+                                                    </div>    
+                                                    <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2">
+                                                        <div className={'confirmation_active'}></div>                                                           
+                                                    </div>   
+                                                </div>
                                                     <p>{post.writing}</p>
                                                 </div>
                                                 <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
@@ -234,6 +260,8 @@ class Main extends Component{
                                                 <NoLoginBestComments comments={post}/>
                                             </div> 
                                         </div>     
+                                        ): null}
+                                        
                                 </div>
                                 ))}
                                 

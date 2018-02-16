@@ -228,7 +228,6 @@ export function deleteComment(payload) {
           alert('Size ait olmayan bir gönderiyi silmeye çalışıyorsunuz..')
         }
           
-            
       })
     }
 }
@@ -267,6 +266,29 @@ export function commentSave(payload) {
           }else{
             alert('Size ait olmayan bir gönderiyi düzenlemeye çalışıyorsunuz..')
           }  
+    })
+  }
+}
+
+
+export function postConfirmation(payload) {
+  return (dispatch, getState) => {    
+    let { auth, posts} = getState()
+    return fetch(`${process.env.URL}/api/post/confirmation`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+          post_id: payload.post_id, 
+      })
+      }).then(response => response.json()).then(response => {
+          if(response.result == true){
+            dispatch({type:GET_POSTS, payload:{data:posts.data}})
+          } 
+          
     })
   }
 }
