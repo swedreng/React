@@ -123,7 +123,7 @@ class Main extends Component{
 
         return(
             <div className="BigMain">
-            {(isAuth && role == 2 ? 
+            {(isAuth && role == 1 ? 
 
                 ( 
                     <div className="jumbotron">
@@ -141,12 +141,9 @@ class Main extends Component{
                                                         <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
                                                             <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                                         </div>    
-                                                        <div className="col-lg-7 col-md-5 col-sm-6 col-xs-2">
+                                                        <div className="col-lg-8 col-md-7 col-sm-8 col-xs-4">
                                                             <span className="postTime">{post.Time}</span>
-                                                        </div>    
-                                                        <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2">
-                                                           {role == 2 ?  <div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation ${post.confirmation ? 'confirmation_active' : null}`}></div> : null}                                                           
-                                                        </div>   
+                                                        </div>      
                                                     </div>
                                                     <div className="row">
                                                     <p>{post.writing}</p>
@@ -159,25 +156,42 @@ class Main extends Component{
                                                 </div>
                                                 <hr />
                                                 <div className="icon">
-                                                    <span onClick={() => this.likeSubmit(post.post_id)}> 
-                                                    <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
-                                                    
-                                                    <b>Beğen</b></span>
-                                                    <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
-                                                    <img onClick={() => this.actionComment(post.post_id)} src="src/images/comment-white-oval-bubble.png"></img><b className="openComment">{post.CommentCount}</b>
-
-                                                    <div className="dropdown option">
-                                                        <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
-                                                            <span className="caret"></span>
-                                                        </button>
-                                                        <ul className="dropdown-menu">
-                                                            <li><a href="#">Bunu görmek istemiyorum</a></li>
-                                                            <li><a href="#">Kullanıcıyı engelle</a></li>
-                                                            <li role="separator" className="divider"></li>
-                                                            {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
-                                                            
-                                                        </ul>
-                                                    </div>
+                                                  <div className="row">
+                                                        <div className="col-lg-3 col-md-7 col-sm-8 col-xs-4">
+                                                            <span onClick={() => this.likeSubmit(post.post_id)}> 
+                                                                <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                                                <b>Beğen</b>
+                                                            </span>
+                                                        </div>
+                                                        <div className="col-lg-3 col-md-7 col-sm-8 col-xs-4 likecomment">
+                                                            <div className='likecount'>   
+                                                                <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
+                                                            </div>
+                                                            <div className='commentcount'>
+                                                                <img onClick={() => this.actionComment(post.post_id)} src="src/images/comment-white-oval-bubble.png"></img>
+                                                                <b className="openComment">{post.CommentCount}</b>
+                                                            </div>    
+                                                        </div>
+                                                        <div className="col-lg-4 col-md-7 col-sm-8 col-xs-4 conf">
+                                                            <div className={'confirmation'}></div>
+                                                            <div className={'notconfirmation'}></div>
+                                                        </div>
+                                                        <div className="col-lg-2 col-md-7 col-sm-8 col-xs-12">
+                                                            <div className="dropdown option">
+                                                                <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                                    <span className="caret"></span>
+                                                                </button>
+                                                                <ul className="dropdown-menu">
+                                                                    <li><a href="#">Bunu görmek istemiyorum</a></li>
+                                                                    <li><a href="#">Kullanıcıyı engelle</a></li>
+                                                                    <li role="separator" className="divider"></li>
+                                                                    {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
+                                                                    
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                  </div>    
+                                                  
                                                 </div>
                                                     <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
                                                 

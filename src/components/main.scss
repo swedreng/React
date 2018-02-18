@@ -45,8 +45,8 @@
     color: #b4b6bd;
 }
 .option{
-    float: right;
-    margin-top: 10px;
+    float: right !important;
+    
 }
 .MainText{
     
@@ -61,14 +61,17 @@
 }
 
 .icon{
-    padding:13px;
-    font-size:18px;
+    padding: 7px;
+    
     img{
         width: 20px;
         height: 20px;
-        margin-left:30px;
+        margin-right: 5px;
     }
-   
+    span{
+        
+        cursor: pointer;
+    }
     .likeicon{
             width: 30px;
             height: 30px;
@@ -76,10 +79,11 @@
             margin-left:10px;   
     }
     b{
-        margin-left:10px;
-        margin-right:10px;
-        cursor: pointer;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        padding-left:2px;
     }
+ 
    
 }
 
@@ -135,21 +139,37 @@
 
 .confirmation{
     margin-top: 0px;
-    width: 27px;
-    height: 27px;
-    background-image:url('../images/confirmation.png');
+    width: 20px;
+    height: 20px;
+    background-image:url('../images/confirm.png');
     background-size:cover;
     cursor: pointer;
+    margin-right: 10px; 
 }
-.confirmation_active{
+
+
+.notconfirmation{
     margin-top: 0px;
-    width: 27px;
-    height: 27px;
-    background-image:url('../images/confirmation_active.png');
+    width: 20px;
+    height: 20px;
+    background-image:url('../images/nonconfirm.png');
     background-size:cover;
-    
+    cursor: pointer;
 
 }
+.conf{
+    
+    display: flex;
+    padding-right: 5px; 
+}
+.likecomment{
+    display: flex;
+    .likecount{
+        margin-right: 5px;
+    }
+    .commentcount{
 
+    }
+}
 
 
