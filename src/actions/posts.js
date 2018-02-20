@@ -2,7 +2,7 @@ import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT} from "../co
 import {alertMessage} from "./desc"
 import {commentUpdate} from "./commentupdate"
 import {commentLastUpdate} from "./commentLastUpdate"
-
+import {postConfirmationUpdate} from "./postconfirmation"
 export function getPosts(payload) {
   return (dispatch, getState) => { 
     let { auth, posts } = getState()
@@ -170,7 +170,6 @@ export function deletePost(payload) {
               }
               return post
         })
-          
           dispatch({type: GET_POSTS, payload:{data:posts.data,postCount:response.postCount}})
         }
             
@@ -285,9 +284,15 @@ export function postConfirmation(payload) {
           post_id: payload.post_id, 
       })
       }).then(response => response.json()).then(response => {
-          if(response.result == true){
-            dispatch({type:GET_POSTS, payload:{data:posts.data}})
-          } 
+        console.log(response.result)
+          posts.data.map(post =>{
+              if(post.post_id == payload.post_id){
+                post.IsConfirmationPost = response.result
+              }
+          })
+          dispatch({type:GET_POSTS, payload:posts})
+          dispatch(postConfirmationUpdate(payload))
+           
           
     })
   }

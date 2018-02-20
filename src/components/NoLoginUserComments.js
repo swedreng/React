@@ -28,12 +28,15 @@ class NoLoginUserComments extends Component{
            return null
        }
         return(
+            
             <div className="col-xs-12 col-md-12 col-lg-12 ana comments">
+           
                 <ul>
                     {
                         a.map((comment,index) =>{
                             return (
                                 <li key={index}>
+                                <hr></hr>
                                 <div className="row">
                                     <div className="col-lg-1">
                                         <div className="Usercommentpicture">

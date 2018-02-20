@@ -32,7 +32,10 @@ class Login extends Component{
                 <h1>Giris Yap</h1>
                 <form>
                     <input type="text" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})} className="form-control" placeholder="Username" />
-                    <input type="password" value={this.state.pass} onChange={(e) => this.setState({pass:e.target.value})} className="form-control" placeholder="Password" />    
+                    <input  onKeyDown={e => {
+                        if (e.keyCode == 13) this.loginSubmit()
+                    }}
+                    type="password" value={this.state.pass} onChange={(e) => this.setState({pass:e.target.value})} className="form-control" placeholder="Password" />    
                     <button type="button" disabled={!isEnabled} className="btn btn-warning" onClick={this.loginSubmit}>Giris Yap</button>
                 </form>    
                 <div>

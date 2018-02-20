@@ -41,7 +41,6 @@ class Header extends Component {
           {(isAuth ?  
             [
             <li key="1"><Link to="/profile">Profil</Link></li>,
-            
             <li key="2">{role ? <Link to="/admin">Admin</Link>: null}</li>,
             <li key="3"className="divider"></li>,
             <li key="4"><Link to="/logout">Cıkıs Yap</Link></li>
