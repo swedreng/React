@@ -29,7 +29,10 @@ class write extends Component{
             <div>
             <div className="row">
                 <div className="form-group write">
-                    <textarea className="form-control" rows="5" value={this.state.write} placeholder="Bir şeylerden bahset .." onChange={(e) => this.setState({write:e.target.value})}></textarea>
+                    <textarea onKeyDown={e => {
+                        if (e.keyCode == 13) this.shareWrite()
+                    }}
+                    className="form-control" rows="5" value={this.state.write} placeholder="Bir şeylerden bahset .." onChange={(e) => this.setState({write:e.target.value})}></textarea>
                     <button className="pull-right" type="button" className="btn btn-success" onClick={() => this.shareWrite()}>Gönderiyi paylaş</button>
                 </div> 
             </div>

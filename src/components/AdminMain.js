@@ -59,7 +59,7 @@ class AdminMain extends Component{
         const { role } = this.props.auth
        
         return(
-            <div className="ConnectionMain">
+            <div className="AdminMain">
                 {data.map((post,index) => ( 
             
                     <div key={index}>
@@ -110,7 +110,7 @@ class AdminMain extends Component{
                                                     <span className="caret"></span>
                                                 </button>
                                                 <ul className="dropdown-menu">
-                                                    <li><a href="#">Kullanıcıyı engelle</a></li>
+                                                    {post.id == user_id  ? null : <li><a href="#">Kullanıcıyı engelle</a></li>}
                                                     <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li>
                                                     
                                                 </ul>

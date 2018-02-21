@@ -39,9 +39,12 @@ class SignUp extends Component{
                 <form>
                     <input type="text" value={this.state.firstname} onChange={(e) => this.setState({firstname:e.target.value})} className="form-control" placeholder="İsminiz" />
                     <input type="text" value={this.state.lastname} onChange={(e) => this.setState({lastname:e.target.value})} className="form-control" placeholder="Soyisminiz" />
+                    <input type="text" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} className="form-control" placeholder="Email" /> 
                     <input type="text" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} className="form-control" placeholder="Kullanıcı adı" />
-                    <input type="password" value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} className="form-control" placeholder="Şifre" />
-                    <input type="text" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} className="form-control" placeholder="Email" />    
+                    <input onKeyDown={e => {
+                        if (e.keyCode == 13) this.handleSubmit()
+                    }}
+                    type="password" value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} className="form-control" placeholder="Şifre" /> 
                     <button type="button" className="btn btn-warning" disabled={!isEnabled} onClick={this.handleSubmit}>Üye ol</button>
                 </form> 
                 <div>

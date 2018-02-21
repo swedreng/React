@@ -1,8 +1,6 @@
 import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT} from "../constants"
 import {alertMessage} from "./desc"
 import {commentUpdate} from "./commentupdate"
-import {commentLastUpdate} from "./commentLastUpdate"
-import {postConfirmationUpdate} from "./postconfirmation"
 export function getPosts(payload) {
   return (dispatch, getState) => { 
     let { auth, posts } = getState()
@@ -269,7 +267,6 @@ export function commentSave(payload) {
   }
 }
 
-
 export function postConfirmation(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()
@@ -284,16 +281,40 @@ export function postConfirmation(payload) {
           post_id: payload.post_id, 
       })
       }).then(response => response.json()).then(response => {
-        console.log(response.result)
+        if(response.IsRole == 1){
           posts.data.map(post =>{
-              if(post.post_id == payload.post_id){
-                post.IsConfirmationPost = response.result
-              }
+            if(post.post_id == payload.post_id){
+              post.confirmation = response.postConfirmation
+            }
           })
-          dispatch({type:GET_POSTS, payload:posts})
-          dispatch(postConfirmationUpdate(payload))
-           
-          
+        }else{
+          posts.data.map(post =>{
+            if(post.post_id == payload.post_id){
+              post.IsConfirmationPost = response.IsConfirmationPost,
+              post.confirmation = response.postConfirmation
+            }
+          })
+        }
+          dispatch({type:GET_POSTS, payload:posts}) 
+    })
+  }
+}
+
+export function blockPost(payload) {
+  return (dispatch, getState) => {    
+    let { auth, posts} = getState()
+    return fetch(`${process.env.URL}/api/post/blockPost`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+          post_id: payload.post_id, 
+      })
+      }).then(response => response.json()).then(response => {
+      
     })
   }
 }

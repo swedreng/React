@@ -33,7 +33,10 @@ class Comment extends Component{
                               
         <div class="row" >
             <div className="col-lg-9 yorumyap"> 
-                <input type="text" className="form-control" value={this.state.comment} onChange={(e) => this.setState({comment:e.target.value})} placeholder="Yorum yap"/>    
+                <input  onKeyDown={e => {
+                        if (e.keyCode == 13) this.commentSubmit()
+                    }} 
+                type="text" className="form-control" value={this.state.comment} onChange={(e) => this.setState({comment:e.target.value})} placeholder="Yorum yap"/>    
             </div>
             <div className="col-lg-3"> 
                 <button type="submit" disabled={!isEnabled} onClick={() => this.commentSubmit()} className="btn btn-primary btn-sm">Yorum Yap</button>

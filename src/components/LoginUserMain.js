@@ -59,11 +59,11 @@ class LoginUserMain extends Component{
         const { role } = this.props.auth
        
         return(
-            <div className="ConnectionMain">
+            <div className="LoginUserMain">
                 {data.map((post,index) => ( 
                     
                 <div key={index}>
-                    {post.confirmation == 1 ? (
+                    {post.confirmation == 1 || post.id == post.user.id ? (
                              <div className="row Main">
                              <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                  <div className="caption MainText">
@@ -75,7 +75,7 @@ class LoginUserMain extends Component{
                                              <span className="postTime">{post.Time}</span>
                                          </div>   
                                          <div className="col-lg-1 col-md-5 col-sm-4 col-xs-8">
-                                             <div className={'confirmation_active'}></div>
+                                            {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
                                          </div>   
                                      </div>
                                      <div className="row">
@@ -111,11 +111,9 @@ class LoginUserMain extends Component{
                                                      <span className="caret"></span>
                                                  </button>
                                                  <ul className="dropdown-menu">
-                                                     <li><a href="#">Bunu görmek istemiyorum</a></li>
-                                                     <li><a href="#">Kullanıcıyı engelle</a></li>
-                                                     <li role="separator" className="divider"></li>
+                                                     {user_id == post.id ? null : <li><a href="#">Bunu görmek istemiyorum</a></li>}
+                                                     {user_id == post.id || post.user.rank == 1 || post.user.rank == 2 ? null :<li><a href="#">Kullanıcıyı engelle</a></li>}
                                                      {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
-                                                     
                                                  </ul>
                                              </div>
                                         </div>
