@@ -52,7 +52,14 @@ class LoginUserMain extends Component{
         let { postConfirmation } = this.props.postsActions
         postConfirmation({post_id:post_id})
     }
-
+    blockPost(post_id){
+        let { blockPost } = this.props.postsActions
+        blockPost({post_id:post_id})
+    }
+    blockUser(post_id,user_id){
+        let { blockUser } = this.props.postsActions
+        blockUser({post_id:post_id,user_id})
+    }
     render(){
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
@@ -63,7 +70,7 @@ class LoginUserMain extends Component{
                 {data.map((post,index) => ( 
                     
                 <div key={index}>
-                    {post.confirmation == 1 || post.id == post.user.id ? (
+                    {(post.confirmation == 1 || post.id == post.user.id) /*&& (post.IsBlockPost == false) && (post.IsBlockUser == false)*/ ? (
                              <div className="row Main">
                              <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                  <div className="caption MainText">
@@ -106,16 +113,19 @@ class LoginUserMain extends Component{
                                              </div>    
                                          </div>
                                          <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
+                                         {post.user.rank == 1 ? <div>Admin</div>:(
                                              <div className="dropdown option">
-                                                 <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
-                                                     <span className="caret"></span>
-                                                 </button>
-                                                 <ul className="dropdown-menu">
-                                                     {user_id == post.id ? null : <li><a href="#">Bunu görmek istemiyorum</a></li>}
-                                                     {user_id == post.id || post.user.rank == 1 || post.user.rank == 2 ? null :<li><a href="#">Kullanıcıyı engelle</a></li>}
-                                                     {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
-                                                 </ul>
-                                             </div>
+                                             <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                 <span className="caret"></span>
+                                             </button>
+                                             <ul className="dropdown-menu">
+                                                 {user_id == post.id ? null : <li><a onClick={() => this.blockPost(post.post_id)}>Bunu görmek istemiyorum</a></li>}
+                                                 {user_id == post.id || post.user.rank == 1 || post.user.rank == 2 ? null :<li><a onClick={() => this.blockUser(post.post_id,post.user.id)}>Kullanıcıyı engelle</a></li>}
+                                                 {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
+                                             </ul>
+                                         </div>
+                                         )}
+                                             
                                         </div>
                                  </div>    
                                  </div>

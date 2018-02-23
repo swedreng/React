@@ -292,6 +292,7 @@ export function postConfirmation(payload) {
             if(post.post_id == payload.post_id){
               post.IsConfirmationPost = response.IsConfirmationPost,
               post.confirmation = response.postConfirmation
+              
             }
           })
         }
@@ -314,7 +315,56 @@ export function blockPost(payload) {
           post_id: payload.post_id, 
       })
       }).then(response => response.json()).then(response => {
-      
+          if(response.result == true){
+            posts.data.map((post,index) => {
+              if(post.post_id == payload.post_id){
+                  blockPost(index)
+              }
+              function blockPost(index){
+                if(index == 0){
+                  post.IsBlockPost = response.IsBlockPost
+                    return post.shift()
+                }
+                  post.IsBlockPost = response.IsBlockPost
+                    return post.splice(index,1)
+                }
+              return post
+          })
+          }else{
+            posts.data.map(post => {
+              if(post.post_id == payload.post_id){
+                post.IsBlockPost = response.IsBlockPost
+              }
+          })
+        }
+          dispatch({type:GET_POSTS, payload:posts})
+    })
+  }
+}
+
+export function blockUser(payload) {
+  return (dispatch, getState) => {    
+    let { auth, posts} = getState()
+    return fetch(`${process.env.URL}/api/post/blockUser`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+          post_id: payload.post_id,
+          user_id:payload.user_id 
+      })
+      }).then(response => response.json()).then(response => {
+        if(response.result == true){
+          posts.data.map(post => {
+            if(post.post_id == payload.post_id){
+              post.IsBlockUser = response.IsBlockUser
+            }
+        })
+        }
+        dispatch({type:GET_POSTS, payload:posts})
     })
   }
 }
