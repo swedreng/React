@@ -316,28 +316,27 @@ export function blockPost(payload) {
       })
       }).then(response => response.json()).then(response => {
           if(response.result == true){
-            posts.data.map((post,index) => {
-              if(post.post_id == payload.post_id){
-                  blockPost(index)
-              }
-              function blockPost(index){
-                if(index == 0){
-                  post.IsBlockPost = response.IsBlockPost
-                    return post.shift()
-                }
-                  post.IsBlockPost = response.IsBlockPost
-                    return post.splice(index,1)
-                }
-              return post
-          })
+            const index = posts.data.findIndex(post => post.post_id == payload.post_id)
+            console.log(posts.data,20)
+                  if(index == 0){
+                    posts.data.shift()
+                  }else{
+                    posts.data.splice(index,1)
+                    console.log(posts,77)
+                  }
+
+                  console.log(posts.length,55)
+                dispatch({type:GET_POSTS, payload:{data:posts.data,postCount:1}})
           }else{
             posts.data.map(post => {
               if(post.post_id == payload.post_id){
                 post.IsBlockPost = response.IsBlockPost
               }
           })
+                dispatch({type:GET_POSTS, payload:posts})
         }
-          dispatch({type:GET_POSTS, payload:posts})
+         
+          
     })
   }
 }
