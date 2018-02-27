@@ -315,27 +315,14 @@ export function blockPost(payload) {
           post_id: payload.post_id, 
       })
       }).then(response => response.json()).then(response => {
-          if(response.result == true){
+          
             const index = posts.data.findIndex(post => post.post_id == payload.post_id)
-            console.log(posts.data,20)
                   if(index == 0){
                     posts.data.shift()
                   }else{
                     posts.data.splice(index,1)
-                    console.log(posts,77)
                   }
-
-                  console.log(posts.length,55)
-                dispatch({type:GET_POSTS, payload:{data:posts.data,postCount:1}})
-          }else{
-            posts.data.map(post => {
-              if(post.post_id == payload.post_id){
-                post.IsBlockPost = response.IsBlockPost
-              }
-          })
-                dispatch({type:GET_POSTS, payload:posts})
-        }
-         
+                dispatch({type:GET_POSTS, payload:{data:posts.data,postCount:response.postCount}})
           
     })
   }
@@ -352,18 +339,13 @@ export function blockUser(payload) {
         'Authorization': `Bearer ${auth.token} `
       },
       body: JSON.stringify({
-          post_id: payload.post_id,
           user_id:payload.user_id 
       })
       }).then(response => response.json()).then(response => {
-        if(response.result == true){
-          posts.data.map(post => {
-            if(post.post_id == payload.post_id){
-              post.IsBlockUser = response.IsBlockUser
-            }
-        })
-        }
-        dispatch({type:GET_POSTS, payload:posts})
+        
+        posts.data = posts.data.filter((post,index) => post.user.id != payload.user_id)
+            
+        dispatch({type:GET_POSTS, payload:{data:posts.data,postCount:response.postCount}})
     })
   }
 }

@@ -57,6 +57,10 @@ class ModeratorMain extends Component{
         let { blockPost } = this.props.postsActions
         blockPost({post_id:post_id})
     }
+    blockUser(user_id,post_id){
+        let { blockUser } = this.props.postsActions
+        blockUser({user_id:user_id,post_id:post_id})
+    }
     render(){
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
@@ -117,7 +121,7 @@ class ModeratorMain extends Component{
                                                 </button>
                                                 <ul className="dropdown-menu">
                                                     {user_id == post.user.id || post.user.rank == 1 ? null:<li><a onClick={() => this.blockPost(post.post_id)}>Bunu görmek istemiyorum</a></li>}
-                                                    {user_id == post.user.id || post.user.rank == 1 || post.user.rank == 2 ? null: <li><a>Kullanıcıyı engelle</a></li>}
+                                                    {user_id == post.user.id || post.user.rank == 1 || post.user.rank == 2 ? null: <li><a onClick={() => this.blockUser(post.user.id)}>Kullanıcıyı engelle</a></li>}
                                                     {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
                                                     
                                                 </ul>

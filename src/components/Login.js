@@ -28,20 +28,45 @@ class Login extends Component{
         const alertTrue = "alert alert-success"
         const alertFalse = "alert alert-danger"
         return(
-            <div className="login well">
-                <h1>Giris Yap</h1>
-                <form>
-                    <input type="text" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})} className="form-control" placeholder="Username" />
-                    <input  onKeyDown={e => {
-                        if (e.keyCode == 13) this.loginSubmit()
-                    }}
-                    type="password" value={this.state.pass} onChange={(e) => this.setState({pass:e.target.value})} className="form-control" placeholder="Password" />    
-                    <button type="button" disabled={!isEnabled} className="btn btn-warning" onClick={this.loginSubmit}>Giris Yap</button>
-                </form>    
-                <div>
-                    {(message ? <p className={isAuth === true ? alertTrue : isAuth === false ? alertFalse: null}>{message}</p> :null)}
-                </div> 
+            
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-3 col-md-offset-2 col-lg-4 col-lg-offset-3">
+                        <div className="panel panel-default">
+                            <div className="panel-heading">
+                                <h3 className="panel-title">Login</h3>
+                            </div>
+                            <div className="panel-body">
+                                <form accept-charset="UTF-8" role="form">
+                                <fieldset>
+                                    <div className="form-group">
+                                        <input className="form-control" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})} placeholder="Kullanıcı adı" type="text" />
+                                    </div>
+                                    <div className="form-group">
+                                    <input className="form-control" onKeyDown={e => {
+                                        if (e.keyCode == 13) this.loginSubmit()
+                                        }}
+                                        type="password" value={this.state.pass} 
+                                        onChange={(e) => this.setState({pass:e.target.value})}
+                                        placeholder="Şifre"/>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label>
+                                            <input name="remember" type="checkbox" value="Remember Me"/> Beni hatırla
+                                        </label>
+                                    </div>
+                                    <button type="button" disabled={!isEnabled} className="btn btn-lg btn-success btn-block" onClick={this.loginSubmit}>Giris Yap</button>
+                                </fieldset>
+                                </form>
+                                <div>
+                                    {(message ? <p className={isAuth === true ? alertTrue : isAuth === false ? alertFalse: null}>{message}</p> :null)}
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
         );
     }
 }

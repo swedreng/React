@@ -34,23 +34,46 @@ class SignUp extends Component{
               email)  
         return(
         
-            <div className="signup well">
-                <h1>Üye Ol</h1>
-                <form>
-                    <input type="text" value={this.state.firstname} onChange={(e) => this.setState({firstname:e.target.value})} className="form-control" placeholder="İsminiz" />
-                    <input type="text" value={this.state.lastname} onChange={(e) => this.setState({lastname:e.target.value})} className="form-control" placeholder="Soyisminiz" />
-                    <input type="text" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} className="form-control" placeholder="Email" /> 
-                    <input type="text" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})} className="form-control" placeholder="Kullanıcı adı" />
-                    <input onKeyDown={e => {
-                        if (e.keyCode == 13) this.handleSubmit()
-                    }}
-                    type="password" value={this.state.password} onChange={(e) => this.setState({password:e.target.value})} className="form-control" placeholder="Şifre" /> 
-                    <button type="button" className="btn btn-warning" disabled={!isEnabled} onClick={this.handleSubmit}>Üye ol</button>
-                </form> 
-                <div>
-                    {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
-                </div>    
-            </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-4 col-md-offset-2 col-lg-5 col-lg-offset-2">
+                        <div className="panel panel-default">
+                            <div className="panel-heading">
+                                <h3 className="panel-title">Üye ol</h3>
+                            </div>
+                            <div className="panel-body">
+                                <form accept-charset="UTF-8" role="form">
+                                <fieldset>
+                                    <div className="form-group">
+                                        <input className="form-control" value={this.state.firstname} onChange={(e) => this.setState({firstname:e.target.value})} placeholder="İsminiz"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <input className="form-control" value={this.state.lastname} onChange={(e) => this.setState({lastname:e.target.value})} placeholder="Soyisminiz"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <input className="form-control" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} placeholder="Email" />
+                                    </div>
+                                    <div className="form-group">
+                                        <input className="form-control" value={this.state.username} onChange={(e) => this.setState({username:e.target.value})}  placeholder="Kullanıcı adı" />
+                                    </div>
+                                    <div className="form-group">
+                                    <input onKeyDown={e => { if (e.keyCode == 13) this.handleSubmit() }}
+                                        value={this.state.password} 
+                                        onChange={(e) => this.setState({password:e.target.value})} 
+                                        className="form-control" type="password" placeholder="Şifre" /> 
+                                    </div>
+                                    <button type="button" disabled={!isEnabled} className="btn btn-lg btn-success btn-block" onClick={this.handleSubmit}>Üye ol</button>
+                                </fieldset>
+                                </form>
+                                <div>
+                                    {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+          
         );
     }
 }

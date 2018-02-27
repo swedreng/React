@@ -70,7 +70,7 @@ class LoginUserMain extends Component{
                 {data.map((post,index) => ( 
                     
                 <div key={index}>
-                    {(post.confirmation == 1 || post.id == post.user.id) /*&& (post.IsBlockPost == false) && (post.IsBlockUser == false)*/ ? (
+                    {(post.confirmation == 1 || post.id == post.user.id) && (post.IsBlockPost == false) ? (
                              <div className="row Main">
                              <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                  <div className="caption MainText">
