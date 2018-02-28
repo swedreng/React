@@ -62,7 +62,7 @@ class SignUp extends Component{
                                         onChange={(e) => this.setState({password:e.target.value})} 
                                         className="form-control" type="password" placeholder="Şifre" /> 
                                     </div>
-                                    <button type="button" disabled={!isEnabled} className="btn btn-lg btn-success btn-block" onClick={this.handleSubmit}>Üye ol</button>
+                                    <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.handleSubmit}>Üye ol</button>
                                 </fieldset>
                                 </form>
                                 <div>

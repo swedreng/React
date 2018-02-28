@@ -46,11 +46,10 @@ class Admin extends Component{
         const alertFalse = "alert alert-danger"
         
         return(
-        <div className="table-responsive">
+        <div className="table-responsive img-thumbnail">
             <table className="table" id="admin">
                 <thead>
                     <tr>
-                        
                         <th>Ad</th>
                         <th>Soyad</th>
                         <th>Kullanıcı Adı</th>

@@ -46,7 +46,7 @@ class Contact extends Component{
     //const { name,email,message} = this.state
     //const isEnabled = (name && email && message)   
     return(    
-    <div className="row">    
+    <div className="row img-thumbnail">    
         <div class="col-md-12">
             <div class="row">
                 <div class="well well-sm">

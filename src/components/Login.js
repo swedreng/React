@@ -55,7 +55,7 @@ class Login extends Component{
                                             <input name="remember" type="checkbox" value="Remember Me"/> Beni hatırla
                                         </label>
                                     </div>
-                                    <button type="button" disabled={!isEnabled} className="btn btn-lg btn-success btn-block" onClick={this.loginSubmit}>Giris Yap</button>
+                                    <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.loginSubmit}>Giris Yap</button>
                                 </fieldset>
                                 </form>
                                 <div>

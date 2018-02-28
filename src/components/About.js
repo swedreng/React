@@ -4,11 +4,11 @@ class AboutUs extends Component{
 
     render(){
         return(
-                <div>
-                    <div class="about-section paddingTB60 gray-bg">
+                <div className="img-thumbnail">
+                    <div class="about-section ">
                        
                             <div class="row">
-                                <div class="col-md-6 col-sm-12 col-lg-8">
+                                <div class="col-md-12 col-sm-12 col-lg-12">
                                 <div class="about-title clearfix">
                                     <h1>About <span>Us</span></h1>
                                     <h3>Lorem ipsum dolor sit amet </h3>
@@ -23,9 +23,6 @@ class AboutUs extends Component{
                                     </ul>       
                                 </div>
                             </div>
-                            </div>
-                            <div class="col-md-2 col-sm-12 col-lg-4">
-                                    <img src="./src/images/bizkimiz.png" alt=""/>
                             </div>	
                         </div>
                    
