@@ -8,8 +8,17 @@
     width: 400px !important;
     margin-right: 5px;
 }
-
-
+.symbol{
+    width: 25px;
+    height: 25px;
+    background-image:url('../images/fist.png');
+    background-size:cover;
+    margin-left:5px;
+    margin-bottom:20px;
+}
+#header > div > div.navbar-header.col-md-offset-1 > a {
+    display:flex;
+}
 #bs-example-navbar-collapse-1 > div.dropDownMenu > ul > li > a{
     background-color: rgb(204, 40, 11);
 }

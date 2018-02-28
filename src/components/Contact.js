@@ -1,4 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import * as contactActions from "../actions/contact"
 import './contact.scss'
 
 const choose = [
@@ -28,9 +31,7 @@ const choose = [
 class Contact extends Component{
     constructor(props){
         super(props);
-        
-        this.state = {choose: 0,name:'',email:'',message:''}
-
+        this.state = {choose: 0,name:'',email:'',userMessage:''}
     }
 
     changeSubject(e){
@@ -39,12 +40,20 @@ class Contact extends Component{
     }
 
     save(){
-       
+        let { getContact } = this.props.contactActions
+        getContact({name:this.state.name,email:this.state.email,message:this.state.userMessage,choose:this.state.choose}).then(()=>{
+            this.setState({choose:0,name:'',email:'',userMessage:''})
+        })  
     }
   
     render(){
-    //const { name,email,message} = this.state
-    //const isEnabled = (name && email && message)   
+    const { result } = this.props.description
+    const { message } = this.props.description
+    const { name,email,userMessage} = this.state
+    const isEnabled = (this.state.choose !==0  && name && email && userMessage)   
+    const alertTrue = "alert alert-success"
+    const alertFalse = "alert alert-danger"
+
     return(    
     <div className="row img-thumbnail">    
         <div class="col-md-12">
@@ -55,7 +64,7 @@ class Contact extends Component{
                         <div class="col-md-5 col-lg-5">
                             <div class="form-group">
                                 <label for="name">Adınız Soyadınız</label>
-                                <input type="text" class="form-control" id="name" placeholder="Ad Soyad" required="required"/>
+                                <input type="text" class="form-control" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})} placeholder="Ad Soyad" />
                             </div>
                             <div class="form-group">
                                 <label for="email">
@@ -63,12 +72,12 @@ class Contact extends Component{
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                     </span>
-                                    <input type="email" class="form-control" id="email" placeholder="Email" required="required" />
+                                    <input type="email" class="form-control" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} placeholder="Email" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="subject">Konu</label>
-                                <select id="subject" name="subject" class="form-control" required="required" value={this.state.choose}  onChange={(e) => this.changeSubject(e)}>
+                                <label>Konu</label>
+                                <select class="form-control" value={this.state.choose}  onChange={(e) => this.changeSubject(e)}>
                                 {choose.map((c,index) => {
                                     return (<option key={index} value={index}>{c.name}</option>)
                                 })}
@@ -78,14 +87,18 @@ class Contact extends Component{
                         <div class="col-md-7 col-lg-7">
                             <div class="form-group">
                                 <label htmlFor="name">Mesaj</label>
-                                <textarea id="message" class="form-control" rows="9" cols="25" required="required"placeholder="Mesajınız giriniz"></textarea>
+                                <textarea class="form-control" rows="9" cols="25" value={this.state.userMessage} onChange={(e) => this.setState({userMessage:e.target.value})} placeholder="Mesajınız giriniz"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-warning pull-right" id="btnContactUs" onClick={() => this.save()}>Gönder</button>
+                            <button type="text" class="btn btn-danger pull-right" disabled={!isEnabled} onClick={() => this.save()}>Gönder</button>
                         </div>
+                        
                     </div>
                     </form>
+                    <div>
+                        {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}
+                    </div>
                 </div>
             </div>  
         </div>
@@ -111,4 +124,13 @@ class Contact extends Component{
         );
     }
 }
-export default Contact;
+const mapStateToProps = ({ auth,description }) => ({
+    auth,description
+})
+
+const mapDispatchToProps = dispatch => ({
+    contactActions: bindActionCreators(contactActions, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contact)
+  

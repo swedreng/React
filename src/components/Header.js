@@ -19,14 +19,14 @@ class Header extends Component {
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <Link to="/" className="navbar-brand">Opanc</Link>
+      <Link to="/" className="navbar-brand">Opanc<div className={'symbol'}></div></Link>
     </div>
    
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <div className="searchBar col-md-6">
       <form className="navbar-form" role="search">
         <div className="form-group ">
-          <input type="search" className="form-control search-input" placeholder="Ara"/>
+          <input type="search" className="form-control search-input" placeholder="Birşeyler ara .."/>
           <button type="submit" className="btn btn-default"><div className={'searchImage'}></div></button>
         </div>
       </form>

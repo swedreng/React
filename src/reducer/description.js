@@ -10,7 +10,7 @@ export default (state = defaultState, action = {}) => {
     case SET_LOGIN_DESC:
       return {
         message:action.payload.message,
-        result:action.payload.success
+        result:action.payload.result
       }
       break
     default:

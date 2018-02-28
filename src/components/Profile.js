@@ -122,7 +122,7 @@ class Profile extends Component{
                             {username ? username:'user'}
                         </div>
                         <div className="profile-usertitle-job">
-                          {role==1 ? "admin" : "kullanıcı"}
+                          {role==1 ? "admin" : role==2 ? "moderatör" : "kullanıcı"}
                         </div>
                     </div>
                 
