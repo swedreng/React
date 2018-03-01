@@ -36,6 +36,41 @@ export function getPosts(payload) {
 }
 
 
+export function getUserPosts(payload) {
+  return (dispatch, getState) => { 
+    let { auth, posts } = getState()
+    return fetch(`${process.env.URL}/api/userposts`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+        postReq: payload.value,
+        status: payload.event
+      })
+      }).then(response => response.json()).then(response => { 
+
+        if(response.data){
+          if(response.event){
+            var data = response.data
+            var postCount = response.postCount
+          }else{
+            var data = posts.data.concat(response.data)
+            var postCount = response.postCount
+          }
+           
+        }else{
+          var data = []
+          var postCount = 0
+        }
+        dispatch({type: GET_POSTS, payload:{data:data,postCount:postCount}})
+    })
+  }
+}
+
+
 export function comment(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()

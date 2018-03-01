@@ -114,10 +114,7 @@ body {
   .profile-content {
     padding: 20px;
     background: #fff;
-    height: 612px;
-    -webkit-border-radius: 5% !important;
-    -moz-border-radius: 5% !important;
-    border-radius: 5% !important;
+   
   }
   .imageB{
     .defaultimage:hover{
@@ -154,10 +151,8 @@ body {
     .profile-content {
       padding: 20px;
       background: #fff;
-      min-height: 350px;
-      -webkit-border-radius: 5% !important;
-      -moz-border-radius: 5% !important;
-      border-radius: 5% !important;
+      min-height: 611px;
+      border-radius: 20px !important;
     }
     
 }
