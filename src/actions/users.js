@@ -82,3 +82,41 @@ export function getuserinfoUpdate(payload) {
     }
   }
 
+
+  export function getSearchItem(payload) {
+    
+    const result = localStorage.getItem('search')
+    if(result){
+      const search = localStorage.getItem('search')
+      function pushSearch(userSearch){
+        search.push(userSearch)
+        localStorage.setItem('search',JSON.stringify(search))
+      }
+      console.log(search,444)
+      if(search.length < 1){ // search.lenght deyince karakter sayısı dönüyor buna bak 9 dönüyor
+        search.map(data => {
+          console.log(data,3)
+          if(data == payload.search){
+            
+          }else{
+            pushSearch(payload.search)
+          }
+          return search
+        })
+      }else{
+        
+        search.push(payload.search)
+        localStorage.setItem('search',JSON.stringify(search))
+      }
+      
+    }else{
+      var search = []
+      search.push(payload.search)
+      localStorage.setItem('search',JSON.stringify(search))
+    }
+    
+    
+    
+  
+  }
+  

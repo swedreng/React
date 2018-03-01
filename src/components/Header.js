@@ -2,12 +2,21 @@ import React, { Component } from 'react';
 import { Link } from 'react-router'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import * as authActions from "../actions/signup"
+import Autocomplete from 'react-autocomplete'
+import * as usersActions from "../actions/users"
 import './header.scss'
 class Header extends Component {
+  constructor(props){
+    super(props)
+    this.state = {value:''}
+  }
+  getSearchItem(){
+    let{ getSearchItem } = this.props.usersActions
+    getSearchItem({search:this.state.value})
+  }
   render() {
     const {username,isAuth,role} = this.props.auth
-  
+    console.log(this.state.value)
     return (
       
 <nav className="navbar navbar-default" id="header">
@@ -21,13 +30,33 @@ class Header extends Component {
       </button>
       <Link to="/" className="navbar-brand">Opanc<div className={'symbol'}></div></Link>
     </div>
-   
+  
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <div className="searchBar col-md-6">
       <form className="navbar-form" role="search">
         <div className="form-group ">
-          <input type="search" className="form-control search-input" placeholder="Birşeyler ara .."/>
-          <button type="submit" className="btn btn-default"><div className={'searchImage'}></div></button>
+          <Autocomplete
+            getItemValue={(item) => item.label}
+            items={[
+              { label: 'apple' },
+              { label: 'banana' },
+              { label: 'pear' }
+            ]}
+            shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
+            renderItem={(item, isHighlighted) =>
+              <div key={item.id} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+                {item.label}
+              </div>
+            } wrapperStyle={{ position: 'relative', display: 'block' ,float:'left'}}
+            value={this.state.value}
+            onChange={e => this.setState({value:e.target.value})}
+            onSelect={value => this.setState({value})}
+            onKeyDown={e => {
+              if (e.keyCode == 13) this.getSearchItem()
+              }}
+            inputProps={{className:'form-control search-input',placeholder:'Birşeyler Ara..'}}
+          />
+          <button onClick={()=>this.getSearchItem()}type="submit" className="btn btn-default"><div className={'searchImage'}></div></button>
         </div>
       </form>
       </div>
@@ -78,4 +107,8 @@ const mapStateToProps = ({ auth }) => ({
     auth
 })
 
-export default connect(mapStateToProps, null)(Header)
+const mapDispatchToProps = dispatch => ({
+  usersActions: bindActionCreators(usersActions, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

@@ -4,6 +4,7 @@ import {commentUpdate} from "./commentupdate"
 export function getPosts(payload) {
   return (dispatch, getState) => { 
     let { auth, posts } = getState()
+    dispatch({type: GET_POSTS, payload:{data:[],postCount:0}})
     return fetch(`${process.env.URL}/api/posts`, {
       method: 'POST',
       headers: {
@@ -39,6 +40,7 @@ export function getPosts(payload) {
 export function getUserPosts(payload) {
   return (dispatch, getState) => { 
     let { auth, posts } = getState()
+    dispatch({type: GET_POSTS, payload:{data:[],postCount:0}})
     return fetch(`${process.env.URL}/api/userposts`, {
       method: 'POST',
       headers: {
@@ -384,6 +386,7 @@ export function blockUser(payload) {
     })
   }
 }
+
 
 
 
