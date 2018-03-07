@@ -123,6 +123,7 @@ export function postLike(payload) {
 export function commentLike(payload) {
   return (dispatch, getState) => { 
     let { auth } = getState()
+    
     fetch(`${process.env.URL}/api/comment`, {
       method: 'PUT',
       headers: {

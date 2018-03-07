@@ -10,9 +10,9 @@ class Header extends Component {
     super(props)
     this.state = {value:''}
   }
-  getSearchItem(){
-    let{ getSearchItem } = this.props.usersActions
-    getSearchItem({search:this.state.value})
+  addStorageItem(){
+    let{ addStorageItem } = this.props.usersActions
+    addStorageItem({search:this.state.value})
   }
   render() {
     const {username,isAuth,role} = this.props.auth
@@ -52,11 +52,11 @@ class Header extends Component {
             onChange={e => this.setState({value:e.target.value})}
             onSelect={value => this.setState({value})}
             onKeyDown={e => {
-              if (e.keyCode == 13) this.getSearchItem()
+              if (e.keyCode == 13) this.addStorageItem()
               }}
             inputProps={{className:'form-control search-input',placeholder:'Birşeyler Ara..'}}
           />
-          <button onClick={()=>this.getSearchItem()}type="submit" className="btn btn-default"><div className={'searchImage'}></div></button>
+          <button onClick={()=>this.addStorageItem()}type="submit" className="btn btn-default"><div className={'searchImage'}></div></button>
         </div>
       </form>
       </div>

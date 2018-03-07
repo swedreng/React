@@ -82,9 +82,28 @@ export function getuserinfoUpdate(payload) {
     }
   }
 
+  function getSearchItem(payload) {
+    console.log(payload,2)
+      return (dispatch, getState) => { 
+        let { auth } = getState() 
+        
+        return fetch(`${process.env.URL}/api/search`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              search: payload.search
+            })
+          
+          }).then(response => response.json()).then(response => {
+            
+        })
+      }
+    }
 
-  export function getSearchItem(payload) {
-    
+  export function addStorageItem(payload) {
     var result = JSON.parse(localStorage.getItem('search'))
     if(result){
       const search = JSON.parse(localStorage.getItem('search'))
@@ -99,6 +118,24 @@ export function getuserinfoUpdate(payload) {
       var search = []
       search.push(payload.search)
       localStorage.setItem('search',JSON.stringify(search))
+    }
+    
+    return (dispatch, getState) => { 
+      let { auth } = getState() 
+      
+      return fetch(`${process.env.URL}/api/search`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            search: payload.search
+          })
+        
+        }).then(response => response.json()).then(response => {
+          
+      })
     }
     
   }
