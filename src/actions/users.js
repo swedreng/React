@@ -1,5 +1,5 @@
 
-import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE} from "../constants"
+import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE,PERSONS, GET_POSTS} from "../constants"
 import {alertMessage} from "./desc"
 export function getUsers(payload) {
   return (dispatch, getState, api) => { 
@@ -82,28 +82,9 @@ export function getuserinfoUpdate(payload) {
     }
   }
 
-  function getSearchItem(payload) {
-    console.log(payload,2)
-      return (dispatch, getState) => { 
-        let { auth } = getState() 
-        
-        return fetch(`${process.env.URL}/api/search`, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              search: payload.search
-            })
-          
-          }).then(response => response.json()).then(response => {
-            
-        })
-      }
-    }
-
-  export function addStorageItem(payload) {
+ 
+    
+  export function addStorageItemLogin(payload) {
     var result = JSON.parse(localStorage.getItem('search'))
     if(result){
       const search = JSON.parse(localStorage.getItem('search'))
@@ -121,22 +102,97 @@ export function getuserinfoUpdate(payload) {
     }
     
     return (dispatch, getState) => { 
-      let { auth } = getState() 
+      let { auth,posts } = getState() 
       
-      return fetch(`${process.env.URL}/api/search`, {
+      return fetch(`${process.env.URL}/api/loginsearch`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${auth.token} `
+        },
+        body: JSON.stringify({
+            search: payload.search,
+            postReq: payload.value,
+            event: payload.event
+          })
+        
+        }).then(response => response.json()).then(response => {
+          window.location = "#/loginsearch"
+          if(response.data){
+            if(response.event){
+              var data = response.data
+              var postCount = response.postCount
+            }else{
+              var data = posts.data.concat(response.data)
+              var postCount = response.postCount
+            }
+             
+          }else{
+            var data = []
+            var postCount = 0
+          }
+          
+          dispatch({type: PERSONS, payload:response.Users})
+          dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
+      })
+    }
+    
+  }
+
+  export function addStorageItemNoLogin(payload) {
+    var result = JSON.parse(localStorage.getItem('search'))
+    if(result){
+      const search = JSON.parse(localStorage.getItem('search'))
+        var result = search.filter((search,index) => search == payload.search)
+        if(result.length > 0){
+          localStorage.setItem('search',JSON.stringify(search))
+        }else{
+          search.push(payload.search)
+          localStorage.setItem('search',JSON.stringify(search))
+        }
+    }else{
+      var search = []
+      search.push(payload.search)
+      localStorage.setItem('search',JSON.stringify(search))
+    }
+    
+    return (dispatch, getState) => { 
+      let { auth,posts } = getState() 
+      return fetch(`${process.env.URL}/api/nologinsearch`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            search: payload.search
+            search: payload.search,
+            postReq: payload.value,
+            event: payload.event
           })
         
         }).then(response => response.json()).then(response => {
+          window.location = "#/search"
+          console.log(response.Posts,response.event,2)
+          if(response.data){
+            if(response.event){
+              var data = response.data
+              var postCount = response.postCount
+            }else{
+              var data = posts.data.concat(response.data)
+              var postCount = response.postCount
+            }
+             
+          }else{
+            var data = []
+            var postCount = 0
+          }
           
+          dispatch({type: PERSONS, payload:response.Users})
+          dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
       })
     }
     
   }
+  
   

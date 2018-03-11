@@ -16,6 +16,8 @@ import Profile from './Profile.js';
 import ProfileDetail from'./ProfileDetail'
 import Access from './Access'
 import AuthAccess from './AuthAccess'
+import Search from './Search'
+import NoLoginSearch from './NoLoginSearch'
 
 class App extends Component {
 
@@ -32,8 +34,10 @@ class App extends Component {
                 <Route path="/contact" component={Contact} />
                 <Route path="/admin" component={(props) => <AuthAccess roles={[1]} Comp={Admin} />} />
                 <Route path="/profile" component={(props) => <AuthAccess roles={[1,0,2]} Comp={Profile} />} />
+                <Route path="/loginsearch" component={Search} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/logout"  component={Logout} />
+                <Route path="/search" component={NoLoginSearch} />
               </Route>
           </Router>
         </Provider>

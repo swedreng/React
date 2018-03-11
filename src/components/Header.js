@@ -11,8 +11,15 @@ class Header extends Component {
     this.state = {value:''}
   }
   addStorageItem(){
-    let{ addStorageItem } = this.props.usersActions
-    addStorageItem({search:this.state.value})
+    let{ addStorageItemNoLogin,addStorageItemLogin } = this.props.usersActions
+    const {isAuth} = this.props.auth
+    if(isAuth){
+      addStorageItemLogin({search:this.state.value,value:0,event:true})
+    }else{
+      addStorageItemNoLogin({search:this.state.value,value:0,event:true})
+    }
+    
+   
   }
   render() {
     const {username,isAuth,role} = this.props.auth

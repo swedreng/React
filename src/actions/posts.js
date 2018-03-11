@@ -360,8 +360,7 @@ export function blockPost(payload) {
                   }else{
                     posts.data.splice(index,1)
                   }
-                dispatch({type:GET_POSTS, payload:{data:posts.data,postCount:response.postCount}})
-          
+                dispatch({type:GET_POSTS, payload:{data:posts.data,postCount:response.postCount}})   
     })
   }
 }

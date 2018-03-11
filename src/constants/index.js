@@ -17,4 +17,5 @@ export const COMMENT_BEST = "COMMENT_BEST"
 export const COMMENTLAST_UPDATE = "COMMENTLAST_UPDATE"
 export const GET_COMMENT = "GET_COMMENT"
 export const SHARE_WRITE = "SHARE_WRITE"
+export const PERSONS = "PERSONS"
 
