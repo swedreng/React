@@ -4,6 +4,7 @@ import ProfileDetail from './ProfileDetail'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as ppuploadActions from "../actions/ppupload"
+import * as emptyPersonActions from "../actions/users"
 import Dropzone from 'react-dropzone'
 import Loading from './loading'
 import Loadable from 'react-loadable'
@@ -39,7 +40,11 @@ class Profile extends Component{
         
         this.state = { selectedTab:0, pictureC:null }
         
-    }   
+    }  
+    componentWillMount(){
+        let { emptyPerson } = this.props.emptyPersonActions
+        //emptyPerson()
+    } 
     changeTab(index){
         this.setState({selectedTab:index})
     }
@@ -153,7 +158,8 @@ const mapStateToProps = ({ auth }) => ({
     auth
 })
 const mapDispatchToProps = dispatch => ({
-    ppuploadActions: bindActionCreators(ppuploadActions, dispatch)
+    ppuploadActions: bindActionCreators(ppuploadActions, dispatch),
+    emptyPersonActions: bindActionCreators(emptyPersonActions, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

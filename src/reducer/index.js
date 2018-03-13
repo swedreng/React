@@ -8,6 +8,7 @@ import fileupload from "./fileupload"
 import posts from "./posts"
 import sharewrite from "./sharewrite"
 import persons from "./persons"
+import viewperson from "./viewperson"
 
 const appReducer = combineReducers({  
     auth,
@@ -17,7 +18,8 @@ const appReducer = combineReducers({
     fileupload,
     posts,
     sharewrite,
-    persons
+    persons,
+    viewperson
 
 })
 

@@ -48,6 +48,9 @@ class NoLoginSearch extends Component{
         }
         this.setState({comment: commentnew})
     }
+    viewProfile(){
+        
+    }
    
     render(){
         const { posts: { data } } = this.props
@@ -76,7 +79,7 @@ class NoLoginSearch extends Component{
                                     </div>
                                     <div className="person-info col-xs-12 col-lg-4 col-md-4">
                                         <div className="person-firstname-lastname">
-                                            <a><b>{person.firstname} {person.lastname}</b></a>
+                                            <a onClick={() => this.viewProfile(person.id)}><b>{person.firstname} {person.lastname}</b></a>
                                         </div>
                                         <div className="role-info">
                                            {person.rank == 1 ? (<p>Admin</p>) :person.rank == 2 ? (<p>Moderator</p>) : <p>Kullanıcı</p>} 

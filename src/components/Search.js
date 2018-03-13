@@ -65,6 +65,10 @@ class Search extends Component{
         let { blockUser } = this.props.postsActions
         blockUser({post_id:post_id,user_id})
     }
+    LoginviewProfile(person_id){
+        let { LoginviewProfile } = this.props.searchActions
+        LoginviewProfile({person_id,value:0,event:true})
+    }
     render(){
         const { posts: { data } } = this.props
         const { persons: { persons} } = this.props
@@ -92,7 +96,7 @@ class Search extends Component{
                                     </div>
                                     <div className="person-info col-xs-12 col-lg-4 col-md-4">
                                         <div className="person-firstname-lastname">
-                                            <a><b>{person.firstname} {person.lastname}</b></a>
+                                            <a onClick={() => this.LoginviewProfile(person.id)}><b>{person.firstname} {person.lastname}</b></a>
                                         </div>
                                         <div className="role-info">
                                            {person.rank == 1 ? (<p>Admin</p>) :person.rank == 2 ? (<p>Moderator</p>) : <p>Kullanıcı</p>} 

@@ -1,5 +1,5 @@
 
-import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE,PERSONS, GET_POSTS} from "../constants"
+import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE,PERSONS, GET_POSTS,VİEW_PERSON} from "../constants"
 import {alertMessage} from "./desc"
 export function getUsers(payload) {
   return (dispatch, getState, api) => { 
@@ -194,5 +194,50 @@ export function getuserinfoUpdate(payload) {
     }
     
   }
+
+  export function LoginviewProfile(payload) {
+    
+      return (dispatch, getState) => { 
+        let { auth } = getState() 
+        
+        return fetch(`${process.env.URL}/api/loginviewprofile`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${auth.token} `
+          },
+          body: JSON.stringify({
+            person_id: payload.person_id,
+            postReq: payload.value,
+            event: payload.event
+            })
+          
+          }).then(response => response.json()).then(response => {
+            window.location = "#/loginviewprofile"
+            console.log(response.Posts,response.event,2)
+            if(response.data){
+              if(payload.event){
+                var data = response.data
+                var postCount = response.postCount
+              }else{
+                var data = posts.data.concat(response.data)
+                var postCount = response.postCount
+              }
+               
+            }else{
+              var data = []
+              var postCount = 0
+            }
+            dispatch({type: VİEW_PERSON, payload:response.Users})
+            dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
+        })
+      }
+    }
   
+    export function emptyPerson() {
+      return (dispatch, getState) => { 
+      dispatch({type: VİEW_PERSON, payload:[]})
+      }
+    }
   

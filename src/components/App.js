@@ -18,6 +18,8 @@ import Access from './Access'
 import AuthAccess from './AuthAccess'
 import Search from './Search'
 import NoLoginSearch from './NoLoginSearch'
+import LoginViewProfile from './LoginViewProfile'
+import ViewProfile from './ViewProfile'
 
 class App extends Component {
 
@@ -38,6 +40,8 @@ class App extends Component {
                 <Route path="/signup" component={SignUp} />
                 <Route path="/logout"  component={Logout} />
                 <Route path="/search" component={NoLoginSearch} />
+                <Route path="/loginviewprofile" component={LoginViewProfile} />
+                <Route path="/viewprofile" component={ViewProfile} />
               </Route>
           </Router>
         </Provider>

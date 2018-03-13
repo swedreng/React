@@ -30,7 +30,7 @@ class Main extends Component{
     }
    
     onUpdate(){
-        console.log('323232')
+        console.log('login')
         if(this.props.auth.isAuth){
             let { getPosts } = this.props.postsActions
             let { postCount } = this.props.posts
@@ -44,7 +44,7 @@ class Main extends Component{
                 }  
             }  
         }else{
-
+            console.log('nologin')
             let { getNoLogin } = this.props.noLoginPostsActions
             let { postCount } = this.props.posts
             if(this.props.posts.data.length < postCount){
