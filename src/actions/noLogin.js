@@ -29,7 +29,7 @@ export function getNoLogin(payload) {
             var data = []
             var postCount = 0
           }
-         
+          
           dispatch({type: GET_POSTS, payload:{data:data,postCount:postCount}})
       })
     }

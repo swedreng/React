@@ -235,6 +235,52 @@ export function getuserinfoUpdate(payload) {
       }
     }
   
+
+    export function viewProfile(payload) {
+      
+        return (dispatch, getState) => { 
+          let { auth,posts } = getState() 
+          
+          return fetch(`${process.env.URL}/api/viewprofile`, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              person_id: payload.person_id,
+              postReq: payload.value,
+              event: payload.event
+              })
+            
+            }).then(response => response.json()).then(response => {
+              if(payload.event == true){
+                window.location = "#/viewprofile"
+              }
+              
+              console.log(response.Posts,response.event,2)
+              if(response.data){
+                if(payload.event){
+                  var data = response.data
+                  var postCount = response.postCount
+                }else{
+                  var data = posts.data.concat(response.data)
+                  var postCount = response.postCount
+                }
+                 
+              }else{
+                var data = []
+                var postCount = 0
+              }
+              if(payload.event == true){
+                dispatch({type: VİEW_PERSON, payload:response.Users})
+              }
+              dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
+          })
+        }
+      }
+
+
     export function emptyPerson() {
       return (dispatch, getState) => { 
       dispatch({type: VİEW_PERSON, payload:[]})
