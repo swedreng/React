@@ -1,44 +1,31 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import * as searchActions from "../actions/users"
-import * as postsActions from "../actions/posts"
-import Loading from './loading'
+import * as postsActions from "../../actions/posts"
+import * as viewProfileActions from "../../actions/users"
+import Loading from '../loading'
 import Loadable from 'react-loadable'
-import ScrollContainer from './ScrollContainer'
-import './search.scss'
+import ScrollContainer from '../ScrollContainer'
+import './viewuserposts.scss'
 
 const UserComments = Loadable({
-    loader: () => import('./UserComment.js'),
+    loader: () => import('../UserComment.js'),
     loading: Loading,
     delay:4000
 });
 
 const Comment = Loadable({
-    loader: () => import('./Comment.js'),
+    loader: () => import('../Comment.js'),
     loading: Loading,
     delay:4000
 });
-class Search extends Component{
+class viewuserposts extends Component{
         constructor(props){
         super(props)
         this.state = {loadMore:false, status:true,comment:{}}
         this.onUpdate = this.onUpdate.bind(this)
     }
 
-    onUpdate(){       
-            let { addStorageItemLogin } = this.props.searchActions
-            let { postCount } = this.props.posts
-            console.log(this.props.posts.data.length < postCount,23)
-            if(this.props.posts.data.length < postCount){
-                if(this.state.status == true){
-                    this.setState({loadMore:true,status:false}) //TODO: 2.kez çekilen postlara search değişkeni gönderilecek.
-                    addStorageItemLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(()=>{
-                        this.setState({status:true,loadMore:false})
-                    })
-                }  
-            }  
-    }
     actionComment(post_id){
         const commentnew =  {...this.state.comment};
         if(commentnew[post_id]){
@@ -57,77 +44,34 @@ class Search extends Component{
         let { deletePost } = this.props.postsActions
         deletePost({post_id:post_id})
     }
-    blockPost(post_id){
-        let { blockPost } = this.props.postsActions
-        blockPost({post_id:post_id})
-    }
-    blockUser(post_id,user_id){
-        let { blockUser } = this.props.postsActions
-        blockUser({post_id:post_id,user_id})
-    }
-    LoginviewProfile(person_id){
-        let { LoginviewProfile } = this.props.searchActions
-        LoginviewProfile({person_id,value:0,event:true})
+    onUpdate(){
+        let { LoginviewProfile } = this.props.viewProfileActions
+        let { postCount } = this.props.posts
+        let { viewperson:{ person } } = this.props
+        console.log(person.id,55)
+        console.log(this.props.posts.data.length < postCount,23)
+        if(this.props.posts.data.length < postCount){
+            if(this.state.status == true){
+                this.setState({loadMore:true,status:false})
+                LoginviewProfile((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, person_id:person.id} : {value:0,event:false,person_id:person.id})).then(()=>{
+                    this.setState({status:true,loadMore:false})
+                })
+            }  
+        } 
     }
     render(){
         const { posts: { data } } = this.props
-        const { persons: { persons} } = this.props
-        console.log(persons)
         const { user_id } = this.props.auth
         const { role } = this.props.auth
         return(
             <div className="row">
-                    <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 person">
-                    <div className="row">
-                            <div className="people-image col-xs-12 col-lg-3 col-md-3"></div>
-                            <div className="people-name col-xs-12 col-lg-4 col-md-4">
-                                Kişiler
-                            </div>    
-                        </div>
-                         <hr className="hr-search"/>
-                        { persons.length > 0 ? (
-                            
-                            <div>
-                            { persons.map(person => {
-                                return (
-                                    <div className="row persons"> 
-                                    <div className="person-image col-xs-12 col-lg-2 col-md-2">
-                                        <img className="search-people-image" src={person.pp}/>
-                                    </div>
-                                    <div className="person-info col-xs-12 col-lg-4 col-md-4">
-                                        <div className="person-firstname-lastname">
-                                            <a onClick={() => this.LoginviewProfile(person.id)}><b>{person.firstname} {person.lastname}</b></a>
-                                        </div>
-                                        <div className="role-info">
-                                           {person.rank == 1 ? (<p>Admin</p>) :person.rank == 2 ? (<p>Moderator</p>) : <p>Kullanıcı</p>} 
-                                        </div>    
-
-                                    </div>   
-                                    <div className="person-process">
-                                        
-                                    </div>    
-                                </div>
-                                )
-                            })}
-                            </div>
-                        ) : (<p className="alert alert-danger">Aradığınız isimde kullanıcı bulunmamaktadır..</p>)}
-                        
-                    </div>
-                    <div className="post-title col-xs-12 col-lg-7 col-md-7">
-                            <div className="post-picture col-xs-12 col-lg-2 col-md-2"></div>
-                            <div className="post-write col-xs-12 col-lg-4 col-md-4">
-                                Gönderiler
-                            </div>
-                    </div>   
                 {(data.length > 0 ? 
                     (
                         <ScrollContainer onUpdate={this.onUpdate}>
-                                  
-                            {   
+                            {
                                 data.map((post,index) => (
-                                    
                                     <div className="posts">
-                                    <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
+                                    <div className="img-thumbnail col-xs-12 col-lg-12 col-md-12 imagediv"> 
                                     <div className="caption MainText">
                                         <div className="row">
                                             <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
@@ -201,20 +145,20 @@ class Search extends Component{
                         </ScrollContainer>
                     )
                     : 
-                    <p className="alert alert-danger col-xs-12 col-lg-7 col-md-7">Aramanızla eşleşen gönderi bulunmamaktadır..</p>
+                    <Loading/>
                     )}
                
             </div>
         );
     }
 }
-const mapStateToProps = ({ auth,description,posts,persons }) => ({
-    auth,description,posts,persons
+const mapStateToProps = ({ auth,description,posts,viewperson }) => ({
+    auth,description,posts,viewperson
 })
 
 const mapDispatchToProps = dispatch => ({
-    searchActions: bindActionCreators(searchActions,dispatch),
-    postsActions: bindActionCreators(postsActions,dispatch)
+    postsActions: bindActionCreators(postsActions,dispatch),
+    viewProfileActions: bindActionCreators(viewProfileActions,dispatch)
 })
   
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
+export default connect(mapStateToProps, mapDispatchToProps)(viewuserposts)

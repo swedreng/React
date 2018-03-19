@@ -39,12 +39,12 @@ class LoginViewProfile extends Component{
       
         switch (this.state.selectedTab) {
             case 0:
-            const Posts = Loadable({
-                loader: () => import('./profile/posts.js'),
+            const ViewUserPosts = Loadable({
+                loader: () => import('./profile/viewuserposts.js'),
                 loading: Loading,
                 delay:3000
             })    
-                return <Posts/>             
+                return <ViewUserPosts/>             
                 break
                 default:
             const Contact = Loadable({

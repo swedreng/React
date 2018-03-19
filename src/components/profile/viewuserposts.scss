@@ -1,0 +1,170 @@
+.MainImage{
+    height:auto;
+    
+    img{ 
+        height:auto;
+        width:100%; 
+        margin-bottom:10px;
+        overflow: hidden !important;
+        
+    }
+}
+.page{
+    margin-left:auto
+    
+}
+.posts{
+    padding-left: 0px;
+    padding-bottom: 20px;
+    .imagediv{
+      margin-bottom: 10px !important;
+        hr{
+            margin-top:5px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.commentbest{
+    padding:0px !important;
+}
+
+.ppimage{
+   
+    height: 40px;
+    width: 40px;
+    padding-right: 3px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-top:10px;
+    margin-left:-10px;
+    
+}
+.postTime{
+    margin-top:10px;
+    float: right;
+    color: #b4b6bd;
+}
+.option{
+    float: right !important;
+    
+}
+.MainText{
+    
+    p{
+        display: table;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 17px;
+        padding-top:11px !important;
+        margin-left: 10px;
+        
+    }
+}
+
+.icon{
+    padding: 7px;
+    
+    img{
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+    .likeicon{
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-left:10px;   
+    }
+    b{
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 15px;
+        padding-left:2px;
+    }
+ 
+}
+
+.jumbotron {
+   padding-top:0px !important
+}
+
+@media only screen and (max-device-width: 768px)  {
+    .MainImage{
+        height:100%
+    }
+}
+
+
+@media only screen and (max-device-width: 425px)  {
+    .MainImage{
+        height:50%
+    }
+}
+
+.like{
+    width: 25px;
+    height: 25px;
+    float:left;
+    background-image:url('../../images/like.png');
+    background-size:cover;
+}
+
+.active{
+    background-image:url('../../images/like_active.png');
+    
+}
+
+.delete{
+    width: 20px;
+    height: 20px;
+    float:right;
+    background-image:url('../../images/delete.png');
+    background-size:cover;
+    cursor: pointer;
+}
+
+.jumbotron{
+    .Loading{
+        img{
+            width: 100px;
+            height: 100px;
+            margin-left:50%;
+            margin-right:50%;
+        }
+        
+    }
+}
+
+.likecomment{
+    display: flex;
+    .likecount{
+        margin-right: 5px;
+    }
+    .commentcount{
+
+    }
+}
+
+.confirmation_active{
+    background-image:url('../../images/confirmation_active.png') !important; 
+}
+.confirmationUser{
+    width: 30px;
+    height: 30px;
+    float:right;
+    margin-left: 10px;
+    background-image:url('../../images/confirmation.png');
+    background-size:cover;
+    
+}
+
+.Loading{
+    img{
+        width: 100px;
+        height: 100px;
+        margin-left:40%;
+        margin-right:50%;
+    }
+    
+}
+
+

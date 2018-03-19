@@ -198,7 +198,7 @@ export function getuserinfoUpdate(payload) {
   export function LoginviewProfile(payload) {
     
       return (dispatch, getState) => { 
-        let { auth } = getState() 
+        let { auth,posts } = getState() 
         
         return fetch(`${process.env.URL}/api/loginviewprofile`, {
           method: 'POST',
