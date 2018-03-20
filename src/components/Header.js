@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import Autocomplete from 'react-autocomplete'
@@ -11,6 +11,7 @@ class Header extends Component {
     this.state = {value:''}
   }
   addStorageItem(){
+    console.log("geldim.")
     let{ addStorageItemNoLogin,addStorageItemLogin } = this.props.usersActions
     const {isAuth} = this.props.auth
     if(isAuth){
@@ -23,7 +24,6 @@ class Header extends Component {
   }
   render() {
     const {username,isAuth,role} = this.props.auth
-    console.log(this.state.value)
     return (
       
 <nav className="navbar navbar-default" id="header">
@@ -63,7 +63,7 @@ class Header extends Component {
               }}
             inputProps={{className:'form-control search-input',placeholder:'Birşeyler Ara..'}}
           />
-          <button onClick={()=>this.addStorageItem()}type="submit" className="btn btn-default"><div className={'searchImage'}></div></button>
+          <button onClick={() => this.addStorageItem()} className="btn btn-default"><div className={'searchImage'}></div></button>
         </div>
       </form>
       </div>

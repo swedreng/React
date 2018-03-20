@@ -56,6 +56,7 @@ class posts extends Component{
         deletePost({post_id:post_id})
     }
     onUpdate(){
+        console.log("bla bla bla")
         let { getUserPosts } = this.props.postsActions
         let { postCount } = this.props.posts
         console.log(this.props.posts.data.length < postCount,23)

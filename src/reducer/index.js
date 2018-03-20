@@ -1,5 +1,5 @@
 import { combineReducers } from "redux"
-
+import { routerReducer as routing } from 'react-router-redux'
 import auth from "./auth" 
 import signup from "./signup" 
 import description from "./description" 
@@ -11,6 +11,7 @@ import persons from "./persons"
 import viewperson from "./viewperson"
 
 const appReducer = combineReducers({  
+    routing,
     auth,
     signup,
     description,

@@ -1,6 +1,7 @@
 
 import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE,PERSONS, GET_POSTS,VİEW_PERSON} from "../constants"
 import {alertMessage} from "./desc"
+import { push } from 'react-router-redux'
 export function getUsers(payload) {
   return (dispatch, getState, api) => { 
     let { auth } = getState()
@@ -85,6 +86,7 @@ export function getuserinfoUpdate(payload) {
  
     
   export function addStorageItemLogin(payload) {
+    console.log("gelgel")
     var result = JSON.parse(localStorage.getItem('search'))
     if(result){
       const search = JSON.parse(localStorage.getItem('search'))
@@ -118,7 +120,7 @@ export function getuserinfoUpdate(payload) {
           })
         
         }).then(response => response.json()).then(response => {
-          window.location = "#/loginsearch"
+          dispatch(push('/loginsearch'))
           if(response.data){
             if(response.event){
               var data = response.data
@@ -135,6 +137,7 @@ export function getuserinfoUpdate(payload) {
           
           dispatch({type: PERSONS, payload:response.Users})
           dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
+          
       })
     }
     

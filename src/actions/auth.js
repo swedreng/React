@@ -1,6 +1,9 @@
 
+import { push } from 'react-router-redux'
+import { history } from '../store'
 import { SET_AUTH_LOGIN, RESET_AUTH , SET_LOGIN_DESC} from "../constants"
 import {alertMessage} from "./desc"
+
 export function setAuth(payload) {
   return (dispatch, getState) => { 
     
@@ -23,7 +26,8 @@ export function setAuth(payload) {
            response.isAuth = response.success; 
            localStorage.setItem('auth',JSON.stringify(response))
             setTimeout(() => {
-            window.location = "#/"
+              dispatch(push('/'))
+              //history.push('/')
           },   3000);
         }
     })

@@ -19,6 +19,7 @@ const Comment = Loadable({
     loading: Loading,
     delay:4000
 });
+
 class viewuserposts extends Component{
         constructor(props){
         super(props)
@@ -45,6 +46,7 @@ class viewuserposts extends Component{
         deletePost({post_id:post_id})
     }
     onUpdate(){
+        console.log("viewonupdate")
         let { LoginviewProfile } = this.props.viewProfileActions
         let { postCount } = this.props.posts
         let { viewperson:{ person } } = this.props

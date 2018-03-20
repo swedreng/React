@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { Router, Route, Redirect, IndexRoute, Link, hashHistory } from 'react-router';
-import Store from "../store/index.js";
-import { Provider } from "react-redux";
+import {
+  Route, // standart route geçişlerini sağlayan react componenti aşağıda en alt katmanda kullandık, sayfa geçişleri için.
+  Switch  // Route'larda olan sayfa geçişlerini yakalayıp aktif hale getirip componentleri çağıran üst component.
+} from 'react-router-dom'; // Reactın Son sürümüyle bu özellikler dom içerisinde geliyor.
+import { store, history} from "../store/index.js"; // oluşturduğumuz store 'u export etmiştik burda kullanmak adına import ediyoruz.
+import { Provider } from "react-redux"; // Reactin store'u yayıp diğer componentlerde de kullanmamızı sağlayan ana component. Diğer componentler
+                                        // bunun içerisine konuluyor.
+import { ConnectedRouter } from 'react-router-redux' // History'i componentlerde kullanmak adına yaymamızı sağlıyor ayrıca componentlerle history'i birbirine bağlayan component.
 import './app.scss';
 
 import Content from './Content.js';
@@ -26,27 +31,29 @@ class App extends Component {
   render() {
 
     return (
-      <Provider store={Store}>
-        <Router history={hashHistory}>  
-              <Route component={Layout}>
-                <Route path="/" component={Content}/>
-                <Route path="/login" component={Login} />
-                <Route path="/login" component={Logout} />
-                <Route path="/about" component={About} />
-                <Route path="/contact" component={Contact} />
-                <Route path="/admin" component={(props) => <AuthAccess roles={[1]} Comp={Admin} />} />
-                <Route path="/profile" component={(props) => <AuthAccess roles={[1,0,2]} Comp={Profile} />} />
-                <Route path="/loginsearch" component={Search} />
-                <Route path="/signup" component={SignUp} />
-                <Route path="/logout"  component={Logout} />
-                <Route path="/search" component={NoLoginSearch} />
-                <Route path="/loginviewprofile" component={LoginViewProfile} />
-                <Route path="/viewprofile" component={ViewProfile} />
-              </Route>
-          </Router>
-        </Provider>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Layout>
+            <Switch>
+              <Route exact path="/" component={Content}/>
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/login" component={Logout} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/admin" component={(props) => <AuthAccess roles={[1]} Comp={Admin} />} />
+              <Route exact path="/profile" component={(props) => <AuthAccess roles={[1,0,2]} Comp={Profile} />} />
+              <Route exact path="/loginsearch" component={Search} />
+              <Route exact path="/signup" component={SignUp} />
+              <Route exact path="/logout"  component={Logout} />
+              <Route exact path="/search" component={NoLoginSearch} />
+              <Route exact path="/loginviewprofile" component={LoginViewProfile} />
+              <Route exact path="/viewprofile" component={ViewProfile} />
+            </Switch>
+          </Layout>
+        </ConnectedRouter>
+      </Provider>
     );
   }
 }
 
-export default(App)
+export default App

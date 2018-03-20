@@ -1,5 +1,5 @@
 import {GET_POSTS,POST_LIKE,COMMENT_UPDATE, COMMENT_LIKE,COMMENT_BEST, COMMENTLAST_UPDATE,GET_COMMENT, PP_UPLOAD} from "../constants"
-
+import { LOCATION_CHANGE } from 'react-router-redux'
 const defaulState = {
   data: [],
   postCount:0
@@ -74,7 +74,6 @@ export default (state = defaulState, action = {}) => {
     }
       break 
 
-
     case POST_LIKE:
     
       return {...state,data:state.data.map(post =>{
@@ -87,6 +86,7 @@ export default (state = defaulState, action = {}) => {
           })
         }    
       break   
+    
       default:
       return state
   }
