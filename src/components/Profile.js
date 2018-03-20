@@ -41,10 +41,7 @@ class Profile extends Component{
         this.state = { selectedTab:0, pictureC:null }
         
     }  
-    componentWillMount(){
-        let { emptyPerson } = this.props.emptyPersonActions
-        emptyPerson()
-    } 
+ 
     changeTab(index){
         this.setState({selectedTab:index})
     }

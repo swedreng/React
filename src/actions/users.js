@@ -199,7 +199,7 @@ export function getuserinfoUpdate(payload) {
   }
 
   export function LoginviewProfile(payload) {
-    
+    console.log(payload,67)
       return (dispatch, getState) => { 
         let { auth,posts } = getState() 
         
@@ -217,7 +217,7 @@ export function getuserinfoUpdate(payload) {
             })
           
           }).then(response => response.json()).then(response => {
-            window.location = "#/loginviewprofile"
+            dispatch(push('/loginviewprofile'))
             console.log(response.Posts,response.event,2)
             if(response.data){
               if(payload.event){
@@ -283,10 +283,4 @@ export function getuserinfoUpdate(payload) {
         }
       }
 
-
-    export function emptyPerson() {
-      return (dispatch, getState) => { 
-      dispatch({type: VİEW_PERSON, payload:[]})
-      }
-    }
   
