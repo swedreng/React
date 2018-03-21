@@ -258,7 +258,7 @@ export function getuserinfoUpdate(payload) {
             
             }).then(response => response.json()).then(response => {
               if(payload.event == true){
-                window.location = "#/viewprofile"
+                dispatch(push('/viewprofile'))
               }
               
               console.log(response.Posts,response.event,2)

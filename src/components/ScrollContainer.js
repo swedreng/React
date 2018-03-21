@@ -16,10 +16,11 @@ class ScrollContainer extends PureComponent {
     }
     
     onScroll(){
-        console.log(window.innerHeight, window.scrollY, document.body.offsetHeight,55)
+      //  console.log(window.innerHeight, window.scrollY, document.body.offsetHeight,55)
         if((window.innerHeight + window.scrollY) >= (document.body.offsetHeight-1)){
             this.props.onUpdate()
         }
+      
     }
     
     render() {

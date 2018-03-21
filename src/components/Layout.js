@@ -6,11 +6,41 @@ import Footer from './Footer.js';
 
 
 class Layout extends Component{
+    constructor(props){
+        super(props)
+        this.state = {show:false}
+        this.onScroll = this.onScroll.bind(this)
+    }
 
+    componentDidMount() {
+        window.addEventListener('scroll', this.onScroll, false);
+    }
+    
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.onScroll, false);
+    }
+    onScroll(){
+        if(window.scrollY > 200 && !this.state.show){
+           this.setState({show:true})
+        }
+    }
+    scrollTop(){
+        
+            var avarege = window.scrollY / 5
+            var timer = setInterval(function(){
+                var value = window.scrollY - avarege
+                window.scrollTo(0,value)    
+                if(window.scrollY <= 0) {
+                    clearInterval(timer)
+                }
+            }, 100);
+    }
+    
     render(){
         return(
             
                <div id="content">
+               <div style={(this.state.show ? {display:'block'} : {display:'none'})}className={'scrollTop'} onClick={() => this.scrollTop()}></div>
                     <div className="row">
                         <div className="col-xs-12 col-lg-12 nopadding">
                             <Header/>
