@@ -90,14 +90,14 @@
 
 @media only screen and (max-device-width: 768px)  {
     .MainImage{
-        height:auto
+        height:auto !important;
     }
 }
 
 
 @media only screen and (max-device-width: 425px)  {
     .MainImage{
-        height:auto
+        height:auto !important;
     }
 }
 
