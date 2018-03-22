@@ -9,6 +9,7 @@ import posts from "./posts"
 import sharewrite from "./sharewrite"
 import persons from "./persons"
 import viewperson from "./viewperson"
+import password_token from "./password_token"
 
 const appReducer = combineReducers({  
     routing,
@@ -20,7 +21,8 @@ const appReducer = combineReducers({
     posts,
     sharewrite,
     persons,
-    viewperson
+    viewperson,
+    password_token
 
 })
 

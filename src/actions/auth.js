@@ -1,7 +1,7 @@
 
 import { push } from 'react-router-redux'
 import { history } from '../store'
-import { SET_AUTH_LOGIN, RESET_AUTH , SET_LOGIN_DESC} from "../constants"
+import { SET_AUTH_LOGIN, RESET_AUTH , SET_LOGIN_DESC, PASSWORD_RESET} from "../constants"
 import {alertMessage} from "./desc"
 
 export function setAuth(payload) {
@@ -33,8 +33,46 @@ export function setAuth(payload) {
     })
   }
 }
-export function resetLogin() {
 
+export function PasswordReset(payload) {
+  return (dispatch, getState) => { 
+
+    fetch(`${process.env.URL}/api/passwordreset`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: payload.email
+        })
+      }).then(response => response.json()).then(response => {
+        dispatch({type: PASSWORD_RESET, payload:response.token})
+    })
+  }
+}
+
+export function PasswordUpdate(payload) {
+  return (dispatch, getState) => { 
+    console.log(payload.token,payload.password)
+    fetch(`${process.env.URL}/api/passwordupdate`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        password: payload.password,
+        token: payload.token
+        })
+      }).then(response => response.json()).then(response => {
+        
+    })
+  }
+}
+
+
+export function resetLogin() {
   localStorage.removeItem('auth')
   
   return { type: RESET_AUTH }

@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as authActions from "../actions/auth"
@@ -13,11 +14,15 @@ class Login extends Component{
 
     }
   
-      loginSubmit(event) {
-          let { setAuth } = this.props.authActions;
-          setAuth({username: this.state.name, pass:this.state.pass})
+    loginSubmit(event) {
+        let { setAuth } = this.props.authActions;
+        setAuth({username: this.state.name, pass:this.state.pass})
           
-      }
+    }
+    passwordReset(){
+        let { passwordReset } = this.props.authActions
+        passwordReset()
+    }
 
     render(){
       
@@ -54,6 +59,7 @@ class Login extends Component{
                                         <label>
                                             <input name="remember" type="checkbox" value="Remember Me"/> Beni hatırla
                                         </label>
+                                        <Link to="/passwordreset"><a className="passwordreset">Şifremi unuttum</a></Link>
                                     </div>
                                     <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.loginSubmit}>Giris Yap</button>
                                 </fieldset>

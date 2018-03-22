@@ -19,4 +19,5 @@ export const GET_COMMENT = "GET_COMMENT"
 export const SHARE_WRITE = "SHARE_WRITE"
 export const PERSONS = "PERSONS"
 export const VİEW_PERSON = "VİEW_PERSON"
+export const PASSWORD_RESET = "PASSWORD_RESET"
 

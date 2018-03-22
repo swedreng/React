@@ -25,7 +25,8 @@ import Search from './Search'
 import NoLoginSearch from './NoLoginSearch'
 import LoginViewProfile from './LoginViewProfile'
 import ViewProfile from './ViewProfile'
-
+import PasswordReset from './PasswordReset'
+import PasswordUpdate from './PasswordUpdate'
 class App extends Component {
 
   render() {
@@ -37,7 +38,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Content}/>
               <Route exact path="/login" component={Login} />
-              <Route exact path="/login" component={Logout} />
+              <Route exact path="/passwordreset" component={PasswordReset} />
+              <Route exact path="/password_update/:token" component={PasswordUpdate} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/admin" component={(props) => <AuthAccess roles={[1]} Comp={Admin} />} />
