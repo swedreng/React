@@ -17,6 +17,7 @@ class PasswordReset extends Component{
     render(){
         const { email } = this.state
         const isEnabled = (email)
+        const {message} = this.props.description
         return(
             <div className="container">
                 <div className="row">
@@ -34,7 +35,9 @@ class PasswordReset extends Component{
                                     <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={() => this.PasswordReset()}>Şifremi sıfırla</button>
                                 </fieldset>
                                 </form>
-                                
+                                <div>
+                                {(message ? <p className="alert alert-warning">{message}</p> :null)}  
+                                </div>  
                             </div>
                         </div>
                     </div>
