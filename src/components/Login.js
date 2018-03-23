@@ -60,6 +60,7 @@ class Login extends Component{
                                             <input name="remember" type="checkbox" value="Remember Me"/> Beni hatırla
                                         </label>
                                         <Link to="/passwordreset"><a className="passwordreset">Şifremi unuttum</a></Link>
+                                        <a href={`${process.env.URL}/api/auth/facebook`} className="passwordreset">Facebook Login</a>
                                     </div>
                                     <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.loginSubmit}>Giris Yap</button>
                                 </fieldset>
