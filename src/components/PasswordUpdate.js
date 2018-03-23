@@ -21,6 +21,7 @@ class PasswordUpdate extends Component{
     render(){
         const { password } = this.state
         const isEnabled = (password)
+        const {message} = this.props.description
         return(
             <div className="container">
                 <div className="row">
@@ -38,7 +39,9 @@ class PasswordUpdate extends Component{
                                     <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={() => this.PasswordUpdate()}>Şifremi Güncelle</button>
                                 </fieldset>
                                 </form>
-                                
+                                <div>
+                                {(message ? <p className="alert alert-warning">{message}</p> :null)}  
+                                </div>
                             </div>
                         </div>
                     </div>

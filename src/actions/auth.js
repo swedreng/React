@@ -47,7 +47,7 @@ export function PasswordReset(payload) {
         email: payload.email
         })
       }).then(response => response.json()).then(response => {
-        dispatch({type: PASSWORD_RESET, payload:response.token})
+        dispatch(alertMessage({message:response.message}))
     })
   }
 }
@@ -66,7 +66,7 @@ export function PasswordUpdate(payload) {
         token: payload.token
         })
       }).then(response => response.json()).then(response => {
-        
+        dispatch(alertMessage({message:response.message}))
     })
   }
 }
