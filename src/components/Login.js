@@ -55,14 +55,23 @@ class Login extends Component{
                                         onChange={(e) => this.setState({pass:e.target.value})}
                                         placeholder="Şifre"/>
                                     </div>
-                                    <div className="checkbox">
-                                        <label>
-                                            <input name="remember" type="checkbox" value="Remember Me"/> Beni hatırla
-                                        </label>
-                                        <Link to="/passwordreset"><a className="passwordreset">Şifremi unuttum</a></Link>
-                                        <a href={`${process.env.URL}/api/auth/facebook`} className="passwordreset">Facebook Login</a>
-                                    </div>
+                                    <div className="checkbox loginoptions">
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <label>
+                                                    <input name="remember" type="checkbox" value="Remember Me"/> Beni hatırla
+                                                </label>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <Link to="/passwordreset"><a className="passwordreset"><div className={'forgetpassword'}></div>Şifremi unuttum</a></Link>
+                                            </div>    
+                                        </div>    
+                                        <div className="row">
+                                            <a href={`${process.env.URL}/api/auth/facebook`} className="facebooklogin"><div className='facebook'></div>Facebook Giriş</a>
+                                        </div>   
+                                        
                                     <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.loginSubmit}>Giris Yap</button>
+                                    </div>
                                 </fieldset>
                                 </form>
                                 <div>

@@ -68,12 +68,11 @@ export function getuserinfoUpdate(payload) {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
+        
         body: JSON.stringify({
-          firstname: payload.firstname,
-          lastname: payload.lastname,
-          username: payload.username,
-          email: payload.email
-          })
+          value: payload.value,
+          status: payload.status
+        })
         
         }).then(response => response.json()).then(response => {
           console.log(response)
@@ -82,6 +81,76 @@ export function getuserinfoUpdate(payload) {
       })
     }
   }
+
+  export function getUserEmailUpdate(payload) {
+    
+      return (dispatch, getState) => { 
+        let { auth } = getState() 
+        
+        return fetch(`${process.env.URL}/api/user/emailupdate`, {
+          method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${auth.token} `
+          },
+          body: JSON.stringify({
+            email: payload.email
+          })
+          }).then(response => response.json()).then(response => {
+            console.log(response)
+             dispatch(alertMessage({message:response.message}))
+             dispatch({type: USERINFO_UPDATE, payload:response.success})
+        })
+      }
+  }
+
+  export function getUsernameUpdate(payload) {
+    
+      return (dispatch, getState) => { 
+        let { auth } = getState() 
+        
+        return fetch(`${process.env.URL}/api/user/usernameupdate`, {
+          method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${auth.token} `
+          },
+          body: JSON.stringify({
+            username: payload.username
+          })
+          }).then(response => response.json()).then(response => {
+            console.log(response)
+             dispatch(alertMessage({message:response.message}))
+             dispatch({type: USERINFO_UPDATE, payload:response.success})
+        })
+      }
+  }
+
+  export function userPasswordUpdate(payload) {
+    
+      return (dispatch, getState) => { 
+        let { auth } = getState() 
+        
+        return fetch(`${process.env.URL}/api/user/passwordupdate`, {
+          method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${auth.token} `
+          },
+          body: JSON.stringify({
+            oldpassword: payload.oldpassword,
+            newpassword: payload.newpassword
+          })
+          }).then(response => response.json()).then(response => {
+            console.log(response)
+             dispatch(alertMessage({message:response.message}))
+             dispatch({type: USERINFO_UPDATE, payload:response.success})
+        })
+      }
+    }
 
  
     
