@@ -47,7 +47,7 @@ class Layout extends Component{
                         </div>    
                     </div>   
                     <div className="row">
-                        <div className="col-xs-12 col-md-8 col-md-push-2">
+                        <div className="col-xs-12 col-md-8 col-md-push-2 mainContent">
                             {this.props.children} 
                         </div>   
                         <div className="col-xs-12 col-md-2 col-md-pull-8">
@@ -58,7 +58,7 @@ class Layout extends Component{
                         </div>
                     </div>  
                     <div className="row">
-                        <div className="col-xs-12 col-lg-12">
+                        <div className="col-xs-12 col-lg-12 footer">
                             <Footer/>
                         </div>
                     </div>

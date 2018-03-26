@@ -11,33 +11,32 @@ class info extends Component{
              <legend>Kişisel Bilgiler</legend>
              
              <div class="form-group">
-               <label class="col-md-4 control-label" for="tel">Telefon</label>  
-               <div class="col-md-5">
-               <input id="tel" name="tel" type="text" placeholder="Telefon" class="form-control" required=""/>
-                 
+               <label class="col-md-3 control-label" for="tel">Telefon</label>  
+               <div class="col-md-6">
+                  <input id="tel" name="tel" type="text" placeholder="Telefon" class="form-control" required=""/>
                </div>
+               <div className="col-md-3">
+                  <button className="btn btn-danger">Ekle</button>
+               </div> 
              </div>
              
              <div className="form-group">
-               <label className="col-md-4 control-label" for="adres">Adres</label>  
-               <div className="col-md-5">
-               <input type="text" placeholder="Adres" className="form-control"/>
-                 
+               <label className="col-md-3 control-label" for="adres">Adres</label>  
+               <div className="col-md-6">
+                  <input type="text" placeholder="Adres" className="form-control"/>
                </div>
+               <div className="col-md-3">
+                 <button className="btn btn-danger">Ekle</button>
+               </div> 
              </div>
              
              <div className="form-group">
-               <label className="col-md-4 control-label" for="yazi">Yazı</label>
-               <div className="col-md-4">                     
-                <textarea className="form-control textarea" col="27" placeholder="Sizi anlatan birşey"></textarea>
+               <label className="col-md-3 control-label" for="yazi">Yazı</label>
+               <div className="col-md-6">                     
+                  <input type="text" placeholder="Sizi anlatan birşey.." className="form-control"/>
                </div>
-             </div>
-             
-             
-             <div className="form-group">
-               <label className="col-md-4 control-label" for="singlebutton"></label>
-               <div className="col-md-4">
-                 <button className="btn btn-warning">Ekle</button>
+               <div className="col-md-3">
+                 <button className="btn btn-danger">Ekle</button>
                </div>
              </div>
              
