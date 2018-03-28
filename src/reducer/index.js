@@ -11,6 +11,7 @@ import persons from "./persons"
 import viewperson from "./viewperson"
 import password_token from "./password_token"
 import searchdata from "./searchdata"
+import categories from "./categories"
 
 const appReducer = combineReducers({  
     routing,
@@ -24,8 +25,8 @@ const appReducer = combineReducers({
     persons,
     viewperson,
     password_token, // bu silinip kaldırılacak..
-    searchdata
-
+    searchdata,
+    categories
 })
 
 export default appReducer

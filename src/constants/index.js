@@ -21,4 +21,5 @@ export const PERSONS = "PERSONS"
 export const VİEW_PERSON = "VİEW_PERSON"
 export const PASSWORD_RESET = "PASSWORD_RESET"
 export const SEARCH_DATA = "SEARCH_DATA"
+export const SET_CATEGORİES = "SET_CATEGORİES"
 

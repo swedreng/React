@@ -1,4 +1,4 @@
-import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT} from "../constants"
+import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT, SET_CATEGORİES} from "../constants"
 import {alertMessage} from "./desc"
 import {commentUpdate} from "./commentupdate"
 export function getPosts(payload) {
@@ -383,6 +383,67 @@ export function blockUser(payload) {
         posts.data = posts.data.filter((post,index) => post.user.id != payload.user_id)
             
         dispatch({type:GET_POSTS, payload:{data:posts.data,postCount:response.postCount}})
+    })
+  }
+}
+
+export function userConfirmation(payload) {
+  return (dispatch, getState) => {    
+    let { auth, posts} = getState()
+    return fetch(`${process.env.URL}/api/post/userconfirmation`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+          user_id:payload.user_id 
+      })
+      }).then(response => response.json()).then(response => {
+        
+    })
+  }
+}
+
+export function setCategory(payload) {
+  return (dispatch, getState) => {    
+    let { auth, posts} = getState()
+    return fetch(`${process.env.URL}/api/post/setcategory`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+      body: JSON.stringify({
+          category_id:payload.category_id,
+          post_id: payload.post_id 
+      })
+      }).then(response => response.json()).then(response => {
+           posts.data.map(post => {
+            if(post.post_id == payload.post_id){
+              post.post_category = response.post_categories
+            } 
+          })
+        dispatch({type:GET_POSTS, payload:posts}) 
+    })
+  }
+}
+
+export function getCategory(payload) {
+  return (dispatch, getState) => {    
+    let { auth, posts} = getState()
+    return fetch(`${process.env.URL}/api/post/getcategory`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${auth.token} `
+      },
+     
+      }).then(response => response.json()).then(response => {
+        dispatch({type:SET_CATEGORİES,payload:response})
     })
   }
 }

@@ -28,8 +28,15 @@ class ModeratorMain extends Component{
 
     constructor(props){
         super(props)
-        this.state = {comment:{}}
+        this.state = {comment:{},categories:[]}
 
+    }
+    componentWillMount(){
+        let { getCategory } = this.props.postsActions
+        getCategory().then(()=>{
+            let { categories } = this.props.categories
+            this.setState({category_id:categories.category_id,})
+        })
     }
     actionComment(post_id){
         const commentnew =  {...this.state.comment};
@@ -61,11 +68,21 @@ class ModeratorMain extends Component{
         let { blockUser } = this.props.postsActions
         blockUser({user_id:user_id,post_id:post_id})
     }
+    userConfirmation(user_id){
+        let { userConfirmation } = this.props.postsActions
+        userConfirmation({user_id:user_id})
+    }
+    setCategory(category_id,post_id){
+        
+        let { setCategory } = this.props.postsActions
+        setCategory({category_id:category_id,post_id:post_id})
+    }
     render(){
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
         const { role } = this.props.auth
-       
+        const { categories } = this.props.categories
+        console.log(categories,2)
         return(
             <div className="ModeratorMain">
                 {data.map((post,index) => ( 
@@ -115,7 +132,7 @@ class ModeratorMain extends Component{
                                     </div>
                                     <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
                                         {post.user.rank == 1 ? (<div>Admin</div>) : (
-                                                <div className="dropdown option">
+                                            <div className="dropdown option">
                                                 <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>
@@ -123,13 +140,26 @@ class ModeratorMain extends Component{
                                                     {user_id == post.user.id || post.user.rank == 1 ? null:<li><a onClick={() => this.blockPost(post.post_id)}>Bunu görmek istemiyorum</a></li>}
                                                     {user_id == post.user.id || post.user.rank == 1 || post.user.rank == 2 ? null: <li><a onClick={() => this.blockUser(post.user.id)}>Kullanıcıyı engelle</a></li>}
                                                     {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
-                                                    
+                                                    {role == 1 || role == 2 ? <li><a onClick={() => this.userConfirmation(post.user.id)}>Kullanıcıya Onay ver</a></li> : null}
                                                 </ul>
                                             </div>
                                         )}
+                                        {role == 1 || role == 2 ? (
+                                             <div className="dropdown option" style={{marginRight:'5px'}}>
+                                                <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                    <span className="caret"></span>
+                                                </button>
+                                                <ul className="dropdown-menu"><b style={{padding:'10px', fontSize:'14px'}}>Kategorize et</b>
+                                                { categories.map(category => {
+                                                    return (
+                                                        <li><span style={{padding:'10px'}}><label class="checkbox-inline"><input type="checkbox" onClick={() => this.setCategory(category.category_id,post.post_id)} checked={post.post_category.find(cat => cat.category_id == category.category_id) ? true : false}/>{category.category_name}</label></span></li>
+                                                    )
+                                                })}
+                                                </ul>
+                                            </div>  
+                                            ) : null}
                                     </div>    
                             </div>    
-                            
                             </div>
                                 <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
                             
@@ -152,8 +182,8 @@ class ModeratorMain extends Component{
     }
 }
 
-const mapStateToProps = ({ posts,auth }) => ({
-    posts,auth
+const mapStateToProps = ({ posts,auth,categories }) => ({
+    posts,auth,categories
 })
 const mapDispatchToProps = dispatch => ({
     postsActions: bindActionCreators(postsActions, dispatch) 
