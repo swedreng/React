@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
 import Loading from './loading'
 import Loadable from 'react-loadable';
-
+import './adminmain.scss'
 
 const Comments = Loadable({
     loader: () => import('./Comments.js'),
@@ -30,6 +30,10 @@ class AdminMain extends Component{
         this.state = {comment:{}}
 
     }
+    componentWillMount(){
+        let { getCategory } = this.props.postsActions
+        getCategory()
+    }
     actionComment(post_id){
         const commentnew =  {...this.state.comment};
         if(commentnew[post_id]){
@@ -52,11 +56,17 @@ class AdminMain extends Component{
         let { postConfirmation } = this.props.postsActions
         postConfirmation({post_id:post_id})
     }
+    setCategory(category_id,post_id){
+        
+        let { setCategory } = this.props.postsActions
+        setCategory({category_id:category_id,post_id:post_id})
+    }
 
     render(){
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
         const { role } = this.props.auth
+        const { categories } = this.props.categories
        
         return(
             <div className="AdminMain">
@@ -67,10 +77,10 @@ class AdminMain extends Component{
                             <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                 <div className="caption MainText">
                                     <div className="row">
-                                        <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
-                                            <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                        <div className="col-lg-6 col-md-6 col-sm-4 col-xs-8">
+                                            <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                         </div>    
-                                        <div className="col-lg-7 col-md-7 col-sm-8 col-xs-4">
+                                        <div className="col-lg-5 col-md-5 col-sm-8 col-xs-4">
                                             <span className="postTime">{post.Time}</span>
                                         </div>   
                                         <div className="col-lg-1 col-md-5 col-sm-4 col-xs-8">
@@ -115,16 +125,28 @@ class AdminMain extends Component{
                                                     
                                                 </ul>
                                             </div>
-                                        </div>
+                                            {role == 1 || role == 2 ? (
+                                             <div className="dropdown option" style={{marginRight:'5px'}}>
+                                                <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                    <span className="caret"></span>
+                                                </button>
+                                                <ul className="dropdown-menu"><b style={{padding:'10px', fontSize:'14px'}}>Kategorize et</b>
+                                                { categories.map(category => {
+                                                    return (
+                                                        <li><span style={{padding:'10px'}}><label class="checkbox-inline"><input type="checkbox" onClick={() => this.setCategory(category.category_id,post.post_id)} checked={post.post_category.find(cat => cat.category_id == category.category_id) ? true : false}/>{category.category_name}</label></span></li>
+                                                    )
+                                                })}
+                                                </ul>
+                                            </div>  
+                                        ) : null}
+                                    </div>  
                                 </div>    
-                                
+                             
                                 </div>
                                     <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
-                                
                                 <div className="row Usercomment">
                                     <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
                                 </div>
-                                
                             </div> 
                             <div className="col-xs-12 col-lg-5 col-md-5 commentbest">
                                 <Comments comments={post}/>
@@ -138,8 +160,8 @@ class AdminMain extends Component{
     }
 }
 
-const mapStateToProps = ({ posts,auth }) => ({
-    posts,auth
+const mapStateToProps = ({ posts,auth,categories }) => ({
+    posts,auth,categories
 })
 const mapDispatchToProps = dispatch => ({
     postsActions: bindActionCreators(postsActions, dispatch) 

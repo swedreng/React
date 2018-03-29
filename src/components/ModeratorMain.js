@@ -28,15 +28,12 @@ class ModeratorMain extends Component{
 
     constructor(props){
         super(props)
-        this.state = {comment:{},categories:[]}
+        this.state = {comment:{}}
 
     }
     componentWillMount(){
         let { getCategory } = this.props.postsActions
-        getCategory().then(()=>{
-            let { categories } = this.props.categories
-            this.setState({category_id:categories.category_id,})
-        })
+        getCategory()
     }
     actionComment(post_id){
         const commentnew =  {...this.state.comment};
@@ -93,10 +90,10 @@ class ModeratorMain extends Component{
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
-                                    <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
-                                        <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                    <div className="col-lg-6 col-md-6 col-sm-4 col-xs-8">
+                                        <img className="ppimage" src={post.user.pp}/><b>{post.user.firstname} {post.user.lastname}</b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                     </div>    
-                                    <div className="col-lg-7 col-md-7 col-sm-8 col-xs-4">
+                                    <div className="col-lg-5 col-md-5 col-sm-8 col-xs-4">
                                         <span className="postTime">{post.Time}</span>
                                     </div>   
                                     <div className="col-lg-1 col-md-5 col-sm-4 col-xs-8">
@@ -140,7 +137,7 @@ class ModeratorMain extends Component{
                                                     {user_id == post.user.id || post.user.rank == 1 ? null:<li><a onClick={() => this.blockPost(post.post_id)}>Bunu görmek istemiyorum</a></li>}
                                                     {user_id == post.user.id || post.user.rank == 1 || post.user.rank == 2 ? null: <li><a onClick={() => this.blockUser(post.user.id)}>Kullanıcıyı engelle</a></li>}
                                                     {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
-                                                    {role == 1 || role == 2 ? <li><a onClick={() => this.userConfirmation(post.user.id)}>Kullanıcıya Onay ver</a></li> : null}
+                                                    {role == 1 || role == 2 && post.user.rank == 0 ? <li><a onClick={() => this.userConfirmation(post.user.id)}>Kullanıcıya Onay ver</a></li> : null}
                                                 </ul>
                                             </div>
                                         )}
