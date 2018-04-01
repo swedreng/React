@@ -15,10 +15,11 @@ class Main extends Component{
         super(props)
         this.state = {loadMore:false, status:true , category_id:null}
         this.onUpdate = this.onUpdate.bind(this)
-        this.des = this.des.bind(this)
+
     }
 
    componentWillMount(){
+       console.log(29)
         let { getPosts } = this.props.postsActions
         let { getNoLogin } = this.props.noLoginPostsActions
         let { category_id } = this.props
@@ -31,14 +32,7 @@ class Main extends Component{
         }
                
     }
-    
-   des(){
-    let { getPosts } = this.props.postsActions
-    let { category_id } = this.props
-    this.setState({category_id:category_id})
-    getPosts({value:0,event:true, filter:category_id})
-    console.log(43)
-   }
+ 
    
     onUpdate(){
         console.log('login')
@@ -74,10 +68,8 @@ class Main extends Component{
 
     render(){
         const { posts: { data } } = this.props
-        console.log(this.props.category_id,9)
         const { isAuth } = this.props.auth
-        console.log(this.state.category_id,8)
-        this.des()
+       
         return(
             <div className="jumbotron">
                 {(data.length > 0 ? 

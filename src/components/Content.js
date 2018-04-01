@@ -27,10 +27,12 @@ class Content extends Component{
  
 
     render(){
+        const { match: { params: { category_id } } } = this.props
         return(  
             <div className="row"> 
                 <div className="col-xs-12 col-md-12">
-                    {this.props.match.params.category_id}          
+                    {<CatMain render={(props) => (
+                    <CatMain {...props} pass_to_page_content='hi' />)}/>}          
                 </div> 
             </div>  
         );

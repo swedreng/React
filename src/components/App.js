@@ -39,7 +39,8 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route exact path="/" component={Content}/>
-              <Route exact path="/category/:category_id" component={Content}/>
+              <Route exact path="/category/:category_id" render={(props) => (
+              <Content {...props} pass_to_page_content='hi' />)}/>
               <Route exact path="/login" component={Login} />
               <Route exact path="/passwordreset" component={PasswordReset} />
               <Route exact path="/password_update/:token" component={PasswordUpdate} />
