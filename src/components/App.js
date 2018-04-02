@@ -27,6 +27,8 @@ import LoginViewProfile from './LoginViewProfile'
 import ViewProfile from './ViewProfile'
 import PasswordReset from './PasswordReset'
 import PasswordUpdate from './PasswordUpdate'
+import CatMain from './CatMain'
+
 class App extends Component {
 
   render() {
@@ -37,6 +39,7 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route exact path="/" component={Content}/>
+              <Route exact path="/category/:category_id" component={Content}/>
               <Route exact path="/login" component={Login} />
               <Route exact path="/passwordreset" component={PasswordReset} />
               <Route exact path="/password_update/:token" component={PasswordUpdate} />

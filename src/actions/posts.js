@@ -14,7 +14,8 @@ export function getPosts(payload) {
       },
       body: JSON.stringify({
         postReq: payload.value,
-        status: payload.event
+        status: payload.event,
+        filter: payload.filter
       })
       }).then(response => response.json()).then(response => { 
 

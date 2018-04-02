@@ -15,6 +15,7 @@ class Main extends Component{
         super(props)
         this.state = {loadMore:false, status:true , category_id:null}
         this.onUpdate = this.onUpdate.bind(this)
+        this.des = this.des.bind(this)
     }
 
    componentWillMount(){
@@ -24,17 +25,20 @@ class Main extends Component{
         this.setState({category_id:category_id})
         
         if(this.props.auth.isAuth){
-            if(typeof category_id != 'undefined'){
-                getPosts({value:0,event:true, filter:category_id})
-            }else{
-                getPosts({value:0,event:true})
-            }
-            
+            getPosts({value:0,event:true, filter:category_id})
         }else{
             getNoLogin({value:0,event:true})   
         }
                
     }
+    
+   des(){
+    let { getPosts } = this.props.postsActions
+    let { category_id } = this.props
+    this.setState({category_id:category_id})
+    getPosts({value:0,event:true, filter:category_id})
+    console.log(43)
+   }
    
     onUpdate(){
         console.log('login')
@@ -45,16 +49,9 @@ class Main extends Component{
             if(this.props.posts.data.length < postCount){
                 if(this.state.status == true){
                     this.setState({loadMore:true,status:false})
-                    if(this.state.category_id != null){
                         getPosts((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, filter:this.state.category_id} : {value:0,event:false})).then(()=>{
                             this.setState({status:true,loadMore:false})
                         })   
-                    }else{
-                        getPosts((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(()=>{
-                            this.setState({status:true,loadMore:false})
-                        })   
-                    }
-                   
                 }  
             }  
         }else{
@@ -77,9 +74,10 @@ class Main extends Component{
 
     render(){
         const { posts: { data } } = this.props
+        console.log(this.props.category_id,9)
         const { isAuth } = this.props.auth
-        
-        console.log(9999999999999999999999999999999999999999999999)
+        console.log(this.state.category_id,8)
+        this.des()
         return(
             <div className="jumbotron">
                 {(data.length > 0 ? 

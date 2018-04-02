@@ -25,7 +25,7 @@ class Login extends Component{
     }
 
     render(){
-      
+        
         const {isAuth} = this.props.auth
         const {message} = this.props.description
         const { name, pass} = this.state

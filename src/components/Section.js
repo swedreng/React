@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux"
+import { Link } from 'react-router-dom'
 import { bindActionCreators } from "redux"
 import * as categoryActions from "../actions/category"
 import * as postActions from "../actions/posts"
@@ -22,10 +23,7 @@ class Section extends Component{
             this.setState({status : true})
         } 
     }
-    getPosts(){
-        let { getPosts } = this.props.postActions
-        getPosts()
-    }
+    
     render(){
         const { categories } = this.props.categories
         console.log(categories.length,66)
@@ -37,14 +35,14 @@ class Section extends Component{
                     </a>
                     { categories.map(category => {
                         return (
-                            <a onClick={() => this.getPosts()} className="list-group-item">{category.category_name}<span className="badge">{category.PostCount}</span></a>
+                            <Link to={`/category/${category.category_id}`}><a className="list-group-item">{category.category_name}<span className="badge">{category.PostCount}</span></a></Link>
                         )
                     }).sort(categories.PostCount).slice(0,5)}
 
                     { this.state.status ? 
                         categories.map(category => {
                             return (
-                                <a href="#" className="list-group-item">{category.category_name}<span className="badge">{category.PostCount}</span></a>
+                                <Link to={`/category/${category.category_id}`}><a href="#" className="list-group-item">{category.category_name}<span className="badge">{category.PostCount}</span></a></Link>
                             )
                         }).slice(5,categories.length) : null}
                     <a onClick={() => this.getCategory()} className="list-group-item">Diğer</a>
