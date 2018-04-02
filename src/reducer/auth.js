@@ -8,6 +8,7 @@ const defaultState = {
   user_id:auth.user_id,
   token:auth.token,
   user_pp:auth.user_pp,
+  personalwriting: auth.personalwriting,
   isAuth:auth.isAuth ? true : false,
 }
 

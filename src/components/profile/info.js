@@ -16,7 +16,15 @@ class Info extends Component{
     
     getUsersInfo().then(()=>{
       const { user_info } = this.props.users
-      this.setState({phone:user_info.phone,adress:user_info.adress,personalwriting:user_info.personalwriting})
+      if(user_info.phone == null){ this.setState({phone: ''})}
+      else{ this.setState({phone:user_info.phone})}
+
+      if(user_info.adress == null) { this.setState({adress: ''})} 
+      else{ this.setState({ adress: user_info.adress})}
+
+      if(user_info.personalwriting == null) {this.setState({personalwriting: ''})}
+      else{ this.setState({personalwriting: user_info.personalwriting })}
+      
     }) 
     }
 
@@ -26,6 +34,7 @@ class Info extends Component{
         case 1: setUserInfo({value:this.state.phone,status:1})
           break
         case 2: setUserInfo({value:this.state.adress,status:2})
+          break
         default: setUserInfo({value:this.state.personalwriting, status:3})
           break
       }
@@ -49,7 +58,7 @@ class Info extends Component{
                     <div class="form-group">
                           <label class="col-md-3 control-label" for="textinput">Phone</label>  
                           <div class="col-md-6">
-                            <input value={this.state.phone} onChange={(e) => this.setState({firstname:e.target.value})} type="text" placeholder="Adınız" class="form-control"/>
+                            <input value={this.state.phone} onChange={(e) => this.setState({phone:e.target.value})} type="text" placeholder="Telefonunuz" class="form-control"/>
                             
                           </div>
                           <div className="col-md-3">
@@ -59,20 +68,20 @@ class Info extends Component{
                     <div class="form-group">
                           <label class="col-md-3 control-label" for="lastname">Adress</label>  
                           <div class="col-md-6">
-                            <input value={this.state.adress} onChange={(e) => this.setState({lastname:e.target.value})} type="text" placeholder="Soyadınız" class="form-control"/>
+                            <input value={this.state.adress} onChange={(e) => this.setState({adress:e.target.value})} type="text" placeholder="Adresiniz" class="form-control"/>
                           </div>
                           <div className="col-md-3">
-                            <button onClick={() => this.handleSubmit(2)} className="btn btn-danger btn-sm nameupdate">{this.state.phone ? 'Güncelle' : 'Kaydet'}</button>
+                            <button onClick={() => this.handleSubmit(2)} className="btn btn-danger btn-sm nameupdate">{this.state.adress ? 'Güncelle' : 'Kaydet'}</button>
                           </div>
                     </div>
 
                     <div class="form-group">
                           <label class="col-md-3 control-label" for="username">Write</label>  
                           <div class="col-md-6">
-                            <input value={this.state.personalwriting} onChange={(e) => this.setState({username:e.target.value})} type="text" placeholder="Kullanıcı adınız" class="form-control"/>
+                            <input value={this.state.personalwriting} onChange={(e) => this.setState({personalwriting:e.target.value})} type="text" placeholder="Sizi anlatan birşey .." class="form-control"/>
                           </div>
                           <div className="col-md-3">
-                            <button onClick={() => this.handleSubmit(3)} className="btn btn-danger btn-sm nameupdate">{this.state.phone ? 'Güncelle' : 'Kaydet'}</button>
+                            <button onClick={() => this.handleSubmit(3)} className="btn btn-danger btn-sm nameupdate">{this.state.personalwriting ? 'Güncelle' : 'Kaydet'}</button>
                           </div>
                     </div>
   

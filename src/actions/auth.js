@@ -20,7 +20,7 @@ export function setAuth(payload) {
       }).then(response => response.json()).then(response => {
 
         dispatch(alertMessage({message:response.message}))
-        dispatch({ type: SET_AUTH_LOGIN, payload:{ success: response.success, username:payload.username, role:response.role , username:response.username, user_id:response.user_id, pp:response.user_pp, token:response.token} })
+        dispatch({ type: SET_AUTH_LOGIN, payload:{ success: response.success, username:payload.username, role:response.role , username:response.username, user_id:response.user_id, pp:response.user_pp, token:response.token, personalwriting:response.personalwriting} })
           if(response.success){
             console.log(response.user_id,11)
            response.isAuth = response.success; 

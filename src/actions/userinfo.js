@@ -12,9 +12,8 @@ export function setUserInfo(payload){
           'Authorization': `Bearer ${auth.token} `
         },
         body: JSON.stringify({
-            phone: payload.phone,
-            adress: payload.adress,
-            personalwriting: payload.personalwriting,
+            value: payload.value,
+            status: payload.status
             })
         }).then(response => response.json()).then(response => {
             dispatch(alertMessage({message:response.message}))

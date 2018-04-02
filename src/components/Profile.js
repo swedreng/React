@@ -99,7 +99,7 @@ class Profile extends Component{
     }
 
     render(){
-        const { username, isAuth, role, user_pp } = this.props.auth
+        const { username, isAuth, role, user_pp ,personalwriting} = this.props.auth
         return(
         
         <div className="row profile">
@@ -116,7 +116,7 @@ class Profile extends Component{
                         
                         </Dropzone>
                     </div>
-                    
+
                     </div>
             
                     <div className="profile-usertitle">
@@ -125,6 +125,9 @@ class Profile extends Component{
                         </div>
                         <div className="profile-usertitle-job">
                           {role==1 ? "admin" : role==2 ? "moderatör" : "kullanıcı"}
+                        </div>
+                        <div>
+                            <p>{personalwriting}</p>
                         </div>
                     </div>
                 
