@@ -80,12 +80,11 @@ class NoLoginSearch extends Component{
                                     </div>
                                     <div className="person-info col-xs-12 col-lg-4 col-md-4">
                                         <div className="person-firstname-lastname">
-                                            <a onClick={() => this.viewProfile(person.id)}><b>{person.firstname} {person.lastname}</b></a>
+                                            <b><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(person.id)}>{person.firstname} {person.lastname}</a></b>
                                         </div>
                                         <div className="role-info">
                                            {person.rank == 1 ? (<p>Admin</p>) :person.rank == 2 ? (<p>Moderator</p>) : <p>Kullanıcı</p>} 
                                         </div>    
-
                                     </div>   
                                     <div className="person-process">
                                         

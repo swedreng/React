@@ -39,8 +39,7 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route exact path="/" component={Content}/>
-              <Route exact path="/category/:category_id" render={(props) => (
-              <Content {...props} pass_to_page_content='hi' />)}/>
+              <Route exact path="/category/:category_id" component={Content}/>
               <Route exact path="/login" component={Login} />
               <Route exact path="/passwordreset" component={PasswordReset} />
               <Route exact path="/password_update/:token" component={PasswordUpdate} />
@@ -48,7 +47,7 @@ class App extends Component {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/admin" component={(props) => <AuthAccess roles={[1]} Comp={Admin} />} />
               <Route exact path="/profile" component={(props) => <AuthAccess roles={[1,0,2]} Comp={Profile} />} />
-              <Route exact path="/loginsearch" component={Search} />
+              <Route exact path="/loginsearch/:search" component={Search} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/logout"  component={Logout} />
               <Route exact path="/search" component={NoLoginSearch} />

@@ -1,51 +1,99 @@
 import React, {Component} from 'react';
-import './info.scss'
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import * as userActions from "../../actions/users"
+import * as userInfoActions from "../../actions/userinfo"
+import Loading from "../loading"
+import './account.scss'
 
-class info extends Component{
+class Info extends Component{
+  constructor(props){
+    super(props)
+    this.state = {}
+  }
+  componentWillMount(){
+    let {getUsersInfo} = this.props.userActions
+    
+    getUsersInfo().then(()=>{
+      const { user_info } = this.props.users
+      this.setState({phone:user_info.phone,adress:user_info.adress,personalwriting:user_info.personalwriting})
+    }) 
+    }
+
+    handleSubmit(value){
+      let { setUserInfo } = this.props.userInfoActions
+      switch(value){
+        case 1: setUserInfo({value:this.state.phone,status:1})
+          break
+        case 2: setUserInfo({value:this.state.adress,status:2})
+        default: setUserInfo({value:this.state.personalwriting, status:3})
+          break
+      }
+    }  
+
     render(){
-        return(
-            <div className="row">
-             <form class="form-horizontal">
-             <fieldset>
-             
-             <legend>Kişisel Bilgiler</legend>
-             
-             <div class="form-group">
-               <label class="col-md-3 control-label" for="tel">Telefon</label>  
-               <div class="col-md-6">
-                  <input id="tel" name="tel" type="text" placeholder="Telefon" class="form-control" required=""/>
-               </div>
-               <div className="col-md-3">
-                  <button className="btn btn-danger">Ekle</button>
-               </div> 
-             </div>
-             
-             <div className="form-group">
-               <label className="col-md-3 control-label" for="adres">Adres</label>  
-               <div className="col-md-6">
-                  <input type="text" placeholder="Adres" className="form-control"/>
-               </div>
-               <div className="col-md-3">
-                 <button className="btn btn-danger">Ekle</button>
-               </div> 
-             </div>
-             
-             <div className="form-group">
-               <label className="col-md-3 control-label" for="yazi">Yazı</label>
-               <div className="col-md-6">                     
-                  <input type="text" placeholder="Sizi anlatan birşey.." className="form-control"/>
-               </div>
-               <div className="col-md-3">
-                 <button className="btn btn-danger">Ekle</button>
-               </div>
-             </div>
-             
-             </fieldset>
-             </form>
-             
-             
-            </div>
+      const {user_info} = this.props.users
+      const {result} = this.props.users
+      const {message} = this.props.description
+      const alertTrue = "alert alert-success"
+      const alertFalse = "alert alert-danger"
+       
+       if(user_info != null){
+        return( 
+        
+        <div className="row ">
+            <form class="form-horizontal">
+                <fieldset>   
+                  <legend>Kişisel Bilgiler</legend>
+
+                    <div class="form-group">
+                          <label class="col-md-3 control-label" for="textinput">Phone</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.phone} onChange={(e) => this.setState({firstname:e.target.value})} type="text" placeholder="Adınız" class="form-control"/>
+                            
+                          </div>
+                          <div className="col-md-3">
+                            <button onClick={() => this.handleSubmit(1)} className="btn btn-danger btn-sm nameupdate"> {this.state.phone ? 'Güncelle' : 'Kaydet'}</button>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                          <label class="col-md-3 control-label" for="lastname">Adress</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.adress} onChange={(e) => this.setState({lastname:e.target.value})} type="text" placeholder="Soyadınız" class="form-control"/>
+                          </div>
+                          <div className="col-md-3">
+                            <button onClick={() => this.handleSubmit(2)} className="btn btn-danger btn-sm nameupdate">{this.state.phone ? 'Güncelle' : 'Kaydet'}</button>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                          <label class="col-md-3 control-label" for="username">Write</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.personalwriting} onChange={(e) => this.setState({username:e.target.value})} type="text" placeholder="Kullanıcı adınız" class="form-control"/>
+                          </div>
+                          <div className="col-md-3">
+                            <button onClick={() => this.handleSubmit(3)} className="btn btn-danger btn-sm nameupdate">{this.state.phone ? 'Güncelle' : 'Kaydet'}</button>
+                          </div>
+                    </div>
+  
+                  </fieldset>
+              </form>
+              <div>
+                  {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
+              </div>  
+        </div>
         );
+      }
+      return <Loading/>
     }
 }
-export default info;
+
+const mapStateToProps = ({ users,description }) => ({
+  users,description
+})
+const mapDispatchToProps = dispatch => ({
+  userActions: bindActionCreators(userActions, dispatch),
+  userInfoActions: bindActionCreators(userInfoActions, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Info)

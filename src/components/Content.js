@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import Loading from './loading'
 import Loadable from 'react-loadable';
+import { connect } from "react-redux"
 import Main from './Main'
 import CatMain from './CatMain'
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router-dom'
+
 //const Main = Loadable({
   //  loader: () => import('./Main.js'),
    // loading: Loading,
@@ -20,22 +22,29 @@ const Pagination = Loadable({
 class Content extends Component{
     constructor(props){
         super(props)
-        this.state = {
-            category_id: undefined
-        }
+       
     }
- 
 
     render(){
         const { match: { params: { category_id } } } = this.props
+        console.log(category_id,93)
         return(  
             <div className="row"> 
                 <div className="col-xs-12 col-md-12">
-                    {<CatMain render={(props) => (
-                    <CatMain {...props} pass_to_page_content='hi' />)}/>}          
+                    {category_id == undefined ? <Main/> : <CatMain category_id = {category_id}/>}          
                 </div> 
             </div>  
         );
     }
 }
-export default withRouter(Content);
+
+
+const mapStateToProps = ({  }) => ({
+   
+})
+
+
+const mapDispatchToProps = dispatch => ({
+    
+})
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Content))

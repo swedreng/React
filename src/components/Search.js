@@ -7,6 +7,7 @@ import Loading from './loading'
 import Loadable from 'react-loadable'
 import ScrollContainer from './ScrollContainer'
 import './search.scss'
+import { viewProfile } from '../actions/users';
 
 const UserComments = Loadable({
     loader: () => import('./UserComment.js'),
@@ -22,18 +23,22 @@ const Comment = Loadable({
 class Search extends Component{
         constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true,comment:{}}
+        this.state = {loadMore:false, status:true,comment:{}, search:''}
         this.onUpdate = this.onUpdate.bind(this)
     }
-
+    componentWillMount(){
+        const { match: { params: { search } } } = this.props
+        this.setState({search:search})
+        console.log(search,90)
+    }
     onUpdate(){       
             let { addStorageItemLogin } = this.props.searchActions
             let { postCount } = this.props.posts
             console.log(this.props.posts.data.length < postCount,23)
             if(this.props.posts.data.length < postCount){
                 if(this.state.status == true){
-                    this.setState({loadMore:true,status:false}) //TODO: 2.kez çekilen postlara search değişkeni gönderilecek.
-                    addStorageItemLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(()=>{
+                    this.setState({loadMore:true,status:false})
+                    addStorageItemLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, search:this.state.search} : {value:0,event:false})).then(()=>{
                         this.setState({status:true,loadMore:false})
                     })
                 }  
@@ -69,6 +74,7 @@ class Search extends Component{
         let { LoginviewProfile } = this.props.searchActions
         LoginviewProfile({person_id,value:0,event:true})
     }
+  
     render(){
         const { posts: { data } } = this.props
         const { persons: { persons} } = this.props
@@ -96,7 +102,7 @@ class Search extends Component{
                                     </div>
                                     <div className="person-info col-xs-12 col-lg-4 col-md-4">
                                         <div className="person-firstname-lastname">
-                                            <a onClick={() => this.LoginviewProfile(person.id)}><b>{person.firstname} {person.lastname}</b></a>
+                                            <b><a style = {{color:'black', cursor:'pointer'}} onClick={() => this.LoginviewProfile(person.id)}>{person.firstname} {person.lastname}</a></b>
                                         </div>
                                         <div className="role-info">
                                            {person.rank == 1 ? (<p>Admin</p>) :person.rank == 2 ? (<p>Moderator</p>) : <p>Kullanıcı</p>} 
@@ -131,7 +137,7 @@ class Search extends Component{
                                     <div className="caption MainText">
                                         <div className="row">
                                             <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
-                                                <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                                <img className="ppimage" src={post.user.pp}/><b><a style = {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.id)}> {post.user.firstname} {post.user.lastname}</a></b>
                                             </div>    
                                             <div className="col-lg-7 col-md-7 col-sm-8 col-xs-4">
                                                 <span className="postTime">{post.Time}</span>

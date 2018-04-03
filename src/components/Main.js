@@ -13,22 +13,16 @@ import './main.scss'
 class Main extends Component{
     constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true , category_id:null}
+        this.state = {loadMore:false, status:true}
         this.onUpdate = this.onUpdate.bind(this)
     }
 
    componentWillMount(){
         let { getPosts } = this.props.postsActions
         let { getNoLogin } = this.props.noLoginPostsActions
-        let { category_id } = this.props
-        this.setState({category_id:category_id})
-        
+       
         if(this.props.auth.isAuth){
-            if(typeof category_id != 'undefined'){
-                getPosts({value:0,event:true, filter:category_id})
-            }else{
-                getPosts({value:0,event:true})
-            }
+            getPosts({value:0,event:true})
             
         }else{
             getNoLogin({value:0,event:true})   
@@ -45,16 +39,9 @@ class Main extends Component{
             if(this.props.posts.data.length < postCount){
                 if(this.state.status == true){
                     this.setState({loadMore:true,status:false})
-                    if(this.state.category_id != null){
-                        getPosts((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, filter:this.state.category_id} : {value:0,event:false})).then(()=>{
-                            this.setState({status:true,loadMore:false})
-                        })   
-                    }else{
-                        getPosts((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(()=>{
-                            this.setState({status:true,loadMore:false})
-                        })   
-                    }
-                   
+                    getPosts((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(()=>{
+                        this.setState({status:true,loadMore:false})
+                    })   
                 }  
             }  
         }else{

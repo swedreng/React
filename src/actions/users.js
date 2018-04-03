@@ -189,7 +189,7 @@ export function getuserinfoUpdate(payload) {
           })
         
         }).then(response => response.json()).then(response => {
-          dispatch(push('/loginsearch'))
+          dispatch(push(`/loginsearch/${payload.search}`))
           if(response.data){
             if(response.event){
               var data = response.data

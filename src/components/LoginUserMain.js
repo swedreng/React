@@ -5,6 +5,7 @@ import * as postsActions from "../actions/posts"
 import Loading from './loading'
 import Loadable from 'react-loadable';
 import './loginusermain.scss'
+import * as viewProfileActions from '../actions/users';
 
 const Comments = Loadable({
     loader: () => import('./Comments.js'),
@@ -60,6 +61,10 @@ class LoginUserMain extends Component{
         let { blockUser } = this.props.postsActions
         blockUser({post_id:post_id,user_id})
     }
+    LoginviewProfile(person_id){
+        let { LoginviewProfile } = this.props.viewProfileActions
+        LoginviewProfile({person_id,value:0,event:true})
+    }
     render(){
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
@@ -76,7 +81,7 @@ class LoginUserMain extends Component{
                                  <div className="caption MainText">
                                      <div className="row">
                                          <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
-                                             <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                             <img className="ppimage" src={post.user.pp}/><b><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.id)}> {post.user.firstname} {post.user.lastname}</a></b>
                                          </div>    
                                          <div className="col-lg-7 col-md-7 col-sm-8 col-xs-4">
                                              <span className="postTime">{post.Time}</span>
@@ -153,7 +158,8 @@ const mapStateToProps = ({ posts,auth }) => ({
     posts,auth
 })
 const mapDispatchToProps = dispatch => ({
-    postsActions: bindActionCreators(postsActions, dispatch) 
+    postsActions: bindActionCreators(postsActions, dispatch),
+    viewProfileActions: bindActionCreators(viewProfileActions, dispatch)
 })
   
 export default connect(mapStateToProps, mapDispatchToProps)(LoginUserMain)

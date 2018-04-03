@@ -19,20 +19,34 @@ class Main extends Component{
     }
 
    componentWillMount(){
-       console.log(29)
+       this.getQuery()
+               
+    }
+    
+    componentWillUpdate(nextProps){
+
+        if(this.props.category_id != nextProps.category_id){
+            console.log(nextProps.category_id,53)
+            this.getQuery(nextProps.category_id)
+        }
+        
+    }
+
+    getQuery(cat_id){
+      
+        console.log(29)
         let { getPosts } = this.props.postsActions
         let { getNoLogin } = this.props.noLoginPostsActions
         let { category_id } = this.props
-        this.setState({category_id:category_id})
+        console.log((cat_id ? cat_id : category_id),43)
+        this.setState({category_id:(cat_id ? cat_id : category_id)})
         
         if(this.props.auth.isAuth){
-            getPosts({value:0,event:true, filter:category_id})
+            getPosts({value:0,event:true, filter:(cat_id ? cat_id : category_id)})
         }else{
-            getNoLogin({value:0,event:true})   
+            getNoLogin({value:0,event:true, filter:(cat_id ? cat_id : category_id)})   
         }
-               
     }
- 
    
     onUpdate(){
         console.log('login')
@@ -55,11 +69,9 @@ class Main extends Component{
             if(this.props.posts.data.length < postCount){
                 if(this.state.status == true){
                     console.log(3,4)
-                    this.setState({loadMore:true})
-                    this.setState({status:false})
+                    this.setState({loadMore:true,status:false})
                     getNoLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(() =>{
-                        this.setState({status:true})
-                        this.setState({loadMore:false})
+                        this.setState({status:true,loadMore:false})
                     })
                 }
             }
@@ -84,7 +96,9 @@ class Main extends Component{
                         </ScrollContainer>
                     )
                     : 
-                    <Loading/>
+                    <div>
+                            { data.length < 0 ? <Loading/> : <p className="alert alert-danger">Bu kategoriye ait veri bulunmamaktadır.</p> }
+                    </div>
                     )}
 
                 </div>

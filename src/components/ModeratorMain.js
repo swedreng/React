@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
+import * as viewProfileActions from "../actions/users"
 import Loading from './loading'
 import Loadable from 'react-loadable'
 import './moderatormain.scss'
@@ -74,6 +75,10 @@ class ModeratorMain extends Component{
         let { setCategory } = this.props.postsActions
         setCategory({category_id:category_id,post_id:post_id})
     }
+    viewProfile(person_id){
+        let { LoginviewProfile } = this.props.viewProfileActions
+        LoginviewProfile({person_id,value:0,event:true})
+    }
     render(){
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
@@ -91,7 +96,7 @@ class ModeratorMain extends Component{
                             <div className="caption MainText">
                                 <div className="row">
                                     <div className="col-lg-6 col-md-6 col-sm-4 col-xs-8">
-                                        <img className="ppimage" src={post.user.pp}/><b>{post.user.firstname} {post.user.lastname}</b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
+                                        <img className="ppimage" src={post.user.pp}/><b><a style = {{ color:'black', cursor:'pointer'}} onClick = {() => this.viewProfile(post.user.id)}>{post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                     </div>    
                                     <div className="col-lg-5 col-md-5 col-sm-8 col-xs-4">
                                         <span className="postTime">{post.Time}</span>
@@ -114,7 +119,7 @@ class ModeratorMain extends Component{
                             <div className="row">
                                     <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
                                         <span onClick={() => this.likeSubmit(post.post_id)}> 
-                                            <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                            <div style = {{cursor: 'pointer'}} className={`like ${post.IslikedPost ? 'active' : null}`}></div>
                                             <b>Beğen</b>
                                         </span>
                                     </div>
@@ -183,7 +188,8 @@ const mapStateToProps = ({ posts,auth,categories }) => ({
     posts,auth,categories
 })
 const mapDispatchToProps = dispatch => ({
-    postsActions: bindActionCreators(postsActions, dispatch) 
+    postsActions: bindActionCreators(postsActions, dispatch),
+    viewProfileActions: bindActionCreators(viewProfileActions, dispatch)
 })
   
 export default connect(mapStateToProps, mapDispatchToProps)(ModeratorMain)
