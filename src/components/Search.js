@@ -137,7 +137,7 @@ class Search extends Component{
                                     <div className="caption MainText">
                                         <div className="row">
                                             <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
-                                                <img className="ppimage" src={post.user.pp}/><b><a style = {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.id)}> {post.user.firstname} {post.user.lastname}</a></b>
+                                                <img className="ppimage" src={post.user.pp}/><b><a style = {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>
                                             </div>    
                                             <div className="col-lg-7 col-md-7 col-sm-8 col-xs-4">
                                                 <span className="postTime">{post.Time}</span>

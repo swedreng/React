@@ -49,13 +49,12 @@ class viewuserposts extends Component{
         console.log("viewonupdate")
         let { LoginviewProfile } = this.props.viewProfileActions
         let { postCount } = this.props.posts
-        let { viewperson:{ person } } = this.props
-        console.log(person.id,55)
+        let { username } = this.props
         console.log(this.props.posts.data.length < postCount,23)
         if(this.props.posts.data.length < postCount){
             if(this.state.status == true){
                 this.setState({loadMore:true,status:false})
-                LoginviewProfile((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, person_username:person_username} : {value:0,event:false,person_id:person.id})).then(()=>{
+                LoginviewProfile((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, person_username:username} : {value:0,event:false,person_id:person.id})).then(()=>{
                     this.setState({status:true,loadMore:false})
                 })
             }  

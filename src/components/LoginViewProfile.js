@@ -35,10 +35,14 @@ class LoginViewProfile extends Component{
         
     }   
     componentWillMount(){
+        const { match: { params: { username } } } = this.props
+        let {LoginviewProfile } = this.props.userInfoActions
+        let { data } = this.props.posts
+        if(data.length <= 0) {
+            LoginviewProfile({person_username:username, value:0, event:true})
+        }
         let { getUsersInfo } = this.props.userInfoActions
         let { getUserSocialMedia } = this.props.userSocialActions
-        const { match: { params: { username } } } = this.props
-        console.log(username,21)
         this.setState({username:username})
         getUsersInfo()
         getUserSocialMedia()
@@ -56,7 +60,7 @@ class LoginViewProfile extends Component{
                 loading: Loading,
                 delay:3000
             })    
-                return <ViewUserPosts/>             
+                return <ViewUserPosts username={this.state.username}/>             
                 break
             case 1:
             const ShareInfo = Loadable({
@@ -79,7 +83,8 @@ class LoginViewProfile extends Component{
 
     render(){
         const { viewperson: { person} } = this.props
-
+        const { user_info } = this.props.users
+        if(user_info !=null){
         return(
         
         <div className="row profile">
@@ -87,14 +92,17 @@ class LoginViewProfile extends Component{
                 <div className="profile-sidebar">
                         <div>
                             <div className="profile-userpic">
-                                <img className="activeimage" src={person.pp}/>
+                                <img className="activeimage" src={user_info.pp}/>
                             </div>
                             <div className="profile-usertitle">
                                 <div className="profile-usertitle-name">
-                                    {person.firstname}{person.lastname}
+                                    {user_info.firstname} {user_info.lastname}
                                 </div>
                                 <div className="profile-usertitle-job">
-                                    {person.rank==1 ? "admin" : person.rank==2 ? "moderatör" : "kullanıcı"}
+                                    {user_info.rank==1 ? "admin" : user_info.rank==2 ? "moderatör" : "kullanıcı"}
+                                </div>
+                                <div>
+                                    <p>{user_info.personalwriting}</p>
                                 </div>
                             </div>
                         </div>   
@@ -118,11 +126,13 @@ class LoginViewProfile extends Component{
         </div>
         )
     }
+    return <Loading/>
+    }
 }
 
 
-const mapStateToProps = ({ auth,persons,viewperson }) => ({
-    auth,persons,viewperson
+const mapStateToProps = ({ auth,persons,viewperson,posts,users }) => ({
+    auth,persons,viewperson,posts,users
 })
 const mapDispatchToProps = dispatch => ({
     ppuploadActions: bindActionCreators(ppuploadActions, dispatch),

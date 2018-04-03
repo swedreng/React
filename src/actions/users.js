@@ -315,7 +315,7 @@ export function getuserinfoUpdate(payload) {
               var data = []
               var postCount = 0
             }
-            dispatch({type: VİEW_PERSON, payload:response.Users})
+            //dispatch({type: VİEW_PERSON, payload:response.Users}) Kaldırılacak.
             dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
         })
       }
