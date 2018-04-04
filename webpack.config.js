@@ -41,6 +41,10 @@ module.exports = {
         htmlWebpackConfig,
         new webpack.DefinePlugin({
             'process.env.URL': JSON.stringify("http://localhost:8000"),
+            'FACEBOOK': JSON.stringify("https://www.facebook.com"),
+            'TWITTER' :  JSON.stringify("https://www.twitter.com"),
+            'INSTAGRAM' : JSON.stringify("https://www.instagram.com"),
               }),
             ]
 }
+

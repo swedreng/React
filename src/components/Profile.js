@@ -4,7 +4,8 @@ import ProfileDetail from './ProfileDetail'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as ppuploadActions from "../actions/ppupload"
-import * as emptyPersonActions from "../actions/users"
+import * as userInfoActions from "../actions/users"
+import * as userSocialActions from "../actions/userinfo"
 import Dropzone from 'react-dropzone'
 import Loading from './loading'
 import Loadable from 'react-loadable'
@@ -23,7 +24,7 @@ const tabs = [
         icon: 'pencil',
     },
     {
-        name: 'Bilgi',
+        name: 'Kişisel Bilgiler',
         icon: 'list-alt',
     },
     {
@@ -38,10 +39,15 @@ class Profile extends Component{
     constructor(props){
         super(props);
         
-        this.state = { selectedTab:0, pictureC:null }
+        this.state = { selectedTab:0, pictureC:null,}
         
     }  
- 
+    componentWillMount(){
+        let { getUsersInfo } = this.props.userInfoActions
+        let { getUserSocialMedia } = this.props.userSocialActions
+        getUsersInfo()
+        getUserSocialMedia()
+    }
     changeTab(index){
         this.setState({selectedTab:index})
     }
@@ -99,67 +105,72 @@ class Profile extends Component{
     }
 
     render(){
-        const { username, isAuth, role, user_pp ,personalwriting} = this.props.auth
-        return(
+        const { isAuth, role, user_pp } = this.props.auth
+        const { user_info } = this.props.users
+        if(user_info !=null){
+            return(
+                
+                <div className="row profile">
+                    <div className="col-lg-4 col-xs-12">
+                        <div className="profile-sidebar">
+                        
+                            <div className="profile-userpic">
+                            <div className="dropzone">
+                                <Dropzone className="imageB" accept="image/jpeg, image/png , image/gif" onDrop={this.onDrop.bind(this)}>
+                                
+                                {(
+                                    <img className="activeimage" src={this.props.auth.user_pp}/>
+                                )}
+                                
+                                </Dropzone>
+                            </div>
         
-        <div className="row profile">
-            <div className="col-lg-4 col-xs-12">
-                <div className="profile-sidebar">
-                
-                    <div className="profile-userpic">
-                    <div className="dropzone">
-                        <Dropzone className="imageB" accept="image/jpeg, image/png , image/gif" onDrop={this.onDrop.bind(this)}>
+                            </div>
+                    
+                            <div className="profile-usertitle">
+                                <div className="profile-usertitle-name">
+                                    {user_info.username ? user_info.username:'user'}
+                                </div>
+                                <div className="profile-usertitle-job">
+                                  {role==1 ? "admin" : role==2 ? "moderatör" : "kullanıcı"}
+                                </div>
+                                <div>
+                                    <p>{user_info.personalwriting}</p>
+                                </div>
+                            </div>
                         
-                        {(
-                            <img className="activeimage" src={this.props.auth.user_pp}/>
-                        )}
-                        
-                        </Dropzone>
-                    </div>
-
-                    </div>
-            
-                    <div className="profile-usertitle">
-                        <div className="profile-usertitle-name">
-                            {username ? username:'user'}
-                        </div>
-                        <div className="profile-usertitle-job">
-                          {role==1 ? "admin" : role==2 ? "moderatör" : "kullanıcı"}
-                        </div>
-                        <div>
-                            <p>{personalwriting}</p>
+                            <div className="profile-usermenu">
+                                <ul className="nav">
+                                    {tabs.map((tab, index) => {
+                                        return (
+                                        <li key={index} className={`${(this.state.selectedTab == index ? 'active' : '' )}`} onClick={() => this.changeTab(index)}>
+                                        <span><i className={`glyphicon glyphicon-${tab.icon}`}></i>{tab.name}</span>
+                                        </li>)
+                                    })}
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                
-                    <div className="profile-usermenu">
-                        <ul className="nav">
-                            {tabs.map((tab, index) => {
-                                return (
-                                <li key={index} className={`${(this.state.selectedTab == index ? 'active' : '' )}`} onClick={() => this.changeTab(index)}>
-                                <span><i className={`glyphicon glyphicon-${tab.icon}`}></i>{tab.name}</span>
-                                </li>)
-                            })}
-                        </ul>
+                    <div className="col-lg-8 col-xs-12">
+                        <div className="profile-content">
+                            {this.renderTab()}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="col-lg-8 col-xs-12">
-                <div className="profile-content">
-                    {this.renderTab()}
-                </div>
-            </div>
-        </div>
-        )
+                )
+        }
+        return <Loading/>
     }
 }
 
 
-const mapStateToProps = ({ auth }) => ({
-    auth
+const mapStateToProps = ({ auth,users }) => ({
+    auth,users
 })
 const mapDispatchToProps = dispatch => ({
     ppuploadActions: bindActionCreators(ppuploadActions, dispatch),
-    emptyPersonActions: bindActionCreators(emptyPersonActions, dispatch)
+    userInfoActions: bindActionCreators(userInfoActions, dispatch),
+    userSocialActions: bindActionCreators(userSocialActions, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

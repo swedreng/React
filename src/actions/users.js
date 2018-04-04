@@ -59,7 +59,7 @@ export function getUsersInfo() {
 export function getuserinfoUpdate(payload) {
   
     return (dispatch, getState) => { 
-      let { auth } = getState() 
+      let { auth, users } = getState() 
       
       return fetch(`${process.env.URL}/api/user`, {
         method: 'PUT',
@@ -75,9 +75,19 @@ export function getuserinfoUpdate(payload) {
         })
         
         }).then(response => response.json()).then(response => {
-          console.log(response)
-           dispatch(alertMessage({message:response.message}))
-           dispatch({type: USERINFO_UPDATE, payload:response.success})
+          if(response.status == 1){
+            var user_info = users.user_info
+            user_info.firstname = payload.value
+            dispatch({type: GETUSER_INFO, payload:user_info}) 
+          }else{
+            var user_info = users.user_info
+            user_info.lastname = payload.value
+            dispatch({type: GETUSER_INFO, payload:user_info}) 
+          }
+          
+          dispatch(alertMessage({message:response.message}))
+          dispatch({type: USERINFO_UPDATE, payload:response.success})
+          
       })
     }
   }
@@ -85,7 +95,7 @@ export function getuserinfoUpdate(payload) {
   export function getUserEmailUpdate(payload) {
     
       return (dispatch, getState) => { 
-        let { auth } = getState() 
+        let { auth, users} = getState() 
         
         return fetch(`${process.env.URL}/api/user/emailupdate`, {
           method: 'PUT',
@@ -98,9 +108,11 @@ export function getuserinfoUpdate(payload) {
             email: payload.email
           })
           }).then(response => response.json()).then(response => {
-            console.log(response)
-             dispatch(alertMessage({message:response.message}))
-             dispatch({type: USERINFO_UPDATE, payload:response.success})
+            var user_info = users.user_info
+            user_info.email = payload.email
+            dispatch({type: GETUSER_INFO, payload:user_info}) 
+            dispatch(alertMessage({message:response.message}))
+            dispatch({type: USERINFO_UPDATE, payload:response.success})
         })
       }
   }
@@ -108,7 +120,7 @@ export function getuserinfoUpdate(payload) {
   export function getUsernameUpdate(payload) {
     
       return (dispatch, getState) => { 
-        let { auth } = getState() 
+        let { auth, users } = getState() 
         
         return fetch(`${process.env.URL}/api/user/usernameupdate`, {
           method: 'PUT',
@@ -121,9 +133,11 @@ export function getuserinfoUpdate(payload) {
             username: payload.username
           })
           }).then(response => response.json()).then(response => {
-            console.log(response)
-             dispatch(alertMessage({message:response.message}))
-             dispatch({type: USERINFO_UPDATE, payload:response.success})
+            var user_info = users.user_info
+            user_info.username = payload.username
+            dispatch({type: GETUSER_INFO, payload:user_info}) 
+            dispatch(alertMessage({message:response.message}))
+            dispatch({type: USERINFO_UPDATE, payload:response.success})
         })
       }
   }
@@ -145,7 +159,7 @@ export function getuserinfoUpdate(payload) {
             newpassword: payload.newpassword
           })
           }).then(response => response.json()).then(response => {
-            console.log(response)
+            
              dispatch(alertMessage({message:response.message}))
              dispatch({type: USERINFO_UPDATE, payload:response.success})
         })
@@ -280,13 +294,13 @@ export function getuserinfoUpdate(payload) {
             'Authorization': `Bearer ${auth.token} `
           },
           body: JSON.stringify({
-            person_id: payload.person_id,
+            person_username: payload.person_username,
             postReq: payload.value,
             event: payload.event
             })
           
           }).then(response => response.json()).then(response => {
-            dispatch(push('/loginviewprofile'))
+            dispatch(push(`/loginviewprofile/user/${response.username}`))
             console.log(response.Posts,response.event,2)
             if(response.data){
               if(payload.event){

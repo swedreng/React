@@ -12,10 +12,10 @@ class Info extends Component{
     this.state = {}
   }
   componentWillMount(){
-    let {getUsersInfo} = this.props.userActions
-    
-    getUsersInfo().then(()=>{
+   
       const { user_info } = this.props.users
+      const { user_social_media } = this.props.users
+      console.log(user_social_media,11)
       if(user_info.phone == null){ this.setState({phone: ''})}
       else{ this.setState({phone:user_info.phone})}
 
@@ -24,8 +24,16 @@ class Info extends Component{
 
       if(user_info.personalwriting == null) {this.setState({personalwriting: ''})}
       else{ this.setState({personalwriting: user_info.personalwriting })}
-      
-    }) 
+
+      if(user_social_media.facebook == null){ this.setState({facebook: ''})}
+      else{ this.setState({facebook:user_social_media.facebook})}
+
+      if(user_social_media.twitter == null) { this.setState({twitter: ''})} 
+      else{ this.setState({ twitter: user_social_media.twitter})}
+
+      if(user_social_media.instagram == null) {this.setState({instagram: ''})}
+      else{ this.setState({instagram: user_social_media.instagram })}
+  
     }
 
     handleSubmit(value){
@@ -39,6 +47,17 @@ class Info extends Component{
           break
       }
     }  
+    setSocialMedia(value){
+      let { setSocialMedia } = this.props.userInfoActions
+      switch(value){
+        case 1: setSocialMedia({value:this.state.facebook,status:1})
+          break
+        case 2: setSocialMedia({value:this.state.twitter,status:2})
+          break
+        default: setSocialMedia({value:this.state.instagram, status:3})
+          break
+      }
+    }
 
     render(){
       const {user_info} = this.props.users
@@ -82,6 +101,36 @@ class Info extends Component{
                           </div>
                           <div className="col-md-3">
                             <button onClick={() => this.handleSubmit(3)} className="btn btn-danger btn-sm nameupdate">{this.state.personalwriting ? 'Güncelle' : 'Kaydet'}</button>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                          <label class="col-md-3 control-label" for="username">Facebook</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.facebook} onChange={(e) => this.setState({facebook:e.target.value})} type="text" placeholder="Facebook(Kullanıcı adınız)" class="form-control"/>
+                          </div>
+                          <div className="col-md-3">
+                            <button onClick={() => this.setSocialMedia(1)} className="btn btn-danger btn-sm nameupdate">{this.state.facebook ? 'Güncelle' : 'Kaydet'}</button>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                          <label class="col-md-3 control-label" for="username">Twitter</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.twitter} onChange={(e) => this.setState({twitter:e.target.value})} type="text" placeholder="Twitter(Kullanıcı adınız)" class="form-control"/>
+                          </div>
+                          <div className="col-md-3">
+                            <button onClick={() => this.setSocialMedia(2)} className="btn btn-danger btn-sm nameupdate">{this.state.twitter ? 'Güncelle' : 'Kaydet'}</button>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                          <label class="col-md-3 control-label" for="username">İnstagram</label>  
+                          <div class="col-md-6">
+                            <input value={this.state.instagram} onChange={(e) => this.setState({instagram:e.target.value})} type="text" placeholder="İnstagram(Kullanıcı adınız)" class="form-control"/>
+                          </div>
+                          <div className="col-md-3">
+                            <button onClick={() => this.setSocialMedia(3)} className="btn btn-danger btn-sm nameupdate">{this.state.instagram ? 'Güncelle' : 'Kaydet'}</button>
                           </div>
                     </div>
   

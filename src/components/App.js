@@ -51,7 +51,7 @@ class App extends Component {
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/logout"  component={Logout} />
               <Route exact path="/search" component={NoLoginSearch} />
-              <Route exact path="/loginviewprofile" component={LoginViewProfile} />
+              <Route exact path="/loginviewprofile/user/:username" component={LoginViewProfile} />
               <Route exact path="/viewprofile" component={ViewProfile} />
             </Switch>
           </Layout>

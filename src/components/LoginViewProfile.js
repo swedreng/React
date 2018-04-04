@@ -4,6 +4,8 @@ import ProfileDetail from './ProfileDetail'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as ppuploadActions from "../actions/ppupload"
+import * as userInfoActions from "../actions/users"
+import * as userSocialActions from "../actions/userinfo"
 import Dropzone from 'react-dropzone'
 import Loading from './loading'
 import Loadable from 'react-loadable'
@@ -29,12 +31,22 @@ class LoginViewProfile extends Component{
     constructor(props){
         super(props);
         
-        this.state = { selectedTab:0, pictureC:null }
+        this.state = { selectedTab:0, pictureC:null, username:''}
         
     }   
+    componentWillMount(){
+        let { getUsersInfo } = this.props.userInfoActions
+        let { getUserSocialMedia } = this.props.userSocialActions
+        const { match: { params: { username } } } = this.props
+        console.log(username,21)
+        this.setState({username:username})
+        getUsersInfo()
+        getUserSocialMedia()
+    }
     changeTab(index){
         this.setState({selectedTab:index})
     }
+
     renderTab(){
       
         switch (this.state.selectedTab) {
@@ -46,6 +58,14 @@ class LoginViewProfile extends Component{
             })    
                 return <ViewUserPosts/>             
                 break
+            case 1:
+            const ShareInfo = Loadable({
+                loader: () => import('./profile/shareinfo.js'),
+                loading: Loading,
+                delay:3000
+            })    
+                return <ShareInfo username={this.state.username}/>             
+                break    
                 default:
             const Contact = Loadable({
                 loader: () => import('./profile/contact.js'),
@@ -59,6 +79,7 @@ class LoginViewProfile extends Component{
 
     render(){
         const { viewperson: { person} } = this.props
+
         return(
         
         <div className="row profile">
@@ -104,7 +125,10 @@ const mapStateToProps = ({ auth,persons,viewperson }) => ({
     auth,persons,viewperson
 })
 const mapDispatchToProps = dispatch => ({
-    ppuploadActions: bindActionCreators(ppuploadActions, dispatch)
+    ppuploadActions: bindActionCreators(ppuploadActions, dispatch),
+    userInfoActions: bindActionCreators(userInfoActions, dispatch),
+    userSocialActions: bindActionCreators(userSocialActions, dispatch)
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginViewProfile)

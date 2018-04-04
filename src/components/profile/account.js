@@ -14,12 +14,10 @@ class Account extends Component{
     this.state = {}
   }
   componentWillMount(){
-    let {getUsersInfo} = this.props.userActions
-    
-    getUsersInfo().then(()=>{
+
       const { user_info } = this.props.users
       this.setState({firstname:user_info.firstname,lastname:user_info.lastname,username:user_info.username,email:user_info.email})
-    }) 
+   
     }
 
     handleSubmit(value){
