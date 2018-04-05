@@ -26,16 +26,8 @@ class posts extends Component{
     }
 
     componentWillMount(){
-        let { viewperson:{ person } } = this.props
-        let { auth } = this.props
-        console.log(person.length,person.id,auth.user_id,!person.id,66)
-        if(!person.id){
-            let { getUserPosts } = this.props.postsActions
-            getUserPosts({value:0,event:true}) 
-        }else if(person.id == auth.id){
-            let { getUserPosts } = this.props.postsActions
-            getUserPosts({value:0,event:true}) 
-        }
+        let { getUserPosts } = this.props.postsActions
+        getUserPosts({value:0,event:true}) 
     }
     actionComment(post_id){
         const commentnew =  {...this.state.comment};

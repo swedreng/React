@@ -1,4 +1,4 @@
-import {USERINFO_UPDATE,GETUSER_INFO,GETUSER_SOCIAL_INFO} from "../constants"
+import {USERINFO_UPDATE,GETUSER_INFO,GETUSER_SOCIAL_INFO,VİEW_PERSON_SOCIAL_MEDIA,VİEW_PERSON_SHARE_INFO} from "../constants"
 import {alertMessage} from "./desc"
 
 export function setUserInfo(payload){
@@ -86,27 +86,50 @@ export function setUserInfo(payload){
        
         }).then(response => response.json()).then(response => {
           
-          dispatch(alertMessage({message:response.message}))
-          dispatch({type: USERINFO_UPDATE, payload:response.success})
           dispatch({type: GETUSER_SOCIAL_INFO, payload:response.data})
             
       })
     }
   }
 
+  export function getUserViewSocialMedia(payload){
+    console.log(payload,99)
+    return (dispatch, getState) => {    
+      let { auth,users } = getState()
+      return fetch(`${process.env.URL}/api/user/getviewsocialmedia`, {
+        method: 'POST',
+        headers: {  
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${auth.token} `
+        },
+        body: JSON.stringify({
+          person_username: payload.person_username
+        })
+        }).then(response => response.json()).then(response => {
+          console.log(response.data,73)
+          dispatch({type: VİEW_PERSON_SOCIAL_MEDIA, payload:response.data})
+            
+      })
+    }
+  }
+
+
   export function getShareInfo(payload){
     return (dispatch, getState) => {    
       let { auth,users } = getState()
       return fetch(`${process.env.URL}/api/user/getshareInfo`, {
-        method: 'GET',
+        method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
-       
+        body: JSON.stringify({
+          person_username: payload.person_username
+        })
         }).then(response => response.json()).then(response => {
-           dispatch({type: GETUSER_SHARE_INFO, payload:response.data})    
+           dispatch({type: VİEW_PERSON_SHARE_INFO, payload:{commentCount:response.commentCount,postCount:response.postCount}})    
       })
     }
   }

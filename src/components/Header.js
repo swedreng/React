@@ -82,7 +82,7 @@ class Header extends Component {
               <div className="dropDownMenu">
                   <ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">
-                      <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{username ? username: 'User'}<span className="caret"></span></a>
+                      <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{username ? username: <span className="glyphicon glyphicon-user"/>}<span className="caret"></span></a>
                       <ul className="dropdown-menu" role="menu">
                       
                       {(isAuth ?  

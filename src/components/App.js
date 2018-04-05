@@ -28,6 +28,8 @@ import ViewProfile from './ViewProfile'
 import PasswordReset from './PasswordReset'
 import PasswordUpdate from './PasswordUpdate'
 import CatMain from './CatMain'
+import LoginBestPosts from './LoginBestPosts'
+import NoLoginBestPosts from './NoLoginBestPosts'
 
 class App extends Component {
 
@@ -53,6 +55,9 @@ class App extends Component {
               <Route exact path="/search" component={NoLoginSearch} />
               <Route exact path="/loginviewprofile/user/:username" component={LoginViewProfile} />
               <Route exact path="/viewprofile" component={ViewProfile} />
+              <Route exact path="/loginbestpost/:post_id" component={LoginBestPosts} />
+              <Route exact path="/nologinbestpost/:post_id" component={NoLoginBestPosts} />
+
             </Switch>
           </Layout>
         </ConnectedRouter>

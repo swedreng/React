@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './profile.scss'
+
 import ProfileDetail from './ProfileDetail'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
@@ -31,21 +31,29 @@ class LoginViewProfile extends Component{
     constructor(props){
         super(props);
         
-        this.state = { selectedTab:0, pictureC:null, username:''}
+        this.state = { selectedTab:0, pictureC:null, username:'',person:{}, person_social_media: {}}
         
     }   
     componentWillMount(){
+       
         const { match: { params: { username } } } = this.props
         let {LoginviewProfile } = this.props.userInfoActions
         let { data } = this.props.posts
         if(data.length <= 0) {
-            LoginviewProfile({person_username:username, value:0, event:true})
+            LoginviewProfile({person_username:username, value:0, event:true}).then(() => { // aramadan gelince 2 kez istek atıyor ona bak.
+                const { viewperson: { person} } = this.props
+                this.setState({person:person.user})
+            })
         }
         let { getUsersInfo } = this.props.userInfoActions
-        let { getUserSocialMedia } = this.props.userSocialActions
+        let { getUserViewSocialMedia } = this.props.userSocialActions
         this.setState({username:username})
-        getUsersInfo()
-        getUserSocialMedia()
+        //getUsersInfo() // buna gerek yok bak sonra..
+        getUserViewSocialMedia({person_username:username}).then(() => {
+            const { viewperson: { person_social_media } } = this.props
+            this.setState({person_social_media:person_social_media})
+        })
+       
     }
     changeTab(index){
         this.setState({selectedTab:index})
@@ -76,15 +84,13 @@ class LoginViewProfile extends Component{
                 loading: Loading,
                 delay:3000
             })
-                return <Contact />              
+                return <Contact view_person={this.state.person} user_social_media={this.state.person_social_media}/>              
                 break
         }
     }
 
     render(){
-        const { viewperson: { person} } = this.props
-        const { user_info } = this.props.users
-        if(user_info !=null){
+  
         return(
         
         <div className="row profile">
@@ -92,17 +98,17 @@ class LoginViewProfile extends Component{
                 <div className="profile-sidebar">
                         <div>
                             <div className="profile-userpic">
-                                <img className="activeimage" src={user_info.pp}/>
+                                <img className="activeimage" src={this.state.person.pp}/>
                             </div>
                             <div className="profile-usertitle">
                                 <div className="profile-usertitle-name">
-                                    {user_info.firstname} {user_info.lastname}
+                                    {this.state.person.firstname} {this.state.person.lastname}
                                 </div>
                                 <div className="profile-usertitle-job">
-                                    {user_info.rank==1 ? "admin" : user_info.rank==2 ? "moderatör" : "kullanıcı"}
+                                    {this.state.person.rank==1 ? "admin" : this.state.person==2 ? "moderatör" : "kullanıcı"}
                                 </div>
                                 <div>
-                                    <p>{user_info.personalwriting}</p>
+                                    <p>{this.state.person.personalwriting}</p>
                                 </div>
                             </div>
                         </div>   
@@ -125,8 +131,7 @@ class LoginViewProfile extends Component{
             </div>
         </div>
         )
-    }
-    return <Loading/>
+    
     }
 }
 

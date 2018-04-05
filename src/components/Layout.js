@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from './Header.js';
 import Section from './Section.js';
-import Section2 from './Section2.js';
+import SectionBestPosts from './SectionBestPosts.js';
 import Footer from './Footer.js';
 
 
@@ -54,7 +54,7 @@ class Layout extends Component{
                             <Section/>
                         </div> 
                         <div className="col-xs-12 col-md-2">
-                            <Section2/>
+                            <SectionBestPosts/>
                         </div>
                     </div>  
                     <div className="row">

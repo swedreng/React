@@ -28,6 +28,10 @@ const tabs = [
         icon: 'list-alt',
     },
     {
+        name: 'Paylaşım Bilgileri',
+        icon: 'picture'
+    },
+    {
         name: 'İletisim',
         icon: 'earphone',
     },
@@ -93,6 +97,14 @@ class Profile extends Component{
             })
                 return <Info /> 
                 break
+            case 4:
+            const ShareInfo = Loadable({
+                loader: () => import('./profile/shareinfo.js'),
+                loading: Loading,
+                delay:3000
+            })
+                return <ShareInfo /> 
+                break    
                 default:
             const Contact = Loadable({
                 loader: () => import('./profile/contact.js'),

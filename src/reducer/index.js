@@ -12,7 +12,7 @@ import viewperson from "./viewperson"
 import password_token from "./password_token"
 import searchdata from "./searchdata"
 import categories from "./categories"
-
+import bestposts from "./bestpost"
 const appReducer = combineReducers({  
     routing,
     auth,
@@ -26,7 +26,8 @@ const appReducer = combineReducers({
     viewperson,
     password_token, // bu silinip kaldırılacak..
     searchdata,
-    categories
+    categories,
+    bestposts
 })
 
 export default appReducer

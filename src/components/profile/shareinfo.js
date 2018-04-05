@@ -10,29 +10,23 @@ class shareinfo extends Component{
     super(props)
     this.state = {}
   }
-  componentWillMount(){
-        let { getShareInfo } = this.props.userShareActions
-        let { username } = this.props
-        console.log(username,66)
-        getShareInfo()
-    }
 
     render(){
-     
+     let {viewperson: { person } } = this.props
+     let { user_share_info } = this.props.users
         return( 
         
         <div className="row">
-            LOREM İMPSUN
-              
+            <b>Toplam post sayısı:</b> {person ? person.postCount : user_share_info.postCount}
+            <br/>
+            <b>Toplam yorum sayısı:</b> {person ? person.commentCount : user_share_info.commentCount}
         </div>
         );
-      
-    
     }
 }
 
-const mapStateToProps = ({ users,description }) => ({
-  users,description
+const mapStateToProps = ({ viewperson,users }) => ({
+    viewperson,users
 })
 const mapDispatchToProps = dispatch => ({
     userShareActions: bindActionCreators(userShareActions, dispatch)
