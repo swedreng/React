@@ -1,4 +1,4 @@
-import {GET_POSTS,POST_LIKE,COMMENT_UPDATE, COMMENT_LIKE,COMMENT_BEST, COMMENTLAST_UPDATE,GET_COMMENT, PP_UPLOAD} from "../constants"
+import {GET_POSTS,POST_LIKE,COMMENT_UPDATE, COMMENT_LIKE,COMMENT_BEST, COMMENTLAST_UPDATE,GET_COMMENT, PP_UPLOAD,SS} from "../constants"
 import { LOCATION_CHANGE } from 'react-router-redux'
 const defaulState = {
   data: [],
@@ -86,8 +86,10 @@ export default (state = defaulState, action = {}) => {
           })
         }    
       break   
-    case LOCATION_CHANGE:
-      return defaulState
+    case SS:
+        return defaulState
+    //case LOCATION_CHANGE:
+      //return defaulState
       default:
       return state
   }

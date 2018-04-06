@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux"
 import * as ppuploadActions from "../actions/ppupload"
 import * as userInfoActions from "../actions/users"
 import * as userSocialActions from "../actions/userinfo"
+import * as postActions from "../actions/posts"
 import Dropzone from 'react-dropzone'
 import Loading from './loading'
 import Loadable from 'react-loadable'
@@ -47,6 +48,8 @@ class Profile extends Component{
         
     }  
     componentWillMount(){
+        let { S } = this.props.postActions
+        S()
         let { getUsersInfo } = this.props.userInfoActions
         let { getUserSocialMedia } = this.props.userSocialActions
         getUsersInfo()
@@ -182,7 +185,8 @@ const mapStateToProps = ({ auth,users }) => ({
 const mapDispatchToProps = dispatch => ({
     ppuploadActions: bindActionCreators(ppuploadActions, dispatch),
     userInfoActions: bindActionCreators(userInfoActions, dispatch),
-    userSocialActions: bindActionCreators(userSocialActions, dispatch)
+    userSocialActions: bindActionCreators(userSocialActions, dispatch),
+    postActions: bindActionCreators(postActions, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

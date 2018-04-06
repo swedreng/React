@@ -15,7 +15,7 @@ class Comment extends Component{
     commentSubmit(event) {
         let { comment } = this.props.commentActions
         let { commentCount } = this.props
-        console.log(this.props.post.CommentLast.length,this.props.post.post_id)
+        console.log(this.props.post.CommentLast.length,this.props.post.post_id,56)
         comment({comment: this.state.comment,post_id: this.props.post.post_id}).then(() => {
             console.log("geldim benn")
             this.setState({comment:''})

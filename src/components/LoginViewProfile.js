@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux"
 import * as ppuploadActions from "../actions/ppupload"
 import * as userInfoActions from "../actions/users"
 import * as userSocialActions from "../actions/userinfo"
+import * as postActions from "../actions/posts"
 import Dropzone from 'react-dropzone'
 import Loading from './loading'
 import Loadable from 'react-loadable'
@@ -35,16 +36,16 @@ class LoginViewProfile extends Component{
         
     }   
     componentWillMount(){
-       
+        let { S } = this.props.postActions
+        S()
         const { match: { params: { username } } } = this.props
         let {LoginviewProfile } = this.props.userInfoActions
-        let { data } = this.props.posts
-        if(data.length <= 0) {
-            LoginviewProfile({person_username:username, value:0, event:true}).then(() => { // aramadan gelince 2 kez istek atıyor ona bak.
+
+            LoginviewProfile({person_username:username, value:0, event:true}).then(() => { // 2 kez istek atıyor ona bak.
                 const { viewperson: { person} } = this.props
                 this.setState({person:person.user})
             })
-        }
+       
         let { getUsersInfo } = this.props.userInfoActions
         let { getUserViewSocialMedia } = this.props.userSocialActions
         this.setState({username:username})
@@ -105,7 +106,7 @@ class LoginViewProfile extends Component{
                                     {this.state.person.firstname} {this.state.person.lastname}
                                 </div>
                                 <div className="profile-usertitle-job">
-                                    {this.state.person.rank==1 ? "admin" : this.state.person==2 ? "moderatör" : "kullanıcı"}
+                                    {this.state.person.rank == 1 ? "admin" : this.state.person == 2 ? "moderatör" : "kullanıcı"}
                                 </div>
                                 <div>
                                     <p>{this.state.person.personalwriting}</p>
@@ -142,7 +143,8 @@ const mapStateToProps = ({ auth,persons,viewperson,posts,users }) => ({
 const mapDispatchToProps = dispatch => ({
     ppuploadActions: bindActionCreators(ppuploadActions, dispatch),
     userInfoActions: bindActionCreators(userInfoActions, dispatch),
-    userSocialActions: bindActionCreators(userSocialActions, dispatch)
+    userSocialActions: bindActionCreators(userSocialActions, dispatch),
+    postActions: bindActionCreators(postActions,dispatch)
 
 })
 

@@ -1,4 +1,4 @@
-import {SET_BESTPOSTS,SET_BESTPOST} from "../constants"
+import {SET_BESTPOSTS,SET_BESTPOST,GET_POSTS} from "../constants"
 import {alertMessage} from "./desc"
 
 export function getBestPostToday(){
@@ -28,7 +28,11 @@ export function getBestPost(payload){
             post_id: payload.post_id
         })
         }).then(response => response.json()).then(response => {
-            dispatch({type: SET_BESTPOST, payload:response })
+          console.log(response,31)
+            var data = response
+            var postCount = response.length
+            dispatch({type: GET_POSTS, payload:{data:data,postCount:postCount}})
+            //dispatch({type: SET_BESTPOST, payload:response })
       })
     }
   }  

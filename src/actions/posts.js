@@ -1,4 +1,4 @@
-import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT, SET_CATEGORİES} from "../constants"
+import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT, SET_CATEGORİES, SS} from "../constants"
 import {alertMessage} from "./desc"
 import {commentUpdate} from "./commentupdate"
 export function getPosts(payload) {
@@ -448,6 +448,11 @@ export function getCategory(payload) {
   }
 }
 
+export function S() {
+  return (dispatch, getState) => {  
+  dispatch({type:SS})
+  }
+}
 
 
 

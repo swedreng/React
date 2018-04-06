@@ -11,6 +11,7 @@ export default (state = defaultState, action) => {
         return {...state, bestposttoday:action.payload}
       break
     case SET_BESTPOST:
+    console.log(action.payload,25)
       return {...state, bestpost:action.payload}
     break  
    default:

@@ -18,9 +18,9 @@ class Main extends Component{
     }
 
    componentWillMount(){
-        let { getPosts } = this.props.postsActions
+        let { getPosts,S} = this.props.postsActions
         let { getNoLogin } = this.props.noLoginPostsActions
-       
+        S()
         if(this.props.auth.isAuth){
             getPosts({value:0,event:true})
             

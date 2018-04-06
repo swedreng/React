@@ -5,6 +5,8 @@ import { connect } from "react-redux"
 import Main from './Main'
 import CatMain from './CatMain'
 import { withRouter } from 'react-router-dom'
+import * as postsActions from "../actions/posts"
+import { bindActionCreators } from '../../../../AppData/Local/Microsoft/TypeScript/2.6/node_modules/redux';
 
 //const Main = Loadable({
   //  loader: () => import('./Main.js'),
@@ -24,7 +26,7 @@ class Content extends Component{
         super(props)
        
     }
-
+   
     render(){
         const { match: { params: { category_id } } } = this.props
         console.log(category_id,93)
@@ -45,6 +47,6 @@ const mapStateToProps = ({  }) => ({
 
 
 const mapDispatchToProps = dispatch => ({
-    
+    postActions: bindActionCreators(postsActions,dispatch)
 })
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Content))

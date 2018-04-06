@@ -55,8 +55,8 @@ class App extends Component {
               <Route exact path="/search" component={NoLoginSearch} />
               <Route exact path="/loginviewprofile/user/:username" component={LoginViewProfile} />
               <Route exact path="/viewprofile" component={ViewProfile} />
-              <Route exact path="/loginbestpost/:post_id" component={LoginBestPosts} />
-              <Route exact path="/nologinbestpost/:post_id" component={NoLoginBestPosts} />
+              <Route path="/loginbestpost/:post_id" component={LoginBestPosts} />
+              <Route exact path="/bestpost/:post_id" component={NoLoginBestPosts} />
 
             </Switch>
           </Layout>
