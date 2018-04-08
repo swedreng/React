@@ -50,15 +50,16 @@ class NoLoginMain extends Component{
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
-                                <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+                                <div className="col-lg-4 col-md-5 col-sm-4 col-xs-5">
                                     <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                 </div>    
-                                <div className="col-lg-7 col-md-5 col-sm-6 col-xs-2">
+                                <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2" style={{float:'right'}}>
+                                    <div className={'confirmation_active'}></div>                                                           
+                                </div>  
+                                <div className="col-lg-7 col-md-5 col-sm-6 col-xs-5" style={{float:'right'}}>
                                     <span className="postTime">{post.Time}</span>
                                 </div>    
-                                <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2">
-                                    <div className={'confirmation_active'}></div>                                                           
-                                </div>   
+                                 
                             </div>
                                 <p>{post.writing}</p>
                             </div>
@@ -69,8 +70,8 @@ class NoLoginMain extends Component{
                             <hr />
                             <div className="icon">
                             <div className="row">
-                            <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
-                                <span> 
+                            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-5">
+                                <span style={{padding:'8'}}> 
                                     <div className={`like`}></div>
                                     <b>Beğen</b>
                                 </span>

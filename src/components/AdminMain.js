@@ -77,15 +77,15 @@ class AdminMain extends Component{
                             <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                 <div className="caption MainText">
                                     <div className="row">
-                                        <div className="col-lg-6 col-md-6 col-sm-4 col-xs-8">
+                                        <div className="col-lg-6 col-md-4 col-sm-4 col-xs-6">
                                             <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                         </div>    
-                                        <div className="col-lg-5 col-md-5 col-sm-8 col-xs-4">
-                                            <span className="postTime">{post.Time}</span>
-                                        </div>   
-                                        <div className="col-lg-1 col-md-5 col-sm-4 col-xs-8">
+                                        <div className="col-lg-1 col-md-4 col-sm-4 col-xs-2" style={{float:'right'}}>
                                             <div onClick={() => this.postConfirmation(post.post_id)}className={`confirmation ${post.confirmation ? 'confirmation_active' : null}`}></div>
-                                        </div>   
+                                        </div> 
+                                        <div className="col-lg-5 col-md-4 col-sm-4 col-xs-4" style={{float:'right'}}>
+                                            <span className="postTime">{post.Time}</span>
+                                        </div>     
                                     </div>
                                     <div className="row">
                                     <p>{post.writing}</p>
@@ -99,13 +99,13 @@ class AdminMain extends Component{
                                 <hr />
                                 <div className="icon">
                                 <div className="row">
-                                        <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
+                                        <div className="col-lg-3 col-md-4 col-sm-4 col-xs-4">
                                             <span onClick={() => this.likeSubmit(post.post_id)}> 
                                                 <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
                                                 <b>Beğen</b>
                                             </span>
                                         </div>
-                                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-5 likecomment">
+                                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-4 likecomment">
                                             <div className='likecount'>   
                                                 <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
                                             </div>
@@ -114,7 +114,7 @@ class AdminMain extends Component{
                                                 <b className="openComment">{post.CommentCount}</b>
                                             </div>    
                                         </div>
-                                        <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
+                                        <div className="col-lg-3 col-md-2 col-sm-2 col-xs-4">
                                             <div className="dropdown option">
                                                 <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
@@ -126,7 +126,7 @@ class AdminMain extends Component{
                                                 </ul>
                                             </div>
                                             {role == 1 || role == 2 ? (
-                                             <div className="dropdown option" style={{marginRight:'5px'}}>
+                                             <div className="dropdown option" >
                                                 <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>
@@ -143,9 +143,9 @@ class AdminMain extends Component{
                                 </div>    
                              
                                 </div>
-                                    <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
+                                    <Comment status={(this.state.comment[post.post_id] ?  true :/* (post.kind == 'write' ? true : */ false)} post={post}/>
                                 <div className="row Usercomment">
-                                    <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                    <UserComments  status={(this.state.comment[post.post_id] ? true :/* (post.kind == 'write' ? true : */false)} comments={post}/>
                                 </div>
                             </div> 
                             <div className="col-xs-12 col-lg-5 col-md-5 commentbest">

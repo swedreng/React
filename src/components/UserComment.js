@@ -106,7 +106,7 @@ class UserComment extends Component{
                                      (
                                     <li key={index}>
                                         <div className="row">
-                                            <div className="col-lg-1 col-xs-1">
+                                            <div className="col-lg-1 col-xs-2">
                                                 <div className="Usercommentpicture">
                                                     <img src={comment.user.pp}/>
                                                 </div>

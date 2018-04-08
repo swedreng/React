@@ -20,7 +20,7 @@ class Comments extends Component{
         const comments = this.props.comments.CommentBest
         return(
         <div className="commentssmain">
-            
+            <b className="bestcomment-title">En iyi yorumlar</b>
             {comments.map((comment, index) => {
                 
                 return (

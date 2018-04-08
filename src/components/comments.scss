@@ -85,9 +85,9 @@
 }
 
 @media screen and(min-width:1024px){ 
+    
     .commentdiv{
-        position:relative ;
-        
+        position:relative;
         overflow:hidden;
         p{
         word-wrap:break-word;
@@ -97,6 +97,7 @@
         }
        
     }
+
 }
 @media screen and(min-width:1024px){ 
      height: 50px;
@@ -109,4 +110,15 @@
          height: 50px;
  
      }
+}
+@media screen and(max-width:600px){
+    .bestcomment-title{
+        display: inline !important;
+        margin-left: 5% !important;
+        margin-right:5% !important;
+        padding: 10px !important;
+    }
+}
+.bestcomment-title{
+display:none;
 }

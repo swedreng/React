@@ -13,8 +13,10 @@ class Section extends Component{
         this.state = {status : false}
     }
     componentWillMount(){
+        
         let { getCategory } = this.props.categoryActions
         getCategory()
+        
     }
     getCategory(){
         if(status == true){
