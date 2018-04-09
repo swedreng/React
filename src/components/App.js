@@ -30,6 +30,8 @@ import PasswordUpdate from './PasswordUpdate'
 import CatMain from './CatMain'
 import LoginBestPosts from './LoginBestPosts'
 import NoLoginBestPosts from './NoLoginBestPosts'
+import TopBestPosts from './TopBestPosts'
+import NoLoginTopBestPosts from './NoLoginTopBestPosts'
 
 class App extends Component {
 
@@ -38,8 +40,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
+        <Switch>
           <Layout>
-            <Switch>
               <Route exact path="/" component={Content}/>
               <Route exact path="/category/:category_id" component={Content}/>
               <Route exact path="/login" component={Login} />
@@ -57,9 +59,10 @@ class App extends Component {
               <Route exact path="/viewprofile" component={ViewProfile} />
               <Route path="/loginbestpost/:post_id" component={LoginBestPosts} />
               <Route exact path="/bestpost/:post_id" component={NoLoginBestPosts} />
-
-            </Switch>
+              <Route exact path="/topbestpost" component={TopBestPosts} />
+              <Route exact path="/nologintopbest" component={NoLoginTopBestPosts} />
           </Layout>
+          </Switch>
         </ConnectedRouter>
       </Provider>
     );

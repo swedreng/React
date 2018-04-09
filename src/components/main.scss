@@ -99,6 +99,19 @@
     .MainImage{
         height:auto !important;
     }
+
+}
+@media only screen and (max-device-width: 425px){
+    .jumbotron{
+        .Loading{
+            img{
+                width: 100px;
+                height: 100px;
+                margin-left: 35%;
+            }
+            
+        }
+    }
 }
 
 .like{
@@ -125,8 +138,7 @@
         img{
             width: 100px;
             height: 100px;
-            margin-left:50%;
-            margin-right:50%;
+            vertical-align: middle;
         }
         
     }
@@ -140,6 +152,35 @@
     }
     .commentcount{
 
+    }
+}
+
+.navbar-menu-item{
+    label{
+        background-color:#d43f3a;
+        color:white;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    ul{
+        padding: 10px 10px 10px;
+        
+        label{
+            font-size: 25px;
+        }
+        li{
+            margin-left: 10px;
+            list-style-type:none;
+            font-size: 20px;
+            cursor: pointer;
+            border: 1px #ddd;
+           
+        }
+        a{
+            color:rgb(158, 6, 6) !important;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
     }
 }
 

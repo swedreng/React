@@ -58,7 +58,7 @@ class share extends Component{
     render(){
         return(
 
-            <div  id="userShare" className="col-xs-12 col-md-12" >
+            <div  id="userShare" className="col-xs-12 col-md-12" style={{marginTop:'30'}} >
                    <div className="row">
                         <form class="form-horizontal">
                             <fieldset>

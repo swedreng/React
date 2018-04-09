@@ -13,7 +13,7 @@ import './main.scss'
 class Main extends Component{
     constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true}
+        this.state = {loadMore:true, status:true}
         this.onUpdate = this.onUpdate.bind(this)
     }
 

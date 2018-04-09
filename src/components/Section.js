@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux"
 import * as categoryActions from "../actions/category"
 import * as postActions from "../actions/posts"
 import Loading from './loading'
-
+import './section.scss'
 
 class Section extends Component{
     constructor(props){

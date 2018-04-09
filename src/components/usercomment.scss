@@ -56,9 +56,17 @@
            
         }
     }
-    
-    
+  
+
 }
+
+@media only screen and (max-device-width: 425px){
+    .continue{
+        margin-left: 30% !important;
+        margin-right:10%;
+    }
+}
+
 .iptal{
     margin-right: 10px;
 }
@@ -140,8 +148,8 @@
    } 
 }
 .continue{
-    margin-left: 35%;
-    margin-right:10%;
+    margin-left: 37%;
+
     a{
         text-decoration: none;
         cursor:pointer;

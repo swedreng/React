@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
+import { connect } from "react-redux"
+import { Link } from 'react-router-dom'
+import { bindActionCreators } from "redux"
 import Header from './Header.js';
 import Section from './Section.js';
+import Loading from './loading'
 import SectionBestPosts from './SectionBestPosts.js';
 import Footer from './Footer.js';
 
@@ -8,8 +12,9 @@ import Footer from './Footer.js';
 class Layout extends Component{
     constructor(props){
         super(props)
-        this.state = {show:false}
+        this.state = {show:false,status:false}
         this.onScroll = this.onScroll.bind(this)
+        this.showNavbarMenu = this.showNavbarMenu.bind(this)
     }
 
     componentDidMount() {
@@ -35,35 +40,87 @@ class Layout extends Component{
                 }
             }, 100);
     }
+    showNavbarMenu(){
+       
+        this.setState({status: !this.state.status})
+        
+    }
     
     render(){
-        return(
-            
-               <div id="content">
-               <div style={(this.state.show ? {display:'block'} : {display:'none'})}className={'scrollTop'} onClick={() => this.scrollTop()}></div>
-                    <div className="row">
-                        <div className="col-xs-12 col-lg-12 nopadding">
-                            <Header/>
-                        </div>    
-                    </div>   
-                    <div className="row">
-                        <div className="col-xs-12 col-md-8 col-md-push-2 mainContent">
-                            {this.props.children} 
+        let { categories } = this.props.categories
+        let { bestposts: {bestposttoday} } = this.props
+        const { auth:{isAuth} } = this.props
+        console.log(bestposttoday,49)
+            return(
+                
+                   <div id="content">
+                   {this.state.status ? 
+                   <div onClick={() => this.showNavbarMenu()}className="nav-menu">
+                        <div className="navbar-menu-item">
+                            <ul className="nav nav-pills nav-stacked">
+                                <label>Kategoriler</label>      
+                                {
+                                    categories.map(category =>{
+                                    return (
+                                        <div>
+                                            <Link to={`/category/${category.category_id}`}><li>{category.category_name}</li></Link>
+                                        </div>
+                                    ) 
+                                })}
+                            </ul>
+                            <ul>
+                                <label>Günün En iyileri</label>
+                                { bestposttoday.map(post => {
+                                    return (
+                                        <div>
+                                            <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><li>{post.user.username} <span className="badge"><span className="glyphicon glyphicon-heart"/> {post.like}</span></li></Link>
+                                        </div>
+                                    )
+                                })}
+                            </ul>
+      
+                            <ul className="nav nav-pills nav-stacked">
+                                <label>Diğer işlemler</label>
+                                <Link to="/signup"><li>Üye ol</li></Link>
+                                <Link to="/login"><li>Giriş yap</li></Link>
+                                <Link to="/logout"><li>Çıkış yap</li></Link>
+                            </ul>
+                        </div>
+                   </div> : null}
+                   <div style={(this.state.show ? {display:'block'} : {display:'none'})}className={'scrollTop'} onClick={() => this.scrollTop()}></div>
+                        <div className="row">
+                            <div className="col-xs-12 col-lg-12 nopadding">
+                                <Header showNavbarMenu={this.showNavbarMenu}/>
+                            </div>    
                         </div>   
-                        <div className="col-xs-12 col-md-2 col-md-pull-8">
-                            <Section/>
-                        </div> 
-                        <div className="col-xs-12 col-md-2">
-                            <SectionBestPosts/>
+                        <div className="row">
+                            <div className="col-xs-12 col-md-8 col-md-push-2 mainContent">
+                                {this.props.children} 
+                                
+                            </div>   
+                            <div className="col-xs-12 col-md-2 col-md-pull-8">
+                                <Section/>
+                            </div> 
+                            <div className="col-xs-12 col-md-2">
+                                <SectionBestPosts/>
+                            </div>
+                        </div>  
+                        <div className="row">
+                            <div className="col-xs-12 col-lg-12 footer">
+                                <Footer/>
+                            </div>
                         </div>
-                    </div>  
-                    <div className="row">
-                        <div className="col-xs-12 col-lg-12 footer">
-                            <Footer/>
-                        </div>
-                    </div>
-                </div>     
-            )
+                        
+                    </div>     
+                )
+
     }
 }
-export default Layout;
+const mapStateToProps = ({ categories,bestposts,auth }) => ({
+    categories,bestposts,auth
+})
+const mapDispatchToProps = dispatch => ({
+    
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout)

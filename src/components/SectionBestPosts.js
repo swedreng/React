@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { bindActionCreators } from "redux"
 import * as bestPostActions from "../actions/bestpost"
 import Loading from './loading'
-
+import './SectionBestposts.scss'
 
 class SectionBestPosts extends Component{
     constructor(props){
@@ -27,14 +27,14 @@ class SectionBestPosts extends Component{
         const { bestposts:{ bestposttoday } } = this.props
         const { auth:{isAuth} } = this.props
         return (
-            <div id="section">
+            <div className="sectionBestPosts">
                 <div className="list-group">
                     <a href="#" className="list-group-item disabled">
                         Günün En iyileri
                     </a>
                     { bestposttoday.map(post => {
                         return (
-                           <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`} replace ><a className="list-group-item">{post.user.username}<span className="badge"><span className="glyphicon glyphicon-heart"/> {post.like}</span></a></Link>
+                           <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><a className="list-group-item">{post.user.username}<span className="badge"><span className="glyphicon glyphicon-heart"/> {post.like}</span></a></Link>
                         )
                     }).slice(0,5)}
 

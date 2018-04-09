@@ -95,15 +95,16 @@ class ModeratorMain extends Component{
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
-                                    <div className="col-lg-6 col-md-6 col-sm-4 col-xs-8">
+                                    <div className="col-lg-6 col-md-4 col-sm-4 col-xs-6">
                                         <img className="ppimage" src={post.user.pp}/><b><a style = {{ color:'black', cursor:'pointer'}} onClick = {() => this.viewProfile(post.user.id)}>{post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
-                                    </div>    
-                                    <div className="col-lg-5 col-md-5 col-sm-8 col-xs-4">
-                                        <span className="postTime">{post.Time}</span>
                                     </div>   
-                                    <div className="col-lg-1 col-md-5 col-sm-4 col-xs-8">
+                                    <div className="col-lg-1 col-md-4 col-sm-4 col-xs-2" style={{float:'right'}}>
                                         {post.confirmation == 1 ? (<div className={'confirmation_admin_active'}></div>) : (<div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation ${post.IsConfirmationPost ? 'confirmation_active' : null}`}></div>)}
                                     </div>   
+                                    <div className="col-lg-5 col-md-4 col-sm-4 col-xs-4"  style={{float:'right'}}>
+                                        <span className="postTime">{post.Time}</span>
+                                    </div>   
+                                     
                                 </div>
                                 <div className="row">
                                 <p>{post.writing}</p>
@@ -117,13 +118,13 @@ class ModeratorMain extends Component{
                             <hr />
                             <div className="icon">
                             <div className="row">
-                                    <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
+                                    <div className="col-lg-3 col-md-4 col-sm-4 col-xs-4">
                                         <span onClick={() => this.likeSubmit(post.post_id)}> 
                                             <div style = {{cursor: 'pointer'}} className={`like ${post.IslikedPost ? 'active' : null}`}></div>
                                             <b>Beğen</b>
                                         </span>
                                     </div>
-                                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-5 likecomment">
+                                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-4 likecomment">
                                         <div className='likecount'>   
                                             <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
                                         </div>
@@ -132,7 +133,7 @@ class ModeratorMain extends Component{
                                             <b className="openComment">{post.CommentCount}</b>
                                         </div>    
                                     </div>
-                                    <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
+                                    <div className="col-lg-3 col-md-2 col-sm-2 col-xs-4">
                                         {post.user.rank == 1 ? (<div>Admin</div>) : (
                                             <div className="dropdown option">
                                                 <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
@@ -147,7 +148,7 @@ class ModeratorMain extends Component{
                                             </div>
                                         )}
                                         {role == 1 || role == 2 ? (
-                                             <div className="dropdown option" style={{marginRight:'5px'}}>
+                                             <div className="dropdown option">
                                                 <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>

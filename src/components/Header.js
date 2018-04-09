@@ -36,15 +36,42 @@ class Header extends Component {
         <nav className="navbar navbar-default" id="header">
           <div className="container-full">
             <div className="navbar-header col-md-offset-1">
-              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span className="sr-only">Navigasyonu aç/kapa</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
+              <button type="button" className="navbar-toggle collapsed mobile-button">
+                <div><i onClick={() => this.props.showNavbarMenu()}className="glyphicon glyphicon-th"></i></div>
               </button>
               <Link to="/" className="navbar-brand">Opanc<div className={'symbol'}></div></Link>
+              <div className="mobile-search">
+                  <Autocomplete
+                    getItemValue={(item) => item.label}
+                    items={this.props.searchdata.search_data.map(value => ({label : value}))}
+                    shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                    renderItem={(item, isHighlighted) =>
+                    <div key={item.id} style={{ background: isHighlighted ? '#ffe6e6' : 'white', width:'170px', fontFamily:"Helvetica Neue", padding:5, fontSize:17}}>
+                        {item.label}
+                    </div>
+                    }
+                    wrapperStyle={{ position: 'relative', display: 'block' ,float:'left'}}
+                    value={this.state.value}
+                    onChange={e => this.setState({value:e.target.value})}
+                    onSelect={value => this.setState({value})}
+                    menuStyle={{ position:'absolute',zIndex:999,left:0,top:34,padding:2,marginTop:8}}
+                    onKeyDown={e => {
+                      if (e.keyCode == 13) this.addStorageItem()
+                      }}
+                    inputProps={{className:'form-control mobile-search-input',placeholder:'Birşeyler Ara..'}}
+                  />
+                  <button style={{marginLeft:5}}onClick={() => this.addStorageItem()} className="btn btn-default searchButton"><div className={'searchImage'}></div></button>
+             </div>   
             </div>
-          
+            
+            <div className="mobile-menu">
+              <ul>
+                <Link to="/"><li><i className="glyphicon glyphicon-home"></i></li></Link>
+                <Link to={ isAuth ? "/topbestpost" : "nologintopbest"}><li><i className="glyphicon glyphicon-fire"></i></li></Link>
+                <Link to="" onClick={() => this.props.showNavbarMenu()} ><li><i className="glyphicon glyphicon-list-alt"></i></li></Link> 
+                <Link to="/profile"><li><i className="glyphicon glyphicon-user"></i></li></Link>
+              </ul>
+            </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <div className="searchBar col-md-6">
               <form className="navbar-form" role="search">
