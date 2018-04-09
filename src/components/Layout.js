@@ -73,7 +73,7 @@ class Layout extends Component{
                                 { bestposttoday.map(post => {
                                     return (
                                         <div>
-                                            <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><li>{post.user.username} <span className="badge"><span className="glyphicon glyphicon-heart"/> {post.like}</span></li></Link>
+                                            <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><li>{post.user.firstname} {post.user.lastname }  <div className={'bb'}> </div> { post.like}</li> </Link> 
                                         </div>
                                     )
                                 })}
