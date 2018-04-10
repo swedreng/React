@@ -30,7 +30,7 @@ class Section extends Component{
         const { categories } = this.props.categories
         console.log(categories.length,66)
         return (
-            <div id="section">
+            <div className="section">
                 <div className="list-group">
                     <a href="#" className="list-group-item disabled">
                         Kategoriler

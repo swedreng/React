@@ -73,12 +73,16 @@ class Layout extends Component{
                                 { bestposttoday.map(post => {
                                     return (
                                         <div>
-                                            <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><li>{post.user.firstname} {post.user.lastname }  <div className={'bb'}> </div> { post.like}</li> </Link> 
+                                            <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><li>{post.user.firstname} {post.user.lastname }  <div style={{marginLeft:'10',marginTop:'3',marginRight:'3'}}className={'bb'}> </div> {post.like}</li> </Link> 
                                         </div>
                                     )
                                 })}
                             </ul>
-      
+                            <ul className="nav nav-pills nav-stacked">
+                                <label>Biz Kimiz ?</label>
+                                <Link to="/about"><li>Hakkımızda</li></Link>
+                                <Link to="/contact"><li>İletişim</li></Link>
+                            </ul>
                             <ul className="nav nav-pills nav-stacked">
                                 <label>Diğer işlemler</label>
                                 <Link to="/signup"><li>Üye ol</li></Link>

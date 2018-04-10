@@ -54,13 +54,13 @@ class Header extends Component {
                     value={this.state.value}
                     onChange={e => this.setState({value:e.target.value})}
                     onSelect={value => this.setState({value})}
-                    menuStyle={{ position:'absolute',zIndex:999,left:0,top:34,padding:2,marginTop:8}}
+                    menuStyle={{ position:'absolute',zIndex:999,left:0,top:34,padding:2,marginTop:7}}
                     onKeyDown={e => {
                       if (e.keyCode == 13) this.addStorageItem()
                       }}
                     inputProps={{className:'form-control mobile-search-input',placeholder:'Birşeyler Ara..'}}
                   />
-                  <button style={{marginLeft:5}}onClick={() => this.addStorageItem()} className="btn btn-default searchButton"><div className={'searchImage'}></div></button>
+                   <button style={{marginLeft:5}}onClick={() => this.addStorageItem()} className="btn btn-default searchButton"><div className={'searchImage'}></div></button>
              </div>   
             </div>
             

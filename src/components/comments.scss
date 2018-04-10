@@ -12,10 +12,11 @@
     img{
         width: 50px;
         height: 50px;
-        margin-left:-10px;
+        margin-left:0px;
         border-radius: 50%;
     }
 }
+
 .commentdate{
     float: right;
     margin-top:10px;
@@ -23,6 +24,8 @@
 }
 
 .commentdiv{
+    padding-left: 15px !important;
+    padding-top: 10px !important;
     position:relative;
     overflow:hidden;
     p{
@@ -118,7 +121,13 @@
         margin-right:5% !important;
         padding: 10px !important;
     }
+    .col-xs-2 {
+        width: 10%!important;
+    }
 }
 .bestcomment-title{
 display:none;
+}
+.config{
+    padding: 10px !important;
 }

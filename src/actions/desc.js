@@ -14,8 +14,14 @@ export function getSearchItem(){
     
     return (dispatch, getState) => { 
         const { search } = getlocalStore('search')
-        const data = search.reverse().slice(0,8)
-        localStorage.setItem('search',JSON.stringify(data))
-        dispatch({ type: SEARCH_DATA,payload:data})
+        if(search){
+            const data = search.reverse().slice(0,8)
+            localStorage.setItem('search',JSON.stringify(data))
+            dispatch({ type: SEARCH_DATA,payload:data})
+        }else{
+            var data = []
+            localStorage.setItem('search',JSON.stringify(data))
+        }
+       
     }
 }

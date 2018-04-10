@@ -101,7 +101,7 @@ class ModeratorMain extends Component{
                                     <div className="col-lg-1 col-md-4 col-sm-4 col-xs-2" style={{float:'right'}}>
                                         {post.confirmation == 1 ? (<div className={'confirmation_admin_active'}></div>) : (<div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation ${post.IsConfirmationPost ? 'confirmation_active' : null}`}></div>)}
                                     </div>   
-                                    <div className="col-lg-5 col-md-4 col-sm-4 col-xs-4"  style={{float:'right'}}>
+                                    <div className="col-lg-5 col-md-4 col-sm-4 col-xs-5" style={{float:'right'}}>
                                         <span className="postTime">{post.Time}</span>
                                     </div>   
                                      

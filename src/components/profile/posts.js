@@ -82,7 +82,7 @@ class posts extends Component{
                                             <div className="col-lg-1 col-md-4 col-sm-4 col-xs-2" style={{float:'right'}}>
                                                {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
                                             </div>    
-                                            <div className="col-lg-7 col-md-4 col-sm-4 col-xs-4">
+                                            <div className="col-lg-7 col-md-4 col-sm-4 col-xs-4" style={{float:'right'}}>
                                                 <span className="postTime">{post.Time}</span>
                                             </div>   
                                            

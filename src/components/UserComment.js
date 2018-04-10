@@ -77,11 +77,11 @@ class UserComment extends Component{
                                                     <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
                                                     <div className="UserComment--organize">
                                                         <div className="row">
-                                                            <div className="col-lg-10 col-xs-12 col-md-10">
+                                                            <div className="col-lg-10 col-xs-10 col-md-10">
                                                                 <input type="text" className="form-control inputO" value={this.state.comment} onChange={(e) => this.setState({comment:e.target.value})} placeholder="Yeni yorumunu yaz"/>
-                                                                    Yorum düzenlemeyi <a onClick={() => this.Iptal()}className="iptal"> İptal et</a>
+                                                                    Düzenlemeyi <a onClick={() => this.Iptal()}className="iptal"> İptal et</a>
                                                             </div>
-                                                            <div className="col-lg-2 col-xs-12 col-md-2">
+                                                            <div className="col-lg-2 col-xs-2 col-md-2">
                                                                 <button type="submit" className="btn btn-success btn-sm buttonO" onClick={() => this.commentSave(comment.comment_id,post_id)}>Kaydet</button>
                                                             </div>
                                                         </div> 
