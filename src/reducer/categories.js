@@ -1,4 +1,4 @@
-import { SET_CATEGORİES } from "../constants"
+import { SET_CATEGORIES } from "../constants"
 
 const defaultState = {
   categories: []
@@ -6,7 +6,7 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
  switch (action.type) {
-    case SET_CATEGORİES:
+    case SET_CATEGORIES:
         return {...state, categories:action.payload}
       break
    default:

@@ -1,4 +1,4 @@
-import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT, SET_CATEGORİES, SS} from "../constants"
+import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT, SET_CATEGORIES, SS} from "../constants"
 import {alertMessage} from "./desc"
 import {commentUpdate} from "./commentupdate"
 export function getPosts(payload) {
@@ -443,7 +443,7 @@ export function getCategory(payload) {
       },
      
       }).then(response => response.json()).then(response => {
-        dispatch({type:SET_CATEGORİES,payload:response})
+        dispatch({type:SET_CATEGORIES,payload:response})
     })
   }
 }

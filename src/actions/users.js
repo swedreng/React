@@ -1,5 +1,5 @@
 
-import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE,PERSONS, GET_POSTS,VİEW_PERSON,GETUSER_SHARE_INFO} from "../constants"
+import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE,PERSONS, GET_POSTS,VIEW_PERSON,GETUSER_SHARE_INFO} from "../constants"
 import {alertMessage} from "./desc"
 import { push } from 'react-router-redux'
 export function getUsers(payload) {
@@ -316,7 +316,7 @@ export function getuserinfoUpdate(payload) {
               var data = []
               var postCount = 0
             }
-            dispatch({type: VİEW_PERSON, payload:{user:response.Users,postCount:response.postCount,commentCount:response.commentCount}}) 
+            dispatch({type: VIEW_PERSON, payload:{user:response.Users,postCount:response.postCount,commentCount:response.commentCount}}) 
             dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
             
         })
@@ -361,7 +361,7 @@ export function getuserinfoUpdate(payload) {
                 var postCount = 0
               }
               if(payload.event == true){
-                dispatch({type: VİEW_PERSON, payload:response.Users})
+                dispatch({type: VIEW_PERSON, payload:response.Users})
               }
               dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
           })

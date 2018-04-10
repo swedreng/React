@@ -1,4 +1,4 @@
-import {SET_CATEGORİES} from "../constants"
+import {SET_CATEGORIES} from "../constants"
 import {alertMessage} from "./desc"
 
 export function getCategory(payload) {
@@ -13,7 +13,7 @@ export function getCategory(payload) {
         },
        
         }).then(response => response.json()).then(response => {
-          dispatch({type:SET_CATEGORİES,payload:response})
+          dispatch({type:SET_CATEGORIES,payload:response})
       })
     }
   }

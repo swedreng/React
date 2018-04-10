@@ -1,4 +1,4 @@
-import {USERINFO_UPDATE,GETUSER_INFO,GETUSER_SOCIAL_INFO,VİEW_PERSON_SOCIAL_MEDIA,VİEW_PERSON_SHARE_INFO} from "../constants"
+import {USERINFO_UPDATE,GETUSER_INFO,GETUSER_SOCIAL_INFO,VIEW_PERSON_SOCIAL_MEDIA,VIEW_PERSON_SHARE_INFO} from "../constants"
 import {alertMessage} from "./desc"
 
 export function setUserInfo(payload){
@@ -108,7 +108,7 @@ export function setUserInfo(payload){
         })
         }).then(response => response.json()).then(response => {
           console.log(response.data,73)
-          dispatch({type: VİEW_PERSON_SOCIAL_MEDIA, payload:response.data})
+          dispatch({type: VIEW_PERSON_SOCIAL_MEDIA, payload:response.data})
             
       })
     }
@@ -129,7 +129,7 @@ export function setUserInfo(payload){
           person_username: payload.person_username
         })
         }).then(response => response.json()).then(response => {
-           dispatch({type: VİEW_PERSON_SHARE_INFO, payload:{commentCount:response.commentCount,postCount:response.postCount}})    
+           dispatch({type: VIEW_PERSON_SHARE_INFO, payload:{commentCount:response.commentCount,postCount:response.postCount}})    
       })
     }
   }

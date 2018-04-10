@@ -1,4 +1,4 @@
-import { PERSONS,VİEW_PERSON,VİEW_PERSON_SOCIAL_MEDIA,VİEW_PERSON_SHARE_INFO } from "../constants"
+import { PERSONS,VIEW_PERSON,VIEW_PERSON_SOCIAL_MEDIA,VIEW_PERSON_SHARE_INFO } from "../constants"
 import { LOCATION_CHANGE } from 'react-router-redux'
 const defaultState = {
   person: null,
@@ -8,13 +8,13 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
  switch (action.type) {
-    case VİEW_PERSON:
+    case VIEW_PERSON:
         return {...state, person:action.payload}
       break
-    case VİEW_PERSON_SOCIAL_MEDIA:
+    case VIEW_PERSON_SOCIAL_MEDIA:
       return {...state, person_social_media:action.payload}
     break  
-    case VİEW_PERSON_SHARE_INFO:
+    case VIEW_PERSON_SHARE_INFO:
       return {...state, person_share_info:action.payload}
     break 
     case LOCATION_CHANGE:
