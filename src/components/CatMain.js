@@ -90,7 +90,7 @@ class Main extends Component{
                             {isAuth ? (<ConnectionMain/>) : (<NoLoginMain/>)}
                             {( this.state.loadMore ? (
                                 <div className="Loading">
-                                    <img src={`${require('../images/l.gif"')}`}/>
+                                    <img src={`${require('../images/loa.gif')}`}/>
                                 </div>
                             ) : null)}
                         </ScrollContainer>
