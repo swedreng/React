@@ -14,7 +14,7 @@ class NoLoginBestComments extends Component{
         const comments = this.props.comments.CommentBest
         return(
         <div className="commentssmain">
-            
+            {comments.length > 0 ? <b className="bestcomment-title">En iyi yorumlar</b> : null}
             {comments.map((comment, index) => {
                 
                 return (

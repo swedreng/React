@@ -124,7 +124,7 @@ class LoginUserMain extends Component{
                                          <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
                                          {post.user.rank == 1 ? <div>Admin</div>:(
                                              <div className="dropdown option">
-                                             <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                             <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                  <span className="caret"></span>
                                              </button>
                                              <ul className="dropdown-menu">
@@ -138,10 +138,10 @@ class LoginUserMain extends Component{
                                         </div>
                                  </div>    
                                  </div>
-                                     <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
+                                     <Comment status={(this.state.comment[post.post_id] ?  true : /*(post.kind == 'write' ? true :*/ false)} post={post}/>
                                  
                                  <div className="row Usercomment">
-                                     <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                     <UserComments  status={(this.state.comment[post.post_id] ? true : /* (post.kind == 'write' ? true :*/ false)} comments={post}/>
                                  </div>
                              </div> 
                              <div className="col-xs-12 col-lg-5 col-md-5 commentbest">

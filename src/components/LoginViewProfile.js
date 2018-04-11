@@ -46,7 +46,7 @@ class LoginViewProfile extends Component{
                 this.setState({person:person.user})
             })
        
-        let { getUsersInfo } = this.props.userInfoActions
+        //let { getUsersInfo } = this.props.userInfoActions
         let { getUserViewSocialMedia } = this.props.userSocialActions
         this.setState({username:username})
         //getUsersInfo() // buna gerek yok bak sonra..

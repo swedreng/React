@@ -139,7 +139,7 @@ class ModeratorMain extends Component{
                                     <div className="col-lg-3 col-md-2 col-sm-2 col-xs-4">
                                         {post.user.rank == 1 ? (<div>Admin</div>) : (
                                             <div className="dropdown option">
-                                                <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>
                                                 <ul className="dropdown-menu">
@@ -152,7 +152,7 @@ class ModeratorMain extends Component{
                                         )}
                                         {role == 1 || role == 2 ? (
                                              <div className="dropdown option">
-                                                <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>
                                                 <ul className="dropdown-menu"><b style={{padding:'10px', fontSize:'14px'}}>Kategorize et</b>

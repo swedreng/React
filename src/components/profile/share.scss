@@ -1,3 +1,7 @@
-#userShare{
-    padding:10px;
+
+@media only screen and (max-device-width: 425px){
+    .userShare{ 
+        margin-top: 35px !important
+     }
 }
+

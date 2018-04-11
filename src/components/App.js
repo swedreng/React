@@ -50,7 +50,7 @@ class App extends Component {
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/admin" component={(props) => <AuthAccess roles={[1]} Comp={Admin} />} />
-              <Route exact path="/profile" component={(props) => <AuthAccess roles={[1,0,2]} Comp={Profile} />} />
+              <Route exact path="/profile" component={(props) => <AuthAccess roles={[1,0,2,4]} Comp={Profile} />} />
               <Route exact path="/loginsearch/:search" component={Search} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/logout"  component={Logout} />

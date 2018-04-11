@@ -36,7 +36,7 @@ class Header extends Component {
         <nav className="navbar navbar-default" id="header">
           <div className="container-full">
             <div className="navbar-header col-md-offset-1">
-              <button type="button" className="navbar-toggle collapsed mobile-button">
+              <button type="button" className="navbar-toggle collapsed mobile-button menuButton">
                 <div><i onClick={() => this.props.showNavbarMenu()}className="glyphicon glyphicon-th"></i></div>
               </button>
               <Link to="/" className="navbar-brand">Opanc<div className={'symbol'}></div></Link>

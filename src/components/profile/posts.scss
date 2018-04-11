@@ -40,11 +40,7 @@
     margin-left:-10px;
     
 }
-.postTime{
-    margin-top:10px;
-    float: right;
-    color: #b4b6bd;
-}
+
 .option{
     float: right !important;
     
@@ -103,6 +99,9 @@
     }
     .postTimeMin{
         display: inline;
+    }
+    .postTime{
+        margin-top: 0px;
     }
 
 }

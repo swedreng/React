@@ -41,13 +41,13 @@ class nologinposts extends Component{
         
         let { viewProfile } = this.props.viewActions
         let { postCount } = this.props.posts
-        let { id } = this.props.viewperson.person
+        let { username } = this.props
         if(this.props.posts.data.length < postCount){
             if(this.state.status == true){
                 console.log(3,4)
                 this.setState({loadMore:true})
                 this.setState({status:false})
-                viewProfile((this.props.posts.data.length > 0 ? {person_id:id,value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(() =>{
+                viewProfile((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false,person_username:username} : {value:0,event:false})).then(() =>{
                     this.setState({status:true})
                     this.setState({loadMore:false})
                 })
@@ -69,18 +69,21 @@ class nologinposts extends Component{
                                     <div className="img-thumbnail col-xs-12 col-lg-12 col-md-12 imagediv"> 
                                     <div className="caption MainText">
                                         <div className="row">
-                                            <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+                                            <div className="col-lg-4 col-md-5 col-sm-4 col-xs-10">
                                                 <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                             </div>    
-                                            <div className="col-lg-7 col-md-7 col-sm-8 col-xs-4">
-                                                <span className="postTime">{post.Time}</span>
-                                            </div>   
-                                            <div className="col-lg-1 col-md-5 col-sm-4 col-xs-8">
+                                            <div className="col-lg-1 col-md-5 col-sm-4 col-xs-2" style={{float:'right'}}>
                                                {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
                                             </div>   
+                                            <div className="col-lg-7 col-md-7 col-sm-8 col-xs-12 postTimeBig" style={{float:'right'}} style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}>
+                                                <span className="postTime">{post.Time}</span>
+                                            </div>  
                                         </div>
                                         <div className="row">
                                         <p>{post.writing}</p>
+                                        <div className="col-lg-7 col-md-7 col-sm-8 col-xs-12 postTimeMin" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
+                                                <span className="postTime">{post.Time}</span>
+                                        </div> 
                                         </div>       
                                     </div>
                                     <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
@@ -107,18 +110,7 @@ class nologinposts extends Component{
                                                 </div>    
                                             </div>
                                             <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
-                                            {post.user.rank == 1 ? <div>Admin</div>:(
-                                                <div className="dropdown option">
-                                                <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
-                                                    <span className="caret"></span>
-                                                </button>
-                                                <ul className="dropdown-menu">
-                                                    {user_id == post.id ? null : <li><a onClick={() => this.blockPost(post.post_id)}>Bunu görmek istemiyorum</a></li>}
-                                                    {user_id == post.id || post.user.rank == 1 || post.user.rank == 2 ? null :<li><a onClick={() => this.blockUser(post.post_id,post.user.id)}>Kullanıcıyı engelle</a></li>}
-                                                    {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
-                                                </ul>
-                                            </div>
-                                            )}
+                                            {post.user.rank == 1 ? <div>Admin</div>:null}
                                                 
                                            </div>
                                     </div>    

@@ -101,7 +101,6 @@ export function setUserInfo(payload){
         headers: {  
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${auth.token} `
         },
         body: JSON.stringify({
           person_username: payload.person_username

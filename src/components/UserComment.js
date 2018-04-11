@@ -116,7 +116,7 @@ class UserComment extends Component{
                                             <div className="UserComment--comment">
                                         {user_id == comment.id ? (
                                             <div className="dropdown option">
-                                              <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                              <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                   <span className="caret"></span>
                                               </button>
                                               <ul className="dropdown-menu">

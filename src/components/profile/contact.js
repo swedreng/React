@@ -43,13 +43,13 @@ class contact extends Component{
                       <div className="form-group">
                             <label className="col-md-8 control-label row social-media" for="textinput">Social Media Accounts</label>  
                             <div className="col-md-12 control-label row">
-                              <div className="col-md-5">
+                              <div className="col-md-5 col-xs-5">
                                   <a href={`${FACEBOOK}/${this.state.person_social_media ? this.state.person_social_media.facebook: user_social_media.facebook}`} target="_blank"><div className = {"contact-facebook"}></div></a>
                               </div>
-                              <div className="col-md-2">
+                              <div className="col-md-2 col-xs-2">
                                   <a href={`${TWITTER}/${this.state.person_social_media ? this.state.person_social_media.twitter: user_social_media.twitter}`} target="_blank"><div className = {"contact-twitter"}></div></a>
                               </div>
-                              <div className="col-md-5">
+                              <div className="col-md-5 col-xs-5">
                                   <a href={`${INSTAGRAM}/${this.state.person_social_media ? this.state.person_social_media.instagram: user_social_media.instagram}`} target="_blank"><div className = {"contact-instagram"}></div></a>
                               </div>       
                             </div>

@@ -91,7 +91,7 @@ class NoLoginMain extends Component{
                     </div>    
                             </div>
                             <div className="row Usercomment ">
-                                <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : /*(post.kind == 'write' ? true :*/ false)} comments={post}/>
                             </div>
                             
                         </div> 

@@ -50,7 +50,7 @@
     
 }
 .postTime{
-    margin-top:10px;
+    margin-top:0px;
     float: right;
     color: #b4b6bd;
 }
@@ -110,87 +110,6 @@
         height:auto !important;
     }
 }
-
-
-@media only screen and (max-device-width: 425px)  {
-    .MainImage{
-        height:auto !important;
-    }
-
-}
-@media only screen and (max-device-width: 425px){
-    .commentbest{
-        padding:0px !important;
-        margin-top: 10px !important;
-    }
-   
-    .jumbotron{
-        .Loading{
-            img{
-                width: 100px;
-                height: 100px;
-                margin-left: 35%;
-            }
-            
-        }
-    }
-    .MainText{
-        
-        p{
-            display: table;
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 17px;
-            padding-top:10px !important;
-            padding-bottom: 5px !important;
-            margin-left: 10px;
-            
-        }
-    }
-    .jumbotron {
-        p{
-            margin-bottom: 0px !important;
-        }
-     }
-
-     .btn-group-sm>.btn, .btn-sm {
-        padding: 2px 7px;
-        font-size: 12px;
-        line-height: 1.5;
-        border-radius: 3px;
-        margin-left: 4px;
-    }
-    
-.icon{
-    padding: 10px;
-    
-    img{
-        width: 15px;
-        height: 15px;
-        margin-right: 2px;
-    }
-    .likeicon{
-            width: 15px;
-            height: 15px;
-            cursor: pointer;
-            margin-left:10px;   
-    }
-    b{
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 15px;
-        padding-left:2px;
-    }
- 
-   
-
-    }
-    .like{
-        width: 20px !important;
-        height: 20px !important;
-        float:left;
-        background-image:url('../images/like.png');
-        background-size:cover;
-    }
-}   
 
 .btn-group-sm>.btn, .btn-sm {
     padding: 5px 10px;
@@ -297,6 +216,87 @@
         display: inline;
     }
 
+    .MainImage{
+        height:auto !important;
+    }
+    .postTime{
+        margin-top:-5px;
+        float: right;
+        color: #b4b6bd;
+    }
+    .commentbest{
+        padding:0px !important;
+        margin-top: 10px !important;
+    }
+   
+   
+    .jumbotron{
+        .Loading{
+            img{
+                width: 100px;
+                height: 100px;
+                margin-left: 35%;
+            }
+            
+        }
+    }
+    .MainText{
+        
+        p{
+            display: table;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 17px;
+            padding-top:10px !important;
+            padding-bottom: 5px !important;
+            margin-left: 10px;
+            
+        }
+    }
+    .jumbotron {
+        p{
+            margin-bottom: 0px !important;
+        }
+     }
+
+     .btn-group-sm>.btn, .btn-sm {
+        padding: 2px 7px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        margin-left: 4px;
+    }
+   
+.icon{
+    padding: 10px;
+    
+    img{
+        width: 15px;
+        height: 15px;
+        margin-right: 2px;
+    }
+    .likeicon{
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+            margin-left:10px;   
+    }
+    b{
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 15px;
+        padding-left:2px;
+    }
+ 
+   
+
+    }
+    .like{
+        width: 20px !important;
+        height: 20px !important;
+        float:left;
+        background-image:url('../images/like.png');
+        background-size:cover;
+    }
+
 }
 
 @media only screen and (min-device-width: 425px)  {
@@ -306,5 +306,9 @@
     .postTimeMin{
         display: none;
     }
-
+    .postTime{
+        margin-top:10px;
+        float: right;
+        color: #b4b6bd;
+    }
 }

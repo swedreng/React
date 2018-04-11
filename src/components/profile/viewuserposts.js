@@ -75,18 +75,21 @@ class viewuserposts extends Component{
                                     <div className="img-thumbnail col-xs-12 col-lg-12 col-md-12 imagediv"> 
                                     <div className="caption MainText">
                                         <div className="row">
-                                            <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+                                            <div className="col-lg-4 col-md-5 col-sm-4 col-xs-10">
                                                 <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                             </div>    
-                                            <div className="col-lg-7 col-md-7 col-sm-8 col-xs-4">
-                                                <span className="postTime">{post.Time}</span>
-                                            </div>   
-                                            <div className="col-lg-1 col-md-5 col-sm-4 col-xs-8">
+                                            <div className="col-lg-1 col-md-5 col-sm-4 col-xs-2" style={{float:'right'}}>
                                                {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
-                                            </div>   
+                                            </div>  
+                                            <div className="col-lg-7 col-md-7 col-sm-8 col-xs-12" style={{float:'right'}} style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}>
+                                                <span className="postTime">{post.Time}</span>
+                                            </div>    
                                         </div>
                                         <div className="row">
                                         <p>{post.writing}</p>
+                                        <div className="col-lg-7 col-md-7 col-sm-8 col-xs-12" style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
+                                            <span className="postTime">{post.Time}</span>
+                                        </div>  
                                         </div>       
                                     </div>
                                     <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
@@ -115,7 +118,7 @@ class viewuserposts extends Component{
                                             <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
                                             {post.user.rank == 1 ? <div>Admin</div>:(
                                                 <div className="dropdown option">
-                                                <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>
                                                 <ul className="dropdown-menu">
@@ -129,10 +132,10 @@ class viewuserposts extends Component{
                                            </div>
                                     </div>    
                                     </div>
-                                        <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
+                                        <Comment status={(this.state.comment[post.post_id] ?  true : /* (post.kind == 'write' ? true : */ false)} post={post}/>
                                     
                                     <div className="row Usercomment">
-                                        <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                        <UserComments  status={(this.state.comment[post.post_id] ? true : /*  (post.kind == 'write' ? true : */ false)} comments={post}/>
                                     </div>
                                 </div>     
                                 </div>

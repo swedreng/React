@@ -301,8 +301,10 @@ export function getuserinfoUpdate(payload) {
             })
           
           }).then(response => response.json()).then(response => {
-            dispatch(push(`/loginviewprofile/user/${response.username}`))
-            console.log(response.Posts,response.event,2)
+            if(payload.event){
+              dispatch(push(`/loginviewprofile/user/${response.username}`))
+            }
+            
             if(response.data){
               if(payload.event){
                 var data = response.data
@@ -325,7 +327,7 @@ export function getuserinfoUpdate(payload) {
   
 
     export function viewProfile(payload) {
-      
+      console.log(2344)
         return (dispatch, getState) => { 
           let { auth,posts } = getState() 
           
@@ -336,7 +338,7 @@ export function getuserinfoUpdate(payload) {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              person_id: payload.person_id,
+              person_username: payload.person_username,
               postReq: payload.value,
               event: payload.event
               })
@@ -360,9 +362,7 @@ export function getuserinfoUpdate(payload) {
                 var data = []
                 var postCount = 0
               }
-              if(payload.event == true){
-                dispatch({type: VIEW_PERSON, payload:response.Users})
-              }
+              dispatch({type: VIEW_PERSON, payload:{user:response.Users,postCount:response.postCount,commentCount:response.commentCount}}) 
               dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
           })
         }

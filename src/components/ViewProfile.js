@@ -4,6 +4,9 @@ import ProfileDetail from './ProfileDetail'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as ppuploadActions from "../actions/ppupload"
+import * as postActions from "../actions/posts"
+import * as userInfoActions from "../actions/users"
+import * as userSocialActions from "../actions/userinfo"
 import Dropzone from 'react-dropzone'
 import Loading from './loading'
 import Loadable from 'react-loadable'
@@ -24,14 +27,35 @@ const tabs = [
 ]
 
 
-class ViewProfile extends Component{
+class ViewUserProfile extends Component{
    
     constructor(props){
         super(props);
         
-        this.state = { selectedTab:0, pictureC:null }
+        this.state = { selectedTab:0, pictureC:null, username:'',person:{}, person_social_media: {} }
         
     }   
+    componentWillMount(){
+        console.log('sexe')
+        let { S } = this.props.postActions
+        S()
+        const { match: { params: { username } } } = this.props
+        let {viewProfile } = this.props.userInfoActions
+
+            viewProfile({person_username:username, value:0, event:true}).then(() => { // 2 kez istek atıyor ona bak.
+                const { viewperson: { person} } = this.props
+                this.setState({person:person.user})
+            })
+       
+        //let { getUsersInfo } = this.props.userInfoActions
+        let { getUserViewSocialMedia } = this.props.userSocialActions
+        this.setState({username:username})
+        //getUsersInfo() // buna gerek yok bak sonra..
+        getUserViewSocialMedia({person_username:username}).then(() => {
+            const { viewperson: { person_social_media } } = this.props
+            this.setState({person_social_media:person_social_media})
+        })
+    }
     changeTab(index){
         this.setState({selectedTab:index})
     }
@@ -44,15 +68,23 @@ class ViewProfile extends Component{
                 loading: Loading,
                 delay:3000
             })    
-                return <NoLoginPosts/>             
+                return <NoLoginPosts username={this.state.username}/>             
                 break
-                default:
+            case 1:
+            const ShareInfo = Loadable({
+                loader: () => import('./profile/shareinfo.js'),
+                loading: Loading,
+                delay:3000
+            })    
+                return <ShareInfo username={this.state.username}/>             
+                break    
+            default:
             const Contact = Loadable({
                 loader: () => import('./profile/contact.js'),
                 loading: Loading,
                 delay:3000
             })
-                return <Contact />              
+                return <Contact view_person={this.state.person} user_social_media={this.state.person_social_media}/>              
                 break
         }
     }
@@ -66,14 +98,17 @@ class ViewProfile extends Component{
                 <div className="profile-sidebar">
                         <div>
                             <div className="profile-userpic">
-                                <img className="activeimage" src={person.pp}/>
+                                <img className="activeimage" src={this.state.person.pp}/>
                             </div>
                             <div className="profile-usertitle">
                                 <div className="profile-usertitle-name">
-                                    {person.firstname}{person.lastname}
+                                    {this.state.person.firstname}{this.state.person.lastname}
                                 </div>
                                 <div className="profile-usertitle-job">
-                                    {person.rank==1 ? "admin" : person.rank==2 ? "moderatör" : "kullanıcı"}
+                                    {this.state.person.rank==1 ? "admin" : this.state.person.rank==2 ? "moderatör" : "kullanıcı"}
+                                </div>
+                                <div>
+                                    <p>{this.state.person.personalwriting}</p>
                                 </div>
                             </div>
                         </div>   
@@ -104,7 +139,10 @@ const mapStateToProps = ({ auth,persons,viewperson }) => ({
     auth,persons,viewperson
 })
 const mapDispatchToProps = dispatch => ({
-    ppuploadActions: bindActionCreators(ppuploadActions, dispatch)
+    ppuploadActions: bindActionCreators(ppuploadActions, dispatch),
+    postActions: bindActionCreators(postActions, dispatch),
+    userInfoActions: bindActionCreators(userInfoActions, dispatch),
+    userSocialActions: bindActionCreators(userSocialActions, dispatch),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(ViewUserProfile)

@@ -53,9 +53,9 @@ class NoLoginSearch extends Component{
         }
         this.setState({comment: commentnew})
     }
-    viewProfile(person_id){
-        let {viewProfile} = this.props.searchActions
-        viewProfile({person_id,value:0,event:true})
+    viewProfile(person_username){
+        let { viewProfile } = this.props.searchActions
+        viewProfile({person_username,value:0,event:true})
     }
    
     render(){
@@ -68,9 +68,9 @@ class NoLoginSearch extends Component{
             <div className="row">
                     <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 person">
                     <div className="row">
-                            <div className="people-image col-xs-12 col-lg-3 col-md-3"></div>
-                            <div className="people-name col-xs-12 col-lg-4 col-md-4">
-                                Kişiler-nologin
+                            <div className="people-image col-xs-12 col-lg-3 col-md-3 col-xs-6"></div>
+                            <div className="people-name col-xs-12 col-lg-4 col-md-4 col-xs-6">
+                                Kişiler
                             </div>    
                         </div>
                          <hr className="hr-search"/>
@@ -85,7 +85,7 @@ class NoLoginSearch extends Component{
                                     </div>
                                     <div className="person-info col-xs-12 col-lg-4 col-md-4">
                                         <div className="person-firstname-lastname">
-                                            <b><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(person.id)}>{person.firstname} {person.lastname}</a></b>
+                                            <b><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(person.username)}>{person.firstname} {person.lastname}</a></b>
                                         </div>
                                         <div className="role-info">
                                            {person.rank == 1 ? (<p>Admin</p>) :person.rank == 2 ? (<p>Moderator</p>) : <p>Kullanıcı</p>} 
@@ -115,11 +115,11 @@ class NoLoginSearch extends Component{
                                 data.map((post,index) => (
                                     
                                     <div className="posts">
-                                    <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
+                                    <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv" style={{marginBottom:10}}> 
                                     <div className="caption MainText">
                                         <div className="row">
                                             <div className="col-lg-4 col-md-5 col-sm-4 col-xs-10">
-                                                <img className="ppimage" src={post.user.pp}/><b><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(person.id)}> {post.user.firstname} {post.user.lastname}</a></b>
+                                                <img className="ppimage" src={post.user.pp}/><b><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>
                                             </div>  
                                             <div className="col-lg-1 col-md-5 col-sm-4 col-xs-2" style={{float:'right'}}>
                                                {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
