@@ -62,7 +62,7 @@ class NoLoginMain extends Component{
                                  
                             </div>
                                 <p>{post.writing}</p>
-                                <div className="col-lg-7 col-md-5 col-sm-6 col-xs-12 postTimeMin" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
+                                <div className="col-lg-12 col-md-5 col-sm-6 col-xs-12 postTimeMin" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
                                     <span className="postTime">{post.Time}</span>
                                 </div>   
                             </div>
