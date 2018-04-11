@@ -38,12 +38,12 @@ class NoLoginUserComments extends Component{
                                 <li key={index}>
                                 
                                 <div className="row">
-                                    <div className="col-lg-1 col-xs-2">
+                                    <div className="col-lg-1 col-xs-1">
                                         <div className="Usercommentpicture">
                                             <img src={comment.user.pp}/>
                                         </div>
                                     </div>
-                                    <div className="col-lg-11 col-xs-10">
+                                    <div className="col-lg-11 col-xs-11">
                                         <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
                                         <div className="UserComment--comment">
                                             <p>{comment.writing}</p>

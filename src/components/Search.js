@@ -27,9 +27,10 @@ class Search extends Component{
         this.onUpdate = this.onUpdate.bind(this)
     }
     componentWillMount(){
+        let { addStorageItemLogin } = this.props.searchActions
         const { match: { params: { search } } } = this.props
+        addStorageItemLogin({value:0,event:true,search:search})
         this.setState({search:search})
-        console.log(search,90)
     }
     onUpdate(){       
             let { addStorageItemLogin } = this.props.searchActions

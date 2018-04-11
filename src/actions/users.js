@@ -259,7 +259,7 @@ export function getuserinfoUpdate(payload) {
           })
         
         }).then(response => response.json()).then(response => {
-          window.location = "#/search"
+          dispatch(push(`/search/${payload.search}`))
           console.log(response.Posts,response.event,2)
           if(response.data){
             if(response.event){
@@ -343,7 +343,7 @@ export function getuserinfoUpdate(payload) {
             
             }).then(response => response.json()).then(response => {
               if(payload.event == true){
-                dispatch(push('/viewprofile'))
+                dispatch(push(`/viewprofile/user/${response.username}`))
               }
               
               console.log(response.Posts,response.event,2)

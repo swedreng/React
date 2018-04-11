@@ -98,7 +98,27 @@
     .MainImage{
         height:50%
     }
+    .postTimeBig{
+        display: none;
+    }
+    .postTimeMin{
+        display: inline;
+    }
+
 }
+
+@media only screen and (min-device-width: 425px)  {
+    .postTimeBig{
+        display: inline;
+    }
+    .postTimeMin{
+        display: none;
+    }
+
+}
+
+
+
 
 .like{
     width: 25px;

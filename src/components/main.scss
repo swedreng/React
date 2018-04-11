@@ -30,6 +30,7 @@
     min-height: 1px;
     padding-left: 5px !important;
     padding-right: 5px !important;
+    padding-bottom: 2px !important;
   }
 
 .commentbest{
@@ -57,7 +58,7 @@
     float: right !important;
     
 }
-.MainText{
+/*.MainText{
     
     p{
         display: table;
@@ -70,7 +71,7 @@
     }
 }
 
-
+*/
 
 .icon{
     padding: 10px;
@@ -122,7 +123,7 @@
         padding:0px !important;
         margin-top: 10px !important;
     }
-    
+   
     .jumbotron{
         .Loading{
             img{
@@ -251,7 +252,7 @@
         padding: 10px 10px 10px;
         
         label{
-            font-size: 25px;
+            font-size: 20px;
         }
         li{
             margin-left: 10px;
@@ -287,3 +288,23 @@
     cursor: pointer;
 }
 
+@media only screen and (max-device-width: 425px)  {
+    
+    .postTimeBig{
+        display: none;
+    }
+    .postTimeMin{
+        display: inline;
+    }
+
+}
+
+@media only screen and (min-device-width: 425px)  {
+    .postTimeBig{
+        display: inline;
+    }
+    .postTimeMin{
+        display: none;
+    }
+
+}

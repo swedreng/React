@@ -54,9 +54,9 @@ class App extends Component {
               <Route exact path="/loginsearch/:search" component={Search} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/logout"  component={Logout} />
-              <Route exact path="/search" component={NoLoginSearch} />
+              <Route exact path="/search/:search" component={NoLoginSearch} />
               <Route exact path="/loginviewprofile/user/:username" component={LoginViewProfile} />
-              <Route exact path="/viewprofile" component={ViewProfile} />
+              <Route exact path="/viewprofile/user/:username" component={ViewProfile} />
               <Route path="/loginbestpost/:post_id" component={LoginBestPosts} />
               <Route exact path="/bestpost/:post_id" component={NoLoginBestPosts} />
               <Route exact path="/topbestpost" component={TopBestPosts} />

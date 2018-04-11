@@ -17,10 +17,15 @@ const NoLoginUserComments = Loadable({
 class NoLoginSearch extends Component{
         constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true,comment:{}}
+        this.state = {loadMore:false, status:true,comment:{},search:''}
         this.onUpdate = this.onUpdate.bind(this)
     }
-
+    componentDidMount(){
+        let { addStorageItemNoLogin } = this.props.searchActions
+        const { match: { params: { search } } } = this.props
+        addStorageItemNoLogin({value:0,event:true,search:search})
+        this.setState({search:search})
+    }
     onUpdate(){
       
             let { addStorageItemNoLogin } = this.props.searchActions
@@ -31,7 +36,7 @@ class NoLoginSearch extends Component{
                     console.log(3,4)
                     this.setState({loadMore:true})
                     this.setState({status:false})
-                    addStorageItemNoLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(() =>{
+                    addStorageItemNoLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, search:this.state.search} : {value:0,event:false})).then(() =>{
                         this.setState({status:true})
                         this.setState({loadMore:false})
                     })
@@ -113,18 +118,22 @@ class NoLoginSearch extends Component{
                                     <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                     <div className="caption MainText">
                                         <div className="row">
-                                            <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
-                                                <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                            <div className="col-lg-4 col-md-5 col-sm-4 col-xs-10">
+                                                <img className="ppimage" src={post.user.pp}/><b><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(person.id)}> {post.user.firstname} {post.user.lastname}</a></b>
+                                            </div>  
+                                            <div className="col-lg-1 col-md-5 col-sm-4 col-xs-2" style={{float:'right'}}>
+                                               {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
                                             </div>    
-                                            <div className="col-lg-7 col-md-7 col-sm-8 col-xs-4">
+                                            <div className="col-lg-7 col-md-7 col-sm-8 col-xs-12 postTimeBig" style={{float:'right'}}>
                                                 <span className="postTime">{post.Time}</span>
                                             </div>   
-                                            <div className="col-lg-1 col-md-5 col-sm-4 col-xs-8">
-                                               {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
-                                            </div>   
+                                             
                                         </div>
                                         <div className="row">
                                         <p>{post.writing}</p>
+                                        <div className="col-lg-7 col-md-7 col-sm-8 col-xs-12 postTimeMin">
+                                            <span className="postTime">{post.Time}</span>
+                                        </div>   
                                         </div>       
                                     </div>
                                     <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>

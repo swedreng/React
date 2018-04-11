@@ -95,19 +95,22 @@ class ModeratorMain extends Component{
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
-                                    <div className="col-lg-6 col-md-4 col-sm-4 col-xs-6">
+                                    <div className="col-lg-6 col-md-4 col-sm-4 col-xs-10">
                                         <img className="ppimage" src={post.user.pp}/><b><a style = {{ color:'black', cursor:'pointer'}} onClick = {() => this.viewProfile(post.user.id)}>{post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                     </div>   
                                     <div className="col-lg-1 col-md-4 col-sm-4 col-xs-2" style={{float:'right'}}>
                                         {post.confirmation == 1 ? (<div className={'confirmation_admin_active'}></div>) : (<div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation ${post.IsConfirmationPost ? 'confirmation_active' : null}`}></div>)}
                                     </div>   
-                                    <div className="col-lg-5 col-md-4 col-sm-4 col-xs-5" style={{float:'right'}}>
+                                    <div className="col-lg-5 col-md-4 col-sm-4 col-xs-12 postTimeBig" style={{float:'right'}} style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}>
                                         <span className="postTime">{post.Time}</span>
                                     </div>   
                                      
                                 </div>
                                 <div className="row">
                                 <p>{post.writing}</p>
+                                <div className="col-lg-5 col-md-4 col-sm-4 col-xs-12 postTimeMin" style={{float:'right'}}  style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
+                                        <span className="postTime">{post.Time}</span>
+                                </div>   
                                 </div>       
                             </div>
                             <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
@@ -164,10 +167,10 @@ class ModeratorMain extends Component{
                                     </div>    
                             </div>    
                             </div>
-                                <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
+                                <Comment status={(this.state.comment[post.post_id] ?  true : /*(post.kind == 'write' ? true :*/ false)} post={post}/>
                             
                             <div className="row Usercomment">
-                                <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                <UserComments  status={(this.state.comment[post.post_id] ? true :/* (post.kind == 'write' ? true :*/ false)} comments={post}/>
                             </div>
                             
                         </div> 

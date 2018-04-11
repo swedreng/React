@@ -7,3 +7,23 @@
     margin-top:5px;
     background-size:cover;
 }
+@media only screen and (max-device-width: 425px)  {
+    
+    .postTimeBig{
+        display: none;
+    }
+    .postTimeMin{
+        display: inline;
+    }
+
+}
+
+@media only screen and (min-device-width: 425px)  {
+    .postTimeBig{
+        display: inline;
+    }
+    .postTimeMin{
+        display: none;
+    }
+
+}

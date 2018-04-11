@@ -80,19 +80,22 @@ class LoginUserMain extends Component{
                              <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                  <div className="caption MainText">
                                      <div className="row"> 
-                                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-6" >
+                                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-10" >
                                              <img className="ppimage" src={post.user.pp}/><b><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>
                                          </div>  
                                          <div className="col-lg-1 col-md-4 col-sm-4 col-xs-2" style={{float:'right'}}>
                                             {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
                                          </div>     
-                                         <div className="col-lg-7 col-md-4 col-sm-4 col-xs-4" style={{float:'right'}}>
+                                         <div className="col-lg-7 col-md-4 col-sm-4 col-xs-12 postTimeBig" style={{float:'right'}} style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}>
                                              <span className="postTime">{post.Time}</span>
                                          </div>   
-                                        
+
                                      </div>
                                      <div className="row">
                                      <p>{post.writing}</p>
+                                     <div className="col-lg-7 col-md-4 col-sm-4 col-xs-12 postTimeMin" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
+                                            <span className="postTime">{post.Time}</span>
+                                     </div> 
                                      </div>       
                                  </div>
                                  <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>

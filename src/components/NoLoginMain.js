@@ -50,18 +50,21 @@ class NoLoginMain extends Component{
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
-                                <div className="col-lg-4 col-md-5 col-sm-4 col-xs-5">
+                                <div className="col-lg-4 col-md-5 col-sm-4 col-xs-10">
                                     <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                 </div>    
                                 <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2" style={{float:'right'}}>
                                     <div className={'confirmation_active'}></div>                                                           
                                 </div>  
-                                <div className="col-lg-7 col-md-5 col-sm-6 col-xs-5" style={{float:'right'}}>
+                                <div className="col-lg-7 col-md-5 col-sm-6 col-xs-12 postTimeBig" style={{float:'right'}} style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}>
                                     <span className="postTime">{post.Time}</span>
                                 </div>    
                                  
                             </div>
                                 <p>{post.writing}</p>
+                                <div className="col-lg-7 col-md-5 col-sm-6 col-xs-12 postTimeMin" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
+                                    <span className="postTime">{post.Time}</span>
+                                </div>   
                             </div>
                             <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
                             <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>

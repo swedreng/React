@@ -75,15 +75,16 @@ class LoginBestPosts extends Component{
                                      <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                          <div className="caption MainText">
                                              <div className="row">
-                                                 <div className="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+                                                 <div className="col-lg-4 col-md-5 col-sm-4 col-xs-6">
                                                      <img className="ppimage" src={post.user.pp}/><b><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>
                                                  </div>    
-                                                 <div className="col-lg-7 col-md-7 col-sm-8 col-xs-4">
+                                                 <div className="col-lg-1 col-md-5 col-sm-4 col-xs-2" style={{float:'right'}}>
+                                                    {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
+                                                 </div>  
+                                                 <div className="col-lg-7 col-md-7 col-sm-8 col-xs-5" style={{float:'right  '}}>
                                                      <span className="postTime">{post.Time}</span>
                                                  </div>   
-                                                 <div className="col-lg-1 col-md-5 col-sm-4 col-xs-8">
-                                                    {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
-                                                 </div>   
+                                                  
                                              </div>
                                              <div className="row">
                                              <p>{post.writing}</p>

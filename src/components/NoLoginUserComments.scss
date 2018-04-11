@@ -116,3 +116,17 @@
         }
         
     }
+    @media only screen and (max-device-width: 425px)  {
+        .continue {
+            margin-left: 30%;
+            margin-right: 10%;
+        }
+        .Usercommentpicture {
+            margin-left: -15px !important;
+        }
+    
+    }
+    .Usercommentpicture {
+        margin-left: 0px;
+    }
+    

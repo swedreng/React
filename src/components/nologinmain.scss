@@ -7,3 +7,31 @@
     background-size:cover;
     
 }
+.MainText p {
+    display: table;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 17px;
+    padding-top: 10px !important;
+    padding-bottom: 5px !important;
+    margin-left: 10px;
+}
+@media only screen and (max-device-width: 425px)  {
+    
+    .postTimeBig{
+        display: none;
+    }
+    .postTimeMin{
+        display: inline;
+    }
+
+}
+
+@media only screen and (min-device-width: 425px)  {
+    .postTimeBig{
+        display: inline;
+    }
+    .postTimeMin{
+        display: none;
+    }
+
+}

@@ -5,9 +5,6 @@ import * as userActions from "../../actions/users"
 import Loading from "../loading"
 import './account.scss'
 
-
-
-
 class Account extends Component{
   constructor(props){
     super(props)
