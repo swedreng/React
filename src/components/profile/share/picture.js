@@ -42,7 +42,7 @@ class Picture extends Component{
                         
                         {(
                             this.state.files.length <= 0 ?
-                            <img className="defaultP" src="src/images/imageee.png"/>
+                            <img className="defaultP" src={`${require('../../../images/imageee.png')}`}/>
                             :
                             <img src={(this.state.files.length > 0 ? this.state.files[0].preview : null)}/>
                         )}
