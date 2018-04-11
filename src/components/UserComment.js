@@ -149,7 +149,7 @@ class UserComment extends Component{
                 <div>
                     {( this.state.loadMore ? (
                                 <div className="LoadingComment">
-                                    <img src="src/images/loading_commentt.gif"/>
+                                    <img src={`${require('../images/loading_commentt.gif')}`}/>
                                 </div>
                             ) : null)} 
                     {( a.length >= this.state.clickCount ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}

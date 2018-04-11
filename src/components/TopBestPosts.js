@@ -140,7 +140,7 @@ class TopBestPosts extends Component{
                                              </div>
                                              <div className="col-lg-6 col-md-6 col-sm-6 col-xs-5 likecomment">
                                                  <div className='likecount'>   
-                                                     <img src="src/images/thumb-up.png"></img><b>{post.like}</b>
+                                                     <img src={`${require('../images/thumb-up.png')}`}></img><b>{post.like}</b>
                                                  </div>
                                                  <div className='commentcount'>
                                                      <img onClick={() => this.actionComment(post.post_id)} src="src/images/comment-white-oval-bubble.png"></img>
@@ -180,7 +180,7 @@ class TopBestPosts extends Component{
                     ))}
                     {( this.state.loadMore ? (
                                 <div className="Loading">
-                                    <img src="src/images/l.gif"/>
+                                    <img src={`${require('../images/l.gif"')}`}/>
                                 </div>
                             ) : null)}
                         </ScrollContainer>
