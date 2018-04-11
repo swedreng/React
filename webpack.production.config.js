@@ -3,15 +3,19 @@ const htmlWebpack = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
-const OUTPUT_DIR = path.resolve(__dirname, 'dist');
+const SRC_DIR = path.resolve(__dirname, 'src')
+const OUTPUT_DIR = path.resolve(__dirname, './dist/assets');
 
 module.exports = {
 
-    entry: './src/main.js',
+    entry: { 
+        'js/app': path.join(SRC_DIR, 'main.js'),
+      },
     output: {
         path: `${OUTPUT_DIR}/`,
-        filename : 'bundle.js'
-
+        publicPath: 'assets/',
+        filename: '[name]-[chunkhash].js',
+        chunkFilename: 'js/[chunkhash].min.js',
     },
     module: {
         loaders : [
@@ -40,7 +44,7 @@ module.exports = {
         new htmlWebpack({
             title: 'Opanc',
             template : "src/index.html",
-            filename : 'index.html',
+            filename : '../index.html',
             inject : 'body'
         }),
         new webpack.DefinePlugin({
