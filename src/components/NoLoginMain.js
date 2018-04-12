@@ -75,15 +75,15 @@ class NoLoginMain extends Component{
                             <div className="row">
                             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-5">
                                 <span style={{padding:'8'}}> 
-                                    <div className={`like`}></div>
+                                    <div className={`nologinlike`}></div>
                                     <b>Beğen</b>
                                 </span>
                             </div>
                             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-5 likecomment">
-                                <div className='likecount'>   
+                                <div className='nologinlikecount'>   
                                     <img src={`${require('../images/thumb-up.png')}`}></img><b>{post.like}</b>
                                 </div>
-                                <div className='commentcount'>
+                                <div className='nologincommentcount'>
                                     <img onClick={() => this.actionComment(post.post_id)} src={`${require('../images/comment-white-oval-bubble.png')}`}></img>
                                     <b className="openComment">{post.CommentCount}</b>
                                 </div>    

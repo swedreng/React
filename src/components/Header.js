@@ -46,7 +46,7 @@ class Header extends Component {
                     items={this.props.searchdata.search_data.map(value => ({label : value}))}
                     shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
                     renderItem={(item, isHighlighted) =>
-                    <div key={item.id} style={{ background: isHighlighted ? '#ffe6e6' : 'white', width:'170px', fontFamily:"Helvetica Neue", padding:5, fontSize:17}}>
+                    <div key={item.id} className="searchList" style={{ background: isHighlighted ? '#ffe6e6' : 'white', width:'170px', fontFamily:"Helvetica Neue", padding:5, fontSize:17}}>
                         {item.label}
                     </div>
                     }

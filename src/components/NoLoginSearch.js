@@ -145,16 +145,14 @@ class NoLoginSearch extends Component{
                                     <div className="icon">
                                     <div className="row">
                                             <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
-                                                <span onClick={() => this.likeSubmit(post.post_id)}> 
-                                                    <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
-                                                    <b>Beğen</b>
-                                                </span>
+                                                    <div className={`nologinsearchlike`}></div>
+                                                    <b>Beğen</b>  
                                             </div>
                                             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-5 likecomment">
                                                 <div className='likecount'>   
                                                     <img src={`${require('../images/thumb-up.png')}`}></img><b>{post.like}</b>
                                                 </div>
-                                                <div className='commentcount'>
+                                                <div className='nologincommentcount'>
                                                     <img onClick={() => this.actionComment(post.post_id)} src={`${require('../images/comment-white-oval-bubble.png')}`}></img>
                                                     <b className="openComment">{post.CommentCount}</b>
                                                 </div>    

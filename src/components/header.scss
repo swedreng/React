@@ -60,43 +60,73 @@
     }
 }
 
-@media only screen and (max-device-width: 375px){
 
-    .mobile-search{
-        .mobile-search-input{
-            width: 120px ;
-            margin-top: 10px !important;
-        }
-        .searchButton{
-            margin-bottom: 10px !important;
-            margin-top: 10px !important;
-        }
-        .mobile-button{
-            
-        }
+
+@media only screen and (min-device-width: 350px) and (max-device-width:370px){
+    .searchList{
+        width:94px !important;
     }
-    .mobile-menu{
-        ul{
-            li{
-                margin-right: 15px;
-                float: left;
-                padding: 5px 5px;
-                list-style-type:none;
-                padding-right: 30px;
-                .glyphicon {
-                    font-size: 25px;
-                    cursor: pointer;
-                }
+        .mobile-search{
+            .mobile-search-input{
+                width: 100px ;
+                margin-top: 10px !important;
             }
-         
+            .searchButton{
+                margin-bottom: 10px !important;
+                margin-top: 10px !important;
+            }
+
+        }
+        .mobile-menu{
+            ul{
+                li{
+                    margin-right: 15px;
+                    float: left;
+                    padding: 5px 5px;
+                    list-style-type:none;
+                    padding-right: 20px;
+                    .glyphicon {
+                        font-size: 25px;
+                        cursor: pointer;
+                    }
+                }
+             
+            }
         }
     }
-}
 .menuButton{
     padding: 6px 10px;
 }
-@media only screen and (max-device-width: 320px){
-    
+@media only screen and (min-device-width:330px) and (max-device-width:340px){
+    .searchList{
+        width:119px !important;
+    }
+    .mobile-search{
+        .mobile-search-input{
+            width: 125px!important;
+            margin-top: 10px !important;
+        }
+    }
+}
+@media only screen and (min-device-width:340px) and (max-device-width:350px){
+    .searchList{
+        width:129px !important;
+    }
+    .mobile-search{
+        .mobile-search-input{
+            width: 135px!important;
+            margin-top: 10px !important;
+        }
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 330px){
+    .searchList{
+        width:106px !important;
+        
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 350px){
+        
         .mobile-search{
             .mobile-search-input{
                 width: 110px ;
@@ -107,9 +137,7 @@
                 display: none;
                 margin-top: 10px !important;
             }
-            .mobile-button{
-                
-            }
+
         }
         .mobile-menu{
             ul{
@@ -128,9 +156,80 @@
             }
         }
     }
+ 
+    @media only screen and (min-device-width: 371px) and (max-device-width: 400px){
+            .searchList{
+                width:105px !important;
+            }
+            .mobile-search{
+                .mobile-search-input{
+                    width: 110px ;
+                    margin-top: 10px !important;
+                }
+                .searchButton{
+                    margin-bottom: 10px !important;
+                    display: inline;
+                    margin-top: 10px !important;
+                }
 
+            }
+            .mobile-menu{
+                ul{
+                    li{
+                        margin-right: 0px;
+                        float: left;
+                        padding: 5px 5px;
+                        list-style-type:none;
+                        padding-right: 40px;
+                        .glyphicon {
+                            font-size: 25px;
+                            cursor: pointer;
+                        }
+                    }
+                 
+                }
+            }
+        }
+        @media only screen and (min-device-width: 401px) and (max-device-width: 415px){
+            .searchList{
+                width:134px !important;
+            }
+                .mobile-search{
+                    .mobile-search-input{
+                        width: 140px ;
+                        margin-top: 10px !important;
+                    }
+                    .searchButton{
+                        margin-bottom: 10px !important;
+                        display: inline;
+                        margin-top: 10px !important;
+                    }
     
-
+                }
+                .mobile-menu{
+                    ul{
+                        li{
+                            margin-right: 0px;
+                            float: left;
+                            padding: 5px 5px;
+                            list-style-type:none;
+                            padding-right: 50px;
+                            .glyphicon {
+                                font-size: 25px;
+                                cursor: pointer;
+                            }
+                        }
+                     
+                    }
+                }
+            }
+        
+    @media only screen and (min-device-width: 416px) and (max-device-width: 765px){
+            .searchList{
+                width:157px !important;
+                }
+        }
+        
 .mobile-menu{
     a{
         color:#333

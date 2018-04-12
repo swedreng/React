@@ -75,7 +75,7 @@ class ModeratorMain extends Component{
         let { setCategory } = this.props.postsActions
         setCategory({category_id:category_id,post_id:post_id})
     }
-    viewProfile(person_id){
+    LoginviewProfile(person_id){
         let { LoginviewProfile } = this.props.viewProfileActions
         LoginviewProfile({person_id,value:0,event:true})
     }
