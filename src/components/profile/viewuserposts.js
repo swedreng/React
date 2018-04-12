@@ -87,7 +87,7 @@ class viewuserposts extends Component{
                                         </div>
                                         <div className="row">
                                         <p>{post.writing}</p>
-                                        <div className="col-lg-7 col-md-7 col-sm-8 col-xs-12" style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
+                                        <div className="col-lg-12 col-md-7 col-sm-8 col-xs-12" style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
                                             <span className="postTime">{post.Time}</span>
                                         </div>  
                                         </div>       

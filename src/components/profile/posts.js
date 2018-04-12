@@ -89,7 +89,7 @@ class posts extends Component{
                                         </div>
                                         <div className="row">
                                         <p>{post.writing}</p>
-                                        <div className="col-lg-7 col-md-4 col-sm-4 col-xs-12 postTimeMin" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
+                                        <div className="col-lg-12 col-md-4 col-sm-4 col-xs-12 postTimeMin" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
                                             <span className="postTime">{post.Time}</span>
                                         </div>
                                         </div>       
@@ -120,7 +120,7 @@ class posts extends Component{
                                             <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
                                             {post.user.rank == 1 ? <div>Admin</div>:(
                                                 <div className="dropdown option">
-                                                <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>
                                                 <ul className="dropdown-menu">
