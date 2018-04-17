@@ -8,14 +8,18 @@ import './NoLoginBestComments.scss'
 class NoLoginBestComments extends Component{
     constructor(props){
         super(props)
+        this.state = {width:null}
     }
-    
+    componentDidMount(){
+        var genislik = window.screen.width;
+        this.setState({width:genislik})
+    }
     render(){
         const comments = this.props.comments.CommentBest
         return(
         <div className="commentssmain">
-            {comments.length > 0 ? <b className="bestcomment-title">En iyi yorumlar</b> : null}
-            {comments.map((comment, index) => {
+            {comments.length > 0  && this.state.width <= 425 ?  <b className="bestcomment-title-NL">En iyi yorumlar</b> : null}
+            {comments.map((comment, index) => { 
                 
                 return (
                 <div className="row" key={index}>

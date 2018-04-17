@@ -1,8 +1,22 @@
 
-.confirmation_active{
-    background-image:url('../images/confirmation_active.png') !important; 
+.confirmation_activeLG{
+    width: 30px;
+    height: 30px;
+    float:right;
+    margin-left: 10px;
+    background-image:url('../images/confirmation_active.png'); 
+    background-size:cover;
 }
-.confirmationUser{
+.quality_user-LG{
+    background-image:url('../images/icon.png');
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    margin-left: 5px;
+    margin-top:5px;
+    background-size:cover;
+}
+.confirmationUserLG{
     width: 30px;
     height: 30px;
     float:right;
@@ -11,8 +25,37 @@
     background-size:cover;
     
 }
-.like{
-    cursor: pointer !important;
+.postTimeLG{
+    margin-top: 1px;
+    float: right !important;
+    color: #b4b6bd;
+}
+.likeLG{
+    width: 25px;
+    height: 25px;
+    float:left;
+    background-image:url('../images/like.png');
+    background-size:cover;
+    cursor: pointer;
+}
+.activeLG{
+    width: 25px;
+    height: 25px;
+    float:left;
+    background-image:url('../images/like_active.png');
+    background-size:cover;
+    cursor: pointer;
+}
+.MainTextLG{
+    p{
+        display: table;
+        font-family: "Helvetica Neue";
+        font-size: 17px;
+        padding-top:10px !important;
+        padding-bottom: 5px !important;
+        margin-left: 10px;
+        
+    }
 }
 .commentcount{
     cursor: pointer !important;
@@ -22,21 +65,14 @@
 }
 
 @media only screen and (max-device-width: 425px)  {
-    .postTimeBig{
-        display: none;
+    .postTimeLG{
+        margin-right: 7px !important;
+        margin-top: 1px;
+        float: right;
+        color: #b4b6bd;
     }
-    .postTimeMin{
-        display: inline;
+    .dropdown-menu{
+        left:-130px;
     }
-
-}
-@media only screen and (min-device-width: 425px)  {
-    .postTimeBig{
-        display: inline;
-    }
-    .postTimeMin{
-        display: none;
-    }
-
 }
 

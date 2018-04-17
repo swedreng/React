@@ -73,7 +73,7 @@ class Layout extends Component{
                                 { bestposttoday.map(post => {
                                     return (
                                         <div>
-                                            <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><li>{post.user.firstname} {post.user.lastname }  <div style={{marginLeft:'10',marginTop:'3',marginRight:'3'}}className={'bb'}> </div> {post.like}</li> </Link> 
+                                            <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><li>{post.user.firstname} {post.user.lastname }  <div className={'bb'}> </div> {post.like}</li> </Link> 
                                         </div>
                                     )
                                 })}
@@ -85,9 +85,9 @@ class Layout extends Component{
                             </ul>
                             <ul className="nav nav-pills nav-stacked">
                                 <label>Diğer işlemler</label>
-                                <Link to="/signup"><li>Üye ol</li></Link>
-                                <Link to="/login"><li>Giriş yap</li></Link>
-                                <Link to="/logout"><li>Çıkış yap</li></Link>
+                                {isAuth ? null : <Link to="/signup"><li>Üye ol</li></Link>}
+                                {isAuth ? null : <Link to="/login"><li>Giriş yap</li></Link>}
+                                {isAuth ? <Link to="/logout"><li>Çıkış yap</li></Link> : null}
                             </ul>
                         </div>
                    </div> : null}

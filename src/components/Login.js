@@ -39,7 +39,7 @@ class Login extends Component{
                     <div className="col-md-3 col-md-offset-2 col-lg-4 col-lg-offset-3">
                         <div className="panel panel-default">
                             <div className="panel-heading">
-                                <h3 className="panel-title">Login</h3>
+                                <h3 className="panel-title">Giriş Yap</h3>
                             </div>
                             <div className="panel-body">
                                 <form accept-charset="UTF-8" role="form">
@@ -65,11 +65,7 @@ class Login extends Component{
                                             <div className="col-md-6">
                                                 <Link to="/passwordreset"><a className="passwordreset"><div className={'forgetpassword'}></div>Şifremi unuttum</a></Link>
                                             </div>    
-                                        </div>    
-                                        <div className="row">
-                                            <a href={`${process.env.URL}/api/auth/facebook`} className="facebooklogin"><div className='facebook'></div>Facebook Giriş</a>
-                                        </div>   
-                                        
+                                        </div>                    
                                     <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.loginSubmit}>Giris Yap</button>
                                     </div>
                                 </fieldset>

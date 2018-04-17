@@ -40,9 +40,10 @@
     font-size: 18px;
     margin-top:10px;
 }
-.hr-search{
-    margin-top: 10px !important;
-    margin-bottom: 10px !important; 
+hr {
+     margin-top: 0px !important; 
+     margin-bottom: 0px !important; 
+
 }
 .person-image{
     .search-people-image{
@@ -86,4 +87,20 @@
 }
 .nologincommentcount{
     cursor: auto;
+}
+
+@media only screen and (max-device-width: 425px)  {
+    
+    .postTime-NLS{
+       margin-right: 7px;
+       margin-top: 1px;
+       float: right;
+       color: #b4b6bd;
+    }
+
+}
+.postTime-NLS{
+    margin-top: 1px;
+    float: right ;
+    color: #b4b6bd;
 }

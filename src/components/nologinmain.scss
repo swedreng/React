@@ -1,15 +1,24 @@
-.confirmation_active{
+.confirmation_active-NL{
     width: 30px;
     height: 30px;
     float:right;
     margin-left: 10px;
-    background-image:url('../images/confirmation.png');
+    background-image:url('../images/confirmation_active.png');
     background-size:cover;
     
 }
+.quality_user-NL{
+    background-image:url('../images/icon.png');
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    margin-left: 5px;
+    margin-top:5px;
+    background-size:cover;
+}
 .MainText p {
     display: table;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue";
     font-size: 17px;
     padding-top: 10px !important;
     padding-bottom: 5px !important;
@@ -30,21 +39,16 @@
 }
 @media only screen and (max-device-width: 425px)  {
     
-    .postTimeBig{
-        display: none;
-    }
-    .postTimeMin{
-        display: inline;
-    }
-
-}
-
-@media only screen and (min-device-width: 425px)  {
-    .postTimeBig{
-        display: inline;
-    }
-    .postTimeMin{
-        display: none;
+    .postTimeNL{
+       margin-right: 7px;
+       margin-top: 1px;
+       float: right;
+       color: #b4b6bd;
     }
 
 }
+.postTimeNL{
+    margin-top: 1px;
+    float: right;
+    color: #b4b6bd;
+ }

@@ -9,8 +9,12 @@ class Comments extends Component{
     constructor(props){
         super(props)
         this.commentLike = this.commentLike.bind(this);
+        this.state = {width:null}
     }
-    
+    componentDidMount(){
+        var genislik = window.screen.width;
+        this.setState({width:genislik})
+    }
     commentLike(comment_id){
         let { commentLike } = this.props.postsActions
         commentLike({comment_id:comment_id,post_id:this.props.comments.post_id})
@@ -20,7 +24,7 @@ class Comments extends Component{
         const comments = this.props.comments.CommentBest
         return(
         <div className="commentssmain">
-            {comments.length > 0 ? <b className="bestcomment-title">En iyi yorumlar</b> : null}
+            {comments.length > 0  && this.state.width <= 425 ? <b className="bestcomment-title-LG">En iyi yorumlar</b> : null}
             {comments.map((comment, index) => {
                 
                 return (

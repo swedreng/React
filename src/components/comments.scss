@@ -1,6 +1,6 @@
 .commentssmain{
     .row{
-        padding-bottom:20px;
+        padding-bottom:15px;
         
     }
 }
@@ -114,20 +114,20 @@
  
      }
 }
-@media screen and(max-width:600px){
-    .bestcomment-title{
-        display: inline !important;
-        margin-left: 5% !important;
-        margin-right:5% !important;
-        padding: 10px !important;
-    }
-    .col-xs-2 {
-        width: 10%!important;
-    }
-}
-.bestcomment-title{
-display:none;
+.bestcomment-title-LG{
+    padding: 6px;
 }
 .config{
     padding: 10px !important;
 }
+@media screen and(max-width:425px){ 
+    .commentssmain{
+        padding-bottom: 12px;
+        .row{
+            padding-bottom:4px;
+            
+        }
+    }
+}
+
+
