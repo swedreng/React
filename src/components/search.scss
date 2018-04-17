@@ -79,3 +79,35 @@
     }
     
 }
+@media only screen and (max-device-width: 425px)  {
+    
+    .postTime-LGS{
+       margin-right: 7px;
+       margin-top: 1px;
+       float: right;
+       color: #b4b6bd;
+    }
+
+}
+.postTime-LGS{
+    margin-top: 1px;
+    float: right;
+    color: #b4b6bd;
+}
+.confirmation_active-LGS{
+    width: 30px;
+    height: 30px;
+    float:right;
+    margin-left: 10px;
+    background-image:url('../images/confirmation_active.png'); 
+    background-size:cover;
+}
+.confirmationUser-LGS{
+    width: 30px;
+    height: 30px;
+    float:right;
+    margin-left: 10px;
+    background-image:url('../images/confirmation.png');
+    background-size:cover;
+    
+}
