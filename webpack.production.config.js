@@ -48,7 +48,7 @@ module.exports = {
             inject : 'body'
         }),
         new webpack.DefinePlugin({
-            'process.env.URL': JSON.stringify("http://api.opanc.com"),
+            'process.env.URL': JSON.stringify("https://api.opanc.com"),
             'FACEBOOK': JSON.stringify("https://www.facebook.com"),
             'TWITTER' :  JSON.stringify("https://www.twitter.com"),
             'INSTAGRAM' : JSON.stringify("https://www.instagram.com"),
