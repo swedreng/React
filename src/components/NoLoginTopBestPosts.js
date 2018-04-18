@@ -5,8 +5,9 @@ import * as bestPostActions from "../actions/bestpost"
 import * as postsActions from "../actions/posts"
 import Loading from './loading'
 import Loadable from 'react-loadable';
-import './nologinmain.scss'
 import ScrollContainer from './ScrollContainer'
+import { dateTime } from '../myfunctions/myfunctions'
+import './Nologintopbestposts.scss'
 
 const NoLoginUserComments = Loadable({
     loader: () => import('./NoLoginUserComments.js'),
@@ -24,7 +25,7 @@ class NoLoginTopBestPosts extends Component{
 
     constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true,comment:{}}
+        this.state = {loadMore:false, status:true,comment:{},width:null}
         this.onUpdate = this.onUpdate.bind(this)
 
     }
@@ -33,6 +34,8 @@ class NoLoginTopBestPosts extends Component{
         S()
         let { getTopBestPostToday } = this.props.bestPostActions
         getTopBestPostToday({value:0,event:true})
+        var genislik = window.screen.width
+        this.setState({width:genislik})
     }
     actionComment(post_id){
         const commentnew =  {...this.state.comment};
@@ -75,21 +78,18 @@ class NoLoginTopBestPosts extends Component{
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
-                                <div className="col-lg-4 col-md-5 col-sm-4 col-xs-10">
+                                <div className="col-lg-8 col-md-7 col-sm-4 col-xs-9">
                                     <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                 </div>    
-                                <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2" style={{float:'right'}}>
-                                    <div className={'confirmation_active'}></div>                                                           
+                                <div className="col-lg-1 col-md-1 col-sm-2 col-xs-1" style={{float:'right'}}>
+                                    <div className={'confirmation_active-NTB'}></div>                                                           
                                 </div>  
-                                <div className="col-lg-7 col-md-5 col-sm-6 col-xs-12 postTimeBig" style={{float:'right'}} style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}>
-                                    <span className="postTime">{post.Time}</span>
+                                <div className="col-lg-3 col-md-4 col-sm-6 col-xs-2">
+                                    <span className="postTime-NTB">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
                                 </div>    
                                  
                             </div>
-                                <p>{post.writing}</p>
-                                <div className="col-lg-7 col-md-5 col-sm-6 col-xs-12 postTimeMin" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
-                                    <span className="postTime">{post.Time}</span>
-                                </div>   
+                                <p>{post.writing}</p>  
                             </div>
                             <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
                             <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>
@@ -113,10 +113,10 @@ class NoLoginTopBestPosts extends Component{
                                     <b className="openComment">{post.CommentCount}</b>
                                 </div>    
                             </div>
-                    </div>    
+                        </div>    
                             </div>
                             <div className="row Usercomment ">
-                                <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' && this.state.width >= 425 ? true : false))} comments={post}/>
                             </div>
                             
                         </div> 
@@ -124,8 +124,6 @@ class NoLoginTopBestPosts extends Component{
                             <NoLoginBestComments comments={post}/>
                         </div> 
                     </div>     
-                   
-                    
                 </div>
                 ))}
                     {( this.state.loadMore ? (
@@ -138,7 +136,6 @@ class NoLoginTopBestPosts extends Component{
                     : 
                     <Loading/>
                     )}
-
             </div>    
         )
     }

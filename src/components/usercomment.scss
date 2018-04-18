@@ -23,7 +23,7 @@
 .usercommentwrite{
     p{
         word-wrap:break-word;
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: "Helvetica Neue";
         font-size: 14px;
     }
 }
@@ -48,7 +48,7 @@
             
             margin-left: -15px;
             word-wrap: break-word;
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: "Helvetica Neue";
             font-size: 14px;
             .button{
                 margin-bottom: 10px !important;
@@ -60,7 +60,7 @@
         }
     }
     .Usercommentpicture{
-        margin-left:-15px;
+        margin-left:-10px;
     }
   
 
@@ -105,7 +105,7 @@
             .UserComment--comment > * {
                 
                 word-wrap: break-word;
-                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-family: "Helvetica Neue";
                 font-size: 14px;
                
             }
@@ -113,7 +113,7 @@
                 
                 margin-left: -15px;
                 word-wrap: break-word;
-                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-family: "Helvetica Neue";
                 font-size: 14px;
                
             }
@@ -121,6 +121,7 @@
                 position: relative;
                 .UserComment--like{
                     display:inline-flex;
+                  
                 }
                 .clap{
                     width: 25px;
@@ -132,8 +133,9 @@
                     background-image:url('../images/clapping.png');
                 }
                 b{
-                    font-size: 16px;
+                    font-size: 13px;
                     margin-left: 5px;
+                    margin-top: 5px;
                 }
                 span{
                     position: absolute;

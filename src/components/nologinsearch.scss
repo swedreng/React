@@ -88,6 +88,14 @@ hr {
 .nologincommentcount{
     cursor: auto;
 }
+.confirmation-NLS{
+    width: 30px;
+    height: 30px;
+    float:right;
+    margin-left: 10px;
+    background-image:url('../images/confirmation_active.png'); 
+    background-size:cover;
+}
 
 @media only screen and (max-device-width: 425px)  {
     

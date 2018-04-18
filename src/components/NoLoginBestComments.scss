@@ -1,9 +1,4 @@
-.commentssmain{
-    .row{
-        padding-bottom:20px;
-        
-    }
-}
+
 .commetpp{
     height: 50px;
    
@@ -27,10 +22,14 @@
     overflow:hidden;
     p{
     word-wrap:break-word;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue";
     font-size: 14px;
-        
+    margin-left: 8px;
     }
+    .nloginbestpost-name{
+        margin-left: 8px;
+    }
+    
     .commentdiv--area{
         padding:5px;
         .clap{
@@ -41,11 +40,14 @@
             float:left;
             margin-top:8px;
         }
-       
+       .bestComment-name{
+        margin-left: 8px;
+       }
         b{
             float:left;
             padding:5px;
             margin-top: 8px; 
+            
         }
         .active{
             background-image:url('../images/clapping.png');
@@ -91,7 +93,7 @@
         overflow:hidden;
         p{
         word-wrap:break-word;
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: "Helvetica Neue";
         font-size: 14px;
        
         }
@@ -110,6 +112,23 @@
  
      }
 }
+.commentssmain-NLB{
+    padding-bottom: 10px;
+    .row{
+        padding-bottom: 14px;
+    }
+}
+@media only screen and (max-device-width: 425px)  {
+    .commentssmain-NLB{
+        padding-bottom: 15px;
+        .row{
+            padding-bottom: 4px;
+        }
+    }
+}
+
+
 .bestcomment-title-NL{
     padding: 6px;
 }
+

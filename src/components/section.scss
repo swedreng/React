@@ -3,3 +3,9 @@
         display: none !important;
     }
 }
+
+.list-group-item.disabled, .list-group-item.disabled:focus, .list-group-item.disabled:hover {
+    color: #fff;
+    cursor: not-allowed;
+    background-color: #d4462c;
+}

@@ -125,7 +125,7 @@ class NoLoginSearch extends Component{
                                                 <img className="ppimage" src={post.user.pp}/><b><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>
                                             </div>  
                                             <div className="col-lg-1 col-md-5 col-sm-4 col-xs-1" style={{float:'right'}}>
-                                               {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
+                                               <div className={`confirmation-NLS`}></div>
                                             </div>    
                                             <div className="col-lg-3 col-md-7 col-sm-8 col-xs-2">
                                                 <span className="postTime-NLS">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
@@ -166,7 +166,7 @@ class NoLoginSearch extends Component{
                                     </div>    
                                     </div>
                                     <div className="row Usercomment">
-                                        <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                        <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true /*: (post.kind == 'write' && post.CommentLast.length > 0 ? true : */ :false)} comments={post}/>
                                     </div>
                                 </div>     
                                 </div>

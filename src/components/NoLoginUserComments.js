@@ -30,6 +30,7 @@ class NoLoginUserComments extends Component{
         return(
             
             <div className="col-xs-12 col-md-12 col-lg-12 ana comments">
+            <hr/>
                 <ul>
                     {
                         a.map((comment,index) =>{
@@ -47,7 +48,7 @@ class NoLoginUserComments extends Component{
                                         <div className="UserComment--comment">
                                             <p>{comment.writing}</p>
                                         </div>
-                                        <hr className="break" />
+                                        
                                         <div className="UserComment--action"> 
                                             <div className="UserComment--like">
                                                 <div className={'clap'}></div>

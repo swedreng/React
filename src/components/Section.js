@@ -37,14 +37,14 @@ class Section extends Component{
                     </a>
                     { categories.map(category => {
                         return (
-                            <Link to={`/category/${category.category_id}`}><a className="list-group-item">{category.category_name}<span className="badge">{category.PostCount}</span></a></Link>
+                            <Link to={`/category/${category.category_id}`}><a className="list-group-item">{category.category_name}<span style={{float:'right'}} className="label label-danger">{category.PostCount}</span></a></Link>
                         )
                     }).sort(categories.PostCount).slice(0,5)}
 
                     { this.state.status ? 
                         categories.map(category => {
                             return (
-                                <Link to={`/category/${category.category_id}`}><a href="#" className="list-group-item">{category.category_name}<span className="badge">{category.PostCount}</span></a></Link>
+                                <Link to={`/category/${category.category_id}`}><a href="#" className="list-group-item">{category.category_name}<span style={{float:'right'}} className="label label-danger">{category.PostCount}</span></a></Link>
                             )
                         }).slice(5,categories.length) : null}
                     <a onClick={() => this.getCategory()} className="list-group-item">Diğer</a>

@@ -35,7 +35,7 @@ class Comments extends Component{
                     </div>
                     </div>
                     <div className="col-xs-12 col-lg-10 col-md-12 commentdiv img-thumbnail">
-                        <b>{comment.user.firstname} {comment.user.lastname}</b>
+                        <b className="bestComment-name">{comment.user.firstname} {comment.user.lastname}</b>
                         <p>{comment.writing}</p>  
                         <hr/>
                         <div className="commentdiv--area" onClick={() => this.commentLike(comment.comment_id)}>

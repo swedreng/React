@@ -45,6 +45,20 @@
        float: right;
        color: #b4b6bd;
     }
+    .commentbest-NLM{
+        display: inline;
+    }
+    .commentbest-NL{
+        display: none;
+    }  
+    .MainText p {
+        display: table;
+        font-family: "Helvetica Neue";
+        font-size: 17px;
+        padding-top: 10px !important;
+        padding-bottom: 5px !important;
+        margin-left: 10px;
+    }
 
 }
 .postTimeNL{
@@ -52,3 +66,11 @@
     float: right;
     color: #b4b6bd;
  }
+
+ .commentbest-NL{
+    display: inline;
+ }  
+
+ .commentbest-NLM{
+    display: none;
+}

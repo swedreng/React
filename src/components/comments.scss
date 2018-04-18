@@ -24,15 +24,17 @@
 }
 
 .commentdiv{
-    padding-left: 15px !important;
     padding-top: 10px !important;
     position:relative;
     overflow:hidden;
     p{
     word-wrap:break-word;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue";
     font-size: 14px;
         
+    }
+    .bestComment-name{
+        margin-left: 8px; 
     }
     .commentdiv--area{
         padding:5px;
@@ -48,7 +50,7 @@
         b{
             float:left;
             padding:5px;
-            margin-top: 8px; 
+           margin-top:5px;
         }
         .active{
             background-image:url('../images/clapping.png');
@@ -94,7 +96,7 @@
         overflow:hidden;
         p{
         word-wrap:break-word;
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: "Helvetica Neue";
         font-size: 14px;
        
         }

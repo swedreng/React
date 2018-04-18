@@ -8,6 +8,7 @@ export function getBestPostToday(){
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
+          
         },
        
         }).then(response => response.json()).then(response => {
@@ -24,6 +25,39 @@ export function getBestPostToday(){
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          value: payload.value,
+          event: payload.event
+        })
+        }).then(response => response.json()).then(response => {
+          if(response.data){
+            if(response.event){
+              var data = response.data
+              var postCount = response.postCount
+            }else{
+              var data = posts.data.concat(response.data)
+              var postCount = response.postCount
+            }
+             
+          }else{
+            var data = []
+            var postCount = 0
+          }
+          dispatch({type: GET_POSTS, payload:{data:data,postCount:postCount}})
+      })
+    }
+  }
+
+  export function getTopBestPostTodayLogin(payload){
+    return (dispatch, getState) => {    
+      let { auth, posts} = getState()
+      return fetch(`${process.env.URL}/api/topbestposttodaylogin`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${auth.token} `
         },
         body: JSON.stringify({
           value: payload.value,

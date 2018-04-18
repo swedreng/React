@@ -68,12 +68,12 @@ class UserComment extends Component{
                                     <div>
                                         <li key={index}>
                                             <div className="row">
-                                                <div className="col-lg-1 col-xs-1 col-md-1">
+                                                <div className="col-lg-1  col-md-1">
                                                     <div className="Usercommentpicture">
                                                         <img src={comment.user.pp}/>
                                                     </div>
                                                 </div>
-                                                <div className="col-lg-11 col-xs-10 col-md-10">
+                                                <div className="col-lg-11 col-xs-11 col-md-11">
                                                     <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
                                                     <div className="UserComment--organize">
                                                         <div className="row">
@@ -86,7 +86,6 @@ class UserComment extends Component{
                                                             </div>
                                                         </div> 
                                                     </div>
-                                                    <hr className="break" />
                                                     <div className="UserComment--action"> 
                                                         <div className="UserComment--like" onClick={() => this.commentLike(comment.comment_id)}>
                                                             <div className={`clap ${comment.IsLikedComment ? 'active' : null}`}></div>
@@ -106,12 +105,12 @@ class UserComment extends Component{
                                      (
                                     <li key={index}>
                                         <div className="row">
-                                            <div className="col-lg-1 col-xs-2">
+                                            <div className="col-lg-1 col-xs-1">
                                                 <div className="Usercommentpicture">
                                                     <img src={comment.user.pp}/>
                                                 </div>
                                             </div>
-                                        <div className="col-lg-11 col-xs-10">
+                                        <div className="col-lg-11 col-xs-11">
                                             <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
                                             <div className="UserComment--comment">
                                         {user_id == comment.id ? (

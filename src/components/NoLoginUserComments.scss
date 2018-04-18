@@ -1,5 +1,5 @@
 .ana{
-    
+        margin-bottom: 10px;
     }
     .UserComment{
         margin-bottom:15px;
@@ -20,7 +20,7 @@
     .usercommentwrite{
         p{
             word-wrap:break-word;
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: "Helvetica Neue";
             font-size: 14px;
         }
     }
@@ -67,7 +67,7 @@
                 }
                 .UserComment--comment > * {
                     word-wrap: break-word;
-                    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font-family: "Helvetica Neue";
                     font-size: 14px;
                 }
                 .UserComment--action{
@@ -123,6 +123,9 @@
         }
         .Usercommentpicture {
             margin-left: -15px !important;
+        }
+        .ana{
+            margin-bottom: -5px;
         }
     
     }

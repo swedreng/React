@@ -17,7 +17,7 @@ class NoLoginBestComments extends Component{
     render(){
         const comments = this.props.comments.CommentBest
         return(
-        <div className="commentssmain">
+        <div className="commentssmain-NLB">
             {comments.length > 0  && this.state.width <= 425 ?  <b className="bestcomment-title-NL">En iyi yorumlar</b> : null}
             {comments.map((comment, index) => { 
                 
@@ -29,7 +29,7 @@ class NoLoginBestComments extends Component{
                     </div>
                     </div>
                     <div className="col-xs-12 col-lg-10 col-md-12 commentdiv img-thumbnail">
-                        <b>{comment.user.firstname} {comment.user.lastname}</b>
+                        <b className="nloginbestpost-name">{comment.user.firstname} {comment.user.lastname}</b>
                         <p>{comment.writing}</p>  
                         <hr/>
                         <div className="commentdiv--area">

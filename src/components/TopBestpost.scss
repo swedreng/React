@@ -1,0 +1,40 @@
+
+.confirmation-TBP{
+    width: 30px;
+    height: 30px;
+    float:right !important;
+    background-image:url('../images/confirmation_active.png'); 
+    background-size:cover;
+}
+.postTime-TBP{
+    margin-top: 1px;
+    float: right !important;
+    color: #b4b6bd;
+}
+
+@media only screen and (max-device-width: 425px)  {
+    .postTime-TBP{
+        margin-right: 7px !important;
+        margin-top: 1px;
+        float: right;
+        color: #b4b6bd;
+    }
+   
+}
+.likeTopBestL{
+    width: 25px;
+    height: 25px;
+    float:left;
+    background-image:url('../images/like.png');
+    background-size:cover;
+    cursor: pointer;
+}
+
+.activeTopBestL{
+    width: 25px;
+    height: 25px;
+    float:left;
+    background-image:url('../images/like_active.png');
+    background-size:cover;
+    cursor: pointer;
+}

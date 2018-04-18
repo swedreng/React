@@ -89,7 +89,7 @@ class LoginUserMain extends Component{
                                              <img className="ppimage" src={post.user.pp}/><b><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user-LG'}></div> : null}
                                          </div>  
                                          <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
-                                            {post.id == user_id ? (<div className={`confirmationUserLG ${post.confirmation ? 'confirmation_activeLG' : null}`}></div>):(<div className={'confirmation_activeLG'}></div>)}
+                                            {post.id == user_id ? (<div className={` ${post.confirmation ? 'confirmation_activeLG' : `confirmationUserLG`}`}></div>):(<div className={'confirmation_activeLG'}></div>)}
                                          </div>     
                                          <div className="col-lg-3 col-md-4 col-sm-4 col-xs-2">
                                              <span className="postTimeLG">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
@@ -139,10 +139,9 @@ class LoginUserMain extends Component{
                                         </div>
                                  </div>    
                                  </div>
-                                     <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' && this.state.width >= 425 ? true : false))} post={post}/>
-                                 
+                                     <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' && this.state.width >= 425  && post.CommentLast.length > 0 ? true : false))} post={post}/>
                                  <div className="row Usercomment">
-                                     <UserComments  status={(this.state.comment[post.post_id] ? true :  (post.kind == 'write' && this.state.width >= 425 ? true : false))} comments={post}/>
+                                     <UserComments  status={(this.state.comment[post.post_id] ? true :  (post.kind == 'write' && this.state.width >= 425 && post.CommentLast.length > 0 ? true : false))} comments={post}/>
                                  </div>
                              </div> 
                              <div className="col-xs-12 col-lg-5 col-md-5 commentbest">

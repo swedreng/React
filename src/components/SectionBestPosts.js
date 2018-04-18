@@ -34,14 +34,14 @@ class SectionBestPosts extends Component{
                     </a>
                     { bestposttoday.map(post => {
                         return (
-                           <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><a className="list-group-item">{post.user.username}<span className="badge"><span className="glyphicon glyphicon-heart"/> {post.like}</span></a></Link>
-                        )
+                           <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><a className="list-group-item">{post.user.username}<span style={{float:'right'}}className="label label-danger"><span className="glyphicon glyphicon-heart"/> {post.like}</span></a></Link>
+                        ) 
                     }).slice(0,5)}
 
                     { this.state.status && bestposttoday.length >= 5 ? 
                         bestposttoday.map(post => {
                             return (
-                                <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><a href="#" className="list-group-item">{post.user.firstname} {post.user.lastname}<span className="badge">{post.like}</span></a></Link>
+                                <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><a href="#" className="list-group-item">{post.user.firstname} {post.user.lastname}<span style={{float:'right'}} className="label label-danger">{post.like}</span></a></Link>
                             )
                         }).slice(5,bestposttoday.length) : null}
                     <a onClick={() => this.getCategory()} className="list-group-item">Diğer</a>

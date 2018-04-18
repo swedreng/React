@@ -1,0 +1,23 @@
+.postTime-NTB{
+    margin-top: 1px;
+    float: right !important;
+    color: #b4b6bd;
+}
+
+@media only screen and (max-device-width: 425px)  {
+    .postTime-NTB{
+        margin-right: 7px !important;
+        margin-top: 1px;
+        float: right;
+        color: #b4b6bd;
+    }
+   
+}
+.confirmation_active-NTB{
+    width: 30px;
+    height: 30px;
+    float:right;
+    margin-left: 10px;
+    background-image:url('../images/confirmation_active.png'); 
+    background-size:cover;
+}

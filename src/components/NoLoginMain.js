@@ -70,7 +70,7 @@ class NoLoginMain extends Component{
                             </div>
                                 <p>{post.writing}</p>  
                             </div>
-                            <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
+                            <hr style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}/>
                             <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>
                                 <img src={post.image}/>
                             </div>
@@ -95,7 +95,7 @@ class NoLoginMain extends Component{
                         </div>    
                             </div>
                             <div className="row Usercomment ">
-                                <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' && this.state.width >= 425  ? true : false))} comments={post}/>
+                                <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' && this.state.width >= 425 && post.CommentLast.length > 0 ? true : false))} comments={post}/>
                             </div>
                             
                         </div> 
