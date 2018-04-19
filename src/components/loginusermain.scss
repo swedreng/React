@@ -36,32 +36,34 @@
     color: #b4b6bd;
 }
 .likeLG{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     float:left;
     background-image:url('../images/like.png');
     background-size:cover;
     cursor: pointer;
 }
 .activeLG{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     float:left;
     background-image:url('../images/like_active.png');
     background-size:cover;
     cursor: pointer;
 }
-.MainTextLG{
+ .MainTextLG{
     p{
         display: table;
         font-family: "Helvetica Neue";
-        font-size: 17px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #333;
         padding-top:10px !important;
         padding-bottom: 5px !important;
         margin-left: 10px;
         
     }
-}
+} 
 .commentcount{
     cursor: pointer !important;
 }
@@ -70,6 +72,23 @@
 }
 
 @media only screen and (max-device-width: 425px)  {
+    .MainTextLG{
+        p{
+            .writing{
+                display: table;
+                font-family: "Helvetica Neue";
+                font-size: 18px;
+                font-weight: 400;
+                padding-top:10px !important;
+                padding-bottom: 5px !important;
+                margin-left: 10px;
+                color: #333;
+                
+            }
+
+        }
+    } 
+   
     .postTimeLG{
         margin-right: 7px !important;
         margin-top: 1px;

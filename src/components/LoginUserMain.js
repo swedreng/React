@@ -80,7 +80,6 @@ class LoginUserMain extends Component{
                 {data.map((post,index) => ( 
                     
                 <div key={index}>
-                    {(post.confirmation == 1 || post.id == post.user.id) && (post.IsBlockPost == false) ? (
                              <div className="row Main">
                              <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                  <div className="caption MainTextLG">
@@ -89,14 +88,14 @@ class LoginUserMain extends Component{
                                              <img className="ppimage" src={post.user.pp}/><b><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user-LG'}></div> : null}
                                          </div>  
                                          <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
-                                            {post.id == user_id ? (<div className={` ${post.confirmation ? 'confirmation_activeLG' : `confirmationUserLG`}`}></div>):(<div className={'confirmation_activeLG'}></div>)}
+                                            {post.id == user_id ? (<div className={`confirmationUserLG ${post.confirmation ? 'confirmation_activeLG' : null }`}></div>):(<div className={'confirmation_activeLG'}></div>)}
                                          </div>     
                                          <div className="col-lg-3 col-md-4 col-sm-4 col-xs-2">
                                              <span className="postTimeLG">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
                                          </div>   
                                      </div>
                                      <div className="row">
-                                     <p>{post.writing}</p>
+                                     <p className="writing">{post.writing}</p>
                                      </div>       
                                  </div>
                                  <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
@@ -148,7 +147,6 @@ class LoginUserMain extends Component{
                                  <Comments comments={post}/>
                              </div> 
                          </div>    
-                    ) : null}
                         
                 </div>
                 ))}

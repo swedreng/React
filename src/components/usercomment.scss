@@ -107,7 +107,8 @@
                 word-wrap: break-word;
                 font-family: "Helvetica Neue";
                 font-size: 14px;
-               
+                color: #333;
+                font-weight: 400;
             }
             .UserComment--organize > * {
                 
@@ -136,6 +137,8 @@
                     font-size: 13px;
                     margin-left: 5px;
                     margin-top: 5px;
+                    color: #333;
+                    font-weight: 400;
                 }
                 span{
                     position: absolute;

@@ -124,8 +124,8 @@ class Search extends Component{
                         
                     </div>
                     <div className="post-title col-xs-12 col-lg-7 col-md-7">
-                            <div className="post-picture col-xs-12 col-lg-2 col-md-2"></div>
-                            <div className="post-write col-xs-12 col-lg-4 col-md-4">
+                            <div className="post-picture col-xs-2 col-lg-2 col-md-2"></div>
+                            <div className="post-write col-xs-4 col-lg-4 col-md-4">
                                 Gönderiler
                             </div>
                     </div>   
