@@ -19,7 +19,7 @@
 
 .commentdate{
     float: right;
-    margin-top:10px;
+    margin-top:5px;
     color: #b4b6bd;
 }
 
@@ -28,11 +28,9 @@
     position:relative;
     overflow:hidden;
     p{
-    word-wrap:break-word;
-    font-family: "Helvetica Neue";
-    font-size: 14px;
-    font-weight: 400;
-    color: #333;
+        word-wrap:break-word;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
         
     }
     .bestComment-name{
@@ -41,8 +39,8 @@
     .commentdiv--area{
         padding:5px;
         .clap{
-            width: 28px;
-            height: 28px;
+            width: 25px;
+            height: 25px;
             background-image:url('../images/clapping (4).png');
             background-size:cover;
             float:left;
@@ -117,6 +115,16 @@
             
         }
     }
+    .commentdiv{
+        p{
+            word-wrap:break-word;
+            font-family: "Helvetica Neue";
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+        }
+    }
+
 }
 
 

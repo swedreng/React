@@ -34,7 +34,7 @@ class SectionBestPosts extends Component{
                     </a>
                     { bestposttoday.map(post => {
                         return (
-                           <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><a className="list-group-item">{post.user.username}<span style={{float:'right'}}className="label label-danger"><span className="glyphicon glyphicon-heart"/> {post.like}</span></a></Link>
+                           <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><a className="list-group-item">{post.user.firstname} {post.user.lastname}<span style={{float:'right'}}className="label label-danger"><span className="glyphicon glyphicon-heart"/> {post.like}</span></a></Link>
                         ) 
                     }).slice(0,5)}
 

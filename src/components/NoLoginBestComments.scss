@@ -21,12 +21,9 @@
     position:relative;
     overflow:hidden;
     p{
-    word-wrap:break-word;
-    font-family: "Helvetica Neue";
-    font-size: 14px;
-    margin-left: 8px;
-    color: #333;
-    font-weight: 400;
+        word-wrap:break-word;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
     }
     .nloginbestpost-name{
         margin-left: 8px;
@@ -111,6 +108,15 @@
         padding-bottom: 15px;
         .row{
             padding-bottom: 4px;
+        }
+    }
+    .commentdiv{
+        p{
+            word-wrap:break-word;
+            font-family: "Helvetica Neue";
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
         }
     }
 }

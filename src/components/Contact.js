@@ -105,17 +105,18 @@ class Contact extends Component{
 
         <div class="col-md-5 col-lg-5">
                 <form>
-                    <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+                    <legend><span class="glyphicon glyphicon-globe"></span> Bizim Ofis</legend>
                         <address>
-                            <strong>Twitter, Inc.</strong>
-                            795 Folsom Ave, Suite 600
-                            San Francisco, CA 94107
-                            <abbr title="Phone">P:</abbr>
-                            (123) 456-7890
+                            <strong>Adres: </strong>
+                            Henüz ofis yok
                         </address>
+                        <adress>
+                        <strong title="Phone">Tel: </strong>
+                            (123) 456-7890
+                        </adress>
                         <address>
-                            <strong>Full Name</strong>
-                            <a href="mailto:#">first.last@example.com</a>
+                            <strong>E-mail: </strong>
+                            <a href="mailto:#">opanc@opanc.com</a>
                         </address>
                 </form>
          </div>

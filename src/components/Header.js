@@ -73,7 +73,7 @@ class Header extends Component {
               </ul>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <div className="searchBar col-md-6">
+              <div className="searchBar col-md-6 col-lg-5">
               <form className="navbar-form" role="search">
                 <div className="form-group ">
                   <Autocomplete

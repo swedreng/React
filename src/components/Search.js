@@ -165,7 +165,7 @@ class Search extends Component{
                                     <div className="row">
                                             <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
                                                 <span onClick={() => this.likeSubmit(post.post_id)}> 
-                                                    <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                                    <div className={`like-LS ${post.IslikedPost ? 'active-LS' : null}`}></div>
                                                     <b>Beğen</b>
                                                 </span>
                                             </div>

@@ -79,6 +79,24 @@
     }
     
 }
+.like-LS{
+    width: 20px;
+    height: 20px;
+    float:left;
+    background-image:url('../images/like.png');
+    background-size:cover;
+    cursor: pointer;
+}
+
+.active-LS{
+    width: 20px;
+    height: 20px;
+    float:left;
+    background-image:url('../images/like_active.png');
+    background-size:cover;
+    cursor: pointer;
+
+}
 @media only screen and (max-device-width: 425px)  {
     
     .postTime-LGS{

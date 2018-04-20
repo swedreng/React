@@ -1,5 +1,5 @@
 .ana{
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
     .UserComment{
         margin-bottom:15px;
@@ -68,13 +68,12 @@
                 }
                 .UserComment--comment > * {
                     word-wrap: break-word;
-                    font-family: "Helvetica Neue";
+                    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
                     font-size: 14px;
-                    color: #333;
-                    font-weight: 400;
                    
                 }
                 .UserComment--action{
+                    margin-top: -10px;
                     position: relative;
                     .UserComment--like{
                         display:inline-flex;
@@ -90,7 +89,7 @@
                         
                     }
                     b{
-                        font-size: 16px;
+                        font-size: 14px;
                         margin-left: 5px;
                       
                     }
@@ -127,11 +126,38 @@
             margin-right: 10%;
         }
         .Usercommentpicture {
-            margin-left: -15px !important;
+            margin-left: -10px !important;
         }
         .ana{
-            margin-bottom: -5px;
+            margin-bottom: 5px;
         }
+        .comments{
+            ul{
+                li{
+                    .UserComment--action{
+                        margin-top: 5px !important;
+                        
+                    }
+                    
+                .UserComment--comment > * {
+                    
+                    word-wrap: break-word;
+                    font-family: "Helvetica Neue" !important;
+                    font-size: 14px;
+                    color: #333;
+                    font-weight: 400;
+                    margin-left: 5px;
+                }
+                .UserComment--name{
+                    margin-left: 5px;
+                }
+              
+            
+                }
+            }  
+            
+        }
+      
     
     }
     .Usercommentpicture {

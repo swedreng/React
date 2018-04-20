@@ -7,7 +7,7 @@
 .about-title p {color: #7a7a7a;line-height: 1.8;margin: 0 0 15px;}
 .about-paddingB {padding-bottom: 12px;}
 .about-img {padding-left: 57px;}
-
+.about-us{padding: 10px !important;}
 /* Social Icons */
 .about-icons {margin:48px 0px 48px 0px ;}
 .about-icons i{margin-right: 10px;padding: 0px; font-size:35px;color:#323232;box-shadow: 0 0 3px rgba(0, 0, 0, .2);}
@@ -16,3 +16,28 @@
  #social-tw:hover {color: #4099FF;transition:all .001s;}
  #social-gp:hover {color: #d34836;transition:all .001s;}
  #social-em:hover {color: #f39c12;transition:all .001s;}
+
+ .contact-facebook{
+    width: 30px;
+    height: 30px;
+    float: right;
+    background-image:url('../images/contact-facebook.png');
+    background-size:cover;
+   
+}
+
+.contact-twitter{
+    width: 30px;
+    height: 30px;
+    margin: 0 auto !important;
+    background-image:url('../images/twitter.png');
+    background-size:cover;
+}
+
+.contact-instagram{
+    width: 30px;
+    height: 30px;
+    background-image:url('../images/instagram.png');
+    background-size:cover;
+
+}

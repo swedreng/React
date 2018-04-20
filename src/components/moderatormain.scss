@@ -1,4 +1,23 @@
-.confirmation{
+
+.like-MM{
+    width: 20px;
+    height: 20px;
+    float:left;
+    margin-top: 1px;
+    background-image:url('../images/like.png');
+    background-size:cover;
+    cursor: pointer;
+}
+.active-MM{
+    width: 20px;
+    height: 20px;
+    float:left;
+    margin-top: 1px;
+    background-image:url('../images/like_active.png');
+    background-size:cover;
+    cursor: pointer;
+}
+.confirmation-MM{
     width: 30px;
     height: 30px;
     float:right;
@@ -7,14 +26,15 @@
     background-size:cover;
     cursor: pointer;
 }
-
-.confirmation_active{
+.confirmation_active-MM{
+    width: 30px;
+    height: 30px;
+    float:right;
+    margin-left: 10px;
+    background-size:cover;
     background-image:url('../images/confirmation_active.png');
 }
-.userMenu{
-    padding: 0px 12px !important
-}
-.confirmation_admin_active{
+.confirmation_admin_active-MM{
     background-image:url('../images/confirmation_active.png');
     width: 30px;
     height: 30px;
@@ -22,6 +42,10 @@
     margin-left: 10px;
     background-size:cover;
 }
+.userMenu{
+    padding: 0px 12px !important
+}
+
 .quality_user{
     background-image:url('../images/icon.png');
     width: 18px;
@@ -31,3 +55,20 @@
     margin-top:5px;
     background-size:cover;
 }
+
+.postTime-MM{
+    margin-top: 1px;
+    float: right !important;
+    color: #b4b6bd;
+}
+
+@media only screen and (max-device-width: 425px)  {
+    
+    .postTime-MM{
+        margin-right: 7px !important;
+        margin-top: 1px;
+        float: right;
+        color: #b4b6bd;
+    }
+    
+} 

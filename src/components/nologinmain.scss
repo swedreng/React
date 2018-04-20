@@ -17,14 +17,14 @@
     background-size:cover;
 }
 .MainText p {
+
     display: table;
-    font-family: "Helvetica Neue";
-    font-weight: 400;
-    color: #333;
-    font-size: 18px;
-    padding-top: 10px !important;
-    padding-bottom: 5px !important;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 17px;
+    padding-top: 11px !important;
     margin-left: 10px;
+
+   
 }
 .nologinlike{
     width: 20px;
@@ -56,6 +56,8 @@
     .MainText p {
         display: table;
         font-family: "Helvetica Neue";
+        font-weight: 400;
+        color: #333;
         font-size: 18px;
         padding-top: 10px !important;
         padding-bottom: 5px !important;
