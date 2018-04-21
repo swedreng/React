@@ -6,6 +6,7 @@ import Loading from '../loading'
 import Loadable from 'react-loadable'
 import ScrollContainer from '../ScrollContainer'
 import './posts.scss'
+import { dateTime } from '../../myfunctions/myfunctions';
 
 const UserComments = Loadable({
     loader: () => import('../UserComment.js'),
@@ -21,13 +22,15 @@ const Comment = Loadable({
 class posts extends Component{
         constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true,comment:{}}
+        this.state = {loadMore:false, status:true,comment:{},width:null}
         this.onUpdate = this.onUpdate.bind(this)
     }
 
     componentWillMount(){
         let { getUserPosts } = this.props.postsActions
         getUserPosts({value:0,event:true}) 
+        var genislik = window.screen.width;
+        this.setState({width:genislik})
     }
     actionComment(post_id){
         const commentnew =  {...this.state.comment};
@@ -74,24 +77,21 @@ class posts extends Component{
                                 data.map((post,index) => (
                                     <div className="posts">
                                     <div className="img-thumbnail col-xs-12 col-lg-12 col-md-12 imagediv"> 
-                                    <div className="caption MainText">
+                                    <div className="caption MainText-PP">
                                         <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-10">
+                                            <div className="col-lg-8 col-md-4 col-sm-4 col-xs-9">
                                                 <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                             </div>  
-                                            <div className="col-lg-1 col-md-4 col-sm-4 col-xs-2" style={{float:'right'}}>
-                                               {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
+                                            <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
+                                               <div className={`confirmationUser-PP ${post.confirmation == 1 ? 'confirmation_active-PP' : null}`}></div>
                                             </div>    
-                                            <div className="col-lg-7 col-md-4 col-sm-4 col-xs-12 postTimeBig" style={{float:'right'}} style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}>
-                                                <span className="postTime">{post.Time}</span>
+                                            <div className="col-lg-3 col-md-4 col-sm-4 col-xs-2">
+                                                <span className="postTime-PP">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
                                             </div>   
                                            
                                         </div>
                                         <div className="row">
                                         <p>{post.writing}</p>
-                                        <div className="col-lg-12 col-md-4 col-sm-4 col-xs-12 postTimeMin" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
-                                            <span className="postTime">{post.Time}</span>
-                                        </div>
                                         </div>       
                                     </div>
                                     <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
@@ -104,7 +104,7 @@ class posts extends Component{
                                     <div className="row">
                                             <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
                                                 <span onClick={() => this.likeSubmit(post.post_id)}> 
-                                                    <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                                    <div className={`like-PP ${post.IslikedPost ? 'active-PP' : null}`}></div>
                                                     <b>Beğen</b>
                                                 </span>
                                             </div>
@@ -134,10 +134,10 @@ class posts extends Component{
                                            </div>
                                     </div>    
                                     </div>
-                                        <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
+                                        <Comment status={(this.state.comment[post.post_id] ?  true : false)} post={post}/>
                                     
                                     <div className="row Usercomment">
-                                        <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                        <UserComments  status={(this.state.comment[post.post_id] ? true : false)} comments={post}/>
                                     </div>
                                 </div>     
                                 </div>

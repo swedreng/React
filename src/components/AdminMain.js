@@ -84,7 +84,7 @@ class AdminMain extends Component{
                                             <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                         </div>    
                                         <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
-                                            <div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation-ADM ${post.confirmation ? 'confirmation_active-ADM' : null}`}></div>
+                                            <div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation-ADM ${post.confirmation == 1 ? 'confirmation_active-ADM' : null}`}></div>
                                         </div> 
                                         <div className="col-lg-3 col-md-4 col-sm-4 col-xs-2">
                                             <span className="postTime-ADM">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>

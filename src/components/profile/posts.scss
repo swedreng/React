@@ -45,7 +45,7 @@
     float: right !important;
     
 }
-.MainText{
+.MainText-PP{
     
     p{
         display: table;
@@ -94,52 +94,61 @@
     .MainImage{
         height:50%
     }
-    .postTimeBig{
-        display: none;
+    .postTime-PP{
+        margin-right: 7px !important;
+        margin-top: 1px;
+        float: right;
+        color: #b4b6bd;
     }
-    .postTimeMin{
-        display: inline;
-    }
-    .postTime{
-        margin-top: 0px;
+    .MainText-PP{
+        
+        p{
+            display: table;
+            font-family: "Helvetica Neue";
+            font-size: 18px;
+            font-weight: 400;
+            padding-top:10px !important;
+            padding-bottom: 5px !important;
+            margin-left: 10px;
+            color: #333;
+            
+        }
     }
 
 }
 
 @media only screen and (min-device-width: 425px)  {
-    .postTimeBig{
-        display: inline;
-    }
-    .postTimeMin{
-        display: none;
-    }
 
 }
 
 
+.postTime-PP{
+    margin-top: 1px;
+    float: right !important;
+    color: #b4b6bd;
+}
 
-
-.like{
-    width: 25px;
-    height: 25px;
+.like-PP{
+    width: 20px;
+    height: 20px;
     float:left;
     background-image:url('../../images/like.png');
     background-size:cover;
+    cursor: pointer;
+    margin-top: 1px;
 }
 
-.active{
-    background-image:url('../../images/like_active.png');
-    
-}
-
-.delete{
+.active-PP{
+    margin-top: 1px;
     width: 20px;
     height: 20px;
-    float:right;
-    background-image:url('../../images/delete.png');
+    float:left;
+    background-image:url('../../images/like_active.png');
     background-size:cover;
     cursor: pointer;
 }
+
+
 .userMenu{
     padding: 0px 12px;
 }
@@ -165,10 +174,15 @@
     }
 }
 
-.confirmation_active{
+.confirmation_active-PP{
     background-image:url('../../images/confirmation_active.png') !important; 
+    background-size:cover;
+    width: 30px;
+    height: 30px;
+    float:right;
+    margin-left: 10px;
 }
-.confirmationUser{
+.confirmationUser-PP{
     width: 30px;
     height: 30px;
     float:right;

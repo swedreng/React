@@ -102,7 +102,7 @@ class ModeratorMain extends Component{
                                         <img className="ppimage" src={post.user.pp}/><b><a style = {{ color:'black', cursor:'pointer'}} onClick = {() => this.viewProfile(post.user.id)}>{post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                     </div>   
                                     <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
-                                        {post.confirmation == 1 ? (<div className={'confirmation_admin_active-MM'}></div>) : (<div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation-MM ${post.IsConfirmationPost ? 'confirmation_active-MM' : null}`}></div>)}
+                                        {post.confirmation == 1 ? (<div className={'confirmation_admin_active-MM'}></div>) : (<div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation-MM ${post.IsConfirmationPost == 1 ? 'confirmation_active-MM' : null}`}></div>)}
                                     </div>   
                                     <div className="col-lg-3 col-md-4 col-sm-4 col-xs-2">
                                         <span className="postTime-MM">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>

@@ -109,7 +109,7 @@ class LoginBestPosts extends Component{
                                                          <img src={`${require('../images/thumb-up.png')}`}></img><b>{post.like}</b>
                                                      </div>
                                                      <div className='commentcount'>
-                                                         <img onClick={() => this.actionComment(post.post_id)} src="src/images/comment-white-oval-bubble.png"></img>
+                                                         <img onClick={() => this.actionComment(post.post_id)} src={`${require('../images/comment-white-oval-bubble.png')}`}></img>
                                                          <b className="openComment">{post.CommentCount}</b>
                                                      </div>    
                                                  </div>
