@@ -4,12 +4,21 @@
         margin-left: 8px;
     }
 }
-.confirmation_active-LG{
+.ALM{
     width: 30px;
     height: 30px;
     float:right;
     margin-left: 10px;
-    background-image:url('../images/confirmation_active.png') !important; 
+    background-image:url('../images/confirmation.png');
+    background-size:cover;
+    
+}
+.BLM{
+    width: 30px;
+    height: 30px;
+    float:right;
+    margin-left: 10px;
+    background-image:url('../images/confirmation_active.png'); 
     background-size:cover;
 }
 .quality_user-LG{
@@ -21,15 +30,7 @@
     margin-top:5px;
     background-size:cover;
 }
-.confirmationUser-LG{
-    width: 30px;
-    height: 30px;
-    float:right;
-    margin-left: 10px;
-    background-image:url('../images/confirmation.png');
-    background-size:cover;
-    
-}
+
 .postTimeLG{
     margin-top: 1px;
     float: right !important;
