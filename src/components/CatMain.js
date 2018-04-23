@@ -70,7 +70,7 @@ class Main extends Component{
                 if(this.state.status == true){
                     console.log(3,4)
                     this.setState({loadMore:true,status:false})
-                    getNoLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(() =>{
+                    getNoLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, filter:this.state.category_id} : {value:0,event:false})).then(() =>{
                         this.setState({status:true,loadMore:false})
                     })
                 }
