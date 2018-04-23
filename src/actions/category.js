@@ -9,7 +9,6 @@ export function getCategory(payload) {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${auth.token} `
         },
        
         }).then(response => response.json()).then(response => {

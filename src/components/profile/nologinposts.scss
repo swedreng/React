@@ -40,7 +40,7 @@
     margin-left:-10px;
     
 }
-.postTime-VUP{
+.postTime-WNLP{
     margin-top:10px;
     float: right;
     color: #b4b6bd;
@@ -99,7 +99,7 @@
         height:50%
     }
 
-    .postTime-VUP{
+    .postTime-WNLP{
         margin-right: 7px !important;
         margin-top: 1px;
         float: right;
@@ -119,19 +119,16 @@
             
         }
     }
+    
 }
 
-.like{
-    width: 25px;
-    height: 25px;
+.like-WNLP{
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
     float:left;
     background-image:url('../../images/like.png');
     background-size:cover;
-}
-
-.active{
-    background-image:url('../../images/like_active.png');
-    
 }
 
 .delete{
@@ -146,17 +143,7 @@
     padding: 0px 12px;
 }
 
-.jumbotron{
-    .Loading{
-        img{
-            width: 100px;
-            height: 100px;
-            margin-left:50%;
-            margin-right:50%;
-        }
-        
-    }
-}
+
 
 .likecomment{
     display: flex;
@@ -168,20 +155,13 @@
     }
 }
 
-.confirmation_active-VUP{
+
+.confirmation-WNLP{
     width: 30px;
     height: 30px;
     float:right;
     margin-left: 10px;
-    background-image:url('../../images/confirmation_active.png') !important; 
-    background-size:cover;
-}
-.confirmation-VUP{
-    width: 30px;
-    height: 30px;
-    float:right;
-    margin-left: 10px;
-    background-image:url('../../images/confirmation.png');
+    background-image:url('../../images/confirmation_active.png');
     background-size:cover;
     
 }

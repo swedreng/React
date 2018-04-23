@@ -5,8 +5,9 @@ import * as postsActions from "../actions/posts"
 import * as bestpostActions from "../actions/bestpost"
 import Loading from './loading'
 import Loadable from 'react-loadable';
-import './loginusermain.scss'
+import './LoginBestPosts.scss'
 import * as viewProfileActions from '../actions/users';
+import { dateTime } from '../myfunctions/myfunctions';
 
 
 const Comments = Loadable({
@@ -30,12 +31,14 @@ class LoginBestPosts extends Component{
 
     constructor(props){
         super(props)
-        this.state = {comment:{},event:true}
+        this.state = {comment:{},event:true,width:null}
     }
     componentDidMount(){
         let {match:{ params :{post_id}}} = this.props
-        let { getBestPost } = this.props.bestpostActions
-        getBestPost({post_id:post_id})
+        let { getBestPostLogin } = this.props.bestpostActions
+        getBestPostLogin({post_id:post_id})
+        var genislik = window.screen.width;
+        this.setState({width:genislik})
     }
     
     componentWillReceiveProps (nextProps){
@@ -47,8 +50,8 @@ class LoginBestPosts extends Component{
     }
     getData(nextProps){
         let {match:{ params :{post_id}}} = nextProps
-        let { getBestPost } = this.props.bestpostActions
-        getBestPost({post_id:post_id})
+        let { getBestPostLogin } = this.props.bestpostActions
+        getBestPostLogin({post_id:post_id})
     }
     actionComment(post_id){
         const commentnew =  {...this.state.comment};
@@ -71,14 +74,7 @@ class LoginBestPosts extends Component{
         let { postConfirmation } = this.props.postsActions
         postConfirmation({post_id:post_id})
     }
-    blockPost(post_id){
-        let { blockPost } = this.props.postsActions
-        blockPost({post_id:post_id})
-    }
-    blockUser(post_id,user_id){
-        let { blockUser } = this.props.postsActions
-        blockUser({post_id:post_id,user_id})
-    }
+   
     LoginviewProfile(username){
         let { LoginviewProfile } = this.props.viewProfileActions
         LoginviewProfile({person_username:username,value:0,event:true})
@@ -95,26 +91,23 @@ class LoginBestPosts extends Component{
                     {data.map(post =>{
                         return (
                             <div>
-                                     <div className="row Main">
+                                <div className="row Main">
                                      <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                          <div className="caption MainText">
                                              <div className="row">
-                                             <div className="col-lg-6 col-md-4 col-sm-4 col-xs-10">
-                                             <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
+                                             <div className="col-lg-8 col-md-4 col-sm-4 col-xs-9">
+                                             <img className="ppimage" src={post.user.pp}/><b><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                          </div>    
-                                         <div className="col-lg-1 col-md-4 col-sm-4 col-xs-2" style={{float:'right'}}>
-                                             <div onClick={() => this.postConfirmation(post.post_id)}className={`confirmation ${post.confirmation ? 'confirmation_active' : null}`}></div>
+                                         <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
+                                            {role == 2 || role == 1 ? <div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation-LBP ${post.confirmation == 1 ? 'confirmation_active-LBP' : null}`}></div> : <div className={'confirmation_active-LBP'}></div>} 
                                          </div> 
-                                         <div className="col-lg-5 col-md-4 col-sm-4 col-xs-12" style={{float:'right'}} style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}>
-                                             <span className="postTime">{post.Time}</span>
+                                         <div className="col-lg-3 col-md-4 col-sm-4 col-xs-2" >
+                                             <span className="postTime-LBP">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
                                          </div>   
                                                 
                                              </div>
                                              <div className="row">
                                              <p>{post.writing}</p>
-                                             <div className="col-lg-5 col-md-4 col-sm-4 col-xs-12" style={{float:'right'}} style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
-                                                <span className="postTime">{post.Time}</span>
-                                             </div>  
                                              </div>       
                                          </div>
                                          <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
@@ -127,7 +120,7 @@ class LoginBestPosts extends Component{
                                          <div className="row">
                                                  <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
                                                      <span onClick={() => this.likeSubmit(post.post_id)}> 
-                                                         <div className={`like ${post.IslikedPost ? 'active' : null}`}></div>
+                                                         <div className={`like-LBP ${post.IslikedPost ? 'active-LBP' : null}`}></div>
                                                          <b>Beğen</b>
                                                      </span>
                                                  </div>
@@ -143,13 +136,11 @@ class LoginBestPosts extends Component{
                                                  <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
                                                  {post.user.rank == 1 ? <div>Admin</div>:(
                                                      <div className="dropdown option">
-                                                     <button className="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                                                     <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                          <span className="caret"></span>
                                                      </button>
                                                      <ul className="dropdown-menu">
-                                                         {user_id == post.id ? null : <li><a onClick={() => this.blockPost(post.post_id)}>Bunu görmek istemiyorum</a></li>}
-                                                         {user_id == post.id || post.user.rank == 1 || post.user.rank == 2 ? null :<li><a onClick={() => this.blockUser(post.post_id,post.user.id)}>Kullanıcıyı engelle</a></li>}
-                                                         {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
+                                                         {user_id == post.user.id || role == 1 ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
                                                      </ul>
                                                  </div>
                                                  )}
@@ -157,10 +148,10 @@ class LoginBestPosts extends Component{
                                                 </div>
                                          </div>    
                                          </div>
-                                             <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' ? true : false))} post={post}/>
+                                             <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' && this.state.width >= 425  && post.CommentLast.length > 0 ? true : false))} post={post}/>
                                          
                                          <div className="row Usercomment">
-                                             <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' ? true : false))} comments={post}/>
+                                             <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' && this.state.width >= 425  && post.CommentLast.length > 0 ? true : false))} comments={post}/>
                                          </div>
                                      </div> 
                                      <div className="col-xs-12 col-lg-5 col-md-5 commentbest">

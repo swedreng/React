@@ -34,7 +34,7 @@
     background-size:cover;
 }
 .nologincommentcount{
-    cursor: auto;
+    cursor: pointer !important;
 }
 .nologinlikecount{
     padding-right: 5px;
@@ -47,12 +47,7 @@
        float: right;
        color: #b4b6bd;
     }
-    .commentbest-NLM{
-        display: inline;
-    }
-    .commentbest-NL{
-        display: none;
-    }  
+   
     .MainText p {
         display: table;
         font-family: "Helvetica Neue";
@@ -71,10 +66,3 @@
     color: #b4b6bd;
  }
 
- .commentbest-NL{
-    display: inline;
- }  
-
- .commentbest-NLM{
-    display: none;
-}

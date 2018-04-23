@@ -103,3 +103,26 @@ export function getBestPost(payload){
       })
     }
   }  
+
+  export function getBestPostLogin(payload){
+    return (dispatch, getState) => {    
+      let { auth, posts} = getState()
+      return fetch(`${process.env.URL}/api/logingetbestpost`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${auth.token} `
+        },
+        body: JSON.stringify({
+            post_id: payload.post_id
+        })
+        }).then(response => response.json()).then(response => {
+          console.log(response,31)
+            var data = response
+            var postCount = response.length
+            dispatch({type: GET_POSTS, payload:{data:data,postCount:postCount}})
+            //dispatch({type: SET_BESTPOST, payload:response })
+      })
+    }
+  }  

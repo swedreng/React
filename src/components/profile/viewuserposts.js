@@ -7,6 +7,7 @@ import Loading from '../loading'
 import Loadable from 'react-loadable'
 import ScrollContainer from '../ScrollContainer'
 import './viewuserposts.scss'
+import { dateTime } from '../../myfunctions/myfunctions';
 
 const UserComments = Loadable({
     loader: () => import('../UserComment.js'),
@@ -23,10 +24,13 @@ const Comment = Loadable({
 class viewuserposts extends Component{
         constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true,comment:{}}
+        this.state = {loadMore:false, status:true,comment:{},width:null}
         this.onUpdate = this.onUpdate.bind(this)
     }
-
+    componentDidMount(){
+        var genislik = window.screen.width;
+        this.setState({width:genislik})
+    }
     actionComment(post_id){
         const commentnew =  {...this.state.comment};
         if(commentnew[post_id]){
@@ -75,21 +79,18 @@ class viewuserposts extends Component{
                                     <div className="img-thumbnail col-xs-12 col-lg-12 col-md-12 imagediv"> 
                                     <div className="caption MainText">
                                         <div className="row">
-                                            <div className="col-lg-4 col-md-5 col-sm-4 col-xs-10">
+                                            <div className="col-lg-8 col-md-5 col-sm-4 col-xs-9">
                                                 <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                             </div>    
-                                            <div className="col-lg-1 col-md-5 col-sm-4 col-xs-2" style={{float:'right'}}>
-                                               {post.id == user_id ? (<div className={`confirmationUser ${post.confirmation ? 'confirmation_active' : null}`}></div>):(<div className={'confirmation_active'}></div>)}
+                                            <div className="col-lg-1 col-md-5 col-sm-4 col-xs-1" style={{float:'right'}}>
+                                               <div className={'confirmation_active-VUP'}></div>
                                             </div>  
-                                            <div className="col-lg-7 col-md-7 col-sm-8 col-xs-12" style={{float:'right'}} style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}>
-                                                <span className="postTime">{post.Time}</span>
+                                            <div className="col-lg-3 col-md-7 col-sm-8 col-xs-2">
+                                                <span className="postTime-VUP">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
                                             </div>    
                                         </div>
                                         <div className="row">
-                                        <p>{post.writing}</p>
-                                        <div className="col-lg-12 col-md-7 col-sm-8 col-xs-12" style={(post.kind == 'picture' ? {display:'none'} : {display:'inline'})}>
-                                            <span className="postTime">{post.Time}</span>
-                                        </div>  
+                                        <p>{post.writing}</p> 
                                         </div>       
                                     </div>
                                     <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
@@ -116,19 +117,16 @@ class viewuserposts extends Component{
                                                 </div>    
                                             </div>
                                             <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
-                                            {post.user.rank == 1 ? <div>Admin</div>:(
+                                            {post.user.rank == 1 ? <div>Admin</div>: post.user.id == user_id || role == 1 ? (
                                                 <div className="dropdown option">
                                                 <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>
                                                 <ul className="dropdown-menu">
-                                                    {user_id == post.id ? null : <li><a onClick={() => this.blockPost(post.post_id)}>Bunu görmek istemiyorum</a></li>}
-                                                    {user_id == post.id || post.user.rank == 1 || post.user.rank == 2 ? null :<li><a onClick={() => this.blockUser(post.post_id,post.user.id)}>Kullanıcıyı engelle</a></li>}
-                                                    {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
+                                                    {user_id == post.user.id || role == 1 ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
                                                 </ul>
                                             </div>
-                                            )}
-                                                
+                                            ) : null}
                                            </div>
                                     </div>    
                                     </div>

@@ -1,9 +1,54 @@
-.confirmation_active{
+.confirmation-NBP{
     width: 30px;
     height: 30px;
     float:right;
     margin-left: 10px;
-    background-image:url('../images/confirmation.png');
+    background-image:url('../images/confirmation_active.png');
     background-size:cover;
     
+}
+.like-NBP{
+    width: 20px;
+    height: 20px;
+    float:left;
+    background-image:url('../images/like.png');
+    background-size:cover;
+    cursor: default;
+}
+.postTime-NBP{
+    margin-top: 1px;
+    float: right;
+    color: #b4b6bd;
+}
+.MainText p {
+    
+        display: table;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 17px;
+        padding-top: 11px !important;
+        margin-left: 10px;
+    
+       
+    }
+
+@media only screen and (max-device-width: 425px)  {
+    
+    .postTime-NBP{
+       margin-right: 7px;
+       margin-top: 1px;
+       float: right;
+       color: #b4b6bd;
+    }
+   
+    .MainText p {
+        display: table;
+        font-family: "Helvetica Neue";
+        font-weight: 400;
+        color: #333;
+        font-size: 18px;
+        padding-top: 10px !important;
+        padding-bottom: 5px !important;
+        margin-left: 10px;
+    }
+
 }
