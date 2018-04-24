@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
+import * as searchActions from "../actions/users"
 import Loading from './loading'
 import Loadable from 'react-loadable';
 import { dateTime } from '../myfunctions/myfunctions';
@@ -41,6 +42,10 @@ class NoLoginMain extends Component{
         }
         this.setState({comment: commentnew})
     }
+    viewProfile(person_username){
+        let { viewProfile } = this.props.searchActions
+        viewProfile({person_username,value:0,event:true})
+    }
 
     render(){
         
@@ -59,7 +64,7 @@ class NoLoginMain extends Component{
                             <div className="caption MainText">
                                 <div className="row">
                                 <div className="col-lg-8 col-md-5 col-sm-4 col-xs-9">
-                                    <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>{post.user.rank == 4 ? <div className={'quality_user-NL'}></div> : null}
+                                    <img className="ppimage" src={post.user.pp}/><b> <a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(post.user.username)}>{post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user-NL'}></div> : null}
                                 </div>    
                                 <div className="col-lg-1 col-md-2 col-sm-2 col-xs-1" style={{float:'right'}}>
                                     <div className={'confirmation_active-NL'}></div>                                                           
@@ -117,7 +122,8 @@ const mapStateToProps = ({ posts,auth }) => ({
     posts,auth
 })
 const mapDispatchToProps = dispatch => ({
-    postsActions: bindActionCreators(postsActions, dispatch) 
+    postsActions: bindActionCreators(postsActions, dispatch),
+    searchActions: bindActionCreators(searchActions,dispatch)
 })
   
 export default connect(mapStateToProps, mapDispatchToProps)(NoLoginMain)

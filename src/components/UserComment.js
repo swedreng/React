@@ -63,46 +63,6 @@ class UserComment extends Component{
                         a.map((comment,index) =>{
                             return (
                                 <div>
-                                     {comment.comment_id == this.state.organizeID ? 
-                                     (
-                                    <div>
-                                        <li key={index}>
-                                            <div className="row">
-                                                <div className="col-lg-1  col-md-1">
-                                                    <div className="Usercommentpicture">
-                                                        <img src={comment.user.pp}/>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-11 col-xs-11 col-md-11">
-                                                    <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
-                                                    <div className="UserComment--organize">
-                                                        <div className="row">
-                                                            <div className="col-lg-10 col-xs-10 col-md-10">
-                                                                <input type="text" className="form-control inputO" value={this.state.comment} onChange={(e) => this.setState({comment:e.target.value})} placeholder="Yeni yorumunu yaz"/>
-                                                                    Düzenlemeyi <a onClick={() => this.Iptal()}className="iptal"> İptal et</a>
-                                                            </div>
-                                                            <div className="col-lg-2 col-xs-2 col-md-2">
-                                                                <button type="submit" className="btn btn-success btn-sm buttonO" onClick={() => this.commentSave(comment.comment_id,post_id)}>Kaydet</button>
-                                                            </div>
-                                                        </div> 
-                                                    </div>
-                                                    <div className="UserComment--action"> 
-                                                        <div className="UserComment--like" onClick={() => this.commentLike(comment.comment_id)}>
-                                                            <div className={`clap ${comment.IsLikedComment ? 'active' : null}`}></div>
-                                                            <b>{comment.like}</b>
-                                                            
-                                                        </div>
-                                                        
-                                                        <span> {comment.Time} </span>
-                                                       
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li> 
-                                    </div>        
-                                     ) 
-                                     :
-                                     (
                                     <li key={index}>
                                         <div className="row">
                                             <div className="col-lg-1 col-xs-1">
@@ -111,7 +71,7 @@ class UserComment extends Component{
                                                 </div>
                                             </div>
                                         <div className="col-lg-11 col-xs-11">
-                                            <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
+                                            <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}  {comment.user.rank == 4 ? <div className={'quality_user-LUC'}></div> : null}</div>
                                             <div className="UserComment--comment">
                                         {user_id == comment.id ? (
                                             <div className="dropdown option">
@@ -137,7 +97,7 @@ class UserComment extends Component{
                                         </div>
                                     </div>
                                 </li> 
-                            )}
+                          
                             </div>    
                                    
                             )

@@ -44,7 +44,7 @@ class NoLoginUserComments extends Component{
                                         </div>
                                     </div>
                                     <div className="col-lg-11 col-xs-11">
-                                        <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}</div>
+                                        <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname} {comment.user.rank == 4 ? <div className={'quality_user-NLC'}></div> : null}</div> 
                                         <div className="UserComment--comment">
                                             <p>{comment.writing}</p>
                                         </div>
