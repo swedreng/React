@@ -19,12 +19,15 @@ class Header extends Component {
   
   addStorageItem(){
     console.log("geldim.")
-    let{ addStorageItemNoLogin,addStorageItemLogin } = this.props.usersActions
+    let{ addStorageItemNoLogin,addStorageItemLogin,LoginSearchPerson,SearchPerson } = this.props.usersActions
     const {isAuth} = this.props.auth
     if(isAuth){
       addStorageItemLogin({search:this.state.value,value:0,event:true})
+      LoginSearchPerson({value:0, event:true,search:this.state.value})
+
     }else{
       addStorageItemNoLogin({search:this.state.value,value:0,event:true})
+      SearchPerson({value:0, event:true,search:this.state.value})
     }
     
   }

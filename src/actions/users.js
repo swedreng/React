@@ -219,7 +219,6 @@ export function getuserinfoUpdate(payload) {
             var postCount = 0
           }
           
-          dispatch({type: PERSONS, payload:response.Users})
           dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
           
       })
@@ -274,13 +273,88 @@ export function getuserinfoUpdate(payload) {
             var data = []
             var postCount = 0
           }
-          
-          dispatch({type: PERSONS, payload:response.Users})
           dispatch({type:GET_POSTS, payload:{data:data,postCount:postCount}})
       })
     }
     
   }
+  
+  export function SearchPerson(payload) {
+    console.log(payload,67)
+      return (dispatch, getState) => { 
+        let { auth,posts,persons } = getState() 
+        
+        return fetch(`${process.env.URL}/api/searchperson`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            search: payload.search,
+            postReq: payload.value,
+            event: payload.event
+            })
+          
+          }).then(response => response.json()).then(response => {
+            if(response.Users){
+              if(payload.event){
+                var data = response.Users
+                var userCount = response.userCount
+              }else{
+                var data = persons.persons.concat(response.Users)
+                var userCount = response.userCount
+              }
+               
+            }else{
+              var data = []
+              var userCount = 0
+            }
+          dispatch({type: PERSONS, payload:{data:data, persons_count:userCount}})
+        })
+      }
+    }
+
+  export function LoginSearchPerson(payload) {
+    console.log(payload,67)
+      return (dispatch, getState) => { 
+        let { auth,posts,persons } = getState() 
+        
+        return fetch(`${process.env.URL}/api/loginsearchperson`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${auth.token} `
+          },
+          body: JSON.stringify({
+            search: payload.search,
+            postReq: payload.value,
+            event: payload.event
+            })
+          
+          }).then(response => response.json()).then(response => {
+            if(response.Users){
+              if(payload.event){
+                var data = response.Users
+                var userCount = response.userCount
+              }else{
+                var data = persons.persons.concat(response.Users)
+                var userCount = response.userCount
+              }
+               
+            }else{
+              var data = []
+              var userCount = 0
+            }
+          dispatch({type: PERSONS, payload:{data:data, persons_count:userCount}})
+        })
+      }
+    }
+  
+
+
+
 
   export function LoginviewProfile(payload) {
     console.log(payload,67)

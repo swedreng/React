@@ -74,7 +74,7 @@ class Main extends Component{
                         <ScrollContainer onUpdate={this.onUpdate}>
                             {isAuth ? (<ConnectionMain/>) : (<NoLoginMain/>)}
                             {( this.state.loadMore ? (
-                                <div className="Loading">
+                                <div className="Loading" style={{margin:'0 auto', display:'table', marginBottom:'5px'}}>
                                     <img src={`${require('../images/loa.gif')}`}/>
                                 </div>
                             ) : null)}

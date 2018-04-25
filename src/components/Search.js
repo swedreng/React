@@ -24,16 +24,39 @@ const Comment = Loadable({
 class Search extends Component{
         constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true,comment:{}, search:'',width:null}
+        this.state = {loadMore:false, status:true,comment:{}, search:'',width:null, viewuser:false}
         this.onUpdate = this.onUpdate.bind(this)
     }
     componentWillMount(){
-        let { addStorageItemLogin } = this.props.searchActions
+        let { addStorageItemLogin,LoginSearchPerson } = this.props.searchActions
         const { match: { params: { search } } } = this.props
         addStorageItemLogin({value:0,event:true,search:search})
+        LoginSearchPerson({value:0, event:true,search:search}).then(() => {
+            let { persons } = this.props.persons
+            let { persons_count } = this.props.persons
+            if(persons.length <= persons_count){
+                this.setState({viewuser:true})
+            }else{
+                this.setState({viewuser:false})
+            }
+            
+        })
         this.setState({search:search})
         var genislik = window.screen.width
         this.setState({width:genislik})
+    }
+    getUsers(){
+        let { LoginSearchPerson } = this.props.searchActions
+        let { persons } = this.props.persons
+        LoginSearchPerson({value:persons.length, event:false,search:this.state.search}).then(() =>{
+            let { persons } = this.props.persons
+            let { persons_count } = this.props.persons
+            if(persons.length < persons_count){
+                this.setState({viewuser:true})
+            }else{
+                this.setState({viewuser:false})
+            }
+        })
     }
     onUpdate(){       
             let { addStorageItemLogin } = this.props.searchActions
@@ -113,12 +136,12 @@ class Search extends Component{
                                         </div>    
 
                                     </div>   
-                                    <div className="person-process">
-                                        
-                                    </div>    
-                                </div>
+                                </div> 
+                                
                                 )
                             })}
+                            {this.state.viewuser == 1 ? <a style={{textDecoration:'underline',cursor:'pointer',color:'black',margin:'0 auto', display:'table', marginBottom:'5px'}}
+                             onClick={()=> this.getUsers()}>Daha fazla kişi gör</a> : null }
                             </div>
                         ) : (<p className="alert alert-danger">Aradığınız isimde kullanıcı bulunmamaktadır..</p>)}
                         
@@ -144,7 +167,7 @@ class Search extends Component{
                                                 <img className="ppimage" src={post.user.pp}/><b><a style = {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>
                                             </div>    
                                             <div className="col-lg-1 col-md-5 col-sm-4 col-xs-1" style={{float:'right'}}>
-                                               {post.id == user_id ? (<div className={`confirmationUser-LGS ${post.confirmation ? 'confirmation_active-LGS' : null}`}></div>):(<div className={'confirmation_active-LGS'}></div>)}
+                                               <div className={'confirmation_active-LGS'}></div>
                                             </div>   
                                             <div className="col-lg-3 col-md-7 col-sm-8 col-xs-2">
                                                 <span className="postTime-LGS">{this.state.width > 425 ? post.Time : dateTime(post.Time)}</span>

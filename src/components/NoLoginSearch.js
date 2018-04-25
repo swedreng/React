@@ -18,16 +18,39 @@ const NoLoginUserComments = Loadable({
 class NoLoginSearch extends Component{
         constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true,comment:{},search:'',width:null}
+        this.state = {loadMore:false, status:true,comment:{},search:'',width:null,viewuser:false}
         this.onUpdate = this.onUpdate.bind(this)
     }
     componentDidMount(){
-        let { addStorageItemNoLogin } = this.props.searchActions
+        let { addStorageItemNoLogin,SearchPerson } = this.props.searchActions
         const { match: { params: { search } } } = this.props
         addStorageItemNoLogin({value:0,event:true,search:search})
+        SearchPerson({value:0, event:true,search:search}).then(() => {
+            let { persons } = this.props.persons
+            let { persons_count } = this.props.persons
+            if(persons.length <= persons_count){
+                this.setState({viewuser:true})
+            }else{
+                this.setState({viewuser:false})
+            }
+            
+        })
         this.setState({search:search})
         var genislik = window.screen.width
         this.setState({width:genislik})
+    }
+    getUsers(){
+        let { SearchPerson } = this.props.searchActions
+        let { persons } = this.props.persons
+        SearchPerson({value:persons.length, event:false,search:this.state.search}).then(() =>{
+            let { persons } = this.props.persons
+            let { persons_count } = this.props.persons
+            if(persons.length < persons_count){
+                this.setState({viewuser:true})
+            }else{
+                this.setState({viewuser:false})
+            }
+        })
     }
     onUpdate(){
       
@@ -100,6 +123,8 @@ class NoLoginSearch extends Component{
                                 </div>
                                 )
                             })}
+                            {this.state.viewuser == 1 ? <a style={{textDecoration:'underline',cursor:'pointer',color:'black',margin:'0 auto', display:'table', marginBottom:'5px'}}
+                             onClick={()=> this.getUsers()}>Daha fazla kişi gör</a> : null }
                             </div>
                         ) : (<p className="alert alert-danger">Aradığınız isimde kullanıcı bulunmamaktadır..</p>)}
                         

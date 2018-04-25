@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
+import * as viewProfileActions from '../actions/users';
 import './comments.scss'
 
 
@@ -19,7 +20,10 @@ class Comments extends Component{
         let { commentLike } = this.props.postsActions
         commentLike({comment_id:comment_id,post_id:this.props.comments.post_id})
     }
-    
+    LoginviewProfile(username){
+        let { LoginviewProfile } = this.props.viewProfileActions
+        LoginviewProfile({person_username:username,value:0,event:true})
+    }
     render(){
         const comments = this.props.comments.CommentBest
         return(
@@ -35,7 +39,7 @@ class Comments extends Component{
                     </div>
                     </div>
                     <div className="col-xs-12 col-lg-10 col-md-12 commentdiv img-thumbnail">
-                        <b className="bestComment-name">{comment.user.firstname} {comment.user.lastname} {comment.user.rank == 4 ? <div className={'quality_user-LBC'}></div> : null}</b>
+                        <b className="bestComment-name"><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(comment.user.username)}> {comment.user.firstname} {comment.user.lastname}</a> {comment.user.rank == 4 ? <div className={'quality_user-LBC'}></div> : null}</b>
                         <p>{comment.writing}</p>  
                         <hr/>
                         <div className="commentdiv--area" onClick={() => this.commentLike(comment.comment_id)}>
@@ -59,6 +63,7 @@ const mapStateToProps = ({ posts }) => ({
     posts
   })
   const mapDispatchToProps = dispatch => ({
-      postsActions: bindActionCreators(postsActions, dispatch)
+      postsActions: bindActionCreators(postsActions, dispatch),
+      viewProfileActions: bindActionCreators(viewProfileActions, dispatch)
   })
   export default connect(mapStateToProps, mapDispatchToProps)(Comments)

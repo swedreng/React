@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
+import * as searchActions from "../actions/users"
 import './NoLoginBestComments.scss'
 
 
@@ -13,6 +14,10 @@ class NoLoginBestComments extends Component{
     componentDidMount(){
         var genislik = window.screen.width;
         this.setState({width:genislik})
+    }
+    viewProfile(person_username){
+        let { viewProfile } = this.props.searchActions
+        viewProfile({person_username,value:0,event:true})
     }
     render(){
         const comments = this.props.comments.CommentBest
@@ -29,7 +34,7 @@ class NoLoginBestComments extends Component{
                     </div>
                     </div>
                     <div className="col-xs-12 col-lg-10 col-md-12 commentdiv img-thumbnail">
-                        <b className="nloginbestpost-name">{comment.user.firstname} {comment.user.lastname} {comment.user.rank == 4 ? <div className={'quality_user-NLBC'}></div> : null}</b>
+                        <b className="nloginbestpost-name"><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(comment.user.username)}>{comment.user.firstname} {comment.user.lastname}</a> {comment.user.rank == 4 ? <div className={'quality_user-NLBC'}></div> : null}</b>
                         <p>{comment.writing}</p>  
                         <hr/>
                         <div className="commentdiv--area">
@@ -48,5 +53,11 @@ class NoLoginBestComments extends Component{
     }
 }
 
-
-export default NoLoginBestComments
+const mapStateToProps = ({ posts,auth }) => ({
+    posts,auth
+})
+const mapDispatchToProps = dispatch => ({
+    searchActions: bindActionCreators(searchActions,dispatch)
+})
+  
+export default connect(mapStateToProps, mapDispatchToProps)(NoLoginBestComments)

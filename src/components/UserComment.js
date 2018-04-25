@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
+import * as viewProfileActions from '../actions/users';
 import './usercomment.scss'
 
 class UserComment extends Component{
@@ -49,6 +50,10 @@ class UserComment extends Component{
     Iptal(){
         this.setState({organizeID:''})
     }
+    LoginviewProfile(username){
+        let { LoginviewProfile } = this.props.viewProfileActions
+        LoginviewProfile({person_username:username,value:0,event:true})
+    }
     render(){
         const post_id = this.props.comments.post_id
         const a = this.props.comments.CommentLast
@@ -71,7 +76,7 @@ class UserComment extends Component{
                                                 </div>
                                             </div>
                                         <div className="col-lg-11 col-xs-11">
-                                            <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname}  {comment.user.rank == 4 ? <div className={'quality_user-LUC'}></div> : null}</div>
+                                            <div className="UserComment--name"><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(comment.user.username)}> {comment.user.firstname} {comment.user.lastname}</a> {comment.user.rank == 4 ? <div className={'quality_user-LUC'}></div> : null}</div>
                                             <div className="UserComment--comment">
                                         {user_id == comment.id ? (
                                             <div className="dropdown option">
@@ -111,7 +116,8 @@ class UserComment extends Component{
                                     <img src={`${require('../images/loading_commentt.gif')}`}/>
                                 </div>
                             ) : null)} 
-                    {( a.length >= this.state.clickCount ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
+                    {( a.length >= this.state.clickCount ? <a style={{textDecoration:'underline',cursor:'pointer',color:'black',margin:'0 auto', display:'table', marginBottom:'5px'}}
+                    onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
                     
                 </div>    
             </div>
@@ -124,6 +130,7 @@ const mapStateToProps = ({ posts,auth }) => ({
   posts,auth
 })
 const mapDispatchToProps = dispatch => ({
-    postsActions: bindActionCreators(postsActions, dispatch)
+    postsActions: bindActionCreators(postsActions, dispatch),
+    viewProfileActions: bindActionCreators(viewProfileActions, dispatch)
 })
 export default connect(mapStateToProps, mapDispatchToProps)(UserComment)

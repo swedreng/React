@@ -193,10 +193,20 @@
     background-image:url('../images/facebookkk.png');
     background-size:cover;
   }
+  .messageL{
+      margin-bottom: -10px;
+      margin-top: 10px;
+  }
+  .messageS{
+      margin-bottom: -10px;
+      margin-top: 17px;
+  }
   .loginoptions{
-      padding: 5px;
+     
       div{
-          padding: 5px;
+          padding: 0px;
+          margin-bottom: 4px;
+         
       }
       a{
         text-decoration: none;

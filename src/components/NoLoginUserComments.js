@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
 import * as noLoginPostsActions from "../actions/noLogin"
+import * as searchActions from "../actions/users"
 import './NoLoginUserComments.scss'
 
 class NoLoginUserComments extends Component{
@@ -21,7 +22,10 @@ class NoLoginUserComments extends Component{
             this.setState({loadMore:false})
         })
     }
-
+    viewProfile(person_username){
+        let { viewProfile } = this.props.searchActions
+        viewProfile({person_username,value:0,event:true})
+    }
     render(){
        const a = this.props.comments.CommentLast
        if(!this.props.status){
@@ -44,7 +48,7 @@ class NoLoginUserComments extends Component{
                                         </div>
                                     </div>
                                     <div className="col-lg-11 col-xs-11">
-                                        <div className="UserComment--name">{comment.user.firstname} {comment.user.lastname} {comment.user.rank == 4 ? <div className={'quality_user-NLC'}></div> : null}</div> 
+                                        <div className="UserComment--name"><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(comment.user.username)}>{comment.user.firstname} {comment.user.lastname}</a> {comment.user.rank == 4 ? <div className={'quality_user-NLC'}></div> : null}</div> 
                                         <div className="UserComment--comment">
                                             <p>{comment.writing}</p>
                                         </div>
@@ -70,7 +74,8 @@ class NoLoginUserComments extends Component{
                                     <img src={`${require('../images/loading_commentt.gif')}`}/>
                                 </div>
                             ) : null)} 
-                    {( a.length == this.state.clickCount ? <a onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
+                    {( a.length == this.state.clickCount ? <a style={{textDecoration:'underline',cursor:'pointer',color:'black',margin:'0 auto', display:'table', marginBottom:'5px'}}
+                    onClick={() => this.getComment()}className="continue">Daha fazla yorum</a> : null)}
                     
                 </div>    
             </div>
@@ -84,6 +89,7 @@ const mapStateToProps = ({ posts }) => ({
 })
 const mapDispatchToProps = dispatch => ({
     postsActions: bindActionCreators(postsActions, dispatch),
-    noLoginPostsActions : bindActionCreators(noLoginPostsActions, dispatch)
+    noLoginPostsActions : bindActionCreators(noLoginPostsActions, dispatch),
+    searchActions: bindActionCreators(searchActions,dispatch)
 })
 export default connect(mapStateToProps, mapDispatchToProps)(NoLoginUserComments)

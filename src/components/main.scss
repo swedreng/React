@@ -130,7 +130,8 @@
         img{
             width: 100px;
             height: 100px;
-            vertical-align: middle;
+            margin: 0 auto !important;
+            display:table !important;
         }
         
     }
@@ -228,7 +229,7 @@
             img{
                 width: 100px;
                 height: 100px;
-                margin-left: 25%;
+            
             }
             
         }

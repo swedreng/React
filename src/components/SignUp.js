@@ -65,7 +65,7 @@ class SignUp extends Component{
                                     <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.handleSubmit}>Üye ol</button>
                                 </fieldset>
                                 </form>
-                                <div>
+                                <div className="messageS">
                                     {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
                                 </div> 
                             </div>

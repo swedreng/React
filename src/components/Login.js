@@ -70,7 +70,7 @@ class Login extends Component{
                                     </div>
                                 </fieldset>
                                 </form>
-                                <div>
+                                <div className="messageL">
                                     {(message ? <p className={isAuth === true ? alertTrue : isAuth === false ? alertFalse: null}>{message}</p> :null)}
                                 </div> 
                             </div>
