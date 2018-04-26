@@ -38,7 +38,7 @@ class Comments extends Component{
                         <img src={comment.user.pp}/>       
                     </div>
                     </div>
-                    <div className="col-xs-12 col-lg-10 col-md-12 commentdiv img-thumbnail">
+                    <div className="col-xs-12 col-lg-10 col-md-12 commentdiv-L img-thumbnail">
                         <b className="bestComment-name"><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(comment.user.username)}> {comment.user.firstname} {comment.user.lastname}</a> {comment.user.rank == 4 ? <div className={'quality_user-LBC'}></div> : null}</b>
                         <p>{comment.writing}</p>  
                         <hr/>

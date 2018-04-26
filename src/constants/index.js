@@ -29,4 +29,5 @@ export const VIEW_PERSON_SHARE_INFO = "VIEW_PERSON_SHARE_INFO"
 export const SET_BESTPOSTS = "SET_BESTPOSTS"
 export const SET_BESTPOST = "SET_BESTPOST"
 export const SS = "SS"
+export const REMEMBER_ME = "REMEMBER_ME"
 

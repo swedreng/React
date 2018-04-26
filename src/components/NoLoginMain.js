@@ -59,7 +59,7 @@ class NoLoginMain extends Component{
             
                 <div key={index}>
                     {post.confirmation == 1 ? (
-                        <div className="row Main">
+                        <div className={`row Main ${this.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null}`}>
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
@@ -75,7 +75,7 @@ class NoLoginMain extends Component{
                             </div>
                                 <p>{post.writing}</p>  
                             </div>
-                            <hr style={(post.kind == 'write' ? {display:'none'} : {display:'inline'})}/>
+                            <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
                             <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>
                                 <img src={post.image}/>
                             </div>

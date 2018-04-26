@@ -113,9 +113,10 @@
 }
 @media only screen and (max-device-width: 425px)  {
     .commentssmain-NLB{
-        padding-bottom: 15px;
+        padding-bottom: 0px;
+        margin-left: 3px;
         .row{
-            padding-bottom: 4px;
+            padding-bottom: 3px;
         }
     }
     .commentdiv{

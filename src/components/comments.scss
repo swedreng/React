@@ -33,7 +33,7 @@
     color: #b4b6bd;
 }
 
-.commentdiv{
+.commentdiv-L{
     padding-top: 10px !important;
     position:relative;
     overflow:hidden;
@@ -41,7 +41,7 @@
         word-wrap:break-word;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 14px;
-        
+        margin-left: 8px;
     }
     .bestComment-name{
         margin-left: 8px; 
@@ -119,19 +119,21 @@
 }
 @media screen and(max-width:425px){ 
     .commentssmain{
-        padding-bottom: 12px;
+        padding-bottom: 0px;
         .row{
-            padding-bottom:4px;
-            
+            padding-bottom:3px;
+           
         }
     }
-    .commentdiv{
+    .commentdiv-L{
+        margin-left: 2px;
         p{
             word-wrap:break-word;
             font-family: "Helvetica Neue";
             font-size: 14px;
             font-weight: 400;
             color: #333;
+            margin-left: 8px;
         }
     }
 

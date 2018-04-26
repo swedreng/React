@@ -1,4 +1,4 @@
-import { SET_AUTH_LOGIN, RESET_AUTH } from "../constants"
+import { SET_AUTH_LOGIN, RESET_AUTH ,REMEMBER_ME} from "../constants"
 import {getlocalStore} from "../helper"
 const { auth } = getlocalStore('auth')
 
@@ -10,6 +10,7 @@ const defaultState = {
   user_pp:auth.user_pp,
   personalwriting: auth.personalwriting,
   isAuth:auth.isAuth ? true : false,
+  rememberme:null
 }
 
 export default (state = defaultState, action = {}) => {
@@ -29,6 +30,12 @@ export default (state = defaultState, action = {}) => {
     case RESET_AUTH:
       return {
         isAuth:false
+      }
+      break
+    case REMEMBER_ME:
+      return {
+        ...state,
+        rememberme: action.payload
       }
       break
     default:

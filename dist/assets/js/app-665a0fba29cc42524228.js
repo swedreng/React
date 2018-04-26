@@ -86,7 +86,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "js/" + {"0":"8ee6ab21f3d1851b7e84","1":"f674fb53ef674515992b","2":"b52d771c67758c71c034","3":"80c0ed212b0e54aefae8","4":"04d90808d30feb30ae97","5":"542aab060fa219e51acd","6":"c2062744786a05d5ba3c","7":"15005c1fa8c9b37e7072","8":"7fd38e1920b515e5c031","9":"146cd71404dd7c87fcef","10":"70fa442ee9ea01875fbb","11":"9e42f6dce4a9828dcb39","12":"282f45b2f13abf1ce5a5","13":"dcd02a3ec3cd9740aa10","14":"c35afd8fa330862a2562","15":"553b8fae743386755c85"}[chunkId] + ".min.js";
+/******/ 		script.src = __webpack_require__.p + "js/" + {"0":"e33402f1d93c897c2ffb","1":"f674fb53ef674515992b","2":"bd87dcf2bf54b7b613aa","3":"85924f80997e38843844","4":"cb5b8a7b848bb662139c","5":"0b68fa69505d15f744d0","6":"c8d1d285f143dbd368b6","7":"7b1a6c357485d44a0521","8":"7fd38e1920b515e5c031","9":"f7ee7e4e91e9b5c4ca2b","10":"5d0714ce20317a6305bc","11":"9e42f6dce4a9828dcb39","12":"282f45b2f13abf1ce5a5","13":"dcd02a3ec3cd9740aa10","14":"c35afd8fa330862a2562","15":"553b8fae743386755c85"}[chunkId] + ".min.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -1717,6 +1717,7 @@ var VIEW_PERSON_SHARE_INFO = exports.VIEW_PERSON_SHARE_INFO = "VIEW_PERSON_SHARE
 var SET_BESTPOSTS = exports.SET_BESTPOSTS = "SET_BESTPOSTS";
 var SET_BESTPOST = exports.SET_BESTPOST = "SET_BESTPOST";
 var SS = exports.SS = "SS";
+var REMEMBER_ME = exports.REMEMBER_ME = "REMEMBER_ME";
 
 /***/ }),
 /* 4 */
@@ -3857,7 +3858,7 @@ exports.getSearchItem = getSearchItem;
 
 var _constants = __webpack_require__(3);
 
-var _helper = __webpack_require__(69);
+var _helper = __webpack_require__(48);
 
 function alertMessage(payload) {
     return function (dispatch, getState) {
@@ -3976,7 +3977,7 @@ BrowserRouter_BrowserRouter.propTypes = {
 
 /* harmony default export */ var es_BrowserRouter = (BrowserRouter_BrowserRouter);
 // EXTERNAL MODULE: ./node_modules/history/createHashHistory.js
-var createHashHistory = __webpack_require__(61);
+var createHashHistory = __webpack_require__(62);
 var createHashHistory_default = /*#__PURE__*/__webpack_require__.n(createHashHistory);
 
 // CONCATENATED MODULE: ./node_modules/react-router-dom/es/HashRouter.js
@@ -4135,7 +4136,7 @@ Link_Link.contextTypes = {
 
 /* harmony default export */ var es_Link = (Link_Link);
 // EXTERNAL MODULE: ./node_modules/react-router/es/MemoryRouter.js
-var MemoryRouter = __webpack_require__(62);
+var MemoryRouter = __webpack_require__(63);
 
 // CONCATENATED MODULE: ./node_modules/react-router-dom/es/MemoryRouter.js
 // Written in this round about way for babel-transform-imports
@@ -4221,7 +4222,7 @@ NavLink_NavLink.defaultProps = {
 
 /* harmony default export */ var es_NavLink = (NavLink_NavLink);
 // EXTERNAL MODULE: ./node_modules/react-router/es/Prompt.js
-var Prompt = __webpack_require__(63);
+var Prompt = __webpack_require__(64);
 
 // CONCATENATED MODULE: ./node_modules/react-router-dom/es/Prompt.js
 // Written in this round about way for babel-transform-imports
@@ -4229,7 +4230,7 @@ var Prompt = __webpack_require__(63);
 
 /* harmony default export */ var es_Prompt = (Prompt["a" /* default */]);
 // EXTERNAL MODULE: ./node_modules/react-router/es/Redirect.js + 8 modules
-var Redirect = __webpack_require__(64);
+var Redirect = __webpack_require__(65);
 
 // CONCATENATED MODULE: ./node_modules/react-router-dom/es/Redirect.js
 // Written in this round about way for babel-transform-imports
@@ -4237,7 +4238,7 @@ var Redirect = __webpack_require__(64);
 
 /* harmony default export */ var es_Redirect = (Redirect["a" /* default */]);
 // EXTERNAL MODULE: ./node_modules/react-router/es/StaticRouter.js
-var StaticRouter = __webpack_require__(65);
+var StaticRouter = __webpack_require__(66);
 
 // CONCATENATED MODULE: ./node_modules/react-router-dom/es/StaticRouter.js
 // Written in this round about way for babel-transform-imports
@@ -4245,7 +4246,7 @@ var StaticRouter = __webpack_require__(65);
 
 /* harmony default export */ var es_StaticRouter = (StaticRouter["a" /* default */]);
 // EXTERNAL MODULE: ./node_modules/react-router/es/Switch.js
-var Switch = __webpack_require__(66);
+var Switch = __webpack_require__(67);
 
 // CONCATENATED MODULE: ./node_modules/react-router-dom/es/Switch.js
 // Written in this round about way for babel-transform-imports
@@ -4261,7 +4262,7 @@ var matchPath = __webpack_require__(36);
 
 /* harmony default export */ var es_matchPath = (matchPath["a" /* default */]);
 // EXTERNAL MODULE: ./node_modules/react-router/es/withRouter.js
-var withRouter = __webpack_require__(67);
+var withRouter = __webpack_require__(68);
 
 // CONCATENATED MODULE: ./node_modules/react-router-dom/es/withRouter.js
 // Written in this round about way for babel-transform-imports
@@ -4694,16 +4695,20 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.setAuth = setAuth;
 exports.PasswordReset = PasswordReset;
+exports.rememberMe = rememberMe;
+exports.getRememberMe = getRememberMe;
 exports.PasswordUpdate = PasswordUpdate;
 exports.resetLogin = resetLogin;
 
 var _reactRouterRedux = __webpack_require__(22);
 
-var _store = __webpack_require__(68);
+var _store = __webpack_require__(69);
 
 var _constants = __webpack_require__(3);
 
 var _desc = __webpack_require__(18);
+
+var _helper = __webpack_require__(48);
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -4757,6 +4762,15 @@ function PasswordReset(payload) {
     }).then(function (response) {
       dispatch((0, _desc.alertMessage)({ message: response.message }));
     });
+  };
+}
+function rememberMe(payload) {
+  localStorage.setItem('rememberMe', JSON.stringify(payload));
+}
+function getRememberMe(payload) {
+  return function (dispatch, getState) {
+    var rememberme = JSON.parse(localStorage.getItem('rememberMe'));
+    dispatch({ type: _constants.REMEMBER_ME, payload: rememberme });
   };
 }
 
@@ -6289,11 +6303,11 @@ exports.locationsAreEqual = exports.createLocation = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _resolvePathname = __webpack_require__(58);
+var _resolvePathname = __webpack_require__(59);
 
 var _resolvePathname2 = _interopRequireDefault(_resolvePathname);
 
-var _valueEqual = __webpack_require__(59);
+var _valueEqual = __webpack_require__(60);
 
 var _valueEqual2 = _interopRequireDefault(_valueEqual);
 
@@ -6858,23 +6872,23 @@ function isPlainObject(value) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MemoryRouter__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MemoryRouter__ = __webpack_require__(63);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__MemoryRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Prompt__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Prompt__ = __webpack_require__(64);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_1__Prompt__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Redirect__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Redirect__ = __webpack_require__(65);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_2__Redirect__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(45);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_3__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(35);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_4__Router__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__StaticRouter__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__StaticRouter__ = __webpack_require__(66);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_5__StaticRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Switch__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Switch__ = __webpack_require__(67);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return __WEBPACK_IMPORTED_MODULE_6__Switch__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__matchPath__ = __webpack_require__(36);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return __WEBPACK_IMPORTED_MODULE_7__matchPath__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__withRouter__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__withRouter__ = __webpack_require__(68);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_8__withRouter__["a"]; });
 
 
@@ -6897,6 +6911,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var getlocalStore = function getlocalStore(keys) {
+  var data = {};
+  var keys = [keys];
+  keys.forEach(function (key) {
+    try {
+      var chunk = localStorage.getItem("" + key);
+      if (chunk != null) {
+        data[key] = JSON.parse(chunk);
+      }
+    } catch (err) {}
+  });
+
+  if (Object.keys(data).length > 0) {
+    return data;
+  } else {
+    return { auth: {} };
+  }
+};
+
+exports.getlocalStore = getlocalStore;
+
+/***/ }),
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -6927,7 +6972,7 @@ if(false) {
 }
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -6958,7 +7003,7 @@ if(false) {
 }
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7019,7 +7064,7 @@ function profilpictureUpload(payload) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7098,10 +7143,10 @@ function getComment(payload) {
 }
 
 /***/ }),
-/* 52 */,
 /* 53 */,
 /* 54 */,
-/* 55 */
+/* 55 */,
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7198,7 +7243,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7221,7 +7266,7 @@ if (false) {
 module.exports = emptyObject;
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7266,7 +7311,7 @@ if (true) {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7343,7 +7388,7 @@ function resolvePathname(to) {
 /* harmony default export */ __webpack_exports__["default"] = (resolvePathname);
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7388,7 +7433,7 @@ function valueEqual(a, b) {
 /* harmony default export */ __webpack_exports__["default"] = (valueEqual);
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7449,7 +7494,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 };
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7475,7 +7520,7 @@ var _createTransitionManager = __webpack_require__(44);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(60);
+var _DOMUtils = __webpack_require__(61);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7779,7 +7824,7 @@ var createHashHistory = function createHashHistory() {
 exports.default = createHashHistory;
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7846,7 +7891,7 @@ MemoryRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (MemoryRouter);
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7937,7 +7982,7 @@ Prompt.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Prompt);
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7959,10 +8004,10 @@ var invariant_browser = __webpack_require__(12);
 var invariant_browser_default = /*#__PURE__*/__webpack_require__.n(invariant_browser);
 
 // EXTERNAL MODULE: ./node_modules/resolve-pathname/index.js
-var resolve_pathname = __webpack_require__(58);
+var resolve_pathname = __webpack_require__(59);
 
 // EXTERNAL MODULE: ./node_modules/value-equal/index.js
-var value_equal = __webpack_require__(59);
+var value_equal = __webpack_require__(60);
 
 // CONCATENATED MODULE: ./node_modules/history/es/PathUtils.js
 var addLeadingSlash = function addLeadingSlash(path) {
@@ -9083,7 +9128,7 @@ Redirect_Redirect.contextTypes = {
 /* harmony default export */ var es_Redirect = __webpack_exports__["a"] = (Redirect_Redirect);
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9266,7 +9311,7 @@ StaticRouter.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (StaticRouter);
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9360,7 +9405,7 @@ Switch.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Switch);
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9405,7 +9450,7 @@ var withRouter = function withRouter(Component) {
 /* harmony default export */ __webpack_exports__["a"] = (withRouter);
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9430,7 +9475,7 @@ var _reduxLogger = __webpack_require__(128);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _createHashHistory = __webpack_require__(61);
+var _createHashHistory = __webpack_require__(62);
 
 var _createHashHistory2 = _interopRequireDefault(_createHashHistory);
 
@@ -9475,37 +9520,6 @@ exports.history = history;
 // hem diğer componentlere yayıp kullanmamızı hemde sayfa geçişi yapmamızı sağlıyor,
 // tanımladığımız app.js de ki router tanımlamalarını aktif ediyor ve kullanmamızı sağlıyor.
 // 3-en standart olanı windows.location la yapılan location değişikliği burda linkler #hash li oluyor.
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var getlocalStore = function getlocalStore(keys) {
-  var data = {};
-  var keys = [keys];
-  keys.forEach(function (key) {
-    try {
-      var chunk = localStorage.getItem("" + key);
-      if (chunk != null) {
-        data[key] = JSON.parse(chunk);
-      }
-    } catch (err) {}
-  });
-
-  if (Object.keys(data).length > 0) {
-    return data;
-  } else {
-    return { auth: {} };
-  }
-};
-
-exports.getlocalStore = getlocalStore;
 
 /***/ }),
 /* 70 */
@@ -9931,7 +9945,7 @@ var NoLoginUserComments = (0, _reactLoadable2.default)({
 
 var NoLoginBestComments = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 52));
+        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 53));
     },
     loading: _loading2.default,
     delay: 4000
@@ -9993,7 +10007,7 @@ var NoLoginMain = function (_Component) {
                         { key: index },
                         post.confirmation == 1 ? _react2.default.createElement(
                             "div",
-                            { className: "row Main" },
+                            { className: "row Main " + (_this2.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null) },
                             _react2.default.createElement(
                                 "div",
                                 { className: "img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv" },
@@ -10044,7 +10058,7 @@ var NoLoginMain = function (_Component) {
                                         post.writing
                                     )
                                 ),
-                                _react2.default.createElement("hr", { style: post.kind == 'write' ? { display: 'none' } : { display: 'inline' } }),
+                                _react2.default.createElement("hr", { style: post.kind == 'write' ? { display: 'none' } : null }),
                                 _react2.default.createElement(
                                     "div",
                                     { className: "MainImage", style: post.kind == 'write' ? { display: 'none' } : null },
@@ -10192,7 +10206,7 @@ var _posts = __webpack_require__(5);
 
 var postsActions = _interopRequireWildcard(_posts);
 
-var _noLogin = __webpack_require__(51);
+var _noLogin = __webpack_require__(52);
 
 var noLoginPostsActions = _interopRequireWildcard(_noLogin);
 
@@ -10325,7 +10339,7 @@ var Main = function (_Component) {
                     isAuth ? _react2.default.createElement(_ConnectionMain2.default, null) : _react2.default.createElement(_NoLoginMain2.default, null),
                     this.state.loadMore ? _react2.default.createElement(
                         "div",
-                        { className: "Loading" },
+                        { className: "Loading", style: { margin: '0 auto', display: 'table', marginBottom: '5px' } },
                         _react2.default.createElement("img", { src: "" + __webpack_require__(24) })
                     ) : null
                 ) : _react2.default.createElement(
@@ -10517,7 +10531,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(57);
+var _reactDom = __webpack_require__(58);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -10547,7 +10561,7 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(55),n=__webpack_require__(56),p=__webpack_require__(25),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(56),n=__webpack_require__(57),p=__webpack_require__(25),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -10578,7 +10592,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),l=__webpack_require__(88),B=__webpack_require__(55),C=__webpack_require__(25),ba=__webpack_require__(89),da=__webpack_require__(90),ea=__webpack_require__(91),fa=__webpack_require__(92),ia=__webpack_require__(95),D=__webpack_require__(56);
+var aa=__webpack_require__(0),l=__webpack_require__(88),B=__webpack_require__(56),C=__webpack_require__(25),ba=__webpack_require__(89),da=__webpack_require__(90),ea=__webpack_require__(91),fa=__webpack_require__(92),ia=__webpack_require__(95),D=__webpack_require__(57);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -11271,7 +11285,7 @@ var _createTransitionManager = __webpack_require__(44);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(60);
+var _DOMUtils = __webpack_require__(61);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12353,7 +12367,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(20);
 
-var _index = __webpack_require__(68);
+var _index = __webpack_require__(69);
 
 var _reactRedux = __webpack_require__(2);
 
@@ -12854,7 +12868,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _constants = __webpack_require__(3);
 
-var _helper = __webpack_require__(69);
+var _helper = __webpack_require__(48);
 
 var _getlocalStore = (0, _helper.getlocalStore)('auth'),
     auth = _getlocalStore.auth;
@@ -12866,7 +12880,8 @@ var defaultState = {
   token: auth.token,
   user_pp: auth.user_pp,
   personalwriting: auth.personalwriting,
-  isAuth: auth.isAuth ? true : false
+  isAuth: auth.isAuth ? true : false,
+  rememberme: null
 };
 
 exports.default = function () {
@@ -12889,6 +12904,11 @@ exports.default = function () {
       return {
         isAuth: false
       };
+      break;
+    case _constants.REMEMBER_ME:
+      return _extends({}, state, {
+        rememberme: action.payload
+      });
       break;
     default:
       return state;
@@ -14192,7 +14212,7 @@ var _posts = __webpack_require__(5);
 
 var postsActions = _interopRequireWildcard(_posts);
 
-var _noLogin = __webpack_require__(51);
+var _noLogin = __webpack_require__(52);
 
 var noLoginPostsActions = _interopRequireWildcard(_noLogin);
 
@@ -14526,7 +14546,7 @@ var AdminMain = function (_Component) {
                         { key: index },
                         _react2.default.createElement(
                             "div",
-                            { className: "row Main" },
+                            { className: "row Main " + (_this2.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null) },
                             _react2.default.createElement(
                                 "div",
                                 { className: "img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv" },
@@ -14978,7 +14998,7 @@ var ModeratorMain = function (_Component) {
                         { key: index },
                         post.IsBlockPost == false ? _react2.default.createElement(
                             "div",
-                            { className: "row Main" },
+                            { className: "row Main " + (_this2.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null) },
                             _react2.default.createElement(
                                 "div",
                                 { className: "img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv" },
@@ -15445,7 +15465,7 @@ var LoginUserMain = function (_Component) {
                         { key: index },
                         _react2.default.createElement(
                             "div",
-                            { className: "row Main" },
+                            { className: "row Main " + (_this2.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null) },
                             _react2.default.createElement(
                                 "div",
                                 { className: "img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv" },
@@ -15748,7 +15768,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, ".MainImage {\n  height: auto; }\n  .MainImage img {\n    height: auto;\n    width: 100%;\n    margin-bottom: 10px;\n    overflow: hidden !important; }\n\n.page {\n  margin-left: auto; }\n\n.Main {\n  padding-left: 0px;\n  padding-bottom: 10px; }\n  .Main .imagediv hr {\n    margin-top: 5px;\n    margin-bottom: 5px; }\n\n.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {\n  position: relative;\n  min-height: 1px;\n  padding-left: 5px !important;\n  padding-right: 5px !important;\n  padding-bottom: 2px !important; }\n\n.commentbest {\n  padding: 0px !important;\n  margin-top: 10px; }\n\n.ppimage {\n  height: 40px;\n  width: 40px;\n  padding-right: 3px;\n  border-radius: 50%;\n  vertical-align: middle;\n  margin-top: 3px;\n  margin-left: 1px !important; }\n\n.postTime {\n  margin-top: 0px;\n  float: right;\n  color: #b4b6bd; }\n\n.option {\n  float: right !important; }\n\n.icon {\n  padding: 10px; }\n  .icon img {\n    width: 20px;\n    height: 20px;\n    margin-right: 2px; }\n  .icon .likeicon {\n    width: 30px;\n    height: 30px;\n    cursor: pointer;\n    margin-left: 10px; }\n  .icon b {\n    font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    font-size: 15px;\n    padding-left: 2px; }\n\n.commentbest {\n  padding: 0px !important;\n  margin-top: 0px !important; }\n\n.jumbotron {\n  padding-top: 0px !important; }\n\n@media only screen and (max-device-width: 768px) {\n  .MainImage {\n    height: auto !important; } }\n\n.btn-group-sm > .btn, .btn-sm {\n  padding: 5px 10px;\n  font-size: 12px;\n  line-height: 1.5;\n  border-radius: 3px;\n  margin-top: 2; }\n\n.like {\n  width: 25px;\n  height: 25px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover; }\n\n.active {\n  background-image: url(" + __webpack_require__(19) + "); }\n\n.delete {\n  width: 20px;\n  height: 20px;\n  float: right;\n  background-image: url(" + __webpack_require__(81) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.jumbotron .Loading img {\n  width: 100px;\n  height: 100px;\n  margin: 0 auto;\n  display: 'table'; }\n\n.likecomment {\n  display: flex; }\n  .likecomment .likecount {\n    margin-right: 5px; }\n\n.navbar-menu-item label {\n  background-color: #d43f3a;\n  color: white;\n  border-radius: 10px;\n  padding: 10px; }\n\n.navbar-menu-item ul {\n  padding: 10px 10px 10px; }\n  .navbar-menu-item ul label {\n    font-size: 20px; }\n  .navbar-menu-item ul li {\n    margin-left: 10px;\n    list-style-type: none;\n    font-size: 20px;\n    cursor: pointer;\n    border: 1px #ddd;\n    display: flex;\n    padding: 5px; }\n  .navbar-menu-item ul a {\n    color: #9e0606 !important;\n    font-family: Arial, Helvetica, sans-serif; }\n\n.nav-menu {\n  overflow-x: scroll;\n  position: fixed;\n  width: 100vh;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.9);\n  z-index: 9999; }\n\n.bb {\n  width: 20px;\n  height: 20px;\n  background-image: url(" + __webpack_require__(19) + ");\n  background-size: cover;\n  cursor: pointer;\n  margin-left: 10px;\n  margin-top: 5px;\n  margin-right: 3px; }\n\n@media only screen and (max-device-width: 425px) {\n  .Main {\n    padding-left: 0px;\n    padding-bottom: 0px; }\n  .postTimeBig {\n    display: none; }\n  .postTimeMin {\n    display: inline; }\n  .MainImage {\n    height: auto !important; }\n  .postTime {\n    margin-top: -5px;\n    float: right;\n    color: #b4b6bd; }\n  .commentbest {\n    padding: 0px !important;\n    margin-top: 10px !important; }\n  .jumbotron .Loading img {\n    width: 100px;\n    height: 100px; }\n  .jumbotron p {\n    margin-bottom: 0px !important; }\n  .btn-group-sm > .btn, .btn-sm {\n    padding: 2px 7px;\n    font-size: 12px;\n    line-height: 1.5;\n    border-radius: 3px;\n    margin-left: 4px; }\n  .icon {\n    padding: 10px; }\n    .icon img {\n      width: 15px;\n      height: 15px;\n      margin-right: 2px; }\n    .icon .likeicon {\n      width: 15px;\n      height: 15px;\n      cursor: pointer;\n      margin-left: 10px; }\n    .icon b {\n      font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n      font-size: 15px;\n      padding-left: 2px; }\n  .like {\n    width: 20px !important;\n    height: 20px !important;\n    float: left;\n    background-image: url(" + __webpack_require__(14) + ");\n    background-size: cover; } }\n\n@media only screen and (min-device-width: 425px) {\n  .postTimeBig {\n    display: inline; }\n  .postTimeMin {\n    display: none; }\n  .postTime {\n    margin-top: 10px;\n    float: right;\n    color: #b4b6bd; } }\n", ""]);
+exports.push([module.i, ".MainImage {\n  height: auto; }\n  .MainImage img {\n    height: auto;\n    width: 100%;\n    margin-bottom: 10px;\n    overflow: hidden !important; }\n\n.page {\n  margin-left: auto; }\n\n.Main {\n  padding-left: 0px;\n  padding-bottom: 10px; }\n  .Main .imagediv hr {\n    margin-top: 5px;\n    margin-bottom: 5px; }\n\n.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {\n  position: relative;\n  min-height: 1px;\n  padding-left: 5px !important;\n  padding-right: 5px !important;\n  padding-bottom: 2px !important; }\n\n.commentbest {\n  padding: 0px !important;\n  margin-top: 10px; }\n\n.ppimage {\n  height: 40px;\n  width: 40px;\n  padding-right: 3px;\n  border-radius: 50%;\n  vertical-align: middle;\n  margin-top: 3px;\n  margin-left: 1px !important; }\n\n.postTime {\n  margin-top: 0px;\n  float: right;\n  color: #b4b6bd; }\n\n.option {\n  float: right !important; }\n\n.icon {\n  padding: 10px; }\n  .icon img {\n    width: 20px;\n    height: 20px;\n    margin-right: 2px; }\n  .icon .likeicon {\n    width: 30px;\n    height: 30px;\n    cursor: pointer;\n    margin-left: 10px; }\n  .icon b {\n    font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    font-size: 15px;\n    padding-left: 2px; }\n\n.commentbest {\n  padding: 0px !important;\n  margin-top: 0px !important; }\n\n.jumbotron {\n  padding-top: 0px !important; }\n\n@media only screen and (max-device-width: 768px) {\n  .MainImage {\n    height: auto !important; } }\n\n.btn-group-sm > .btn, .btn-sm {\n  padding: 5px 10px;\n  font-size: 12px;\n  line-height: 1.5;\n  border-radius: 3px;\n  margin-top: 2; }\n\n.like {\n  width: 25px;\n  height: 25px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover; }\n\n.active {\n  background-image: url(" + __webpack_require__(19) + "); }\n\n.delete {\n  width: 20px;\n  height: 20px;\n  float: right;\n  background-image: url(" + __webpack_require__(81) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.jumbotron .Loading img {\n  width: 100px;\n  height: 100px;\n  margin: 0 auto !important;\n  display: table !important; }\n\n.likecomment {\n  display: flex; }\n  .likecomment .likecount {\n    margin-right: 5px; }\n\n.navbar-menu-item label {\n  background-color: #d43f3a;\n  color: white;\n  border-radius: 10px;\n  padding: 10px; }\n\n.navbar-menu-item ul {\n  padding: 10px 10px 10px; }\n  .navbar-menu-item ul label {\n    font-size: 20px; }\n  .navbar-menu-item ul li {\n    margin-left: 10px;\n    list-style-type: none;\n    font-size: 20px;\n    cursor: pointer;\n    border: 1px #ddd;\n    display: flex;\n    padding: 5px; }\n  .navbar-menu-item ul a {\n    color: #9e0606 !important;\n    font-family: Arial, Helvetica, sans-serif; }\n\n.nav-menu {\n  overflow-x: scroll;\n  position: fixed;\n  width: 100vh;\n  height: 100vh;\n  background-color: rgba(255, 255, 255, 0.9);\n  z-index: 9999; }\n\n.bb {\n  width: 20px;\n  height: 20px;\n  background-image: url(" + __webpack_require__(19) + ");\n  background-size: cover;\n  cursor: pointer;\n  margin-left: 10px;\n  margin-top: 5px;\n  margin-right: 3px; }\n\n@media only screen and (max-device-width: 425px) {\n  .Main {\n    padding-left: 0px;\n    padding-bottom: 0px; }\n  .postTimeBig {\n    display: none; }\n  .postTimeMin {\n    display: inline; }\n  .imagediv {\n    margin-left: 2px;\n    margin-top: -2px; }\n  .MainImage {\n    height: auto !important; }\n  .postTime {\n    margin-top: -5px;\n    float: right;\n    color: #b4b6bd; }\n  .commentbest {\n    padding: 0px !important;\n    margin-top: 10px !important; }\n  .jumbotron .Loading img {\n    width: 100px;\n    height: 100px;\n    margin: 0 auto !important;\n    display: table !important; }\n  .jumbotron p {\n    margin-bottom: 0px !important; }\n  .btn-group-sm > .btn, .btn-sm {\n    padding: 2px 7px;\n    font-size: 12px;\n    line-height: 1.5;\n    border-radius: 3px;\n    margin-left: 4px; }\n  .icon {\n    padding: 10px; }\n    .icon img {\n      width: 15px;\n      height: 15px;\n      margin-right: 2px; }\n    .icon .likeicon {\n      width: 15px;\n      height: 15px;\n      cursor: pointer;\n      margin-left: 10px; }\n    .icon b {\n      font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n      font-size: 15px;\n      padding-left: 2px; }\n  .like {\n    width: 20px !important;\n    height: 20px !important;\n    float: left;\n    background-image: url(" + __webpack_require__(14) + ");\n    background-size: cover; } }\n\n@media only screen and (min-device-width: 425px) {\n  .postTimeBig {\n    display: inline; }\n  .postTimeMin {\n    display: none; }\n  .postTime {\n    margin-top: 10px;\n    float: right;\n    color: #b4b6bd; } }\n", ""]);
 
 // exports
 
@@ -15805,6 +15825,20 @@ var Login = function (_Component) {
     }
 
     _createClass(Login, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            var getRememberMe = this.props.authActions.getRememberMe;
+
+            getRememberMe().then(function () {
+                var rememberme = _this2.props.auth.rememberme;
+
+                console.log(rememberme, 55);
+                _this2.setState({ name: _auth.rememberMe.username, pass: _auth.rememberMe.pass });
+            });
+        }
+    }, {
         key: 'loginSubmit',
         value: function loginSubmit(event) {
             var setAuth = this.props.authActions.setAuth;
@@ -15819,9 +15853,16 @@ var Login = function (_Component) {
             passwordReset();
         }
     }, {
+        key: 'rememberMe',
+        value: function rememberMe() {
+            var rememberMe = this.props.authActions.rememberMe;
+
+            rememberMe({ username: this.state.name, pass: this.state.pass });
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             var isAuth = this.props.auth.isAuth;
             var message = this.props.description.message;
@@ -15866,18 +15907,18 @@ var Login = function (_Component) {
                                             'div',
                                             { className: 'form-group' },
                                             _react2.default.createElement('input', { className: 'form-control', value: this.state.name, onChange: function onChange(e) {
-                                                    return _this2.setState({ name: e.target.value });
+                                                    return _this3.setState({ name: e.target.value });
                                                 }, placeholder: 'Kullan\u0131c\u0131 ad\u0131', type: 'text' })
                                         ),
                                         _react2.default.createElement(
                                             'div',
                                             { className: 'form-group' },
                                             _react2.default.createElement('input', { className: 'form-control', onKeyDown: function onKeyDown(e) {
-                                                    if (e.keyCode == 13) _this2.loginSubmit();
+                                                    if (e.keyCode == 13) _this3.loginSubmit();
                                                 },
                                                 type: 'password', value: this.state.pass,
                                                 onChange: function onChange(e) {
-                                                    return _this2.setState({ pass: e.target.value });
+                                                    return _this3.setState({ pass: e.target.value });
                                                 },
                                                 placeholder: '\u015Eifre' })
                                         ),
@@ -15893,7 +15934,9 @@ var Login = function (_Component) {
                                                     _react2.default.createElement(
                                                         'label',
                                                         null,
-                                                        _react2.default.createElement('input', { name: 'remember', type: 'checkbox', value: 'Remember Me' }),
+                                                        _react2.default.createElement('input', { onClick: function onClick() {
+                                                                return _this3.rememberMe();
+                                                            }, name: 'remember', type: 'checkbox', value: 'Remember Me' }),
                                                         ' Beni hat\u0131rla'
                                                     )
                                                 ),
@@ -16051,7 +16094,7 @@ var SignUp = function (_Component) {
                                 _react2.default.createElement(
                                     "h3",
                                     { className: "panel-title" },
-                                    "\xDCye ol"
+                                    "Kay\u0131t ol"
                                 )
                             ),
                             _react2.default.createElement(
@@ -16106,7 +16149,7 @@ var SignUp = function (_Component) {
                                         _react2.default.createElement(
                                             "button",
                                             { type: "button", disabled: !isEnabled, className: "btn btn-lg btn-danger btn-block", onClick: this.handleSubmit },
-                                            "\xDCye ol"
+                                            "Kay\u0131t ol"
                                         )
                                     )
                                 ),
@@ -16417,7 +16460,7 @@ var Layout = function (_Component) {
                                 _react2.default.createElement(
                                     'li',
                                     null,
-                                    '\xDCye ol'
+                                    'Kay\u0131t ol'
                                 )
                             ),
                             isAuth ? null : _react2.default.createElement(
@@ -16858,7 +16901,7 @@ var Header = function (_Component) {
                       _react2.default.createElement(
                         _reactRouterDom.Link,
                         { to: '/signup' },
-                        '\xDCye Ol'
+                        'Kay\u0131t ol'
                       )
                     )]
                   )
@@ -16911,7 +16954,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var React = __webpack_require__(0);
 var PropTypes = __webpack_require__(10);
 
-var _require = __webpack_require__(57),
+var _require = __webpack_require__(58),
     findDOMNode = _require.findDOMNode;
 
 var scrollIntoView = __webpack_require__(163);
@@ -18161,7 +18204,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, ".searchImage {\n  width: 20px;\n  height: 20px;\n  background-image: url(" + __webpack_require__(168) + ");\n  background-size: cover; }\n\n.search-input {\n  width: 400px !important;\n  margin-right: 5px; }\n\n.symbol {\n  width: 25px;\n  height: 25px;\n  background-image: url(" + __webpack_require__(169) + ");\n  background-size: cover;\n  margin-left: 5px;\n  margin-bottom: 20px; }\n\n#header > div > div.navbar-header.col-md-offset-1 > a {\n  display: flex; }\n\n#bs-example-navbar-collapse-1 > div.dropDownMenu > ul > li > a {\n  background-color: #cc280b; }\n\n.mobile-menu ul li {\n  margin-right: 25px;\n  float: left;\n  padding: 5px 5px;\n  list-style-type: none;\n  padding-right: 30px; }\n  .mobile-menu ul li .glyphicon {\n    font-size: 25px;\n    cursor: pointer; }\n\n.mobile-search .mobile-search-input {\n  width: 160px;\n  margin-top: 10px !important; }\n\n.mobile-search .searchButton {\n  margin-bottom: 10px !important;\n  margin-top: 10px !important; }\n\n@media only screen and (min-device-width: 765px) {\n  .mobile-menu {\n    display: none; }\n  .mobile-search {\n    display: none; } }\n\n@media only screen and (min-device-width: 350px) and (max-device-width: 370px) {\n  .searchList {\n    width: 94px !important; }\n  .mobile-search .mobile-search-input {\n    width: 100px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    margin-top: 10px !important; }\n  .mobile-menu ul li {\n    margin-right: 15px;\n    float: left;\n    padding: 5px 5px;\n    list-style-type: none;\n    padding-right: 20px; }\n    .mobile-menu ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n.menuButton {\n  padding: 6px 10px; }\n\n@media only screen and (min-device-width: 330px) and (max-device-width: 340px) {\n  .searchList {\n    width: 119px !important; }\n  .mobile-search .mobile-search-input {\n    width: 125px !important;\n    margin-top: 10px !important; } }\n\n@media only screen and (min-device-width: 340px) and (max-device-width: 350px) {\n  .searchList {\n    width: 129px !important; }\n  .mobile-search .mobile-search-input {\n    width: 135px !important;\n    margin-top: 10px !important; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 330px) {\n  .searchList {\n    width: 106px !important; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 350px) {\n  .mobile-search .mobile-search-input {\n    width: 110px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: none;\n    margin-top: 10px !important; }\n  .mobile-menu ul li {\n    margin-right: 0px;\n    float: left;\n    padding: 5px 5px;\n    list-style-type: none;\n    padding-right: 30px; }\n    .mobile-menu ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 371px) and (max-device-width: 400px) {\n  .searchList {\n    width: 105px !important; }\n  .mobile-search .mobile-search-input {\n    width: 110px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: inline;\n    margin-top: 10px !important; }\n  .mobile-menu ul li {\n    margin-right: 0px;\n    float: left;\n    padding: 5px 5px;\n    list-style-type: none;\n    padding-right: 40px; }\n    .mobile-menu ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 401px) and (max-device-width: 415px) {\n  .searchList {\n    width: 134px !important; }\n  .mobile-search .mobile-search-input {\n    width: 140px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: inline;\n    margin-top: 10px !important; }\n  .mobile-menu ul li {\n    margin-right: 0px;\n    float: left;\n    padding: 5px 5px;\n    list-style-type: none;\n    padding-right: 50px; }\n    .mobile-menu ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 416px) and (max-device-width: 765px) {\n  .searchList {\n    width: 157px !important; } }\n\n.mobile-menu a {\n  color: #333; }\n\n.mobile-menu a:hover {\n  text-decoration: underline;\n  color: #f3f3f3; }\n\n.navbar-toggle {\n  margin-top: 10px !important; }\n", ""]);
+exports.push([module.i, "ol, ul {\n  margin-top: 0px;\n  margin-bottom: 5px !important; }\n\n.searchImage {\n  width: 20px;\n  height: 20px;\n  background-image: url(" + __webpack_require__(168) + ");\n  background-size: cover; }\n\n.search-input {\n  width: 400px !important;\n  margin-right: 5px; }\n\n.symbol {\n  width: 25px;\n  height: 25px;\n  background-image: url(" + __webpack_require__(169) + ");\n  background-size: cover;\n  margin-left: 5px;\n  margin-bottom: 20px; }\n\n#header > div > div.navbar-header.col-md-offset-1 > a {\n  display: flex; }\n\n#bs-example-navbar-collapse-1 > div.dropDownMenu > ul > li > a {\n  background-color: #cc280b; }\n\n.mobile-menu ul li {\n  margin-right: 25px;\n  float: left;\n  padding: 5px 5px;\n  list-style-type: none;\n  padding-right: 30px; }\n  .mobile-menu ul li .glyphicon {\n    font-size: 25px;\n    cursor: pointer; }\n\n.mobile-search .mobile-search-input {\n  width: 160px;\n  margin-top: 10px !important; }\n\n.mobile-search .searchButton {\n  margin-bottom: 10px !important;\n  margin-top: 10px !important; }\n\n@media only screen and (min-device-width: 765px) {\n  .mobile-menu {\n    display: none; }\n  .mobile-search {\n    display: none; } }\n\n@media only screen and (min-device-width: 350px) and (max-device-width: 370px) {\n  .searchList {\n    width: 94px !important; }\n  .mobile-search .mobile-search-input {\n    width: 100px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    margin-top: 10px !important; }\n  .mobile-menu ul li {\n    margin-right: 15px;\n    float: left;\n    padding: 5px 5px;\n    list-style-type: none;\n    padding-right: 20px; }\n    .mobile-menu ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n.menuButton {\n  padding: 6px 10px; }\n\n@media only screen and (min-device-width: 330px) and (max-device-width: 340px) {\n  .searchList {\n    width: 119px !important; }\n  .mobile-search .mobile-search-input {\n    width: 125px !important;\n    margin-top: 10px !important; } }\n\n@media only screen and (min-device-width: 340px) and (max-device-width: 350px) {\n  .searchList {\n    width: 129px !important; }\n  .mobile-search .mobile-search-input {\n    width: 135px !important;\n    margin-top: 10px !important; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 330px) {\n  .searchList {\n    width: 106px !important; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 350px) {\n  .mobile-search .mobile-search-input {\n    width: 110px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: none;\n    margin-top: 10px !important; }\n  .mobile-menu ul li {\n    margin-right: 0px;\n    float: left;\n    padding: 5px 5px;\n    list-style-type: none;\n    padding-right: 30px; }\n    .mobile-menu ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 371px) and (max-device-width: 400px) {\n  .searchList {\n    width: 105px !important; }\n  .mobile-search .mobile-search-input {\n    width: 110px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: inline;\n    margin-top: 10px !important; }\n  .mobile-menu ul li {\n    margin-right: 0px;\n    float: left;\n    padding: 5px 5px;\n    list-style-type: none;\n    padding-right: 40px; }\n    .mobile-menu ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 401px) and (max-device-width: 415px) {\n  .searchList {\n    width: 134px !important; }\n  .mobile-search .mobile-search-input {\n    width: 140px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: inline;\n    margin-top: 10px !important; }\n  .mobile-menu ul li {\n    margin-right: 0px;\n    float: left;\n    padding: 5px 5px;\n    list-style-type: none;\n    padding-right: 50px; }\n    .mobile-menu ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 416px) and (max-device-width: 765px) {\n  .searchList {\n    width: 157px !important; } }\n\n.mobile-menu a {\n  color: #333; }\n\n.mobile-menu a:hover {\n  text-decoration: underline;\n  color: #f3f3f3; }\n\n.navbar-toggle {\n  margin-top: 10px !important; }\n", ""]);
 
 // exports
 
@@ -18773,7 +18816,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(48);
+__webpack_require__(49);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19598,7 +19641,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(49);
+__webpack_require__(50);
 
 var _ProfileDetail = __webpack_require__(38);
 
@@ -19608,7 +19651,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _ppupload = __webpack_require__(50);
+var _ppupload = __webpack_require__(51);
 
 var ppuploadActions = _interopRequireWildcard(_ppupload);
 
@@ -19751,7 +19794,7 @@ var Profile = function (_Component) {
                 case 4:
                     var ShareInfo = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(5/* duplicate */).then(__webpack_require__.bind(null, 53));
+                            return __webpack_require__.e/* import() */(5/* duplicate */).then(__webpack_require__.bind(null, 54));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -19761,7 +19804,7 @@ var Profile = function (_Component) {
                 default:
                     var Contact = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(6/* duplicate */).then(__webpack_require__.bind(null, 54));
+                            return __webpack_require__.e/* import() */(6/* duplicate */).then(__webpack_require__.bind(null, 55));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -20510,7 +20553,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, ".people-image {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(79) + ");\n  background-size: cover; }\n\n.person {\n  margin-bottom: 10px; }\n  .person .persons {\n    margin-bottom: 10px !important; }\n\n.posts .imageDiv {\n  margin-bottom: 10px; }\n\n.userMenu {\n  padding: 0px 12px; }\n\n.post-title {\n  margin-bottom: 10px; }\n\n.post-picture {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(80) + ");\n  background-size: cover; }\n\n.post-write {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.people-name {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.hr-search {\n  margin-top: 10px !important;\n  margin-bottom: 10px !important; }\n\n.person-image .search-people-image {\n  width: 70px;\n  height: 70px;\n  margin-top: 7px;\n  float: left;\n  margin-bottom: 7px !important;\n  border-radius: 10% !important; }\n\n.person-info .person-firstname-lastname {\n  margin-top: 10px !important; }\n\n.person-info .role-info {\n  margin-left: 0px !important; }\n  .person-info .role-info p {\n    margin-left: 0px !important;\n    font-size: 13px; }\n\n.Loading img {\n  width: 100px;\n  height: 100px;\n  margin-left: 50%;\n  margin-right: 50%; }\n\n.like-LS {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.active-LS {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(19) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-LGS {\n    margin-right: 7px;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n\n.postTime-LGS {\n  margin-top: 1px;\n  float: right;\n  color: #b4b6bd; }\n\n.confirmation_active-LGS {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(13) + ");\n  background-size: cover; }\n\n.confirmationUser-LGS {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(29) + ");\n  background-size: cover; }\n", ""]);
+exports.push([module.i, ".people-image {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(79) + ");\n  background-size: cover; }\n\n.person {\n  margin-bottom: 10px; }\n  .person .persons {\n    margin-bottom: 10px !important; }\n\n.posts .imageDiv {\n  margin-bottom: 10px; }\n\n.userMenu {\n  padding: 0px 12px; }\n\n.post-title {\n  margin-bottom: 10px; }\n\n.post-picture {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(80) + ");\n  background-size: cover; }\n\n.post-write {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.people-name {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.hr-search {\n  margin-top: 10px !important;\n  margin-bottom: 10px !important; }\n\n.person-image .search-people-image {\n  width: 70px;\n  height: 70px;\n  margin-top: 7px;\n  float: left;\n  margin-bottom: 7px !important;\n  border-radius: 10% !important; }\n\n.person-info .person-firstname-lastname {\n  margin-top: 10px !important; }\n\n.person-info .role-info {\n  margin-left: 0px !important; }\n  .person-info .role-info p {\n    margin-left: 0px !important;\n    font-size: 13px; }\n\n.Loading img {\n  width: 100px;\n  height: 100px;\n  margin: 0 auto !important;\n  display: table !important; }\n\n.like-LS {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.active-LS {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(19) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-LGS {\n    margin-right: 7px;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n\n.postTime-LGS {\n  margin-top: 1px;\n  float: right;\n  color: #b4b6bd; }\n\n.confirmation_active-LGS {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(13) + ");\n  background-size: cover; }\n\n.confirmationUser-LGS {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(29) + ");\n  background-size: cover; }\n", ""]);
 
 // exports
 
@@ -20986,7 +21029,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, ".people-image {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(79) + ");\n  background-size: cover; }\n\n.person {\n  margin-bottom: 10px; }\n  .person .persons {\n    margin-bottom: 10px !important; }\n\n.posts .imageDiv {\n  margin-bottom: 10px; }\n\n.post-title {\n  margin-bottom: 10px; }\n\n.post-picture {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(80) + ");\n  background-size: cover; }\n\n.post-write {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.people-name {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\nhr {\n  margin-top: 0px !important;\n  margin-bottom: 0px !important; }\n\n.person-image .search-people-image {\n  width: 70px;\n  height: 70px;\n  margin-top: 7px;\n  float: left;\n  margin-bottom: 7px !important;\n  border-radius: 10% !important; }\n\n.person-info .person-firstname-lastname {\n  margin-top: 10px !important; }\n\n.person-info .role-info {\n  margin-left: 0px !important; }\n  .person-info .role-info p {\n    margin-left: 0px !important;\n    font-size: 13px; }\n\n.Loading img {\n  width: 100px;\n  height: 100px;\n  margin-left: 50%;\n  margin-right: 50%; }\n\n.nologinsearchlike {\n  margin-top: 1px;\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover; }\n\n.nologincommentcount {\n  cursor: auto; }\n\n.confirmation-NLS {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(13) + ");\n  background-size: cover; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-NLS {\n    margin-right: 7px;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n\n.postTime-NLS {\n  margin-top: 1px;\n  float: right;\n  color: #b4b6bd; }\n", ""]);
+exports.push([module.i, ".people-image {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(79) + ");\n  background-size: cover; }\n\n.person {\n  margin-bottom: 10px; }\n  .person .persons {\n    margin-bottom: 10px !important; }\n\n.posts .imageDiv {\n  margin-bottom: 10px; }\n\n.post-title {\n  margin-bottom: 10px; }\n\n.post-picture {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(80) + ");\n  background-size: cover; }\n\n.post-write {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.people-name {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\nhr {\n  margin-top: 0px !important;\n  margin-bottom: 0px !important; }\n\n.person-image .search-people-image {\n  width: 70px;\n  height: 70px;\n  margin-top: 7px;\n  float: left;\n  margin-bottom: 7px !important;\n  border-radius: 10% !important; }\n\n.person-info .person-firstname-lastname {\n  margin-top: 10px !important; }\n\n.person-info .role-info {\n  margin-left: 0px !important; }\n  .person-info .role-info p {\n    margin-left: 0px !important;\n    font-size: 13px; }\n\n.Loading img {\n  width: 100px;\n  height: 100px;\n  margin: 0 auto !important;\n  display: table !important; }\n\n.nologinsearchlike {\n  margin-top: 1px;\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover; }\n\n.nologincommentcount {\n  cursor: auto; }\n\n.confirmation-NLS {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(13) + ");\n  background-size: cover; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-NLS {\n    margin-right: 7px;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n\n.postTime-NLS {\n  margin-top: 1px;\n  float: right;\n  color: #b4b6bd; }\n", ""]);
 
 // exports
 
@@ -21016,7 +21059,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _ppupload = __webpack_require__(50);
+var _ppupload = __webpack_require__(51);
 
 var ppuploadActions = _interopRequireWildcard(_ppupload);
 
@@ -21044,7 +21087,7 @@ var _reactLoadable = __webpack_require__(8);
 
 var _reactLoadable2 = _interopRequireDefault(_reactLoadable);
 
-__webpack_require__(49);
+__webpack_require__(50);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -21133,7 +21176,7 @@ var LoginViewProfile = function (_Component) {
                 case 1:
                     var ShareInfo = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(5/* duplicate */).then(__webpack_require__.bind(null, 53));
+                            return __webpack_require__.e/* import() */(5/* duplicate */).then(__webpack_require__.bind(null, 54));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -21143,7 +21186,7 @@ var LoginViewProfile = function (_Component) {
                 default:
                     var Contact = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(6/* duplicate */).then(__webpack_require__.bind(null, 54));
+                            return __webpack_require__.e/* import() */(6/* duplicate */).then(__webpack_require__.bind(null, 55));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -21279,7 +21322,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(49);
+__webpack_require__(50);
 
 var _ProfileDetail = __webpack_require__(38);
 
@@ -21289,7 +21332,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _ppupload = __webpack_require__(50);
+var _ppupload = __webpack_require__(51);
 
 var ppuploadActions = _interopRequireWildcard(_ppupload);
 
@@ -21405,7 +21448,7 @@ var ViewUserProfile = function (_Component) {
                 case 1:
                     var ShareInfo = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(5/* duplicate */).then(__webpack_require__.bind(null, 53));
+                            return __webpack_require__.e/* import() */(5/* duplicate */).then(__webpack_require__.bind(null, 54));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -21415,7 +21458,7 @@ var ViewUserProfile = function (_Component) {
                 default:
                     var Contact = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(6/* duplicate */).then(__webpack_require__.bind(null, 54));
+                            return __webpack_require__.e/* import() */(6/* duplicate */).then(__webpack_require__.bind(null, 55));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -21558,7 +21601,7 @@ var _auth = __webpack_require__(26);
 
 var authActions = _interopRequireWildcard(_auth);
 
-__webpack_require__(48);
+__webpack_require__(49);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -21706,7 +21749,7 @@ var _auth = __webpack_require__(26);
 
 var authActions = _interopRequireWildcard(_auth);
 
-__webpack_require__(48);
+__webpack_require__(49);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -22015,7 +22058,7 @@ var LoginBestPosts = function (_Component) {
                         null,
                         _react2.default.createElement(
                             "div",
-                            { className: "row Main" },
+                            { className: "row Main " + (_this2.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null) },
                             _react2.default.createElement(
                                 "div",
                                 { className: "img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv" },
@@ -22313,7 +22356,7 @@ var NoLoginUserComments = (0, _reactLoadable2.default)({
 
 var NoLoginBestComments = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 52));
+        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 53));
     },
     loading: _loading2.default,
     delay: 4000
@@ -22397,7 +22440,7 @@ var LoginBestPosts = function (_Component) {
                         null,
                         _react2.default.createElement(
                             "div",
-                            { className: "row Main" },
+                            { className: "row Main " + (_this2.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null) },
                             _react2.default.createElement(
                                 "div",
                                 { className: "img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv" },
@@ -22796,7 +22839,7 @@ var TopBestPosts = function (_Component) {
                             { key: index },
                             _react2.default.createElement(
                                 "div",
-                                { className: "row Main" },
+                                { className: "row Main " + (_this3.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null) },
                                 _react2.default.createElement(
                                     "div",
                                     { className: "img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv" },
@@ -22978,7 +23021,7 @@ var TopBestPosts = function (_Component) {
                     }),
                     this.state.loadMore ? _react2.default.createElement(
                         "div",
-                        { className: "Loading" },
+                        { className: "Loading", style: { margin: '0 auto', display: 'table', marginBottom: '5px' } },
                         _react2.default.createElement("img", { src: "" + __webpack_require__(24) })
                     ) : null
                 ) : _react2.default.createElement(_loading2.default, null)
@@ -23118,7 +23161,7 @@ var NoLoginUserComments = (0, _reactLoadable2.default)({
 
 var NoLoginBestComments = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 52));
+        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 53));
     },
     loading: _loading2.default,
     delay: 4000
@@ -23202,7 +23245,7 @@ var NoLoginTopBestPosts = function (_Component) {
                             { key: index },
                             _react2.default.createElement(
                                 "div",
-                                { className: "row Main" },
+                                { className: "row Main " + (_this3.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null) },
                                 _react2.default.createElement(
                                     "div",
                                     { className: "img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv" },
@@ -23317,7 +23360,7 @@ var NoLoginTopBestPosts = function (_Component) {
                     }),
                     this.state.loadMore ? _react2.default.createElement(
                         "div",
-                        { className: "Loading" },
+                        { className: "Loading", style: { margin: '0 auto', display: 'table', marginBottom: '5px' } },
                         _react2.default.createElement("img", { src: "" + __webpack_require__(24) })
                     ) : null
                 ) : _react2.default.createElement(_loading2.default, null)

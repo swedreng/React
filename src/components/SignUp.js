@@ -39,7 +39,7 @@ class SignUp extends Component{
                     <div className="col-md-4 col-md-offset-2 col-lg-5 col-lg-offset-2">
                         <div className="panel panel-default">
                             <div className="panel-heading">
-                                <h3 className="panel-title">Üye ol</h3>
+                                <h3 className="panel-title">Kayıt ol</h3>
                             </div>
                             <div className="panel-body">
                                 <form accept-charset="UTF-8" role="form">
@@ -62,7 +62,7 @@ class SignUp extends Component{
                                         onChange={(e) => this.setState({password:e.target.value})} 
                                         className="form-control" type="password" placeholder="Şifre" /> 
                                     </div>
-                                    <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.handleSubmit}>Üye ol</button>
+                                    <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.handleSubmit}>Kayıt ol</button>
                                 </fieldset>
                                 </form>
                                 <div className="messageS">

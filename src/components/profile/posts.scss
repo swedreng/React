@@ -157,8 +157,8 @@
         img{
             width: 100px;
             height: 100px;
-            margin-left:50%;
-            margin-right:50%;
+            margin:0 auto;
+            display:table
         }
         
     }
@@ -196,8 +196,8 @@
     img{
         width: 100px;
         height: 100px;
-        margin-left:40%;
-        margin-right:50%;
+        margin:0 auto;
+        display:table
     }
     
 }

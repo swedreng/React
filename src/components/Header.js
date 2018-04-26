@@ -126,7 +126,7 @@ class Header extends Component {
                         [
                         <li key="1"><Link to="/login">Giris Yap</Link></li>,
                         <li key="3"className="divider"></li>,
-                        <li key="2"><Link to="/signup">Üye Ol</Link></li>
+                        <li key="2"><Link to="/signup">Kayıt ol</Link></li>
                         ]
                       )}
                   

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as authActions from "../actions/auth"
+import { rememberMe } from '../actions/auth';
 
 class Login extends Component{
 
@@ -13,7 +14,14 @@ class Login extends Component{
         this.loginSubmit = this.loginSubmit.bind(this);
 
     }
-  
+    componentDidMount(){
+        let { getRememberMe } = this.props.authActions
+        getRememberMe().then(() => {
+            const {rememberme} = this.props.auth
+            console.log(rememberme,55)
+            this.setState({name:rememberMe.username,pass:rememberMe.pass})
+        })
+    }
     loginSubmit(event) {
         let { setAuth } = this.props.authActions;
         setAuth({username: this.state.name, pass:this.state.pass})
@@ -23,7 +31,11 @@ class Login extends Component{
         let { passwordReset } = this.props.authActions
         passwordReset()
     }
-
+    rememberMe(){
+        let { rememberMe } = this.props.authActions
+        rememberMe({username: this.state.name, pass: this.state.pass})
+    }
+    
     render(){
         
         const {isAuth} = this.props.auth
@@ -59,7 +71,7 @@ class Login extends Component{
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <label>
-                                                    <input name="remember" type="checkbox" value="Remember Me"/> Beni hatırla
+                                                    <input onClick={() => this.rememberMe()} name="remember" type="checkbox" value="Remember Me" /> Beni hatırla
                                                 </label>
                                             </div>
                                             <div className="col-md-6">

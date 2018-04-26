@@ -85,7 +85,7 @@ class Layout extends Component{
                             </ul>
                             <ul className="nav nav-pills nav-stacked">
                                 <label>Diğer işlemler</label>
-                                {isAuth ? null : <Link to="/signup"><li>Üye ol</li></Link>}
+                                {isAuth ? null : <Link to="/signup"><li>Kayıt ol</li></Link>}
                                 {isAuth ? null : <Link to="/login"><li>Giriş yap</li></Link>}
                                 {isAuth ? <Link to="/logout"><li>Çıkış yap</li></Link> : null}
                             </ul>

@@ -74,7 +74,7 @@ class NoLoginTopBestPosts extends Component{
             
                 <div key={index}>
                    
-                        <div className="row Main">
+                        <div className={`row Main ${this.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null}`}>
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
@@ -127,7 +127,7 @@ class NoLoginTopBestPosts extends Component{
                 </div>
                 ))}
                     {( this.state.loadMore ? (
-                                <div className="Loading">
+                                <div className="Loading" style={{margin:'0 auto', display:'table', marginBottom:'5px'}}>
                                     <img src={`${require('../images/loa.gif')}`}/>
                                 </div>
                             ) : null)}

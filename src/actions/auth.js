@@ -1,8 +1,10 @@
 
 import { push } from 'react-router-redux'
 import { history } from '../store'
-import { SET_AUTH_LOGIN, RESET_AUTH , SET_LOGIN_DESC, PASSWORD_RESET} from "../constants"
+import { SET_AUTH_LOGIN, RESET_AUTH , SET_LOGIN_DESC, PASSWORD_RESET,REMEMBER_ME} from "../constants"
 import {alertMessage} from "./desc"
+import { getlocalStore } from '../helper';
+
 
 export function setAuth(payload) {
   return (dispatch, getState) => { 
@@ -49,6 +51,15 @@ export function PasswordReset(payload) {
       }).then(response => response.json()).then(response => {
         dispatch(alertMessage({message:response.message}))
     })
+  }
+}
+export function rememberMe(payload){
+  localStorage.setItem('rememberMe',JSON.stringify(payload))
+}
+export function getRememberMe(payload){
+  return (dispatch, getState) => { 
+      var rememberme  = JSON.parse(localStorage.getItem('rememberMe'))
+      dispatch({type:REMEMBER_ME, payload:rememberme})
   }
 }
 
