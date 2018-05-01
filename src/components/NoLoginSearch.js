@@ -106,10 +106,10 @@ class NoLoginSearch extends Component{
                             { persons.map(person => {
                                 return (
                                     <div className="row persons"> 
-                                    <div className="person-image col-xs-12 col-lg-2 col-md-2">
+                                    <div className="person-image col-xs-3 col-lg-2 col-md-2">
                                         <img className="search-people-image" src={person.pp}/>
                                     </div>
-                                    <div className="person-info col-xs-12 col-lg-4 col-md-4">
+                                    <div className="person-info col-xs-4 col-lg-4 col-md-4">
                                         <div className="person-firstname-lastname">
                                             <b><a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(person.username)}>{person.firstname} {person.lastname}</a></b>
                                         </div>

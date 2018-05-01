@@ -26,22 +26,7 @@ ol, ul {
 #bs-example-navbar-collapse-1 > div.dropDownMenu > ul > li > a{
     background-color: rgb(204, 40, 11);
 }
-.mobile-menu{
-    ul{
-        li{
-            margin-right: 25px;
-            float: left;
-            padding: 5px 5px;
-            list-style-type:none;
-            padding-right: 30px;
-            .glyphicon {
-                font-size: 25px;
-                cursor: pointer;
-            }
-        }
-     
-    }
-}
+
 .mobile-search{
     .mobile-search-input{
         width: 160px ;
@@ -81,16 +66,12 @@ ol, ul {
             }
 
         }
-       
-        .mobile-menu{
-            
+        .mobile-menu-Login{
             ul{
                 li{
-                    margin-right: 15px;
-                    float: left;
-                    padding: 5px 5px;
-                    list-style-type:none;
-                    padding-right: 20px;
+                    display:table !important;
+                    float:left;
+                    padding-right: 44px;
                     .glyphicon {
                         font-size: 25px;
                         cursor: pointer;
@@ -113,7 +94,21 @@ ol, ul {
             margin-top: 10px !important;
         }
     }
-}
+    .mobile-menu-Login{
+        ul{
+            li{
+                display:table !important;
+                float:left;
+                padding-right: 38px;
+                .glyphicon {
+                    font-size: 25px;
+                    cursor: pointer;
+                }
+            }
+         
+        }
+    }
+}    
 @media only screen and (min-device-width:340px) and (max-device-width:350px){
     .searchList{
         width:129px !important;
@@ -124,13 +119,43 @@ ol, ul {
             margin-top: 10px !important;
         }
     }
+    .mobile-menu-Login{
+        ul{
+            li{
+                display:table !important;
+                float:left;
+                padding-right: 40px;
+                .glyphicon {
+                    font-size: 25px;
+                    cursor: pointer;
+                }
+            }
+         
+        }
+    }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 330px){
     .searchList{
         width:106px !important;
         
     }
+    .mobile-menu-Login{
+        ul{
+            li{
+                display:table !important;
+                float:left;
+                padding-right: 35px;
+                .glyphicon {
+                    font-size: 25px;
+                    cursor: pointer;
+                }
+            }
+         
+        }
+    }
+    
 }
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 350px){
         
         .mobile-search{
@@ -145,22 +170,7 @@ ol, ul {
             }
 
         }
-        .mobile-menu{
-            ul{
-                li{
-                    margin-right: 0px;
-                    float: left;
-                    padding: 5px 5px;
-                    list-style-type:none;
-                    padding-right: 30px;
-                    .glyphicon {
-                        font-size: 25px;
-                        cursor: pointer;
-                    }
-                }
-             
-            }
-        }
+        
     }
  
     @media only screen and (min-device-width: 371px) and (max-device-width: 400px){
@@ -179,14 +189,12 @@ ol, ul {
                 }
 
             }
-            .mobile-menu{
+            .mobile-menu-Login{
                 ul{
                     li{
-                        margin-right: 0px;
-                        float: left;
-                        padding: 5px 5px;
-                        list-style-type:none;
-                        padding-right: 40px;
+                        display:table !important;
+                        float:left;
+                        padding-right: 49px;
                         .glyphicon {
                             font-size: 25px;
                             cursor: pointer;
@@ -195,6 +203,8 @@ ol, ul {
                  
                 }
             }
+           
+           
         }
         @media only screen and (min-device-width: 401px) and (max-device-width: 415px){
             .searchList{
@@ -212,14 +222,12 @@ ol, ul {
                     }
     
                 }
-                .mobile-menu{
+                .mobile-menu-Login{
                     ul{
                         li{
-                            margin-right: 0px;
-                            float: left;
-                            padding: 5px 5px;
-                            list-style-type:none;
-                            padding-right: 50px;
+                            display:table !important;
+                            float:left;
+                            padding-right: 57px;
                             .glyphicon {
                                 font-size: 25px;
                                 cursor: pointer;
@@ -228,15 +236,31 @@ ol, ul {
                      
                     }
                 }
+                
             }
         
     @media only screen and (min-device-width: 416px) and (max-device-width: 765px){
             .searchList{
                 width:157px !important;
                 }
+                .mobile-menu-Login{
+                    ul{
+                        li{
+                            display:table !important;
+                            float:left;
+                            padding-right: 61px;
+                            .glyphicon {
+                                font-size: 25px;
+                                cursor: pointer;
+                            }
+                        }
+                     
+                    }
+                }
         }
+       
         
-.mobile-menu{
+.mobile-menu-Login{
     a{
         color:#333
     }
@@ -245,6 +269,7 @@ ol, ul {
         color: #f3f3f3; 
     } 
 }
+
 
 .navbar-toggle{
     margin-top: 10px !important

@@ -199,6 +199,20 @@
 }
 
 @media only screen and (max-device-width: 425px)  {
+    .mobil-myarea {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        padding:0px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        border-radius: 4px;
+        -webkit-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+        margin-bottom: 10px;
+    }
+    
     .Main{
         padding-left: 0px;
         padding-bottom: 0px;
@@ -210,8 +224,8 @@
         display: inline;
     }
     .imagediv{
-        margin-left: 2px;
-        margin-top:-2px;
+        margin-left: 0px;
+        margin-top:0px;
     }
     .MainImage{
         height:auto !important;

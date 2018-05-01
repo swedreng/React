@@ -27,8 +27,8 @@ class write extends Component{
 
         return(
             <div>
-            <div className="row">
-                <div className="form-group write">
+            <div className="row" style={{marginBottom:'20px'}}>
+                <div className="form-group write" >
                     <textarea onKeyDown={e => {
                         if (e.keyCode == 13) this.shareWrite()
                     }}
@@ -36,7 +36,6 @@ class write extends Component{
                     <button className="pull-right" type="button" className="btn btn-success" onClick={() => this.shareWrite()}>Gönderiyi paylaş</button>
                 </div> 
             </div>
-            <hr/>
             <div>
                 {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
             </div> 

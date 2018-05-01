@@ -6,7 +6,7 @@ export default class Access extends Component{
 
         return(
             <div>
-                <h1 className="alert alert-danger">Bu sayfaya erişim yetkiniz yoktur!</h1>
+                <p className="alert alert-danger">Bu sayfaya erişim yetkiniz yoktur, kayıt olup giriş yapmalısınız.</p>
             </div>
         )
     }

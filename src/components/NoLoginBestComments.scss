@@ -115,6 +115,7 @@
     .commentssmain-NLB{
         padding-bottom: 0px;
         margin-left: 3px;
+        margin-right: 3px;
         .row{
             padding-bottom: 3px;
         }
@@ -126,6 +127,9 @@
             font-size: 14px;
             font-weight: 400;
             color: #333;
+        }
+        .commentdate{
+            margin-right: 5px;
         }
     }
 }

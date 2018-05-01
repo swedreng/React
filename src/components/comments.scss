@@ -119,14 +119,16 @@
 }
 @media screen and(max-width:425px){ 
     .commentssmain{
-        padding-bottom: 0px;
+
+        margin-left: 3px;
+        margin-right: 3px;
         .row{
             padding-bottom:3px;
            
         }
     }
     .commentdiv-L{
-        margin-left: 2px;
+       
         p{
             word-wrap:break-word;
             font-family: "Helvetica Neue";

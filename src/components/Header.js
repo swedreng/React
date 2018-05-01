@@ -9,12 +9,14 @@ import './header.scss'
 class Header extends Component {
   constructor(props){
     super(props)
-    this.state = {value:'',search:[]}
+    this.state = {value:'',search:[],width:null}
 
   }
-  componentWillMount(){
+  componentDidMount(){
     let { getSearchItem } = this.props.searchActions
     getSearchItem()  
+    var genislik = window.screen.width;
+    this.setState({width:genislik})
   }
   
   addStorageItem(){
@@ -66,15 +68,16 @@ class Header extends Component {
                    <button style={{marginLeft:5}}onClick={() => this.addStorageItem()} className="btn btn-default searchButton"><div className={'searchImage'}></div></button>
              </div>   
             </div>
-            
-            <div className="mobile-menu">
+            {this.state.width <= 425 ? (   <div className="mobile-menu-Login">
               <ul>
                 <Link to="/"><li><i className="glyphicon glyphicon-home"></i></li></Link>
                 <Link to={ isAuth ? "/topbestpost" : "nologintopbest"}><li><i className="glyphicon glyphicon-fire"></i></li></Link>
-                <Link to="" onClick={() => this.props.showNavbarMenu()} ><li><i className="glyphicon glyphicon-list-alt"></i></li></Link> 
                 <Link to="/profile"><li><i className="glyphicon glyphicon-user"></i></li></Link>
+                <Link to="/sharepost"><li><i className="glyphicon glyphicon-pencil"></i></li></Link>
               </ul>
-            </div>
+            </div>) : null}
+         
+           
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <div className="searchBar col-md-6 col-lg-5">
               <form className="navbar-form" role="search">

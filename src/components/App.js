@@ -32,6 +32,7 @@ import LoginBestPosts from './LoginBestPosts'
 import NoLoginBestPosts from './NoLoginBestPosts'
 import TopBestPosts from './TopBestPosts'
 import NoLoginTopBestPosts from './NoLoginTopBestPosts'
+import sharePost from './sharePost'
 
 class App extends Component {
 
@@ -51,6 +52,7 @@ class App extends Component {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/admin" component={(props) => <AuthAccess roles={[1]} Comp={Admin} />} />
               <Route exact path="/profile" component={(props) => <AuthAccess roles={[1,0,2,4]} Comp={Profile} />} />
+              <Route exact path="/sharepost" component={(props) => <AuthAccess roles={[1,0,2,4]} Comp={sharePost} />} />
               <Route exact path="/loginsearch/:search" component={Search} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/logout"  component={Logout} />

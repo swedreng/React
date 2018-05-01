@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux"
+import { Link } from 'react-router-dom'
 import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
 import * as searchActions from "../actions/users"
@@ -25,12 +26,15 @@ class NoLoginMain extends Component{
 
     constructor(props){
         super(props)
-        this.state = {comment:{},width:null}
+        this.state = {comment:{},width:null,x:true}
 
     }
     componentDidMount(){
         var genislik = window.screen.width;
         this.setState({width:genislik})
+    }
+    closeX(){
+        this.setState({x:false})
     }
   
     actionComment(post_id){
@@ -55,11 +59,19 @@ class NoLoginMain extends Component{
        
         return(
             <div className="ConnectionMain">
+            {this.state.x == true ? (
+                <div className="opanc">
+                <span><h4>Opanc.com'a Hoşgeldiniz </h4>Gönderilere yorum yapmak, beğenmek ve paylaşım yapmak için sisteme kayıt olmalısınız, iyi eğlenceler.
+                    <Link to="/signup"><a style = {{color : '#cc280b', cursor: 'pointer' }}> Kayıt ol</a></Link>
+                </span>
+            </div>
+            ) : null}
+            
                 {data.map((post,index) => ( 
             
                 <div key={index}>
                     {post.confirmation == 1 ? (
-                        <div className={`row Main ${this.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null}`}>
+                        <div className={`row Main ${this.state.width <= 425 && post.CommentBest.length > 0 ? 'mobil-myarea' : null}`}>
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">

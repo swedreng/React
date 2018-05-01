@@ -107,16 +107,16 @@ class Contact extends Component{
                 <form>
                     <legend><span class="glyphicon glyphicon-globe"></span> Bizim Ofis</legend>
                         <address>
-                            <strong>Adres: </strong>
-                            Henüz ofis yok
+                            <strong title="Adress">Adres: </strong>
+                            Henüz ofis yok.
                         </address>
                         <adress>
                         <strong title="Phone">Tel: </strong>
-                            (123) 456-7890
+                            Siz numaranızı mesajla bırakın biz sizi ararız :)
                         </adress>
                         <address>
                             <strong>E-mail: </strong>
-                            <a href="mailto:#">opanc@opanc.com</a>
+                            <a href="mailto:#">opanc.info@gmail.com</a>
                         </address>
                 </form>
          </div>

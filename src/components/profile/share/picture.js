@@ -34,7 +34,7 @@ class Picture extends Component{
         
         return(
         <div>
-            <div className="row" style={{padding:"5px"}}>
+            <div className="row" style={{marginBottom:'20px'}}>
                 <section>
                 
                     <div className="dropzone">
@@ -49,7 +49,7 @@ class Picture extends Component{
                         
                         </Dropzone>
                     </div>
-                    <aside>
+                  
                         <form className="write">
                             <textarea onKeyDown={e => {
                                 if (e.keyCode == 13) this.postSubmit()
@@ -57,10 +57,9 @@ class Picture extends Component{
                             rows="4" cols="50" value={this.state.write} onChange={(e) => this.setState({write:e.target.value})} className="form-control" placeholder="Yazı ekle"/>    
                             <button className="pull-right" type="button" disabled={!isEnabled} className="btn btn-success" onClick={this.postSubmit}>Gönderiyi paylaş</button>    
                         </form>
-                    </aside>
+                   
                 </section>
             </div>    
-            <hr/>
             <div>
                 {(message ? <p className={result === true ? alertTrue : result === false ? alertFalse: null}>{message}</p> :null)}  
             </div>       

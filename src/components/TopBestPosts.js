@@ -105,7 +105,7 @@ class TopBestPosts extends Component{
                         
                     <div key={index}>
                        
-                                 <div className={`row Main ${this.state.width <= 425 && post.CommentBest.length > 0 ? 'img-thumbnail' : null}`}>
+                                 <div className={`row Main ${this.state.width <= 425 && post.CommentBest.length > 0 ? 'mobil-myarea' : null}`}>
                                  <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                      <div className="caption MainText">
                                          <div className="row"> 
