@@ -147,7 +147,8 @@ class viewuserposts extends Component{
                         </ScrollContainer>
                     )
                     : 
-                    <Loading/>
+                    ( <p className="alert alert-danger">Paylaşılan gönderi bulunmamaktadır.</p>)
+                    
                     )}
                
             </div>

@@ -7,7 +7,15 @@ Licensed under MIT
 body {
     background: #F1F3FA;
   }
-  
+  .quality_user-profile{
+    background-image:url('../images/icon.png');
+    width: 17px;
+    height: 17px;
+    display: inline-flex;
+    margin-left: 5px;
+    margin-top:5px;
+    background-size:cover;
+  }
   /* Profile container */
   .profile {
     margin: 0px;
@@ -102,7 +110,7 @@ body {
   
   /* Profile Content */
   .profile-content {
-    padding: 20px;
+    padding: 10px;
     background: #fff;
    
   }
@@ -149,7 +157,7 @@ body {
       border-radius: 5% !important;
     }
     .profile-content {
-      padding: 20px;
+      padding: 10px;
       background: #fff;
       min-height: 611px;
       border-radius: 20px !important;

@@ -144,7 +144,7 @@ class Profile extends Component{
                     
                             <div className="profile-usertitle">
                                 <div className="profile-usertitle-name">
-                                    {user_info.username ? user_info.username:'user'}
+                                    {user_info.firstname} {user_info.lastname} {user_info.rank == 4 ? (<div className={'quality_user-profile'}></div>) : null}
                                 </div>
                                 <div className="profile-usertitle-job">
                                   {role==1 ? "admin" : role==2 ? "moderatör" : "kullanıcı"}

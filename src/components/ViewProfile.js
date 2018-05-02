@@ -102,7 +102,7 @@ class ViewUserProfile extends Component{
                             </div>
                             <div className="profile-usertitle">
                                 <div className="profile-usertitle-name">
-                                    {this.state.person.firstname} {this.state.person.lastname}
+                                    {this.state.person.firstname} {this.state.person.lastname} {this.state.person.rank == 4 ? (<div className={'quality_user-ns'}></div>) : null}
                                 </div>
                                 <div className="profile-usertitle-job">
                                     {this.state.person.rank==1 ? "admin" : this.state.person.rank==2 ? "moderatör" : "kullanıcı"}

@@ -17,9 +17,19 @@ class shareinfo extends Component{
         return( 
         
         <div className="row">
-            <b>Toplam post sayısı:</b> {person ? person.postCount : user_share_info.postCount}
+        <div className="col-lg-6 col-md-6 col-xs-6" style={{padding:'10px'}}>
+            <b>Toplam post sayısı</b>
+            <br/> 
+            {<div className={'post-count-profile'}></div> } 
+            { person ? person.postCount : user_share_info.postCount}
+        </div>
+        <div className="col-lg-6 col-md-6 col-xs-6" style={{padding:'10px'}}>
+            <b>Toplam yorum sayısı</b>
             <br/>
-            <b>Toplam yorum sayısı:</b> {person ? person.commentCount : user_share_info.commentCount}
+            {<div className={'comment-count-profile'}></div>}
+            {person ? person.commentCount : user_share_info.commentCount}
+        </div>
+            
         </div>
         );
     }

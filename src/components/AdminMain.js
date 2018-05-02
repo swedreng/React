@@ -5,6 +5,7 @@ import * as postsActions from "../actions/posts"
 import Loading from './loading'
 import Loadable from 'react-loadable';
 import './adminmain.scss'
+import * as viewProfileActions from '../actions/users';
 import { dateTime } from '../myfunctions/myfunctions';
 
 const Comments = Loadable({
@@ -64,7 +65,10 @@ class AdminMain extends Component{
         let { setCategory } = this.props.postsActions
         setCategory({category_id:category_id,post_id:post_id})
     }
-
+    LoginviewProfile(username){
+        let { LoginviewProfile } = this.props.viewProfileActions
+        LoginviewProfile({person_username:username,value:0,event:true})
+    }
     render(){
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
@@ -81,7 +85,7 @@ class AdminMain extends Component{
                                 <div className="caption MainText">
                                     <div className="row">
                                         <div className="col-lg-8 col-md-4 col-sm-4 col-xs-9">
-                                            <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
+                                            <img className="ppimage" src={post.user.pp}/><b> <a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                         </div>    
                                         <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
                                             <div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation-ADM ${post.confirmation == 1 ? 'confirmation_active-ADM' : null}`}></div>
@@ -167,7 +171,8 @@ const mapStateToProps = ({ posts,auth,categories }) => ({
     posts,auth,categories
 })
 const mapDispatchToProps = dispatch => ({
-    postsActions: bindActionCreators(postsActions, dispatch) 
+    postsActions: bindActionCreators(postsActions, dispatch),
+    viewProfileActions: bindActionCreators(viewProfileActions, dispatch)
 })
   
 export default connect(mapStateToProps, mapDispatchToProps)(AdminMain)

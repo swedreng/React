@@ -28,20 +28,12 @@ class contact extends Component{
               <form className="form-horizontal">
                   <fieldset>   
                     <legend>İletişim</legend>
-                    <div className="form-group row">
-                            <label className="col-md-4 control-label" for="textinput">Phone :</label>  
-                            <div className="col-md-8 control-label">
-                              <p style={{float:'left'}}>{this.state.person ? this.state.person.phone: user_info.phone}</p>
-                            </div>
-                      </div>
-                      <div className="form-group row">
-                            <label className="col-md-4 control-label" for="textinput">Adress :</label>  
-                            <div className="col-md-8 control-label">
-                              <p style={{float:'left'}}>{this.state.person ? this.state.person.adress: user_info.adress}</p>
-                            </div>
-                      </div>
+                  
                       <div className="form-group">
-                            <label className="col-md-8 control-label row social-media" for="textinput">Social Media Accounts</label>  
+                      <div className="row">
+                      <label style={{marginTop:'-10px', marginBottom:'20px',textAlign:'center'}} className="col-lg-12 col-xs-12 control-label social-media" for="textinput">Sosyal Medya Hesapları</label>
+                      </div>
+                              
                             <div className="col-md-12 control-label row">
                               <div className="col-md-5 col-xs-5">
                                   <a href={`${FACEBOOK}/${this.state.person_social_media ? this.state.person_social_media.facebook: user_social_media.facebook}`} target="_blank"><div className = {"contact-facebook"}></div></a>

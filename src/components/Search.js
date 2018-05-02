@@ -127,9 +127,9 @@ class Search extends Component{
                                     <div className="person-image col-xs-3 col-lg-2 col-md-2">
                                         <img className="search-people-image" src={person.pp}/>
                                     </div>
-                                    <div className="person-info col-xs-4 col-lg-4 col-md-4">
+                                    <div className="person-info col-xs-9 col-lg-4 col-md-4">
                                         <div className="person-firstname-lastname">
-                                            <b><a style = {{color:'black', cursor:'pointer'}} onClick={() => this.LoginviewProfile(person.username)}>{person.firstname} {person.lastname}</a></b>
+                                            <b><a style = {{color:'black', cursor:'pointer'}} onClick={() => this.LoginviewProfile(person.username)}>{person.firstname} {person.lastname}</a></b> {person.rank == 4 ? (<div className={'quality_user-ns'}></div>) : null}
                                         </div>
                                         <div className="role-info">
                                            {person.rank == 1 ? (<p>Admin</p>) :person.rank == 2 ? (<p>Moderator</p>) : <p>Kullanıcı</p>} 
@@ -233,7 +233,7 @@ class Search extends Component{
                         </ScrollContainer>
                     )
                     : 
-                    <p className="alert alert-danger col-xs-12 col-lg-7 col-md-7">Aramanızla eşleşen gönderi bulunmamaktadır..</p>
+                    <p style={{marginBottom:'10px'}}className="alert alert-danger col-xs-12 col-lg-7 col-md-7">Aramanızla eşleşen gönderi bulunmamaktadır..</p>
                     )}
                
             </div>

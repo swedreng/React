@@ -5,3 +5,21 @@
      }
 }
 
+.post-count-profile{
+    background-image:url('../../images/sharepost.png');
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    margin-left: 5px;
+    margin-top:5px;
+    background-size:cover;
+}
+.comment-count-profile{
+    background-image:url('../../images/sharecomment.png');
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    margin-left: 5px;
+    margin-top:5px;
+    background-size:cover;
+}
