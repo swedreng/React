@@ -59,7 +59,13 @@ export function rememberMe(payload){
 export function getRememberMe(payload){
   return (dispatch, getState) => { 
       var rememberme  = JSON.parse(localStorage.getItem('rememberMe'))
-      dispatch({type:REMEMBER_ME, payload:rememberme})
+      if(rememberme){
+        dispatch({type:REMEMBER_ME, payload:rememberme})
+      }else{
+        rememberme = {}
+        localStorage.setItem('rememberMe',JSON.stringify(rememberme))
+      }
+      
   }
 }
 
