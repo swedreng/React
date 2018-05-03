@@ -1,10 +1,10 @@
 import {GET_POSTS,SHARE_WRITE} from "../constants"
 import {alertMessage} from "./desc"
-
+import axios from '../myfunctions/myinterceptor'
 export function shareWrite(payload) {
     return (dispatch, getState) => {    
       let { auth, posts} = getState()
-      return fetch(`${process.env.URL}/api/user/createwp`, {
+      return axios(`${process.env.URL}/api/user/createwp`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

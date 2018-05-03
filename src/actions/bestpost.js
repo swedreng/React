@@ -1,9 +1,9 @@
 import {SET_BESTPOSTS,SET_BESTPOST,GET_POSTS} from "../constants"
 import {alertMessage} from "./desc"
-
+import axios from '../myfunctions/myinterceptor'
 export function getBestPostToday(){
     return (dispatch, getState) => {    
-      return fetch(`${process.env.URL}/api/bestposttoday`, {
+      return axios(`${process.env.URL}/api/bestposttoday`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -20,7 +20,7 @@ export function getBestPostToday(){
   export function getTopBestPostToday(payload){
     return (dispatch, getState) => {    
       let { auth, posts} = getState()
-      return fetch(`${process.env.URL}/api/topbestposttoday`, {
+      return axios(`${process.env.URL}/api/topbestposttoday`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -52,7 +52,7 @@ export function getBestPostToday(){
   export function getTopBestPostTodayLogin(payload){
     return (dispatch, getState) => {    
       let { auth, posts} = getState()
-      return fetch(`${process.env.URL}/api/topbestposttodaylogin`, {
+      return axios(`${process.env.URL}/api/topbestposttodaylogin`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -85,7 +85,7 @@ export function getBestPostToday(){
 
 export function getBestPost(payload){
     return (dispatch, getState) => {    
-      return fetch(`${process.env.URL}/api/getbestpost`, {
+      return axios(`${process.env.URL}/api/getbestpost`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -107,7 +107,7 @@ export function getBestPost(payload){
   export function getBestPostLogin(payload){
     return (dispatch, getState) => {    
       let { auth, posts} = getState()
-      return fetch(`${process.env.URL}/api/logingetbestpost`, {
+      return axios(`${process.env.URL}/api/logingetbestpost`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

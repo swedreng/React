@@ -1,11 +1,11 @@
-
+import axios from '../myfunctions/myinterceptor'
 import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE,PERSONS, GET_POSTS,VIEW_PERSON,GETUSER_SHARE_INFO} from "../constants"
 import {alertMessage} from "./desc"
 import { push } from 'react-router-redux'
 export function getUsers(payload) {
   return (dispatch, getState, api) => { 
     let { auth } = getState()
-    fetch(`${process.env.URL}/api/users?page=${payload}`, {
+    axios(`${process.env.URL}/api/users?page=${payload}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -26,7 +26,7 @@ export function deleteUser(payload) {
     let { auth } = getState()
     let user_id = payload.user_id
     
-     return fetch(`${process.env.URL}/api/users/${user_id}`, {
+     return axios(`${process.env.URL}/api/users/${user_id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -43,7 +43,7 @@ export function getUsersInfo() {
   return (dispatch, getState) => { 
     let { auth } = getState()
   
-    return fetch(`${process.env.URL}/api/user`, {
+    return axios(`${process.env.URL}/api/user`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -62,7 +62,7 @@ export function getuserinfoUpdate(payload) {
     return (dispatch, getState) => { 
       let { auth, users } = getState() 
       
-      return fetch(`${process.env.URL}/api/user`, {
+      return axios(`${process.env.URL}/api/user`, {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
@@ -98,7 +98,7 @@ export function getuserinfoUpdate(payload) {
       return (dispatch, getState) => { 
         let { auth, users} = getState() 
         
-        return fetch(`${process.env.URL}/api/user/emailupdate`, {
+        return axios(`${process.env.URL}/api/user/emailupdate`, {
           method: 'PUT',
           headers: {
             'Accept': 'application/json',
@@ -123,7 +123,7 @@ export function getuserinfoUpdate(payload) {
       return (dispatch, getState) => { 
         let { auth, users } = getState() 
         
-        return fetch(`${process.env.URL}/api/user/usernameupdate`, {
+        return axios(`${process.env.URL}/api/user/usernameupdate`, {
           method: 'PUT',
           headers: {
             'Accept': 'application/json',
@@ -148,7 +148,7 @@ export function getuserinfoUpdate(payload) {
       return (dispatch, getState) => { 
         let { auth } = getState() 
         
-        return fetch(`${process.env.URL}/api/user/passwordupdate`, {
+        return axios(`${process.env.URL}/api/user/passwordupdate`, {
           method: 'PUT',
           headers: {
             'Accept': 'application/json',
@@ -190,7 +190,7 @@ export function getuserinfoUpdate(payload) {
     return (dispatch, getState) => { 
       let { auth,posts } = getState() 
       
-      return fetch(`${process.env.URL}/api/loginsearch`, {
+      return axios(`${process.env.URL}/api/loginsearch`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -245,7 +245,7 @@ export function getuserinfoUpdate(payload) {
     
     return (dispatch, getState) => { 
       let { auth,posts } = getState() 
-      return fetch(`${process.env.URL}/api/nologinsearch`, {
+      return axios(`${process.env.URL}/api/nologinsearch`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -284,7 +284,7 @@ export function getuserinfoUpdate(payload) {
       return (dispatch, getState) => { 
         let { auth,posts,persons } = getState() 
         
-        return fetch(`${process.env.URL}/api/searchperson`, {
+        return axios(`${process.env.URL}/api/searchperson`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -320,7 +320,7 @@ export function getuserinfoUpdate(payload) {
       return (dispatch, getState) => { 
         let { auth,posts,persons } = getState() 
         
-        return fetch(`${process.env.URL}/api/loginsearchperson`, {
+        return axios(`${process.env.URL}/api/loginsearchperson`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -361,7 +361,7 @@ export function getuserinfoUpdate(payload) {
       return (dispatch, getState) => { 
         let { auth,posts } = getState() 
         
-        return fetch(`${process.env.URL}/api/loginviewprofile`, {
+        return axios(`${process.env.URL}/api/loginviewprofile`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -405,7 +405,7 @@ export function getuserinfoUpdate(payload) {
         return (dispatch, getState) => { 
           let { auth,posts } = getState() 
           
-          return fetch(`${process.env.URL}/api/viewprofile`, {
+          return axios(`${process.env.URL}/api/viewprofile`, {
             method: 'POST',
             headers: {
               'Accept': 'application/json',

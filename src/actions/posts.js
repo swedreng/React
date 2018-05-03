@@ -1,11 +1,12 @@
 import {GET_POSTS,POST_LIKE,COMMENT_UPDATE,COMMENT_LIKE,GET_COMMENT, SET_CATEGORIES, SS} from "../constants"
 import {alertMessage} from "./desc"
 import {commentUpdate} from "./commentupdate"
+import axios from '../myfunctions/myinterceptor'
 export function getPosts(payload) {
   return (dispatch, getState) => { 
     let { auth, posts } = getState()
    // dispatch({type: GET_POSTS, payload:{data:[],postCount:0}})
-    return fetch(`${process.env.URL}/api/posts`, {
+    return axios(`${process.env.URL}/api/posts`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -42,7 +43,7 @@ export function getUserPosts(payload) {
   return (dispatch, getState) => { 
     let { auth, posts } = getState()
     //dispatch({type: GET_POSTS, payload:{data:[],postCount:0}})
-    return fetch(`${process.env.URL}/api/userposts`, {
+    return axios(`${process.env.URL}/api/userposts`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -77,7 +78,7 @@ export function getUserPosts(payload) {
 export function comment(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()
-    return fetch(`${process.env.URL}/api/comment`, {
+    return axios(`${process.env.URL}/api/comment`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -102,7 +103,7 @@ export function comment(payload) {
 export function postLike(payload) {
   return (dispatch, getState) => { 
     let { auth } = getState()
-    fetch(`${process.env.URL}/api/postlike`, {
+    axios(`${process.env.URL}/api/postlike`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -125,7 +126,7 @@ export function commentLike(payload) {
   return (dispatch, getState) => { 
     let { auth } = getState()
     
-    fetch(`${process.env.URL}/api/comment`, {
+    axios(`${process.env.URL}/api/comment`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -151,7 +152,7 @@ export function commentLike(payload) {
 export function getComment(payload) {
   return (dispatch, getState) => { 
     let { auth } = getState()
-    return fetch(`${process.env.URL}/api/getcomment`, {
+    return axios(`${process.env.URL}/api/getcomment`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -177,7 +178,7 @@ export function deletePost(payload) {
   
   return (dispatch, getState) => { 
     let { auth,posts } = getState()
-    return fetch(`${process.env.URL}/api/user/deletepost`, {
+    return axios(`${process.env.URL}/api/user/deletepost`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -219,7 +220,7 @@ export function deleteComment(payload) {
   
   return (dispatch, getState) => { 
     let { auth,posts } = getState()
-    return fetch(`${process.env.URL}/api/user/deletecomment`, {
+    return axios(`${process.env.URL}/api/user/deletecomment`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -271,7 +272,7 @@ export function deleteComment(payload) {
 export function commentSave(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()
-    return fetch(`${process.env.URL}/api/user/updatecomment`, {
+    return axios(`${process.env.URL}/api/user/updatecomment`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -309,7 +310,7 @@ export function commentSave(payload) {
 export function postConfirmation(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()
-    return fetch(`${process.env.URL}/api/post/confirmation`, {
+    return axios(`${process.env.URL}/api/post/confirmation`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -343,7 +344,7 @@ export function postConfirmation(payload) {
 export function blockPost(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()
-    return fetch(`${process.env.URL}/api/post/blockPost`, {
+    return axios(`${process.env.URL}/api/post/blockPost`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -369,7 +370,7 @@ export function blockPost(payload) {
 export function blockUser(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()
-    return fetch(`${process.env.URL}/api/post/blockUser`, {
+    return axios(`${process.env.URL}/api/post/blockUser`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -391,7 +392,7 @@ export function blockUser(payload) {
 export function userConfirmation(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()
-    return fetch(`${process.env.URL}/api/post/userconfirmation`, {
+    return axios(`${process.env.URL}/api/post/userconfirmation`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -410,7 +411,7 @@ export function userConfirmation(payload) {
 export function setCategory(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()
-    return fetch(`${process.env.URL}/api/post/setcategory`, {
+    return axios(`${process.env.URL}/api/post/setcategory`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -435,7 +436,7 @@ export function setCategory(payload) {
 export function getCategory(payload) {
   return (dispatch, getState) => {    
     let { auth, posts} = getState()
-    return fetch(`${process.env.URL}/api/post/getcategory`, {
+    return axios(`${process.env.URL}/api/post/getcategory`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

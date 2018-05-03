@@ -1,10 +1,10 @@
 import {COMMENT_BEST} from "../constants"
-
+import axios from '../myfunctions/myinterceptor'
 
 export function commentUpdate(payload) {
     return (dispatch, getState) => { 
       let { auth } = getState()
-    fetch(`${process.env.URL}/api/comment?post_id=${payload}`, {
+    axios(`${process.env.URL}/api/comment?post_id=${payload}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',

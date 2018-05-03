@@ -1,10 +1,10 @@
 import {SET_CATEGORIES} from "../constants"
 import {alertMessage} from "./desc"
-
+import axios from '../myfunctions/myinterceptor'
 export function getCategory(payload) {
     return (dispatch, getState) => {    
       let { auth, posts} = getState()
-      return fetch(`${process.env.URL}/api/post/getcategory`, {
+      return axios(`${process.env.URL}/api/post/getcategory`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

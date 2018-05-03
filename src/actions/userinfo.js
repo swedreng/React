@@ -1,10 +1,10 @@
 import {USERINFO_UPDATE,GETUSER_INFO,GETUSER_SOCIAL_INFO,VIEW_PERSON_SOCIAL_MEDIA,VIEW_PERSON_SHARE_INFO} from "../constants"
 import {alertMessage} from "./desc"
-
+import axios from '../myfunctions/myinterceptor'
 export function setUserInfo(payload){
     return (dispatch, getState) => {    
       let { auth,users } = getState()
-      return fetch(`${process.env.URL}/api/user/setuserinfo`, {
+      return axios(`${process.env.URL}/api/user/setuserinfo`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -40,7 +40,7 @@ export function setUserInfo(payload){
   export function setSocialMedia(payload){
     return (dispatch, getState) => {    
       let { auth,users } = getState()
-      return fetch(`${process.env.URL}/api/user/setsocialmedia`, {
+      return axios(`${process.env.URL}/api/user/setsocialmedia`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -76,7 +76,7 @@ export function setUserInfo(payload){
   export function getUserSocialMedia(payload){
     return (dispatch, getState) => {    
       let { auth,users } = getState()
-      return fetch(`${process.env.URL}/api/user/getsocialmedia`, {
+      return axios(`${process.env.URL}/api/user/getsocialmedia`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -96,7 +96,7 @@ export function setUserInfo(payload){
     console.log(payload,99)
     return (dispatch, getState) => {    
       let { auth,users } = getState()
-      return fetch(`${process.env.URL}/api/user/getviewsocialmedia`, {
+      return axios(`${process.env.URL}/api/user/getviewsocialmedia`, {
         method: 'POST',
         headers: {  
           'Accept': 'application/json',
@@ -117,7 +117,7 @@ export function setUserInfo(payload){
   export function getShareInfo(payload){
     return (dispatch, getState) => {    
       let { auth,users } = getState()
-      return fetch(`${process.env.URL}/api/user/getshareInfo`, {
+      return axios(`${process.env.URL}/api/user/getshareInfo`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

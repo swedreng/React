@@ -1,10 +1,10 @@
 import {USER_SIGNUP} from "../constants"
 import {alertMessage} from "./desc"
-
+import axios from '../myfunctions/myinterceptor'
 export function signUp(payload) { 
   console.log(payload)
   return (dispatch, getState, api) => { 
-    fetch(`${process.env.URL}/api/signup`, {
+    axios(`${process.env.URL}/api/signup`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

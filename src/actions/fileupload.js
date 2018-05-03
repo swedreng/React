@@ -1,5 +1,6 @@
 import {FILE_UPLOAD} from "../constants"
 import {alertMessage} from "./desc"
+import axios from '../myfunctions/myinterceptor'
 export function fileUpload(payload) {
    
   return (dispatch, getState) => { 
@@ -11,7 +12,7 @@ export function fileUpload(payload) {
     data.append('files', files)
     data.append('writing', writing)
     
-   return fetch(`${process.env.URL}/api/user/createpp`, {
+   return axios(`${process.env.URL}/api/user/createpp`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

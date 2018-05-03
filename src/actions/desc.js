@@ -1,6 +1,7 @@
 
 import { SET_LOGIN_DESC,SEARCH_DATA} from "../constants"
 import {getlocalStore} from "../helper"
+import axios from '../myfunctions/myinterceptor'
 export function alertMessage(payload) {
     return (dispatch, getState) => {    
     dispatch({ type: SET_LOGIN_DESC,payload })

@@ -7,12 +7,14 @@ import createHistory from 'history/createHashHistory'
 // TODO: eski nesil tarayıcılarda kullanılabilmesi için createHashHistory paket'ini kullanırsın çünkü hashli location atıyor,eski tarayıcılar destekliyor.
 import { routerMiddleware } from 'react-router-redux'
 import { ErrorTracker } from '../middlewares'
+import { MyInterceptor} from '../myfunctions/myinterceptor'
 
 const history = createHistory() // TODO: Browser historysini react'in eklentisiyle bir değişkene aktarıyoruz.
 
 const initialState = {} // TODO: Default olarak ilk açılırken reducer'a herhangi bir değişken aktarmak istersek kullanıyoruz.
 const middleware = [ // TODO: ReduxThunk ve history'i middleware dizisine aktarıyoruz. en son export etmek amacıyla.
   ErrorTracker,
+  //MyInterceptor,
   ReduxThunk,
   routerMiddleware(history) // TODO: Burda oluşturduğumuz history'i react-router-redux in bize sağladığı bir middleware den geçirip,
                             // onun push gotoback go gibi fonksiyonlarına erişip react standartlarında kullanıyoruz.

@@ -1,10 +1,10 @@
 
 import {GET_POSTS,GET_COMMENT} from "../constants"
-
+import axios from '../myfunctions/myinterceptor'
 export function getNoLogin(payload) {
     return (dispatch, getState) => { 
       let { posts } = getState()
-      return fetch(`${process.env.URL}/api/postsdefault`, {
+      return axios(`${process.env.URL}/api/postsdefault`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -39,7 +39,7 @@ export function getNoLogin(payload) {
   export function getComment(payload) {
     return (dispatch, getState) => { 
       let { auth } = getState()
-      return fetch(`${process.env.URL}/api/outgetcomment`, {
+      return axios(`${process.env.URL}/api/outgetcomment`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

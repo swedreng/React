@@ -1,6 +1,7 @@
 import {PP_UPLOAD,SET_AUTH_LOGIN} from "../constants"
 import {getPosts} from "./posts"
 import {alertMessage} from "./desc"
+import axios from '../myfunctions/myinterceptor'
 export function profilpictureUpload(payload) {
     
    return (dispatch, getState) => { 
@@ -10,7 +11,7 @@ export function profilpictureUpload(payload) {
      let data = new FormData()
      data.append('files', files)
      
-     fetch(`${process.env.URL}/api/user/pp`, {
+     axios(`${process.env.URL}/api/user/pp`, {
        method: 'POST',
        headers: {
          'Accept': 'application/json',

@@ -1,4 +1,4 @@
-
+import axios from '../myfunctions/myinterceptor'
 import { push } from 'react-router-redux'
 import { history } from '../store'
 import { SET_AUTH_LOGIN, RESET_AUTH , SET_LOGIN_DESC, PASSWORD_RESET,REMEMBER_ME} from "../constants"
@@ -9,7 +9,7 @@ import { getlocalStore } from '../helper';
 export function setAuth(payload) {
   return (dispatch, getState) => { 
     
-    fetch(`${process.env.URL}/api/login`, {
+    axios(`${process.env.URL}/api/login`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -39,7 +39,7 @@ export function setAuth(payload) {
 export function PasswordReset(payload) {
   return (dispatch, getState) => { 
 
-    fetch(`${process.env.URL}/api/passwordreset`, {
+    axios(`${process.env.URL}/api/passwordreset`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -72,7 +72,7 @@ export function getRememberMe(payload){
 export function PasswordUpdate(payload) {
   return (dispatch, getState) => { 
     console.log(payload.token,payload.password)
-    fetch(`${process.env.URL}/api/passwordupdate`, {
+    axios(`${process.env.URL}/api/passwordupdate`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

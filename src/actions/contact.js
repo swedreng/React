@@ -1,10 +1,11 @@
 import {GET_USERS,USER_DELETE,GETUSER_INFO, USERINFO_UPDATE} from "../constants"
 import {alertMessage} from "./desc"
+import axios from '../myfunctions/myinterceptor'
 export function getContact(payload) {
-
+ 
   return (dispatch, getState, api) => { 
       console.log(payload,55)
-    return fetch(`${process.env.URL}/api/contact`, {
+    return axios(`${process.env.URL}/api/contact`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
