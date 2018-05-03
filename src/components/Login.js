@@ -21,9 +21,9 @@ class Login extends Component{
         let { getRememberMe } = this.props.authActions
         getRememberMe().then(() => {
             const {rememberme} = this.props.auth
-            console.log(rememberme.username,55)
+            
             this.setState({name:rememberMe.username,pass:rememberMe.pass})
-            console.log(this.state.name,23)
+          
         })
     }
     loginSubmit(event) {
