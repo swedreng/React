@@ -11,7 +11,7 @@ export function getCategory(payload) {
           'Content-Type': 'application/json',
         },
        
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           dispatch({type:SET_CATEGORIES,payload:response})
       })
     }

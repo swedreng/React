@@ -11,7 +11,7 @@ export function getBestPostToday(){
           
         },
        
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           dispatch({type: SET_BESTPOSTS, payload:response })    
       })
     }
@@ -26,11 +26,11 @@ export function getBestPostToday(){
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
           value: payload.value,
           event: payload.event
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           if(response.data){
             if(response.event){
               var data = response.data
@@ -59,11 +59,11 @@ export function getBestPostToday(){
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
           value: payload.value,
           event: payload.event
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           if(response.data){
             if(response.event){
               var data = response.data
@@ -91,10 +91,10 @@ export function getBestPost(payload){
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
             post_id: payload.post_id
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           console.log(response,31)
             var data = response
             var postCount = response.length
@@ -114,10 +114,10 @@ export function getBestPost(payload){
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
             post_id: payload.post_id
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           console.log(response,31)
             var data = response
             var postCount = response.length

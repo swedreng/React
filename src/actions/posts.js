@@ -13,12 +13,12 @@ export function getPosts(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
         postReq: payload.value,
         status: payload.event,
         filter: payload.filter
       })
-      }).then(response => response.json()).then(response => { 
+      }).then(response => { 
 
         if(response.data){
           if(response.event){
@@ -50,11 +50,11 @@ export function getUserPosts(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
         postReq: payload.value,
         status: payload.event
       })
-      }).then(response => response.json()).then(response => { 
+      }).then(response => { 
 
         if(response.data){
           if(response.event){
@@ -85,12 +85,12 @@ export function comment(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
           writing: payload.comment,
           post_id: payload.post_id,
           commentCount:payload.commentCount
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
           
           const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
           dispatch({type:COMMENT_UPDATE, payload:data})
@@ -110,12 +110,12 @@ export function postLike(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
           like:payload.like,
           post_id:payload.post_id,
           like_kind:'post'
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         const data = {post_id:payload.post_id,result:response.result,likeCount:response.likeCount}
         dispatch({type:POST_LIKE, payload:data})
     })
@@ -133,12 +133,12 @@ export function commentLike(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
           comment_id: payload.comment_id,
           post_id: payload.post_id,
           like_kind:'comment'
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
             const commentUpdateData = {commentCount:payload.commentCount,post_id:payload.post_id}
             const data = {post_id:payload.post_id,result:response.result,likeCount:response.likeCount,comment_id:payload.comment_id}
             dispatch({type:COMMENT_LIKE, payload:data})
@@ -159,12 +159,12 @@ export function getComment(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
          value:payload.value,
          post_id: payload.post_id,
          clickCount: payload.clickCount
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         if(response.data){
           const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
           dispatch({type:GET_COMMENT, payload:data})
@@ -185,10 +185,10 @@ export function deletePost(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
         post_id:payload.post_id
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         console.log(posts.data,34)
 
         if(response.result){
@@ -227,11 +227,11 @@ export function deleteComment(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
         comment_id:payload.comment_id,
         post_id:payload.post_id
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
 
         if(response.result){
 
@@ -279,12 +279,12 @@ export function commentSave(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
           comment: payload.comment,
           post_id: payload.post_id,
           comment_id:payload.comment_id
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
           if(response.result){
               posts.data.map((post) => {
                   if(post.post_id == payload.post_id){
@@ -317,10 +317,10 @@ export function postConfirmation(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
           post_id: payload.post_id, 
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         if(response.IsRole == 1){
           posts.data.map(post =>{
             if(post.post_id == payload.post_id){
@@ -351,10 +351,10 @@ export function blockPost(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
           post_id: payload.post_id, 
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
           
             const index = posts.data.findIndex(post => post.post_id == payload.post_id)
                   if(index == 0){
@@ -377,10 +377,10 @@ export function blockUser(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
           user_id:payload.user_id 
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         
         posts.data = posts.data.filter((post,index) => post.user.id != payload.user_id)
             
@@ -399,10 +399,10 @@ export function userConfirmation(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
           user_id:payload.user_id 
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         
     })
   }
@@ -418,11 +418,11 @@ export function setCategory(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
           category_id:payload.category_id,
           post_id: payload.post_id 
       })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
            posts.data.map(post => {
             if(post.post_id == payload.post_id){
               post.post_category = response.post_categories
@@ -443,7 +443,7 @@ export function getCategory(payload) {
         'Content-Type': 'application/json',
       },
      
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         dispatch({type:SET_CATEGORIES,payload:response})
     })
   }

@@ -15,11 +15,11 @@ export function setAuth(payload) {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
         username: payload.username,
         password: payload.pass
         })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
 
         dispatch(alertMessage({message:response.message}))
         dispatch({ type: SET_AUTH_LOGIN, payload:{ success: response.success, username:payload.username, role:response.role , username:response.username, user_id:response.user_id, pp:response.user_pp, token:response.token, personalwriting:response.personalwriting} })
@@ -45,10 +45,10 @@ export function PasswordReset(payload) {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
         email: payload.email
         })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         dispatch(alertMessage({message:response.message}))
     })
   }
@@ -78,11 +78,11 @@ export function PasswordUpdate(payload) {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
         password: payload.password,
         token: payload.token
         })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         dispatch(alertMessage({message:response.message}))
     })
   }

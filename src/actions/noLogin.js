@@ -10,13 +10,13 @@ export function getNoLogin(payload) {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
           postReq: payload.value,
           status: payload.event,
           filter: payload.filter
         })
-        }).then(response => response.json()).then(response => { 
-          
+        }).then(response => { 
+          console.log('ccc')
           if(response.data){
             if(response.event){
               var data = response.data
@@ -45,11 +45,11 @@ export function getNoLogin(payload) {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
            post_id: payload.post_id,
            clickCount: payload.clickCount
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           if(response.data){
             const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
             dispatch({type:GET_COMMENT, payload:data})

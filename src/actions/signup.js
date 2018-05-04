@@ -10,7 +10,7 @@ export function signUp(payload) {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
+      data: JSON.stringify({
         firstname: payload.firstname,
         lastname: payload.lastname,
         username: payload.username,
@@ -18,7 +18,7 @@ export function signUp(payload) {
         email: payload.email
         })
     
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         dispatch(alertMessage({message:response.message}))
         dispatch({ type: USER_SIGNUP, payload: { result: response.success}})
         if(response.success){

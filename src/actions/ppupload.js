@@ -17,8 +17,8 @@ export function profilpictureUpload(payload) {
          'Accept': 'application/json',
          'Authorization': `Bearer ${auth.token} `
        },
-       body : data
-       }).then(response => response.json()).then(response => {
+       data : data
+       }).then(response => {
               if(response.success){
                 const newAuth = {
                   username: auth.username,

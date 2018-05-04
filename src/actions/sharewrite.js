@@ -11,10 +11,10 @@ export function shareWrite(payload) {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
             write:payload.write
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
             
             const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
             dispatch({type: SHARE_WRITE, payload:response.success})

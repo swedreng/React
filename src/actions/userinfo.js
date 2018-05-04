@@ -11,11 +11,11 @@ export function setUserInfo(payload){
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
             value: payload.value,
             status: payload.status
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           if(response.status == 1){
             var user_info = users.user_info
             user_info.phone = payload.value
@@ -47,11 +47,11 @@ export function setUserInfo(payload){
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
             value: payload.value,
             status: payload.status
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           if(response.status == 1){
             var user_social_media = users.user_social_media
             user_social_media.facebook = payload.value
@@ -84,7 +84,7 @@ export function setUserInfo(payload){
           'Authorization': `Bearer ${auth.token} `
         },
        
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           
           dispatch({type: GETUSER_SOCIAL_INFO, payload:response.data})
             
@@ -102,10 +102,10 @@ export function setUserInfo(payload){
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
           person_username: payload.person_username
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           console.log(response.data,73)
           dispatch({type: VIEW_PERSON_SOCIAL_MEDIA, payload:response.data})
             
@@ -124,10 +124,10 @@ export function setUserInfo(payload){
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
           person_username: payload.person_username
         })
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
            dispatch({type: VIEW_PERSON_SHARE_INFO, payload:{commentCount:response.commentCount,postCount:response.postCount}})    
       })
     }

@@ -18,8 +18,8 @@ export function fileUpload(payload) {
         'Accept': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      body : data
-      }).then(response => response.json()).then(response => {
+      data : data
+      }).then(response => {
             dispatch(alertMessage({message:response.message}))
             dispatch({type: FILE_UPLOAD, payload:response.success})
          

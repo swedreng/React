@@ -11,13 +11,13 @@ export function getContact(payload) {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
     },
-      body: JSON.stringify({
+      data: JSON.stringify({
         name: payload.name,
         email: payload.email,
         message: payload.message,
         choose: payload.choose 
     })
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         dispatch(alertMessage({message:response.message,result:response.result}))
     })
   }

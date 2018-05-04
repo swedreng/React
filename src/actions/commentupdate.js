@@ -12,7 +12,7 @@ export function commentUpdate(payload) {
           'Authorization': `Bearer ${auth.token} `
         },
        
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           const data = {post_id:payload,comments:response.CommentBest}
            dispatch({type: COMMENT_BEST , payload:data})
       })
