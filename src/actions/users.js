@@ -13,7 +13,7 @@ export function getUsers(payload) {
         'Authorization': `Bearer ${auth.token} `
       },
       
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         console.log(response)
          dispatch({type: GET_USERS, payload:response})
     })
@@ -33,7 +33,7 @@ export function deleteUser(payload) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         return dispatch(alertMessage({ success: response.success, message:response.message}))   
     })
   }
@@ -50,7 +50,7 @@ export function getUsersInfo() {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${auth.token} `
       },
-      }).then(response => response.json()).then(response => {
+      }).then(response => {
         console.log(response)
          dispatch({type: GETUSER_INFO, payload:response.user_info})
          dispatch({type: GETUSER_SHARE_INFO, payload:{postCount:response.postCount,commentCount:response.commentCount}})
@@ -70,12 +70,12 @@ export function getuserinfoUpdate(payload) {
           'Authorization': `Bearer ${auth.token} `
         },
         
-        body: JSON.stringify({
+        data: JSON.stringify({
           value: payload.value,
           status: payload.status
         })
         
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           if(response.status == 1){
             var user_info = users.user_info
             user_info.firstname = payload.value
@@ -105,10 +105,10 @@ export function getuserinfoUpdate(payload) {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${auth.token} `
           },
-          body: JSON.stringify({
+          data: JSON.stringify({
             email: payload.email
           })
-          }).then(response => response.json()).then(response => {
+          }).then(response => {
             var user_info = users.user_info
             user_info.email = payload.email
             dispatch({type: GETUSER_INFO, payload:user_info}) 
@@ -130,10 +130,10 @@ export function getuserinfoUpdate(payload) {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${auth.token} `
           },
-          body: JSON.stringify({
+          data: JSON.stringify({
             username: payload.username
           })
-          }).then(response => response.json()).then(response => {
+          }).then(response => {
             var user_info = users.user_info
             user_info.username = payload.username
             dispatch({type: GETUSER_INFO, payload:user_info}) 
@@ -155,11 +155,11 @@ export function getuserinfoUpdate(payload) {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${auth.token} `
           },
-          body: JSON.stringify({
+          data: JSON.stringify({
             oldpassword: payload.oldpassword,
             newpassword: payload.newpassword
           })
-          }).then(response => response.json()).then(response => {
+          }).then(response => {
             
              dispatch(alertMessage({message:response.message}))
              dispatch({type: USERINFO_UPDATE, payload:response.success})
@@ -197,13 +197,13 @@ export function getuserinfoUpdate(payload) {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${auth.token} `
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
             search: payload.search,
             postReq: payload.value,
             event: payload.event
           })
         
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           dispatch(push(`/loginsearch/${payload.search}`))
           if(response.data){
             if(response.event){
@@ -251,13 +251,13 @@ export function getuserinfoUpdate(payload) {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
             search: payload.search,
             postReq: payload.value,
             event: payload.event
           })
         
-        }).then(response => response.json()).then(response => {
+        }).then(response => {
           dispatch(push(`/search/${payload.search}`))
           console.log(response.Posts,response.event,2)
           if(response.data){
@@ -290,13 +290,13 @@ export function getuserinfoUpdate(payload) {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
+          data: JSON.stringify({
             search: payload.search,
             postReq: payload.value,
             event: payload.event
             })
           
-          }).then(response => response.json()).then(response => {
+          }).then(response => {
             if(response.Users){
               if(payload.event){
                 var data = response.Users
@@ -327,13 +327,13 @@ export function getuserinfoUpdate(payload) {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${auth.token} `
           },
-          body: JSON.stringify({
+          data: JSON.stringify({
             search: payload.search,
             postReq: payload.value,
             event: payload.event
             })
           
-          }).then(response => response.json()).then(response => {
+          }).then(response => {
             if(response.Users){
               if(payload.event){
                 var data = response.Users
@@ -368,13 +368,13 @@ export function getuserinfoUpdate(payload) {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${auth.token} `
           },
-          body: JSON.stringify({
+          data: JSON.stringify({
             person_username: payload.person_username,
             postReq: payload.value,
             event: payload.event
             })
           
-          }).then(response => response.json()).then(response => {
+          }).then(response => {
             if(payload.event){
               dispatch(push(`/loginviewprofile/user/${response.username}`))
             }
@@ -411,13 +411,13 @@ export function getuserinfoUpdate(payload) {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
+            data: JSON.stringify({
               person_username: payload.person_username,
               postReq: payload.value,
               event: payload.event
               })
             
-            }).then(response => response.json()).then(response => {
+            }).then(response => {
               if(payload.event == true){
                 dispatch(push(`/viewprofile/user/${response.username}`))
               }

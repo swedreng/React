@@ -36,7 +36,7 @@ class PasswordReset extends Component{
                                 </fieldset>
                                 </form>
                                 <div>
-                                {(message ? <p className="alert alert-warning">{message}</p> :null)}  
+                                {(message ? <p style={{marginTop:'15px',marginBottom:'0px'}} className="alert alert-warning">{message}</p> :null)}  
                                 </div>  
                             </div>
                         </div>

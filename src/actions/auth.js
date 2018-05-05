@@ -54,20 +54,68 @@ export function PasswordReset(payload) {
   }
 }
 export function rememberMe(payload){
+console.log(payload,77)
+  return (dispatch, getState) => { 
+    
+        axios(`${process.env.URL}/api/rememberme`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          data: JSON.stringify({
+            username: payload.username,
+            password: payload.pass
+            })
+          }).then(response => {
+            localStorage.setItem('rememberMe',JSON.stringify(response.token))
+            dispatch({type:REMEMBER_ME, payload:response.data})
+        })
+      }
+
   localStorage.setItem('rememberMe',JSON.stringify(payload))
 }
 export function getRememberMe(payload){
   return (dispatch, getState) => { 
       var rememberme  = JSON.parse(localStorage.getItem('rememberMe'))
-      if(rememberme){
-        dispatch({type:REMEMBER_ME, payload:rememberme})
-      }else{
-        rememberme = {}
-        localStorage.setItem('rememberMe',JSON.stringify(rememberme))
-      }
-      
+     return axios(`${process.env.URL}/api/getrememberme`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        data: JSON.stringify({
+          token: rememberme,
+          })
+        }).then(response => {
+          if(response.success == false){
+            rememberme = {}
+            localStorage.setItem('rememberMe',JSON.stringify(rememberme))
+           
+          }else{
+            dispatch({type:REMEMBER_ME, payload:response.data})
+          }
+      })
+    }
   }
-}
+
+  export function forgetMe(payload) {
+    return (dispatch, getState) => { 
+      var rememberme  = JSON.parse(localStorage.getItem('rememberMe'))
+     return axios(`${process.env.URL}/api/forgetme`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        data: JSON.stringify({
+          token: rememberme,
+        })
+        }).then(response => {
+          dispatch({type:REMEMBER_ME, payload:response.data})
+      })
+    }
+  }  
 
 export function PasswordUpdate(payload) {
   return (dispatch, getState) => { 
@@ -84,6 +132,9 @@ export function PasswordUpdate(payload) {
         })
       }).then(response => {
         dispatch(alertMessage({message:response.message}))
+        setTimeout(() => {
+          dispatch(push('/login'))
+        },3000);
     })
   }
 }

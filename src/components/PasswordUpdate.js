@@ -40,7 +40,7 @@ class PasswordUpdate extends Component{
                                 </fieldset>
                                 </form>
                                 <div>
-                                {(message ? <p className="alert alert-warning">{message}</p> :null)}  
+                                {(<p style={{marginTop:'15px',marginBottom:'0px'}} className="alert alert-warning">{message}</p>)}  
                                 </div>
                             </div>
                         </div>

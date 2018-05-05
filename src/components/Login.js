@@ -12,7 +12,7 @@ class Login extends Component{
     constructor(props){
         super(props);
         
-        this.state = {}
+        this.state = {name:null,pass:null}
         this.loginSubmit = this.loginSubmit.bind(this);
 
     }
@@ -21,8 +21,12 @@ class Login extends Component{
         let { getRememberMe } = this.props.authActions
         getRememberMe().then(() => {
             const {rememberme} = this.props.auth
-            
-            this.setState({name:rememberMe.username,pass:rememberMe.pass})
+            if(rememberme != null){
+                this.setState({name:rememberme.username,pass:rememberme.password}) //burdasın
+            }else{
+                this.setState({name:null,pass:null})
+            }
+           
           
         })
     }
@@ -36,8 +40,21 @@ class Login extends Component{
         passwordReset()
     }
     rememberMe(){
-        let { rememberMe } = this.props.authActions
-        rememberMe({username: this.state.name, pass: this.state.pass})
+        const {rememberme} = this.props.auth
+        if(rememberme == null){
+            if(this.state.name !=null && this.state.pass !=null){
+                let { rememberMe } = this.props.authActions
+                rememberMe({username: this.state.name, pass: this.state.pass}) 
+            }
+           
+            
+        }else{
+            let { forgetMe } = this.props.authActions
+            forgetMe().then(() =>{
+                this.setState({name:'',pass:''})
+            })
+        }
+        
     }
     
     render(){
@@ -48,7 +65,7 @@ class Login extends Component{
         const isEnabled = (name  && pass)
         const alertTrue = "alert alert-success"
         const alertFalse = "alert alert-danger"
-        if(rememberme != null ){
+       // if(rememberme != null ){
             return(
                 
                 <div className="container">
@@ -76,7 +93,7 @@ class Login extends Component{
                                             <div className="row">
                                                 <div className="col-md-6">
                                                     <label>
-                                                        <input onClick={() => this.rememberMe()} name="remember" type="checkbox" value="Remember Me" /> Beni hatırla
+                                                        <input onClick={() => this.rememberMe()} checked = {rememberme == null ? false:true} name="remember" type="checkbox" value="Remember Me" /> Beni hatırla
                                                     </label>
                                                 </div>
                                                 <div className="col-md-6">
@@ -98,8 +115,8 @@ class Login extends Component{
                 
             );
             
-        }
-        return <Loading/>
+       // }
+      //  return <Loading/>
     }
 }
 

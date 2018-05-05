@@ -24,7 +24,8 @@ export default (state = defaultState, action = {}) => {
         role:action.payload.role,
         user_id:action.payload.user_id,
         user_pp:action.payload.pp,
-        token:action.payload.token
+        token:action.payload.token,
+        rememberme:null
       }
       break
     case RESET_AUTH:
