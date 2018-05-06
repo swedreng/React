@@ -8,6 +8,31 @@
         overflow: hidden !important;
     }
 }
+.searchperson{
+    width: 60px;
+    height: 60px;
+    padding:10px;
+    margin: 0 auto !important;
+    display:table !important;
+    background-image:url('../images/searchperson.png');
+    background-size:cover;
+}
+.businessman{
+    width: 60px !important;
+    height: 60px !important;
+    margin: 0 auto !important;
+    display:table !important;
+    margin-bottom: 10px !important;
+    background-image:url('../images/thinking.png');
+    background-size:cover;
+}
+.info{
+    width: 20px !important;
+    height: 20px !important;
+    float:left;
+    background-image:url('../images/info.png');
+    background-size:cover;
+}
 .page{
     margin-left:auto
     

@@ -6,6 +6,8 @@ import * as postsActions from "../actions/posts"
 import Loading from './loading'
 import Loadable from 'react-loadable'
 import ScrollContainer from './ScrollContainer'
+import SearchPostsError from './searchPostsError'
+import SearchPostsPerson from './searchPostsPerson'
 import './nologinsearch.scss'
 import { dateTime } from '../myfunctions/myfunctions';
 
@@ -126,7 +128,7 @@ class NoLoginSearch extends Component{
                             {this.state.viewuser == 1 ? <a style={{textDecoration:'underline',cursor:'pointer',color:'black',margin:'0 auto', display:'table', marginBottom:'5px'}}
                              onClick={()=> this.getUsers()}>Daha fazla kişi gör</a> : null }
                             </div>
-                        ) : (<p className="alert alert-danger">Aradığınız isimde kullanıcı bulunmamaktadır..</p>)}
+                        ) : (<SearchPostsPerson/>)}
                         
                     </div>
                     <div className="post-title col-xs-12 col-lg-7 col-md-7">
@@ -205,7 +207,10 @@ class NoLoginSearch extends Component{
                         </ScrollContainer>
                     )
                     : 
-                    <p className="alert alert-danger col-xs-12 col-lg-7 col-md-7">Aramanızla eşleşen gönderi bulunmamaktadır..</p>
+                    <div className="col-lg-7 col-xs-7">
+                        <SearchPostsError/>
+                    </div>
+                    
                     )}
                
             </div>

@@ -98,7 +98,7 @@ class NoLoginTopBestPosts extends Component{
                             <hr/>
                             <div className="icon">
                             <div className="row">
-                            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                 <span style={{padding:'8'}}> 
                                     <div className={`like`}></div>
                                     <b>Beğen</b>
@@ -116,7 +116,7 @@ class NoLoginTopBestPosts extends Component{
                         </div>    
                             </div>
                             <div className="row Usercomment ">
-                                <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' && this.state.width >= 425 ? true : false))} comments={post}/>
+                                <NoLoginUserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' && this.state.width >= 425 && post.CommentLast.length > 0 ? true : false))} comments={post}/>
                             </div>
                             
                         </div> 

@@ -8,6 +8,8 @@ import Loadable from 'react-loadable'
 import ScrollContainer from './ScrollContainer'
 import { viewProfile } from '../actions/users';
 import { dateTime } from '../myfunctions/myfunctions'
+import SearchPostsError from './searchPostsError'
+import SearchPostsPerson from './searchPostsPerson'
 import './search.scss'
 
 const UserComments = Loadable({
@@ -143,7 +145,7 @@ class Search extends Component{
                             {this.state.viewuser == 1 ? <a style={{textDecoration:'underline',cursor:'pointer',color:'black',margin:'0 auto', display:'table', marginBottom:'5px'}}
                              onClick={()=> this.getUsers()}>Daha fazla kişi gör</a> : null }
                             </div>
-                        ) : (<p className="alert alert-danger">Aradığınız isimde kullanıcı bulunmamaktadır..</p>)}
+                        ) : (<SearchPostsPerson/>)}
                         
                     </div>
                     <div className="post-title col-xs-12 col-lg-7 col-md-7">
@@ -233,7 +235,10 @@ class Search extends Component{
                         </ScrollContainer>
                     )
                     : 
-                    <p style={{marginBottom:'10px'}}className="alert alert-danger col-xs-12 col-lg-7 col-md-7">Aramanızla eşleşen gönderi bulunmamaktadır..</p>
+                    <div className="col-lg-7">
+                     <SearchPostsError/>
+                    </div>
+                    
                     )}
                
             </div>

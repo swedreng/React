@@ -150,7 +150,7 @@ class Profile extends Component{
                                   {role==1 ? "admin" : role==2 ? "moderatör" : "kullanıcı"}
                                 </div>
                                 <div>
-                                    <p>{user_info.personalwriting}</p>
+                                    <p style={{padding:'25px',marginTop:'-30px'}}>{user_info.personalwriting}</p>
                                 </div>
                             </div>
                         
