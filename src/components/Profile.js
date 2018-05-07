@@ -21,6 +21,10 @@ const tabs = [
         icon: 'user',
     },
     {
+        name: 'Engellenen Kullanıcılar',
+        icon: 'eye-close',
+    },
+    {
         name: 'Paylaşım yap',
         icon: 'pencil',
     },
@@ -85,6 +89,14 @@ class Profile extends Component{
                 return <Account /> 
                 break
             case 2:
+            const BlockUsers = Loadable({
+                loader: () => import('./profile/blockusers.js'),
+                loading: Loading,
+                delay:3000
+            })
+                return <BlockUsers/>
+                break
+            case 3:
             const Share = Loadable({
                     loader: () => import('./profile/share.js'),
                     loading: Loading,
@@ -92,7 +104,7 @@ class Profile extends Component{
                 })
                 return <Share /> 
                 break    
-            case 3:
+            case 4:
             const Info = Loadable({
                 loader: () => import('./profile/info.js'),
                 loading: Loading,
@@ -100,12 +112,13 @@ class Profile extends Component{
             })
                 return <Info /> 
                 break
-            case 4:
+            case 5:
             const ShareInfo = Loadable({
                 loader: () => import('./profile/shareinfo.js'),
                 loading: Loading,
                 delay:3000
             })
+           
                 return <ShareInfo /> 
                 break    
                 default:

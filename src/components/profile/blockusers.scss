@@ -1,0 +1,41 @@
+
+   
+    @media only screen and (min-device-width: 425px)  {
+        .BlockPersons{
+            margin-bottom: 10px !important;
+            margin-left: 100px;
+            .person-image{
+                margin-right: 10px;
+            }
+        }
+    
+    }
+
+       
+    @media only screen and (min-device-width: 320px) and (max-device-width:425px){
+        .person-info-block{
+            .person-firstname-lastname-block{
+                margin-top:0px !important;
+                margin-left: 10px
+            }
+            .role-info-block{
+                margin-left: 0px !important;
+               
+                p{
+                    margin-left: 10px !important;
+                    font-size: 13px;
+                    
+                }
+                
+            }
+           
+        }
+        .person-process-block{
+            button{
+                padding: 4px 4px 4px 4px !important;
+                margin-top: -9px !important;
+                margin-left: 12px;
+            }
+        }
+    
+    }
