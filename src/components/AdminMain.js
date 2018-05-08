@@ -52,6 +52,10 @@ class AdminMain extends Component{
         let { postLike } = this.props.postsActions
         postLike({like:1,post_id:index})
     }
+    blockUser(user_id,post_id){
+        let { blockUser } = this.props.postsActions
+        blockUser({user_id:user_id,post_id:post_id})
+    }
     deletePost(post_id){
         let { deletePost } = this.props.postsActions
         deletePost({post_id:post_id})
@@ -59,6 +63,10 @@ class AdminMain extends Component{
     postConfirmation(post_id){
         let { postConfirmation } = this.props.postsActions
         postConfirmation({post_id:post_id})
+    }
+    userConfirmation(user_id){
+        let { userConfirmation } = this.props.postsActions
+        userConfirmation({user_id:user_id})
     }
     setCategory(category_id,post_id){
         
@@ -127,9 +135,9 @@ class AdminMain extends Component{
                                                     <span className="caret"></span>
                                                 </button>
                                                 <ul className="dropdown-menu">
-                                                    {post.id == user_id  ? null : <li><a href="#">Kullanıcıyı engelle</a></li>}
+                                                    {post.user.rank == 1 || post.user.rank == 2 ? null: <li><a onClick={() => this.blockUser(post.user.id)}>Kullanıcıyı engelle</a></li>}
                                                     <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li>
-                                                    
+                                                    {role == 1 && post.user.rank == 0 ? <li><a onClick={() => this.userConfirmation(post.user.id)}>Kullanıcıya Onay ver</a></li> : null}
                                                 </ul>
                                             </div>
                                             {role == 1 || role == 2 ? (

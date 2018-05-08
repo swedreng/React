@@ -114,6 +114,9 @@ export function getuserinfoUpdate(payload) {
             dispatch({type: GETUSER_INFO, payload:user_info}) 
             dispatch(alertMessage({message:response.message}))
             dispatch({type: USERINFO_UPDATE, payload:response.success})
+        }).catch(error => {
+            dispatch(alertMessage({message:error.response.data.message}))
+            dispatch({type: USERINFO_UPDATE, payload:error.response.data.success})
         })
       }
   }
@@ -139,6 +142,9 @@ export function getuserinfoUpdate(payload) {
             dispatch({type: GETUSER_INFO, payload:user_info}) 
             dispatch(alertMessage({message:response.message}))
             dispatch({type: USERINFO_UPDATE, payload:response.success})
+        }).catch(error => {
+            dispatch(alertMessage({message:error.response.data.message}))
+            dispatch({type: USERINFO_UPDATE, payload:error.response.data.success})
         })
       }
   }

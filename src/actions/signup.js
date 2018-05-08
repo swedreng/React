@@ -32,6 +32,9 @@ export function signUp(payload) {
          
         }
        
+      }).catch(error => {
+        dispatch(alertMessage({message:error.response.data.message}))
+        dispatch({ type: USER_SIGNUP, payload: { result: error.response.data.success}})
       })
    
   }

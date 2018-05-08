@@ -11,6 +11,7 @@ axios.interceptors.response.use(function (response) {
         localStorage.removeItem('auth')
         window.location = "#/login"
     }
+   
   
     return Promise.reject(error);
   });

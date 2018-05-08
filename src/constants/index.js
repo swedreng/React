@@ -30,4 +30,5 @@ export const SET_BESTPOSTS = "SET_BESTPOSTS"
 export const SET_BESTPOST = "SET_BESTPOST"
 export const SS = "SS"
 export const REMEMBER_ME = "REMEMBER_ME"
+export const USER_ISBLOCK_POST = "USER_ISBLOCK_POST"
 

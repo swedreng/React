@@ -4,7 +4,13 @@
         margin-top: 35px !important
      }
 }
-
+.info-S{
+    width: 15px !important;
+    height: 15px !important;
+    float:left;
+    background-image:url('../../images/info.png');
+    background-size:cover;
+}
 .post-count-profile{
     background-image:url('../../images/sharepost.png');
     width: 25px;

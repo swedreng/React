@@ -127,7 +127,7 @@ class ModeratorMain extends Component{
                                             <b>Beğen</b>
                                         </span>
                                     </div>
-                                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-4 likecomment">
+                                    <div className="col-lg-7 col-md-6 col-sm-6 col-xs-5 likecomment">
                                         <div className='likecount'>   
                                             <img src={`${require('../images/thumb-up.png')}`}></img><b>{post.like}</b>
                                         </div>
@@ -136,15 +136,15 @@ class ModeratorMain extends Component{
                                             <b className="openComment">{post.CommentCount}</b>
                                         </div>    
                                     </div>
-                                    <div className="col-lg-3 col-md-2 col-sm-2 col-xs-4">
-                                        {post.user.rank == 1 ? (<div className="col-lg-2 col-xs-2">Admin</div>) : (
+                                    <div className="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                                        {post.user.rank == 1 ? (<div className="admin-picture-Mod"></div>) : (
                                             <div className="dropdown option ">
                                                 <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>
                                                 <ul className="dropdown-menu">
                                                     {user_id == post.user.id || post.user.rank == 1 ? null:<li><a onClick={() => this.blockPost(post.post_id)}>Bunu görmek istemiyorum</a></li>}
-                                                    {user_id == post.user.id || post.user.rank == 1 || post.user.rank == 2 ? null: <li><a onClick={() => this.blockUser(post.user.id)}>Kullanıcıyı engelle</a></li>}
+                                                    {post.user.rank == 1 || post.user.rank == 2 ? null: <li><a onClick={() => this.blockUser(post.user.id)}>Kullanıcıyı engelle</a></li>}
                                                     {user_id == post.user.id ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
                                                     {role == 1 || role == 2 && post.user.rank == 0 ? <li><a onClick={() => this.userConfirmation(post.user.id)}>Kullanıcıya Onay ver</a></li> : null}
                                                 </ul>

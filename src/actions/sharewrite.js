@@ -15,11 +15,12 @@ export function shareWrite(payload) {
             write:payload.write
         })
         }).then(response => {
-            
-            const data = {post_id:payload.post_id,data:response.data,commentCount:response.commentCount}
-            dispatch({type: SHARE_WRITE, payload:response.success})
+      
             dispatch(alertMessage({message:response.message}))
-           
-      })
+            dispatch({type: SHARE_WRITE, payload:response.success})
+        }).catch(error => {
+            dispatch(alertMessage({message:error.response.data.message}))
+            dispatch({type: SHARE_WRITE, payload:error.response.data.success})
+        })
     }
   }

@@ -32,7 +32,10 @@ export function setAuth(payload) {
               //history.push('/')
           },   3000);
         }
-    })
+      }).catch(error => {
+        dispatch(alertMessage({message:error.response.data.message}))
+        dispatch({ type: SET_AUTH_LOGIN, payload:{ success: error.response.data.success} })
+      })
   }
 }
 

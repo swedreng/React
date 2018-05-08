@@ -1,4 +1,4 @@
-import {PP_UPLOAD,SET_AUTH_LOGIN} from "../constants"
+import {PP_UPLOAD,SET_AUTH_LOGIN,USER_ISBLOCK_POST} from "../constants"
 import {getPosts} from "./posts"
 import {alertMessage} from "./desc"
 import axios from '../myfunctions/myinterceptor'
@@ -36,4 +36,21 @@ export function profilpictureUpload(payload) {
      })
    }
   }
+
+  export function isblockPost(payload) {
+    return (dispatch, getState) => { 
+      let { auth } = getState()
+     return axios(`${process.env.URL}/api/user/isblockpost`, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+         'Authorization': `Bearer ${auth.token} `         
+        },
+       
+        }).then(response => {
+          dispatch({type:USER_ISBLOCK_POST, payload:response.status})
+      })
+    }
+  }  
   

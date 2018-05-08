@@ -58,6 +58,8 @@ class Profile extends Component{
         let { getUserSocialMedia } = this.props.userSocialActions
         getUsersInfo()
         getUserSocialMedia()
+        let { isblockPost } = this.props.ppuploadActions
+        isblockPost()
     }
     changeTab(index){
         this.setState({selectedTab:index})

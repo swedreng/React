@@ -83,7 +83,7 @@ class blockusers extends Component{
                             {this.state.viewuser == 1 ? <a style={{textDecoration:'underline',cursor:'pointer',color:'black',margin:'0 auto', display:'table', marginBottom:'5px',marginTop:'15px'}}
                              onClick={()=> this.getUsers()}>Daha fazla kişi gör</a> : null }
                             </div>
-                        ) : (<div>Engellenmiş kişi bulunmamaktadır.</div>)}
+                        ) : (<div>Engellenmiş kullanıcı bulunmamaktadır.</div>)}
                 </fieldset>
               </form>
             </div>

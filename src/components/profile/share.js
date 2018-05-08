@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
 import './share.scss'
 import Loading from '../loading.js'
+import * as isBlockPostActions from '../../actions/ppupload';
 import Loadable from 'react-loadable';
 
 const postKind = [
@@ -27,7 +30,6 @@ class share extends Component{
             selectedPost:0,
         }
     }
-
     changepostKind(e){
        
         let index = e.target.value
@@ -56,15 +58,18 @@ class share extends Component{
     } 
 
     render(){
+        let { user_post_banned } = this.props.users
+        console.log(user_post_banned,23)
         return(
 
-            <div className="col-xs-12 col-md-12 userShare">
+            <div className="row" style={{padding:'10px'}}>
                    <div className="row">
                         <form class="form-horizontal">
                             <fieldset>
 
                             <legend>Paylaşım yap</legend>
-                            <div class="form-group">
+                          {user_post_banned == 0 ? (
+                                <div class="form-group">
                                 <label class="col-md-4 control-label" for="selectbasic">Paylaşım türü</label>
                                     <div class="col-md-5">
 
@@ -77,6 +82,12 @@ class share extends Component{
 
                                     </div>
                             </div>
+                          ): (
+                            <div className="">
+                                <p>Gönderi paylaşımınız adminler veya moderatorler tarafından geçici bir süreliğine engellenmiştir. Bunun sebebi uygunsuz içerik paylaşımı veya çok sık paylaşım yapmak olabilir. Hesabınızı paylaşıma açmamız için iletişim kısmından bize mail gönderebilirsiniz, teşekkürler.</p>
+                            </div>
+                          )}
+                          
                             </fieldset>
                         </form>
                  
@@ -91,5 +102,11 @@ class share extends Component{
 }
 
 
-
-export default share;
+const mapStateToProps = ({ users }) => ({
+    users
+})
+const mapDispatchToProps = dispatch => ({
+    isBlockPostActions: bindActionCreators(isBlockPostActions, dispatch)
+})
+  
+export default connect(mapStateToProps, mapDispatchToProps)(share)

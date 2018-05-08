@@ -42,13 +42,20 @@
     margin-left: 10px;
     background-size:cover;
 }
+.admin-picture-Mod {
+    width: 20px;
+    height: 20px;
+    float: left;
+    background-image:url('../images/boss.png');
+    background-size:cover;
+}
 .userMenu{
     padding: 0px 12px !important
 }
 
 .quality_user{
     background-image:url('../images/icon.png');
-    width: 18px;
+    width: 18px;    
     height: 18px;
     display: inline-flex;
     margin-left: 5px;

@@ -23,7 +23,10 @@ export function fileUpload(payload) {
             dispatch(alertMessage({message:response.message}))
             dispatch({type: FILE_UPLOAD, payload:response.success})
          
-    })
+      }).catch(error => {
+        dispatch(alertMessage({message:error.response.data.message}))
+        dispatch({type: FILE_UPLOAD, payload:error.response.data.success})
+      })
   }
 }
 

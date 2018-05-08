@@ -112,7 +112,7 @@ class LoginUserMain extends Component{
                                                  <b>Beğen</b>
                                              </span>
                                          </div>
-                                         <div className="col-lg-6 col-md-6 col-sm-6 col-xs-5 likecomment">
+                                         <div className="col-lg-7 col-md-6 col-sm-6 col-xs-5 likecomment">
                                              <div className='likecount'>   
                                                  <img src={`${require('../images/thumb-up.png')}`}></img><b>{post.like}</b>
                                              </div>
@@ -121,8 +121,8 @@ class LoginUserMain extends Component{
                                                  <b className="openComment">{post.CommentCount}</b>
                                              </div>    
                                          </div>
-                                         <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
-                                         {post.user.rank == 1 ? <div>Admin</div>:(
+                                         <div className="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                         {post.user.rank == 1 ? <div> <div className="admin-picture col-xs-6 col-lg-6"></div><div className="col-xs-6 col-lg-6">Admin</div></div>:(
                                              <div className="dropdown option">
                                              <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                  <span className="caret"></span>
