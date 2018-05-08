@@ -108,7 +108,7 @@ class Contact extends Component{
                     <legend><span class="glyphicon glyphicon-globe"></span> Bizim Ofis</legend>
                         <address>
                             <strong title="Adress">Adres: </strong>
-                            Henüz ofis yok.
+                            Adres yok :) Home ofis.
                         </address>
                         <adress>
                         <strong title="Phone">Tel: </strong>

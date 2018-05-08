@@ -15677,7 +15677,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".navbar-default {\n  background-color: #cc280b !important; }\n\n.row {\n  margin-left: 0;\n  margin-right: 0; }\n\n.navbar-nav > li > a, .navbar-brand {\n  color: white !important; }\n\n#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right > li > a {\n  background-color: #ee2411; }\n\n.login {\n  bottom: 50px; }\n\n.login input, .login button, .login h1 {\n  padding: 10px;\n  margin: 10px; }\n\n.login h1 {\n  margin-left: 42%;\n  margin-right: 42%; }\n\n.login button {\n  margin-left: 45%;\n  margin-right: 45%; }\n\n.login input {\n  margin-left: 35%;\n  margin-right: 35%;\n  width: 30%; }\n\n.footer {\n  padding-left: 0px !important;\n  padding-right: 0px !important; }\n\n.mainContent {\n  min-height: 100vh !important;\n  padding-right: 5px !important;\n  padding-left: 5px !important; }\n\n#root {\n  padding: 0px;\n  overflow: -moz-scrollbars-vertical;\n  overflow-x: hidden;\n  overflow: -moz-scrollbars-vertical; }\n\n.signup {\n  overflow: auto;\n  bottom: 50px; }\n\n.signup input, .signup button, .signup h1 {\n  padding: 10px;\n  margin: 10px; }\n\n.signup input {\n  margin-left: 35%;\n  margin-right: 35%;\n  width: 30%; }\n\n.signup h1 {\n  text-align: center; }\n\n.signup button {\n  display: block;\n  margin: 0px auto;\n  padding: 10px;\n  width: 20%; }\n\n#header {\n  padding: 10px; }\n\n#description {\n  margin-left: 30%;\n  margin-right: 30%;\n  width: 50%; }\n\n#paginationadmin {\n  margin-left: 35%;\n  margin-right: 35%;\n  width: 50%; }\n\n.container-full {\n  margin: 0 auto;\n  width: 100%; }\n\n.nopadding {\n  padding: 0 !important;\n  margin: 0 !important; }\n\n#footer .panel {\n  margin: 0 !important; }\n\n@media screen and (max-width: 768px) {\n  .signup button {\n    display: block;\n    margin: 0px auto;\n    padding: 10px;\n    width: 60%; }\n  .signup h1 {\n    text-align: center; }\n  .signup input {\n    margin: 5px auto 15px;\n    width: 60%; } }\n\n.show-loading-animation.rect-shape, .show-loading-animation.round-shape, .show-loading-animation.text-row,\n.show-loading-animation .rect-shape,\n.show-loading-animation .round-shape,\n.show-loading-animation .text-row {\n  animation: react-placeholder-pulse 1.5s infinite; }\n\n@keyframes react-placeholder-pulse {\n  0% {\n    opacity: .6; }\n  50% {\n    opacity: 1; }\n  100% {\n    opacity: .6; } }\n\n@media screen and (min-width: 768px) {\n  .well {\n    background-color: transparent;\n    box-shadow: none;\n    border: none; } }\n\n.scrollTop {\n  position: fixed;\n  z-index: 9999;\n  bottom: 10px;\n  right: 10px;\n  width: 50px;\n  height: 50px;\n  float: right;\n  cursor: pointer;\n  margin-bottom: 40px;\n  margin-right: 30px;\n  background-image: url(" + __webpack_require__(166) + ");\n  background-size: cover; }\n\n.passwordreset {\n  float: left;\n  cursor: pointer;\n  color: black; }\n\n.forgetpassword {\n  width: 22px;\n  height: 22px;\n  float: left;\n  margin-right: 5px;\n  background-image: url(" + __webpack_require__(167) + ");\n  background-size: cover; }\n\n.facebooklogin {\n  float: left;\n  cursor: pointer;\n  color: black;\n  padding: 10px; }\n\n.facebook {\n  width: 20px;\n  height: 20px;\n  float: left;\n  margin-right: 5px;\n  margin-left: 3px;\n  background-image: url(" + __webpack_require__(168) + ");\n  background-size: cover; }\n\n.messageL {\n  margin-bottom: -10px;\n  margin-top: 10px; }\n\n.messageS {\n  margin-bottom: -10px;\n  margin-top: 17px; }\n\n.loginoptions div {\n  padding: 0px;\n  margin-bottom: 4px; }\n\n.loginoptions a {\n  text-decoration: none; }\n\n.jumbotron {\n  background-color: unset !important; }\n", ""]);
+exports.push([module.i, ".navbar-default {\n  background-color: #cc280b !important; }\n\n.row {\n  margin-left: 0;\n  margin-right: 0; }\n\n.navbar-nav > li > a, .navbar-brand {\n  color: white !important; }\n\n#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right > li > a {\n  background-color: #ee2411; }\n\n.login {\n  bottom: 50px; }\n\n.login input, .login button, .login h1 {\n  padding: 10px;\n  margin: 10px; }\n\n.login h1 {\n  margin-left: 42%;\n  margin-right: 42%; }\n\n.login button {\n  margin-left: 45%;\n  margin-right: 45%; }\n\n.login input {\n  margin-left: 35%;\n  margin-right: 35%;\n  width: 30%; }\n\n.footer {\n  padding-left: 0px !important;\n  padding-right: 0px !important; }\n\n.mainContent {\n  min-height: 100vh !important;\n  padding-right: 5px !important;\n  padding-left: 5px !important; }\n\n#root {\n  padding: 0px;\n  overflow: -moz-scrollbars-vertical;\n  overflow-x: hidden;\n  overflow: -moz-scrollbars-vertical; }\n\n.signup {\n  overflow: auto;\n  bottom: 50px; }\n\n.signup input, .signup button, .signup h1 {\n  padding: 10px;\n  margin: 10px; }\n\n.signup input {\n  margin-left: 35%;\n  margin-right: 35%;\n  width: 30%; }\n\n.signup h1 {\n  text-align: center; }\n\n.signup button {\n  display: block;\n  margin: 0px auto;\n  padding: 10px;\n  width: 20%; }\n\n#header {\n  padding: 10px; }\n\n#description {\n  margin-left: 30%;\n  margin-right: 30%;\n  width: 50%; }\n\n#paginationadmin {\n  margin-left: 35%;\n  margin-right: 35%;\n  width: 50%; }\n\n.container-full {\n  margin: 0 auto;\n  width: 100%; }\n\n.nopadding {\n  padding: 0 !important;\n  margin: 0 !important; }\n\n#footer .panel {\n  margin: 0 !important; }\n\n@media screen and (max-width: 768px) {\n  .signup button {\n    display: block;\n    margin: 0px auto;\n    padding: 10px;\n    width: 60%; }\n  .signup h1 {\n    text-align: center; }\n  .signup input {\n    margin: 5px auto 15px;\n    width: 60%; } }\n\n.show-loading-animation.rect-shape, .show-loading-animation.round-shape, .show-loading-animation.text-row,\n.show-loading-animation .rect-shape,\n.show-loading-animation .round-shape,\n.show-loading-animation .text-row {\n  animation: react-placeholder-pulse 1.5s infinite; }\n\n@keyframes react-placeholder-pulse {\n  0% {\n    opacity: .6; }\n  50% {\n    opacity: 1; }\n  100% {\n    opacity: .6; } }\n\n@media screen and (min-width: 768px) {\n  .well {\n    background-color: transparent;\n    box-shadow: none;\n    border: none; } }\n\n.scrollTop {\n  position: fixed;\n  z-index: 9999;\n  bottom: 10px;\n  right: 10px;\n  width: 50px;\n  height: 50px;\n  float: right;\n  cursor: pointer;\n  margin-bottom: 40px;\n  margin-right: 30px;\n  background-image: url(" + __webpack_require__(166) + ");\n  background-size: cover; }\n\n.passwordreset {\n  float: left;\n  cursor: pointer;\n  color: black; }\n\n.forgetpassword {\n  width: 22px;\n  height: 22px;\n  float: left;\n  margin-right: 5px;\n  background-image: url(" + __webpack_require__(167) + ");\n  background-size: cover; }\n\n.facebooklogin {\n  float: left;\n  cursor: pointer;\n  color: black;\n  padding: 10px; }\n\n.facebook {\n  width: 20px;\n  height: 20px;\n  float: left;\n  margin-right: 5px;\n  margin-left: 3px;\n  background-image: url(" + __webpack_require__(168) + ");\n  background-size: cover; }\n\n.messageL {\n  margin-bottom: -10px;\n  margin-top: 10px; }\n\n.messageS {\n  margin-bottom: -10px;\n  margin-top: 17px; }\n\n.loginoptions div {\n  padding: 0px;\n  margin-bottom: 4px; }\n\n.loginoptions a {\n  text-decoration: none; }\n\n.jumbotron {\n  background-color: unset !important; }\n\n@media only screen and (max-device-width: 425px) {\n  .loginoptions input {\n    margin: 2px 0 0;\n    margin-top: 2px;\n    line-height: normal;\n    margin-left: -18px; }\n  .loginoptions label {\n    padding-left: 25px; } }\n", ""]);
 
 // exports
 
@@ -17670,7 +17670,7 @@ var LoginUserMain = function (_Component) {
                                         { className: "row" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col-lg-3 col-md-4 col-sm-4 col-xs-5" },
+                                            { className: "col-lg-3 col-md-4 col-sm-4 col-xs-4" },
                                             _react2.default.createElement(
                                                 "span",
                                                 { onClick: function onClick() {
@@ -17712,7 +17712,7 @@ var LoginUserMain = function (_Component) {
                                         ),
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col-lg-2 col-md-2 col-sm-2 col-xs-2" },
+                                            { className: "col-lg-2 col-md-2 col-sm-2 col-xs-3" },
                                             post.user.rank == 1 ? _react2.default.createElement(
                                                 "div",
                                                 null,
@@ -18112,7 +18112,7 @@ var Login = function (_Component) {
                                                         null,
                                                         _react2.default.createElement('input', { onClick: function onClick() {
                                                                 return _this4.rememberMe();
-                                                            }, checked: rememberme == null ? false : true, name: 'remember', type: 'checkbox', value: 'Remember Me' }),
+                                                            }, checked: rememberme == null ? false : true, className: 'rememberme-button', type: 'checkbox', value: 'Remember Me' }),
                                                         ' Beni hat\u0131rla'
                                                     )
                                                 ),
@@ -20476,7 +20476,7 @@ var Section = function (_Component) {
     }, {
         key: 'getCategory',
         value: function getCategory() {
-            if (status == true) {
+            if (this.state.status == true) {
                 this.setState({ status: false });
             } else {
                 this.setState({ status: true });
@@ -20714,7 +20714,7 @@ var SectionBestPosts = function (_Component) {
     }, {
         key: 'getCategory',
         value: function getCategory() {
-            if (status == true) {
+            if (this.state.status == true) {
                 this.setState({ status: false });
             } else {
                 this.setState({ status: true });
@@ -20772,6 +20772,8 @@ var SectionBestPosts = function (_Component) {
                                 _react2.default.createElement(
                                     'span',
                                     { style: { float: 'right' }, className: 'label label-danger' },
+                                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-heart' }),
+                                    ' ',
                                     post.like
                                 )
                             )
@@ -21071,7 +21073,137 @@ var AboutUs = function (_Component) {
                                 _react2.default.createElement(
                                     'p',
                                     null,
-                                    'Mizah\u0131n temeli ele\u015Ftiriye dayan\u0131r, opanc ele\u015Ftirel mizah anlay\u0131\u015F\u0131n\u0131 benimseyen insanlar toplulu\u011Fudur.'
+                                    'Mizah\u0131n temeli ele\u015Ftiriye dayan\u0131r, mizah asl\u0131nda bir\u015Feyi e\u011Flenceli taraf\u0131ndan ele\u015Ftirmektir, opanc ele\u015Ftirel mizah anlay\u0131\u015F\u0131n\u0131 benimseyen insanlar toplulu\u011Fudur.'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    '\u0130yi de niye burda tak\u0131lal\u0131m ? '
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'E\u011Flenmek istiyorsan tak\u0131l.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Bo\u015F yapmak istiyorsan tak\u0131l.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Fikir al\u0131\u015Fveri\u015Fi yapmak istiyorsan tak\u0131l.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Yok abi diyorsan bunlardan banane, ben sadece yorumlar\u0131 okumaya geldim, tak\u0131l :) '
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Opanc nas\u0131l bir mant\u0131kla \xE7al\u0131\u015F\u0131r ?'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Bir anasayfa hayal et hepimizin, takip\xE7i muhabbeti yok, sadece iyiyse yazd\u0131\u011F\u0131n yaz\u0131,payla\u015Ft\u0131\u011F\u0131n g\xF6nderiyle varolursun, adil de\u011Fil mi ?'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    '\u0130yi de abi benim takip\xE7im yok, bo\u015Fver takip\xE7iyi sen e\u011Flenceli bir\u015Feyler payla\u015F biz herkese sunar\u0131z.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    '\u0130yi de abi ben ne kazan\u0131cam, e\u011Flenceli \u015Feyler payla\u015Ft\u0131k\xE7a ? '
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Mizah\u0131n\u0131 konu\u015Fturucaks\u0131n ve binlerce insan seni g\xF6r\xFCcek.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Ayr\u0131ca burda seni tan\u0131yan insanlar di\u011Fer sosyal medya hesaplar\u0131nada ula\u015Fabilecek.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Kendine tan\u0131nma ve kendi reklam\u0131n\u0131 yapma f\u0131rsat\u0131 sunabilirsin.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'D\xFC\u015F\xFCnsene tek bir g\xF6nderi payla\u015F\u0131yorsun b\xFCt\xFCn platformdaki insanlara ula\u015F\u0131yor, istemezmisin ? '
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Yetmedi mi ? e\u011Flenicez i\u015Fte her\u015Fey de \xE7\u0131kar i\xE7in olmaz ya :) '
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    '\u0130yi de bunu niye yap\u0131yoruz ? '
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Amac\u0131m\u0131z s\u0131cak ve birlikte e\u011Flenebilece\u011Fimiz bir ortam yaratmak.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    '\u015Eahsen biz insanlar\u0131 e\u011Flendirmeyi seviyoruz.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Can s\u0131k\u0131c\u0131 i\xE7eriklere gerek yok, ki\u015Fisel payla\u015F\u0131mlara yer yok.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Hadi itiraf et sende yorumlar\u0131 okumaya bay\u0131lm\u0131yor musun ?'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Burda okunacak \xE7ok yorum bulaca\u011F\u0131na emin olabilirsin.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Hayat \xE7ok gergin de\u011Fil mi gel beraber bo\u015F yapal\u0131m :) '
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Dostum bunun sonu nereye gidicek ? '
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Kim bilir, daha \xF6nce \xE7\u0131kmad\u0131\u011F\u0131n bir yolun, kar\u015F\u0131na neler \xE7\u0131karaca\u011F\u0131n\u0131 bilemezsin.'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Projeler yap\u0131l\u0131r bir amaca hizmet etmek i\xE7in, sonucunda gitti\u011Fi yer onu ortaya koyanlar\u0131n de\u011Fil, kullananlar\u0131n elindedir.'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Son bir\u015Fey'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Hayat\u0131 fazla ciddiye almay\u0131n.'
                                 )
                             )
                         )
@@ -21095,7 +21227,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".paddingTB60 {\n  padding: 0px 30px 40px 0px; }\n  .paddingTB60 img {\n    height: 70%; }\n\n.gray-bg {\n  background: #F1F1F1 !important; }\n\n.about-title h1 {\n  color: #535353;\n  font-size: 45px;\n  font-weight: 600; }\n\n.about-title span {\n  color: #AF0808;\n  font-size: 45px;\n  font-weight: 700; }\n\n.about-title h3 {\n  color: #535353;\n  font-size: 23px;\n  margin-bottom: 24px; }\n\n.about-title p {\n  color: #7a7a7a;\n  line-height: 1.8;\n  margin: 0 0 15px; }\n\n.about-paddingB {\n  padding-bottom: 12px; }\n\n.about-img {\n  padding-left: 57px; }\n\n.about-us {\n  padding: 10px !important; }\n\n/* Social Icons */\n.about-icons {\n  margin: 48px 0px 48px 0px; }\n\n.about-icons i {\n  margin-right: 10px;\n  padding: 0px;\n  font-size: 35px;\n  color: #323232;\n  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); }\n\n.about-icons li {\n  margin: 0px;\n  padding: 0;\n  display: inline-block; }\n\n#social-fb:hover {\n  color: #3B5998;\n  transition: all .001s; }\n\n#social-tw:hover {\n  color: #4099FF;\n  transition: all .001s; }\n\n#social-gp:hover {\n  color: #d34836;\n  transition: all .001s; }\n\n#social-em:hover {\n  color: #f39c12;\n  transition: all .001s; }\n\n.contact-facebook {\n  width: 30px;\n  height: 30px;\n  float: right;\n  background-image: url(" + __webpack_require__(94) + ");\n  background-size: cover; }\n\n.contact-twitter {\n  width: 30px;\n  height: 30px;\n  margin: 0 auto !important;\n  background-image: url(" + __webpack_require__(95) + ");\n  background-size: cover; }\n\n.contact-instagram {\n  width: 30px;\n  height: 30px;\n  background-image: url(" + __webpack_require__(96) + ");\n  background-size: cover; }\n", ""]);
+exports.push([module.i, ".paddingTB60 {\n  padding: 0px 30px 40px 0px; }\n  .paddingTB60 img {\n    height: 70%; }\n\n.gray-bg {\n  background: #F1F1F1 !important; }\n\n.about-title h1 {\n  color: #535353;\n  font-size: 45px;\n  font-weight: 600;\n  margin-top: 0px !important; }\n\n.about-title span {\n  color: #AF0808;\n  font-size: 45px;\n  font-weight: 700; }\n\n.about-title h3 {\n  color: #535353;\n  font-size: 23px;\n  margin-bottom: 24px; }\n\n.about-title p {\n  color: #7a7a7a;\n  line-height: 1.8;\n  margin: 0 0 15px; }\n\n.about-paddingB {\n  padding-bottom: 12px; }\n\n.about-img {\n  padding-left: 57px; }\n\n.about-us {\n  padding: 10px !important; }\n\n/* Social Icons */\n.about-icons {\n  margin: 48px 0px 48px 0px; }\n\n.about-icons i {\n  margin-right: 10px;\n  padding: 0px;\n  font-size: 35px;\n  color: #323232;\n  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); }\n\n.about-icons li {\n  margin: 0px;\n  padding: 0;\n  display: inline-block; }\n\n#social-fb:hover {\n  color: #3B5998;\n  transition: all .001s; }\n\n#social-tw:hover {\n  color: #4099FF;\n  transition: all .001s; }\n\n#social-gp:hover {\n  color: #d34836;\n  transition: all .001s; }\n\n#social-em:hover {\n  color: #f39c12;\n  transition: all .001s; }\n\n.contact-facebook {\n  width: 30px;\n  height: 30px;\n  float: right;\n  background-image: url(" + __webpack_require__(94) + ");\n  background-size: cover; }\n\n.contact-twitter {\n  width: 30px;\n  height: 30px;\n  margin: 0 auto !important;\n  background-image: url(" + __webpack_require__(95) + ");\n  background-size: cover; }\n\n.contact-instagram {\n  width: 30px;\n  height: 30px;\n  background-image: url(" + __webpack_require__(96) + ");\n  background-size: cover; }\n", ""]);
 
 // exports
 
@@ -21337,7 +21469,7 @@ var Contact = function (_Component) {
                                 { title: "Adress" },
                                 "Adres: "
                             ),
-                            "Hen\xFCz ofis yok."
+                            "Adres yok :) Home ofis."
                         ),
                         _react2.default.createElement(
                             "adress",
@@ -21472,7 +21604,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".jumbotron {\n  background: #eeeff0;\n  color: #353131;\n  border-radius: 0px; }\n\n.jumbotron-sm {\n  padding-top: 24px;\n  padding-bottom: 24px; }\n\n.jumbotron small {\n  color: #FFF; }\n\n.h1 small {\n  font-size: 24px; }\n", ""]);
+exports.push([module.i, ".jumbotron {\n  background: #eeeff0;\n  color: #353131;\n  border-radius: 0px; }\n\n.jumbotron-sm {\n  padding-top: 24px;\n  padding-bottom: 24px; }\n\n.jumbotron small {\n  color: #FFF; }\n\n.h1 small {\n  font-size: 24px; }\n\n.well-sm {\n  margin-top: 5px; }\n", ""]);
 
 // exports
 

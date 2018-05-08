@@ -106,7 +106,7 @@ class LoginUserMain extends Component{
                                  <hr />
                                  <div className="icon">
                                  <div className="row">
-                                         <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
+                                         <div className="col-lg-3 col-md-4 col-sm-4 col-xs-4">
                                              <span onClick={() => this.likeSubmit(post.post_id)}> 
                                                  <div className={`likeLG ${post.IslikedPost ? 'activeLG' : null}`}></div>
                                                  <b>Beğen</b>
@@ -121,7 +121,7 @@ class LoginUserMain extends Component{
                                                  <b className="openComment">{post.CommentCount}</b>
                                              </div>    
                                          </div>
-                                         <div className="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                         <div className="col-lg-2 col-md-2 col-sm-2 col-xs-3">
                                          {post.user.rank == 1 ? <div> <div className="admin-picture col-xs-6 col-lg-6"></div><div className="col-xs-6 col-lg-6">Admin</div></div>:(
                                              <div className="dropdown option">
                                              <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">

@@ -93,7 +93,7 @@ class Login extends Component{
                                             <div className="row">
                                                 <div className="col-md-6">
                                                     <label>
-                                                        <input onClick={() => this.rememberMe()} checked = {rememberme == null ? false:true} name="remember" type="checkbox" value="Remember Me" /> Beni hatırla
+                                                        <input onClick={() => this.rememberMe()} checked = {rememberme == null ? false:true} className="rememberme-button" type="checkbox" value="Remember Me" /> Beni hatırla
                                                     </label>
                                                 </div>
                                                 <div className="col-md-6">

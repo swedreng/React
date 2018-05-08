@@ -19,7 +19,7 @@ class Section extends Component{
         
     }
     getCategory(){
-        if(status == true){
+        if(this.state.status == true){
             this.setState({status : false})
         }else{
             this.setState({status : true})
@@ -48,6 +48,7 @@ class Section extends Component{
                             )
                         }).slice(5,categories.length) : null}
                     <a onClick={() => this.getCategory()} className="list-group-item">Diğer</a>
+                    
               </div>
             </div>
         );

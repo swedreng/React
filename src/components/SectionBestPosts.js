@@ -16,7 +16,7 @@ class SectionBestPosts extends Component{
         getBestPostToday()
     }
     getCategory(){
-        if(status == true){
+        if(this.state.status == true){
             this.setState({status : false})
         }else{
             this.setState({status : true})
@@ -41,7 +41,7 @@ class SectionBestPosts extends Component{
                     { this.state.status && bestposttoday.length >= 5 ? 
                         bestposttoday.map(post => {
                             return (
-                                <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><a href="#" className="list-group-item">{post.user.firstname} {post.user.lastname}<span style={{float:'right'}} className="label label-danger">{post.like}</span></a></Link>
+                                <Link to={isAuth ? `/loginbestpost/${post.post_id}` : `/bestpost/${post.post_id}`}><a href="#" className="list-group-item">{post.user.firstname} {post.user.lastname}<span style={{float:'right'}} className="label label-danger"><span className="glyphicon glyphicon-heart"/> {post.like}</span></a></Link>
                             )
                         }).slice(5,bestposttoday.length) : null}
                     <a onClick={() => this.getCategory()} className="list-group-item">Diğer</a>

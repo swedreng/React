@@ -203,7 +203,7 @@
       margin-top: 17px;
   }
   .loginoptions{
-     
+   
       div{
           padding: 0px;
           margin-bottom: 4px;
@@ -215,5 +215,20 @@
   }
   .jumbotron{
       background-color: unset !important;
+  }
+
+  @media only screen and (max-device-width: 425px)  {
+    .loginoptions{
+        input{
+            margin: 2px 0 0;
+            margin-top: 2px;
+            line-height: normal;
+            margin-left: -18px;  
+        }
+        label{
+            padding-left: 25px;
+        }
+    }
+    
   }
  
