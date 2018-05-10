@@ -77,10 +77,8 @@ class TopBestPosts extends Component{
         LoginviewProfile({person_username:username,value:0,event:true})
     }
     onUpdate(){
-        console.log("bla bla bla")
         let { getTopBestPostTodayLogin } = this.props.bestPostActions
         let { postCount } = this.props.posts
-        console.log(this.props.posts.data.length < postCount,23)
         if(this.props.posts.data.length < postCount){
             if(this.state.status == true){
                 this.setState({loadMore:true,status:false})
@@ -94,7 +92,6 @@ class TopBestPosts extends Component{
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
         const { role } = this.props.auth
-        console.log(data,23)
         
             return(
                 <div className="LoginUserMain">
@@ -148,7 +145,7 @@ class TopBestPosts extends Component{
                                                  </div>    
                                              </div>
                                              <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
-                                             {post.user.rank == 1 ? <div>Admin</div>:(
+                                             {post.user.rank == 1 ? null:(
                                                  <div className="dropdown option">
                                                  <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                      <span className="caret"></span>

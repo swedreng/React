@@ -24,7 +24,6 @@ export function setAuth(payload) {
         dispatch(alertMessage({message:response.message}))
         dispatch({ type: SET_AUTH_LOGIN, payload:{ success: response.success, username:payload.username, role:response.role , username:response.username, user_id:response.user_id, pp:response.user_pp, token:response.token, personalwriting:response.personalwriting} })
           if(response.success){
-            console.log(response.user_id,11)
            response.isAuth = response.success; 
            localStorage.setItem('auth',JSON.stringify(response))
             setTimeout(() => {
@@ -57,7 +56,6 @@ export function PasswordReset(payload) {
   }
 }
 export function rememberMe(payload){
-console.log(payload,77)
   return (dispatch, getState) => { 
     
         axios(`${process.env.URL}/api/rememberme`, {
@@ -122,7 +120,6 @@ export function getRememberMe(payload){
 
 export function PasswordUpdate(payload) {
   return (dispatch, getState) => { 
-    console.log(payload.token,payload.password)
     axios(`${process.env.URL}/api/passwordupdate`, {
       method: 'POST',
       headers: {

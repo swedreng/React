@@ -50,11 +50,9 @@ class viewuserposts extends Component{
         deletePost({post_id:post_id})
     }
     onUpdate(){
-        console.log("viewonupdate")
         let { LoginviewProfile } = this.props.viewProfileActions
         let { postCount } = this.props.posts
         let { username } = this.props
-        console.log(this.props.posts.data.length < postCount,23)
         if(this.props.posts.data.length < postCount){
             if(this.state.status == true){
                 this.setState({loadMore:true,status:false})

@@ -34,7 +34,6 @@ class Admin extends Component{
    
     handlePageChange(pageNumber) {
         let { getUsers } = this.props.userActions
-        console.log(`active page is ${pageNumber}`)
         this.setState({activePage: pageNumber})
         getUsers(pageNumber)
     }

@@ -95,7 +95,6 @@ export function getBestPost(payload){
             post_id: payload.post_id
         })
         }).then(response => {
-          console.log(response,31)
             var data = response
             var postCount = response.length
             dispatch({type: GET_POSTS, payload:{data:data,postCount:postCount}})
@@ -118,7 +117,6 @@ export function getBestPost(payload){
             post_id: payload.post_id
         })
         }).then(response => {
-          console.log(response,31)
             var data = response
             var postCount = response.length
             dispatch({type: GET_POSTS, payload:{data:data,postCount:postCount}})

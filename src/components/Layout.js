@@ -50,7 +50,6 @@ class Layout extends Component{
         let { categories } = this.props.categories
         let { bestposts: {bestposttoday} } = this.props
         const { auth:{isAuth} } = this.props
-        console.log(bestposttoday,49)
             return(
                 
                    <div id="content">

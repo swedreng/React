@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux"
+import { Link } from 'react-router-dom'
 import { bindActionCreators } from "redux"
-import * as bestPostActions from "../actions/bestpost"
 import * as postsActions from "../actions/posts"
+import * as searchActions from "../actions/users"
 import Loading from './loading'
 import Loadable from 'react-loadable';
-import ScrollContainer from './ScrollContainer'
-import { dateTime } from '../myfunctions/myfunctions'
-import './Nologintopbestposts.scss'
+import { dateTime } from '../myfunctions/myfunctions';
+import './nologinmain.scss'
+
 
 const NoLoginUserComments = Loadable({
     loader: () => import('./NoLoginUserComments.js'),
@@ -21,22 +22,23 @@ const NoLoginBestComments = Loadable({
     delay:4000
 });
 
-class NoLoginTopBestPosts extends Component{
+class AllPosts extends Component{
 
     constructor(props){
         super(props)
-        this.state = {loadMore:false, status:true,comment:{},width:null}
-        this.onUpdate = this.onUpdate.bind(this)
+        this.state = {comment:{},width:null,x:true}
 
     }
     componentDidMount(){
-        let { S } = this.props.postsActions
-        S()
-        let { getTopBestPostToday } = this.props.bestPostActions
-        getTopBestPostToday({value:0,event:true})
-        var genislik = window.screen.width
+        var genislik = window.screen.width;
         this.setState({width:genislik})
+        let { AllPosts } = this.props.postsActions
+        AllPosts()
     }
+    closeX(){
+        this.setState({x:false})
+    }
+  
     actionComment(post_id){
         const commentnew =  {...this.state.comment};
         if(commentnew[post_id]){
@@ -46,46 +48,44 @@ class NoLoginTopBestPosts extends Component{
         }
         this.setState({comment: commentnew})
     }
-    onUpdate(){
-        let { getTopBestPostToday } = this.props.bestPostActions
-        let { postCount } = this.props.posts
-        if(this.props.posts.data.length < postCount){
-            if(this.state.status == true){
-                this.setState({loadMore:true,status:false})
-                getTopBestPostToday((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(()=>{
-                    this.setState({status:true,loadMore:false})
-                })
-            }  
-        } 
+    viewProfile(person_username){
+        let { viewProfile } = this.props.searchActions
+        viewProfile({person_username,value:0,event:true})
     }
+
     render(){
+        
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
         const { role } = this.props.auth
        
         return(
             <div className="ConnectionMain">
-             {(data.length > 0 ? 
-                (
-                <ScrollContainer onUpdate={this.onUpdate}>
+            {this.state.x == true ? (
+                <div className="opanc">
+                <span><h4>Opanc.com'a Hoşgeldiniz </h4>Gönderilere yorum yapmak, beğenmek ve paylaşım yapmak için sisteme kayıt olmalısınız, iyi eğlenceler.
+                    <Link to="/signup"><a style = {{color : '#cc280b', cursor: 'pointer' }}> Kayıt ol</a></Link>
+                </span>
+            </div>
+            ) : null}
+            
                 {data.map((post,index) => ( 
             
                 <div key={index}>
-                   
+                    {post.confirmation == 1 ? (
                         <div className={`row Main ${this.state.width <= 425 && post.CommentBest.length > 0 ? 'mobil-myarea' : null}`}>
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
-                                <div className="col-lg-8 col-md-7 col-sm-4 col-xs-9">
-                                    <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
+                                <div className="col-lg-8 col-md-5 col-sm-4 col-xs-9">
+                                    <img className="ppimage" src={post.user.pp}/><b> <a style = {{color : 'black', cursor: 'pointer' }} onClick={() => this.viewProfile(post.user.username)}>{post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user-NL'}></div> : null}
                                 </div>    
-                                <div className="col-lg-1 col-md-1 col-sm-2 col-xs-1" style={{float:'right'}}>
-                                    <div className={'confirmation_active-NTB'}></div>                                                           
+                                <div className="col-lg-1 col-md-2 col-sm-2 col-xs-1" style={{float:'right'}}>
+                                    <div className={'confirmation_active-NL'}></div>                                                           
                                 </div>  
-                                <div className="col-lg-3 col-md-4 col-sm-6 col-xs-2">
-                                    <span className="postTime-NTB">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
+                                <div className="col-lg-3 col-md-5 col-sm-6 col-xs-2">
+                                    <span className="postTimeNL">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
                                 </div>    
-                                 
                             </div>
                                 <p>{post.writing}</p>  
                             </div>
@@ -93,20 +93,20 @@ class NoLoginTopBestPosts extends Component{
                             <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>
                                 <img src={post.image}/>
                             </div>
-                            <hr/>
+                            <hr />
                             <div className="icon">
                             <div className="row">
-                            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-5">
                                 <span style={{padding:'8'}}> 
-                                    <div className={`like`}></div>
+                                    <div className={`nologinlike`}></div>
                                     <b>Beğen</b>
                                 </span>
                             </div>
-                            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 likecomment">
-                                <div className='likecount'>   
+                            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-5 likecomment">
+                                <div className='nologinlikecount'>   
                                     <img src={`${require('../images/thumb-up.png')}`}></img><b>{post.like}</b>
                                 </div>
-                                <div className='commentcount'>
+                                <div className='nologincommentcount'>
                                     <img onClick={() => this.actionComment(post.post_id)} src={`${require('../images/comment-white-oval-bubble.png')}`}></img>
                                     <b className="openComment">{post.CommentCount}</b>
                                 </div>    
@@ -122,18 +122,11 @@ class NoLoginTopBestPosts extends Component{
                             <NoLoginBestComments comments={post}/>
                         </div> 
                     </div>     
+                    ): null}
+                    
                 </div>
                 ))}
-                    {( this.state.loadMore ? (
-                                <div className="Loading" style={{margin:'0 auto', display:'table', marginBottom:'5px'}}>
-                                    <img src={`${require('../images/loa.gif')}`}/>
-                                </div>
-                            ) : null)}
-                        </ScrollContainer>
-                    )
-                    : 
-                    <Loading/>
-                    )}
+
             </div>    
         )
     }
@@ -143,8 +136,8 @@ const mapStateToProps = ({ posts,auth }) => ({
     posts,auth
 })
 const mapDispatchToProps = dispatch => ({
-    postsActions: bindActionCreators(postsActions, dispatch) ,
-    bestPostActions: bindActionCreators(bestPostActions, dispatch)
+    postsActions: bindActionCreators(postsActions, dispatch),
+    searchActions: bindActionCreators(searchActions,dispatch)
 })
   
-export default connect(mapStateToProps, mapDispatchToProps)(NoLoginTopBestPosts)
+export default connect(mapStateToProps, mapDispatchToProps)(AllPosts)

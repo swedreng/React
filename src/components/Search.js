@@ -63,7 +63,6 @@ class Search extends Component{
     onUpdate(){       
             let { addStorageItemLogin } = this.props.searchActions
             let { postCount } = this.props.posts
-            console.log(this.props.posts.data.length < postCount,23)
             if(this.props.posts.data.length < postCount){
                 if(this.state.status == true){
                     this.setState({loadMore:true,status:false})
@@ -107,7 +106,6 @@ class Search extends Component{
     render(){
         const { posts: { data } } = this.props
         const { persons: { persons} } = this.props
-        console.log(persons)
         const { user_id } = this.props.auth
         const { role } = this.props.auth
         return(

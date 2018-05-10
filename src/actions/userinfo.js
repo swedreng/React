@@ -93,7 +93,6 @@ export function setUserInfo(payload){
   }
 
   export function getUserViewSocialMedia(payload){
-    console.log(payload,99)
     return (dispatch, getState) => {    
       let { auth,users } = getState()
       return axios(`${process.env.URL}/api/user/getviewsocialmedia`, {
@@ -106,7 +105,6 @@ export function setUserInfo(payload){
           person_username: payload.person_username
         })
         }).then(response => {
-          console.log(response.data,73)
           dispatch({type: VIEW_PERSON_SOCIAL_MEDIA, payload:response.data})
             
       })

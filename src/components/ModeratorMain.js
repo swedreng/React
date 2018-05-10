@@ -87,7 +87,6 @@ class ModeratorMain extends Component{
         const { user_id } = this.props.auth
         const { role } = this.props.auth
         const { categories } = this.props.categories
-        console.log(categories,2)
         return(
             <div className="ModeratorMain">
                 {data.map((post,index) => ( 
@@ -137,7 +136,7 @@ class ModeratorMain extends Component{
                                         </div>    
                                     </div>
                                     <div className="col-lg-2 col-md-2 col-sm-2 col-xs-3">
-                                        {post.user.rank == 1 ? (<div className="admin-picture-Mod"></div>) : (
+                                        {post.user.rank == 1 ? (null) : (
                                             <div className="dropdown option ">
                                                 <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>

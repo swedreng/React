@@ -43,7 +43,6 @@ class LoginBestPosts extends Component{
     
     componentWillReceiveProps (nextProps){
         let {match:{ params :{post_id}}} = this.props
-        console.log('YOLOOOOOOOOO =>', post_id)
         if(post_id != nextProps.match.params.post_id){
             this.getData(nextProps)
         }
@@ -84,7 +83,6 @@ class LoginBestPosts extends Component{
         const { user_id } = this.props.auth
         const { role } = this.props.auth
         const { posts: { data }} = this.props
-        console.log(data,6666)
        
             return(
                 <div className="LoginUserMain">

@@ -59,9 +59,7 @@ class NoLoginSearch extends Component{
             let { addStorageItemNoLogin } = this.props.searchActions
             let { postCount } = this.props.posts
             if(this.props.posts.data.length < postCount){
-                console.log(this.state.status,4)
                 if(this.state.status == true){
-                    console.log(3,4)
                     this.setState({loadMore:true})
                     this.setState({status:false})
                     addStorageItemNoLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, search:this.state.search} : {value:0,event:false})).then(() =>{
@@ -89,7 +87,6 @@ class NoLoginSearch extends Component{
     render(){
         const { posts: { data } } = this.props
         const { persons: { persons} } = this.props
-        console.log(persons)
         const { user_id } = this.props.auth
         const { role } = this.props.auth
         return(
@@ -185,7 +182,7 @@ class NoLoginSearch extends Component{
                                                 </div>    
                                             </div>
                                             <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
-                                            {post.user.rank == 1 ? <div>Admin</div>:(
+                                            {post.user.rank == 1 ? null:(
                                                <div></div>
                                             )}
                                                 

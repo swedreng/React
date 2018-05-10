@@ -16,7 +16,6 @@ export function getNoLogin(payload) {
           filter: payload.filter
         })
         }).then(response => { 
-          console.log('ccc')
           if(response.data){
             if(response.event){
               var data = response.data

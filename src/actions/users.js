@@ -14,7 +14,6 @@ export function getUsers(payload) {
       },
       
       }).then(response => {
-        console.log(response)
          dispatch({type: GET_USERS, payload:response})
     })
   }
@@ -51,7 +50,6 @@ export function getUsersInfo() {
         'Authorization': `Bearer ${auth.token} `
       },
       }).then(response => {
-        console.log(response)
          dispatch({type: GETUSER_INFO, payload:response.user_info})
          dispatch({type: GETUSER_SHARE_INFO, payload:{postCount:response.postCount,commentCount:response.commentCount}})
     })
@@ -176,7 +174,6 @@ export function getuserinfoUpdate(payload) {
  
     
   export function addStorageItemLogin(payload) {
-    console.log("gelgel")
     var result = JSON.parse(localStorage.getItem('search'))
     if(result){
       const search = JSON.parse(localStorage.getItem('search'))
@@ -265,7 +262,6 @@ export function getuserinfoUpdate(payload) {
         
         }).then(response => {
           dispatch(push(`/search/${payload.search}`))
-          console.log(response.Posts,response.event,2)
           if(response.data){
             if(response.event){
               var data = response.data
@@ -286,7 +282,6 @@ export function getuserinfoUpdate(payload) {
   }
   
   export function SearchPerson(payload) {
-    console.log(payload,67)
       return (dispatch, getState) => { 
         let { auth,posts,persons } = getState() 
         
@@ -322,7 +317,6 @@ export function getuserinfoUpdate(payload) {
     }
 
   export function LoginSearchPerson(payload) {
-    console.log(payload,67)
       return (dispatch, getState) => { 
         let { auth,posts,persons } = getState() 
         
@@ -363,7 +357,6 @@ export function getuserinfoUpdate(payload) {
 
 
   export function LoginviewProfile(payload) {
-    console.log(payload,67)
       return (dispatch, getState) => { 
         let { auth,posts } = getState() 
         
@@ -407,7 +400,6 @@ export function getuserinfoUpdate(payload) {
   
 
     export function viewProfile(payload) {
-      console.log(2344)
         return (dispatch, getState) => { 
           let { auth,posts } = getState() 
           
@@ -428,7 +420,6 @@ export function getuserinfoUpdate(payload) {
                 dispatch(push(`/viewprofile/user/${response.username}`))
               }
               
-              console.log(response.Posts,response.event,2)
               if(response.data){
                 if(payload.event){
                   var data = response.data

@@ -13,7 +13,6 @@ export default (state = users, action) => {
  switch (action.type) {
     case GET_USERS:
       const  users  = action.payload
-      console.log(users,2)
      return { 
        ...state,
        Users: users }

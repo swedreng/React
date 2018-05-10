@@ -33,6 +33,7 @@ import NoLoginBestPosts from './NoLoginBestPosts'
 import TopBestPosts from './TopBestPosts'
 import NoLoginTopBestPosts from './NoLoginTopBestPosts'
 import sharePost from './sharePost'
+import AllPosts from './AllPosts'
 
 class App extends Component {
 
@@ -44,6 +45,7 @@ class App extends Component {
         <Switch>
           <Layout>
               <Route exact path="/" component={Content}/>
+              <Route exact path="/full" component={AllPosts}/>
               <Route exact path="/category/:category_id" component={Content}/>
               <Route exact path="/login" component={Login} />
               <Route exact path="/passwordreset" component={PasswordReset} />

@@ -20,7 +20,6 @@ class Header extends Component {
   }
   
   addStorageItem(){
-    console.log("geldim.")
     let{ addStorageItemNoLogin,addStorageItemLogin,LoginSearchPerson,SearchPerson } = this.props.usersActions
     const {isAuth} = this.props.auth
     if(isAuth){

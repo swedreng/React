@@ -28,7 +28,6 @@ class Section extends Component{
     
     render(){
         const { categories } = this.props.categories
-        console.log(categories.length,66)
         return (
             <div className="section">
                 <div className="list-group">

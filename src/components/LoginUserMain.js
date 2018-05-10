@@ -122,7 +122,7 @@ class LoginUserMain extends Component{
                                              </div>    
                                          </div>
                                          <div className="col-lg-2 col-md-2 col-sm-2 col-xs-3">
-                                         {post.user.rank == 1 ? <div> <div className="admin-picture col-xs-6 col-lg-6"></div><div className="col-xs-6 col-lg-6">Admin</div></div>:(
+                                         {post.user.rank == 1 ? null:(
                                              <div className="dropdown option">
                                              <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                  <span className="caret"></span>

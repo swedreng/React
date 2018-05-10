@@ -4,7 +4,6 @@ import axios from '../myfunctions/myinterceptor'
 export function getContact(payload) {
  
   return (dispatch, getState, api) => { 
-      console.log(payload,55)
     return axios(`${process.env.URL}/api/contact`, {
       method: 'POST',
       headers: {

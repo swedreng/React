@@ -59,7 +59,6 @@ class share extends Component{
 
     render(){
         let { user_post_banned } = this.props.users
-        console.log(user_post_banned,23)
         return(
 
             <div className="row" style={{padding:'10px'}}>

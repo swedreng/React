@@ -189,7 +189,6 @@ export function deletePost(payload) {
         post_id:payload.post_id
       })
       }).then(response => {
-        console.log(posts.data,34)
 
         if(response.result){
 
@@ -297,7 +296,6 @@ export function commentSave(payload) {
                   }
                   return post
               })
-              console.log(posts.data,2)
               dispatch({type:GET_POSTS, payload:{data:posts.data}})
               dispatch(commentUpdate(payload.post_id))
           }else{
@@ -449,11 +447,40 @@ export function getCategory(payload) {
   }
 }
 
+
+export function AllPosts(payload) {
+  console.log(payload,2)
+  return (dispatch, getState) => { 
+    let { auth, posts } = getState()
+    //dispatch({type: GET_POSTS, payload:{data:[],postCount:0}})
+    return axios(`${process.env.URL}/api/full`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      }).then(response => { 
+
+        if(response.data){
+            var data = response.data
+            var postCount = response.postCount
+        }else{
+          var data = []
+          var postCount = 0
+        }
+        dispatch({type: GET_POSTS, payload:{data:data,postCount:postCount}})
+    })
+  }
+}
+
+
 export function S() {
   return (dispatch, getState) => {  
   dispatch({type:SS})
   }
 }
+
+
 
 
 

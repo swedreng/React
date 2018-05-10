@@ -26,7 +26,6 @@ class Main extends Component{
     componentWillUpdate(nextProps){
 
         if(this.props.category_id != nextProps.category_id){
-            console.log(nextProps.category_id,53)
             this.getQuery(nextProps.category_id)
         }
         
@@ -34,11 +33,9 @@ class Main extends Component{
 
     getQuery(cat_id){
       
-        console.log(29)
         let { getPosts } = this.props.postsActions
         let { getNoLogin } = this.props.noLoginPostsActions
         let { category_id } = this.props
-        console.log((cat_id ? cat_id : category_id),43)
         this.setState({category_id:(cat_id ? cat_id : category_id)})
         
         if(this.props.auth.isAuth){
@@ -49,11 +46,9 @@ class Main extends Component{
     }
    
     onUpdate(){
-        console.log('login')
         if(this.props.auth.isAuth){
             let { getPosts } = this.props.postsActions
             let { postCount } = this.props.posts
-            console.log(this.props.posts.data.length < postCount,23)
             if(this.props.posts.data.length < postCount){
                 if(this.state.status == true){
                     this.setState({loadMore:true,status:false})
@@ -63,12 +58,10 @@ class Main extends Component{
                 }  
             }  
         }else{
-            console.log('nologin')
             let { getNoLogin } = this.props.noLoginPostsActions
             let { postCount } = this.props.posts
             if(this.props.posts.data.length < postCount){
                 if(this.state.status == true){
-                    console.log(3,4)
                     this.setState({loadMore:true,status:false})
                     getNoLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false, filter:this.state.category_id} : {value:0,event:false})).then(() =>{
                         this.setState({status:true,loadMore:false})

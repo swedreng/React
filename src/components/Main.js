@@ -31,11 +31,9 @@ class Main extends Component{
     }
    
     onUpdate(){
-        console.log('login')
         if(this.props.auth.isAuth){
             let { getPosts } = this.props.postsActions
             let { postCount } = this.props.posts
-            console.log(this.props.posts.data.length < postCount,23)
             if(this.props.posts.data.length < postCount){
                 if(this.state.status == true){
                     this.setState({loadMore:true,status:false})
@@ -45,12 +43,10 @@ class Main extends Component{
                 }  
             }  
         }else{
-            console.log('nologin')
             let { getNoLogin } = this.props.noLoginPostsActions
             let { postCount } = this.props.posts
             if(this.props.posts.data.length < postCount){
                 if(this.state.status == true){
-                    console.log(3,4)
                     this.setState({loadMore:true})
                     this.setState({status:false})
                     getNoLogin((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false} : {value:0,event:false})).then(() =>{
@@ -66,7 +62,6 @@ class Main extends Component{
         const { posts: { data } } = this.props
         const { isAuth } = this.props.auth
         
-        console.log(9999999999999999999999999999999999999999999999)
         return(
             <div className="jumbotron">
                 {(data.length > 0 ? 

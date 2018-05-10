@@ -15,7 +15,6 @@ class Info extends Component{
    
       const { user_info } = this.props.users
       const { user_social_media } = this.props.users
-      console.log(user_social_media,11)
       if(user_info.phone == null){ this.setState({phone: ''})}
       else{ this.setState({phone:user_info.phone})}
 

@@ -2,7 +2,6 @@ import {USER_SIGNUP} from "../constants"
 import {alertMessage} from "./desc"
 import axios from '../myfunctions/myinterceptor'
 export function signUp(payload) { 
-  console.log(payload)
   return (dispatch, getState, api) => { 
     axios(`${process.env.URL}/api/signup`, {
       method: 'POST',

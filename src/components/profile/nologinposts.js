@@ -44,7 +44,6 @@ class nologinposts extends Component{
         let { username } = this.props
         if(this.props.posts.data.length < postCount){
             if(this.state.status == true){
-                console.log(3,4)
                 this.setState({loadMore:true})
                 this.setState({status:false})
                 viewProfile((this.props.posts.data.length > 0 ? {value:this.props.posts.data.length, event:false,person_username:username} : {value:0,event:false})).then(() =>{

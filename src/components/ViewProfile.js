@@ -36,7 +36,6 @@ class ViewUserProfile extends Component{
         
     }   
     componentWillMount(){
-        console.log('sexe')
         let { S } = this.props.postActions
         S()
         const { match: { params: { username } } } = this.props
