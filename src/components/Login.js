@@ -22,7 +22,7 @@ class Login extends Component{
         getRememberMe().then(() => {
             const {rememberme} = this.props.auth
             if(rememberme != null){
-                this.setState({name:rememberme.username,pass:rememberme.password}) //burdasın
+                this.setState({name:rememberme.username}) //burdasın
             }else{
                 this.setState({name:null,pass:null})
             }
@@ -42,9 +42,9 @@ class Login extends Component{
     rememberMe(){
         const {rememberme} = this.props.auth
         if(rememberme == null){
-            if(this.state.name !=null && this.state.pass !=null){
+            if(this.state.name != null){
                 let { rememberMe } = this.props.authActions
-                rememberMe({username: this.state.name, pass: this.state.pass}) 
+                rememberMe({username: this.state.name}) 
             }
            
             

@@ -62,7 +62,7 @@ class Layout extends Component{
                                     categories.map(category =>{
                                     return (
                                         <div>
-                                            <Link to={`/category/${category.category_id}`}><li>{category.category_name}</li></Link>
+                                            <Link to={`/category/${category.category_id}`}><li>{category.category_name } </li></Link>
                                         </div>
                                     ) 
                                 })}

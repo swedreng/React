@@ -65,12 +65,14 @@ export function rememberMe(payload){
             'Content-Type': 'application/json',
           },
           data: JSON.stringify({
-            username: payload.username,
-            password: payload.pass
+            username: payload.username
             })
           }).then(response => {
-            localStorage.setItem('rememberMe',JSON.stringify(response.token))
-            dispatch({type:REMEMBER_ME, payload:response.data})
+            if(response.success == true){
+              localStorage.setItem('rememberMe',JSON.stringify(response.token))
+              dispatch({type:REMEMBER_ME, payload:response.data})
+            }
+           
         })
       }
 

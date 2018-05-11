@@ -204,7 +204,7 @@ class NoLoginSearch extends Component{
                         </ScrollContainer>
                     )
                     : 
-                    <div className="col-lg-7 col-xs-7">
+                    <div className="col-lg-7 col-xs-12">
                         <SearchPostsError/>
                     </div>
                     

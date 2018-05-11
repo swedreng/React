@@ -105,10 +105,8 @@ class nologinposts extends Component{
                                                     <b className="openComment">{post.CommentCount}</b>
                                                 </div>    
                                             </div>
-                                            <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
-                                            {post.user.rank == 1 ? <div>Admin</div>:null}
-                                                
-                                           </div>
+                                            <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">   
+                                            </div>
                                     </div>    
                                     </div>
                                         

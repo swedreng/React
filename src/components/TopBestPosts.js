@@ -76,6 +76,11 @@ class TopBestPosts extends Component{
         let { LoginviewProfile } = this.props.viewProfileActions
         LoginviewProfile({person_username:username,value:0,event:true})
     }
+    setCategory(category_id,post_id){
+        
+        let { setCategory } = this.props.postsActions
+        setCategory({category_id:category_id,post_id:post_id})
+    }
     onUpdate(){
         let { getTopBestPostTodayLogin } = this.props.bestPostActions
         let { postCount } = this.props.posts
@@ -92,7 +97,7 @@ class TopBestPosts extends Component{
         const { posts: { data } } = this.props
         const { user_id } = this.props.auth
         const { role } = this.props.auth
-        
+        const { categories } = this.props.categories
             return(
                 <div className="LoginUserMain">
                 {(data.length > 0 ? 
@@ -129,13 +134,13 @@ class TopBestPosts extends Component{
                                      <hr />
                                      <div className="icon">
                                      <div className="row">
-                                             <div className="col-lg-3 col-md-4 col-sm-4 col-xs-5">
+                                             <div className="col-lg-3 col-md-4 col-sm-4 col-xs-4">
                                                  <span onClick={() => this.likeSubmit(post.post_id)}> 
                                                      <div className={`likeTopBestL ${post.IslikedPost ? 'activeTopBestL' : null}`}></div>
                                                      <b>Beğen</b>
                                                  </span>
                                              </div>
-                                             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-5 likecomment">
+                                             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-4 likecomment">
                                                  <div className='likecount'>   
                                                      <img src={`${require('../images/thumb-up.png')}`}></img><b>{post.like}</b>
                                                  </div>
@@ -144,8 +149,8 @@ class TopBestPosts extends Component{
                                                      <b className="openComment">{post.CommentCount}</b>
                                                  </div>    
                                              </div>
-                                             <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
-                                             {post.user.rank == 1 ? null:(
+                                             <div className="col-lg-3 col-md-2 col-sm-2 col-xs-4">
+                                             {user_id == post.user.id || role == 1 ?(
                                                  <div className="dropdown option">
                                                  <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                      <span className="caret"></span>
@@ -154,8 +159,21 @@ class TopBestPosts extends Component{
                                                      {user_id == post.user.id || role == 1 ? <li><a onClick= {() => this.deletePost(post.post_id)}>Sil</a></li> : null}
                                                  </ul>
                                              </div>
-                                             )}
-                                                 
+                                             ):null}
+                                              {role == 1 || role == 2 ? (
+                                             <div className="dropdown option" >
+                                                <button className="btn btn-default dropdown-toggle userMenu" style={{float:'right'}} type="button"  data-toggle="dropdown">
+                                                    <span className="caret"></span>
+                                                </button>
+                                                <ul className="dropdown-menu"><b style={{padding:'10px', fontSize:'14px'}}>Kategorize et</b>
+                                                { categories.map(category => {
+                                                    return (
+                                                        <li><span style={{padding:'10px'}}><label class="checkbox-inline"><input type="checkbox" onClick={() => this.setCategory(category.category_id,post.post_id)} checked={post.post_category.find(cat => cat.category_id == category.category_id) ? true : false}/>{category.category_name}</label></span></li>
+                                                    )
+                                                })}
+                                                </ul>
+                                            </div>  
+                                            ) : null}    
                                             </div>
                                      </div>    
                                      </div>
@@ -189,8 +207,8 @@ class TopBestPosts extends Component{
     }
 }
 
-const mapStateToProps = ({ posts,auth }) => ({
-    posts,auth
+const mapStateToProps = ({ posts,auth,categories }) => ({
+    posts,auth,categories
 })
 const mapDispatchToProps = dispatch => ({
     postsActions: bindActionCreators(postsActions, dispatch),

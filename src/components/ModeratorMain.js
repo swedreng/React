@@ -78,9 +78,9 @@ class ModeratorMain extends Component{
         let { setCategory } = this.props.postsActions
         setCategory({category_id:category_id,post_id:post_id})
     }
-    LoginviewProfile(person_id){
+    LoginviewProfile(username){
         let { LoginviewProfile } = this.props.viewProfileActions
-        LoginviewProfile({person_id,value:0,event:true})
+        LoginviewProfile({person_username:username,value:0,event:true})
     }
     render(){
         const { posts: { data } } = this.props
@@ -98,7 +98,7 @@ class ModeratorMain extends Component{
                             <div className="caption MainText">
                                 <div className="row">
                                     <div className="col-lg-8 col-md-4 col-sm-4 col-xs-9">
-                                        <img className="ppimage" src={post.user.pp}/><b><a style = {{ color:'black', cursor:'pointer'}} onClick = {() => this.viewProfile(post.user.id)}>{post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
+                                        <img className="ppimage" src={post.user.pp}/><b><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}>{post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user'}></div> : null}
                                     </div>   
                                     <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
                                         {post.confirmation == 1 ? (<div className={'confirmation_admin_active-MM'}></div>) : (<div onClick={() => this.postConfirmation(post.post_id)} className={`confirmation-MM ${post.IsConfirmationPost == 1 ? 'confirmation_active-MM' : null}`}></div>)}
@@ -126,7 +126,7 @@ class ModeratorMain extends Component{
                                             <b>Beğen</b>
                                         </span>
                                     </div>
-                                    <div className="col-lg-7 col-md-6 col-sm-6 col-xs-5 likecomment">
+                                    <div className="col-lg-7 col-md-6 col-sm-6 col-xs-4 likecomment">
                                         <div className='likecount'>   
                                             <img src={`${require('../images/thumb-up.png')}`}></img><b>{post.like}</b>
                                         </div>
@@ -135,9 +135,9 @@ class ModeratorMain extends Component{
                                             <b className="openComment">{post.CommentCount}</b>
                                         </div>    
                                     </div>
-                                    <div className="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                                    <div className="col-lg-2 col-md-2 col-sm-2 col-xs-4">
                                         {post.user.rank == 1 ? (null) : (
-                                            <div className="dropdown option ">
+                                            <div className="dropdown option">
                                                 <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>
@@ -150,7 +150,7 @@ class ModeratorMain extends Component{
                                             </div>
                                         )}
                                         {role == 1 || role == 2 ? (
-                                             <div className="dropdown option " >
+                                             <div className="dropdown option" >
                                                 <button className="btn btn-default dropdown-toggle userMenu" style={{float:'right'}} type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>
                                                 </button>

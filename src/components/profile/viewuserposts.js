@@ -115,7 +115,7 @@ class viewuserposts extends Component{
                                                 </div>    
                                             </div>
                                             <div className="col-lg-3 col-md-2 col-sm-2 col-xs-2">
-                                            {post.user.rank == 1 ? <div>Admin</div>: post.user.id == user_id || role == 1 ? (
+                                            {post.user.id == user_id || role == 1 ? (
                                                 <div className="dropdown option">
                                                 <button className="btn btn-default dropdown-toggle userMenu" type="button"  data-toggle="dropdown">
                                                     <span className="caret"></span>

@@ -167,8 +167,9 @@ class Profile extends Component{
                                 <div>
                                     <p style={{padding:'25px',marginTop:'-30px'}}>{user_info.personalwriting}</p>
                                 </div>
+                                
                             </div>
-                        
+                                
                             <div className="profile-usermenu">
                                 <ul className="nav">
                                     {tabs.map((tab, index) => {

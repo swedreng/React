@@ -8,6 +8,7 @@ import Loadable from 'react-loadable';
 import ScrollContainer from './ScrollContainer'
 import ConnectionMain from './ConnectionMain'
 import NoLoginMain from './NoLoginMain'
+import CategoryError from './CategoryError'
 import './main.scss'
 
 class Main extends Component{
@@ -90,7 +91,7 @@ class Main extends Component{
                     )
                     : 
                     <div>
-                            { data.length < 0 ? <Loading/> : <p className="alert alert-danger">Bu kategoriye ait veri bulunmamaktadır.</p> }
+                            { data.length < 0 ? <Loading/> : <CategoryError/> }
                     </div>
                     )}
 
