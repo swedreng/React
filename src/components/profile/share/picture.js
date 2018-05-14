@@ -9,14 +9,19 @@ import './picture.scss'
 class Picture extends Component{
     constructor(props){
         super(props)
-        this.state = {files: [], write:''}
+        this.state = {files: [], write:'',status:true}
         this.postSubmit = this.postSubmit.bind(this);
     }
     postSubmit(event) {
         let { fileUpload } = this.props.fileActions;
-        fileUpload({files: this.state.files[0], writing:this.state.write}).then(()=>{
-            this.setState({files: [], write:''})
-        })
+        if(this.state.status == true){
+            this.setState({status:false})
+            fileUpload({files: this.state.files[0], writing:this.state.write}).then(()=>{
+                this.setState({files: [], write:''})
+                this.setState({status:true})
+            })
+        }
+        
     }
   
     onDrop(acceptedFiles,rejectedFiles){

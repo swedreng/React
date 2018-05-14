@@ -34,7 +34,7 @@ import TopBestPosts from './TopBestPosts'
 import NoLoginTopBestPosts from './NoLoginTopBestPosts'
 import sharePost from './sharePost'
 import AllPosts from './AllPosts'
-
+import Contract from './Contract'
 class App extends Component {
 
   render() {
@@ -52,6 +52,7 @@ class App extends Component {
               <Route exact path="/password_update/:token" component={PasswordUpdate} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
+              <Route exact path="/contract" component={Contract} />
               <Route exact path="/admin" component={(props) => <AuthAccess roles={[1]} Comp={Admin} />} />
               <Route exact path="/profile" component={(props) => <AuthAccess roles={[1,0,2,4]} Comp={Profile} />} />
               <Route exact path="/sharepost" component={(props) => <AuthAccess roles={[1,0,2,4]} Comp={sharePost} />} />

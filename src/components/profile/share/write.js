@@ -8,13 +8,18 @@ import './write.scss'
 class write extends Component{
     constructor(props){
         super(props)
-        this.state = {write:''}
+        this.state = {write:'',status:true}
     }
     shareWrite(){
         let { shareWrite } = this.props.shareWrite
-        shareWrite({write:this.state.write}).then(()=>{
-            this.setState({write:''})
-        })
+        if(this.state.status == true){
+            this.setState({status:false})
+            shareWrite({write:this.state.write}).then(()=>{
+                this.setState({status:true})
+                this.setState({write:''})
+            })
+        }
+        
     }
     render(){
 

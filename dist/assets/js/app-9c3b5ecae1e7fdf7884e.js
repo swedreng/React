@@ -86,7 +86,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "js/" + {"0":"6afb43cd790c26c36348","1":"f0eb6f39236cb3fae333","2":"2d95031729dac5850e88","3":"5df17ce27a06eb78b71c","4":"5fa9f203f7654d841df0","5":"a30dee66f1d139c9af75","6":"17f110bec3cda6ad6c4c","7":"dc237c3d0f6697ffb255","8":"f8e0ad019a167c80fb17","9":"f9e32806238dd4550f63","10":"64c3ff4f56618e456663","11":"f334af929bd679788ebd","12":"3b5c792fe8bd7f243bae","13":"50ea800194616ea50210","14":"90b9d4cf8c864622534b","15":"21a0f73f85248d399f0f","16":"918c5508f14d524f2937"}[chunkId] + ".min.js";
+/******/ 		script.src = __webpack_require__.p + "js/" + {"0":"4ac049ce6529c6f828f8","1":"5161a3d39581962bfb58","2":"a6ad7d73cb13dfc16bb0","3":"d00bfdb39e99b5a3af5e","4":"b240a602f37169da9b50","5":"242dc9e0c5027b2dcb0c","6":"db5af99b29ce71e8bf3a","7":"c960a3ba8567a6b0e545","8":"58e02ccc4011ab0d01a3","9":"41a4e89ba5dae77ed68f","10":"e3e7ce8957ce373ec216","11":"5747da09cf91bfd25ee0","12":"769c8651eb439764b28f","13":"afc25a951864f04e98e0","14":"2920160376137f27f7b5","15":"c5e13bc656cc92ca2234","16":"863c62b00c8d23c1dfc3"}[chunkId] + ".min.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -167,7 +167,7 @@ if (true) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 // EXTERNAL MODULE: ./node_modules/lodash-es/isPlainObject.js + 8 modules
-var isPlainObject = __webpack_require__(50);
+var isPlainObject = __webpack_require__(51);
 
 // EXTERNAL MODULE: ./node_modules/symbol-observable/index.js
 var symbol_observable = __webpack_require__(121);
@@ -1281,7 +1281,7 @@ function shallowEqual(objA, objB) {
 var es = __webpack_require__(1);
 
 // EXTERNAL MODULE: ./node_modules/lodash-es/isPlainObject.js + 8 modules
-var isPlainObject = __webpack_require__(50);
+var isPlainObject = __webpack_require__(51);
 
 // CONCATENATED MODULE: ./node_modules/react-redux/es/utils/verifyPlainObject.js
 
@@ -3914,7 +3914,7 @@ var MemoryRouter = __webpack_require__(66);
 
 /* harmony default export */ var es_MemoryRouter = (MemoryRouter["a" /* default */]);
 // EXTERNAL MODULE: ./node_modules/react-router/es/Route.js
-var Route = __webpack_require__(49);
+var Route = __webpack_require__(50);
 
 // CONCATENATED MODULE: ./node_modules/react-router-dom/es/Route.js
 // Written in this round about way for babel-transform-imports
@@ -4601,7 +4601,7 @@ exports.getSearchItem = getSearchItem;
 
 var _constants = __webpack_require__(3);
 
-var _helper = __webpack_require__(52);
+var _helper = __webpack_require__(53);
 
 var _myinterceptor = __webpack_require__(13);
 
@@ -4691,7 +4691,7 @@ var prop_types = __webpack_require__(12);
 var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
 
 // EXTERNAL MODULE: ./node_modules/react-router/es/index.js
-var es = __webpack_require__(51);
+var es = __webpack_require__(52);
 
 // CONCATENATED MODULE: ./node_modules/react-router-redux/es/reducer.js
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -5050,7 +5050,7 @@ var _constants = __webpack_require__(3);
 
 var _desc = __webpack_require__(21);
 
-var _helper = __webpack_require__(52);
+var _helper = __webpack_require__(53);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5690,6 +5690,37 @@ module.exports = g;
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(216);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(7)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./about.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./about.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -5733,7 +5764,7 @@ var ProfileDetail = function (_Component) {
 exports.default = ProfileDetail;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5899,8 +5930,8 @@ function getShareInfo(payload) {
 }
 
 /***/ }),
-/* 43 */,
-/* 44 */
+/* 44 */,
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5985,7 +6016,7 @@ function isblockPost(payload) {
 }
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6696,7 +6727,7 @@ es_Dropzone.defaultProps = {
 };
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6755,7 +6786,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6839,7 +6870,7 @@ var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a
 };
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6930,7 +6961,7 @@ var createTransitionManager = function createTransitionManager() {
 exports.default = createTransitionManager;
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7079,7 +7110,7 @@ Route.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Route);
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7330,7 +7361,7 @@ function isPlainObject(value) {
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7341,7 +7372,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_1__Prompt__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Redirect__ = __webpack_require__(68);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_2__Redirect__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(50);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_3__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(38);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_4__Router__["a"]; });
@@ -7373,7 +7404,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7404,7 +7435,7 @@ var getlocalStore = function getlocalStore(keys) {
 exports.getlocalStore = getlocalStore;
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7506,37 +7537,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(143)))
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(216);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./about.scss", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./about.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
 
 /***/ }),
 /* 55 */
@@ -8018,11 +8018,11 @@ var _invariant = __webpack_require__(14);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(47);
+var _LocationUtils = __webpack_require__(48);
 
 var _PathUtils = __webpack_require__(33);
 
-var _createTransitionManager = __webpack_require__(48);
+var _createTransitionManager = __webpack_require__(49);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
@@ -9921,7 +9921,7 @@ Switch.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(50);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -10731,7 +10731,7 @@ var NoLoginUserComments = (0, _reactLoadable2.default)({
 
 var NoLoginBestComments = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 43));
+        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 44));
     },
     loading: _loading2.default,
     delay: 4000
@@ -12216,7 +12216,7 @@ module.exports = focusNode;
 
 
 var emptyFunction = __webpack_require__(28);
-var invariant = __webpack_require__(46);
+var invariant = __webpack_require__(47);
 var ReactPropTypesSecret = __webpack_require__(111);
 
 module.exports = function() {
@@ -12306,11 +12306,11 @@ var _invariant = __webpack_require__(14);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(47);
+var _LocationUtils = __webpack_require__(48);
 
 var _PathUtils = __webpack_require__(33);
 
-var _createTransitionManager = __webpack_require__(48);
+var _createTransitionManager = __webpack_require__(49);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
@@ -12613,7 +12613,7 @@ exports.default = createBrowserHistory;
 
 
 var emptyFunction = __webpack_require__(28);
-var invariant = __webpack_require__(46);
+var invariant = __webpack_require__(47);
 var ReactPropTypesSecret = __webpack_require__(114);
 
 module.exports = function() {
@@ -12701,9 +12701,9 @@ var _warning2 = _interopRequireDefault(_warning);
 
 var _PathUtils = __webpack_require__(33);
 
-var _LocationUtils = __webpack_require__(47);
+var _LocationUtils = __webpack_require__(48);
 
-var _createTransitionManager = __webpack_require__(48);
+var _createTransitionManager = __webpack_require__(49);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
@@ -13440,7 +13440,7 @@ var _Profile = __webpack_require__(225);
 
 var _Profile2 = _interopRequireDefault(_Profile);
 
-var _ProfileDetail = __webpack_require__(41);
+var _ProfileDetail = __webpack_require__(42);
 
 var _ProfileDetail2 = _interopRequireDefault(_ProfileDetail);
 
@@ -13504,6 +13504,10 @@ var _AllPosts = __webpack_require__(255);
 
 var _AllPosts2 = _interopRequireDefault(_AllPosts);
 
+var _Contract = __webpack_require__(256);
+
+var _Contract2 = _interopRequireDefault(_Contract);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13550,6 +13554,7 @@ var App = function (_Component) {
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/password_update/:token', component: _PasswordUpdate2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/about', component: _About2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contact', component: _Contact2.default }),
+              _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contract', component: _Contract2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/admin', component: function component(props) {
                   return _react2.default.createElement(_AuthAccess2.default, { roles: [1], Comp: _Admin2.default });
                 } }),
@@ -13825,7 +13830,7 @@ exports.default = appReducer;
 
 
 var emptyFunction = __webpack_require__(28);
-var invariant = __webpack_require__(46);
+var invariant = __webpack_require__(47);
 var ReactPropTypesSecret = __webpack_require__(128);
 
 module.exports = function() {
@@ -13909,7 +13914,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _constants = __webpack_require__(3);
 
-var _helper = __webpack_require__(52);
+var _helper = __webpack_require__(53);
 
 var _getlocalStore = (0, _helper.getlocalStore)('auth'),
     auth = _getlocalStore.auth;
@@ -14398,7 +14403,7 @@ module.exports = __webpack_require__(140);
 var utils = __webpack_require__(15);
 var bind = __webpack_require__(73);
 var Axios = __webpack_require__(142);
-var defaults = __webpack_require__(53);
+var defaults = __webpack_require__(54);
 
 /**
  * Create an instance of Axios
@@ -14481,7 +14486,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(53);
+var defaults = __webpack_require__(54);
 var utils = __webpack_require__(15);
 var InterceptorManager = __webpack_require__(152);
 var dispatchRequest = __webpack_require__(153);
@@ -15210,7 +15215,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(15);
 var transformData = __webpack_require__(154);
 var isCancel = __webpack_require__(76);
-var defaults = __webpack_require__(53);
+var defaults = __webpack_require__(54);
 var isAbsoluteURL = __webpack_require__(155);
 var combineURLs = __webpack_require__(156);
 
@@ -15896,7 +15901,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var Pagination = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, 258));
+        return __webpack_require__.e/* import() */(16).then(__webpack_require__.bind(null, 259));
     },
     loading: _loading2.default,
     delay: 4000
@@ -20925,6 +20930,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(11);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20943,18 +20950,27 @@ var Footer = function (_Component) {
     }
 
     _createClass(Footer, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
-                { id: "footer" },
+                'div',
+                { id: 'footer' },
                 _react2.default.createElement(
-                    "div",
-                    { className: "panel panel-default" },
+                    'div',
+                    { className: 'panel panel-default' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "panel-footer" },
-                        "\xA92018 Opanc.com"
+                        'div',
+                        { className: 'panel-footer' },
+                        '\xA92018 Opanc.com ',
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: '/contract' },
+                            _react2.default.createElement(
+                                'a',
+                                { style: { float: 'right' } },
+                                'Gizlilik S\xF6zle\u015Fmesi'
+                            )
+                        )
                     )
                 )
             );
@@ -21062,7 +21078,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(54);
+__webpack_require__(41);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22021,7 +22037,7 @@ var _react2 = _interopRequireDefault(_react);
 
 __webpack_require__(55);
 
-var _ProfileDetail = __webpack_require__(41);
+var _ProfileDetail = __webpack_require__(42);
 
 var _ProfileDetail2 = _interopRequireDefault(_ProfileDetail);
 
@@ -22029,7 +22045,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _ppupload = __webpack_require__(44);
+var _ppupload = __webpack_require__(45);
 
 var ppuploadActions = _interopRequireWildcard(_ppupload);
 
@@ -22037,7 +22053,7 @@ var _users = __webpack_require__(10);
 
 var userInfoActions = _interopRequireWildcard(_users);
 
-var _userinfo = __webpack_require__(42);
+var _userinfo = __webpack_require__(43);
 
 var userSocialActions = _interopRequireWildcard(_userinfo);
 
@@ -22045,7 +22061,7 @@ var _posts = __webpack_require__(5);
 
 var postActions = _interopRequireWildcard(_posts);
 
-var _reactDropzone = __webpack_require__(45);
+var _reactDropzone = __webpack_require__(46);
 
 var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
 
@@ -22138,7 +22154,7 @@ var Profile = function (_Component) {
                 case 0:
                     var Posts = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, 259));
+                            return __webpack_require__.e/* import() */(11).then(__webpack_require__.bind(null, 260));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -22148,7 +22164,7 @@ var Profile = function (_Component) {
                 case 1:
                     var Account = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, 260));
+                            return __webpack_require__.e/* import() */(14).then(__webpack_require__.bind(null, 261));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -22158,7 +22174,7 @@ var Profile = function (_Component) {
                 case 2:
                     var BlockUsers = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, 261));
+                            return __webpack_require__.e/* import() */(9).then(__webpack_require__.bind(null, 262));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -22168,7 +22184,7 @@ var Profile = function (_Component) {
                 case 3:
                     var Share = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, 262));
+                            return __webpack_require__.e/* import() */(15).then(__webpack_require__.bind(null, 263));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -22178,7 +22194,7 @@ var Profile = function (_Component) {
                 case 4:
                     var Info = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, 263));
+                            return __webpack_require__.e/* import() */(13).then(__webpack_require__.bind(null, 264));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -22394,7 +22410,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(2);
 
-var _reactRouter = __webpack_require__(51);
+var _reactRouter = __webpack_require__(52);
 
 var _Access = __webpack_require__(89);
 
@@ -23476,7 +23492,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ProfileDetail = __webpack_require__(41);
+var _ProfileDetail = __webpack_require__(42);
 
 var _ProfileDetail2 = _interopRequireDefault(_ProfileDetail);
 
@@ -23484,7 +23500,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _ppupload = __webpack_require__(44);
+var _ppupload = __webpack_require__(45);
 
 var ppuploadActions = _interopRequireWildcard(_ppupload);
 
@@ -23492,7 +23508,7 @@ var _users = __webpack_require__(10);
 
 var userInfoActions = _interopRequireWildcard(_users);
 
-var _userinfo = __webpack_require__(42);
+var _userinfo = __webpack_require__(43);
 
 var userSocialActions = _interopRequireWildcard(_userinfo);
 
@@ -23500,7 +23516,7 @@ var _posts = __webpack_require__(5);
 
 var postActions = _interopRequireWildcard(_posts);
 
-var _reactDropzone = __webpack_require__(45);
+var _reactDropzone = __webpack_require__(46);
 
 var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
 
@@ -23591,7 +23607,7 @@ var LoginViewProfile = function (_Component) {
                 case 0:
                     var ViewUserPosts = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, 264));
+                            return __webpack_require__.e/* import() */(10).then(__webpack_require__.bind(null, 265));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -23751,7 +23767,7 @@ var _react2 = _interopRequireDefault(_react);
 
 __webpack_require__(55);
 
-var _ProfileDetail = __webpack_require__(41);
+var _ProfileDetail = __webpack_require__(42);
 
 var _ProfileDetail2 = _interopRequireDefault(_ProfileDetail);
 
@@ -23759,7 +23775,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _redux = __webpack_require__(1);
 
-var _ppupload = __webpack_require__(44);
+var _ppupload = __webpack_require__(45);
 
 var ppuploadActions = _interopRequireWildcard(_ppupload);
 
@@ -23771,11 +23787,11 @@ var _users = __webpack_require__(10);
 
 var userInfoActions = _interopRequireWildcard(_users);
 
-var _userinfo = __webpack_require__(42);
+var _userinfo = __webpack_require__(43);
 
 var userSocialActions = _interopRequireWildcard(_userinfo);
 
-var _reactDropzone = __webpack_require__(45);
+var _reactDropzone = __webpack_require__(46);
 
 var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
 
@@ -23864,7 +23880,7 @@ var ViewUserProfile = function (_Component) {
                 case 0:
                     var NoLoginPosts = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, 265));
+                            return __webpack_require__.e/* import() */(12).then(__webpack_require__.bind(null, 266));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -24029,7 +24045,7 @@ var _auth = __webpack_require__(29);
 
 var authActions = _interopRequireWildcard(_auth);
 
-__webpack_require__(54);
+__webpack_require__(41);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -24177,7 +24193,7 @@ var _auth = __webpack_require__(29);
 
 var authActions = _interopRequireWildcard(_auth);
 
-__webpack_require__(54);
+__webpack_require__(41);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -24824,7 +24840,7 @@ var NoLoginUserComments = (0, _reactLoadable2.default)({
 
 var NoLoginBestComments = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 43));
+        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 44));
     },
     loading: _loading2.default,
     delay: 4000
@@ -25645,7 +25661,7 @@ var NoLoginUserComments = (0, _reactLoadable2.default)({
 
 var NoLoginBestComments = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 43));
+        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 44));
     },
     loading: _loading2.default,
     delay: 4000
@@ -25988,7 +26004,7 @@ var share = function (_Component) {
                 case 1:
                     var Write = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(8/* duplicate */).then(__webpack_require__.bind(null, 256));
+                            return __webpack_require__.e/* import() */(8/* duplicate */).then(__webpack_require__.bind(null, 257));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -25998,7 +26014,7 @@ var share = function (_Component) {
                 case 2:
                     var Picture = (0, _reactLoadable2.default)({
                         loader: function loader() {
-                            return __webpack_require__.e/* import() */(7/* duplicate */).then(__webpack_require__.bind(null, 257));
+                            return __webpack_require__.e/* import() */(7/* duplicate */).then(__webpack_require__.bind(null, 258));
                         },
                         loading: _loading2.default,
                         delay: 3000
@@ -26124,7 +26140,7 @@ var NoLoginUserComments = (0, _reactLoadable2.default)({
 
 var NoLoginBestComments = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 43));
+        return __webpack_require__.e/* import() */(4/* duplicate */).then(__webpack_require__.bind(null, 44));
     },
     loading: _loading2.default,
     delay: 4000
@@ -26359,6 +26375,198 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AllPosts);
+
+/***/ }),
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(41);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Contract = function (_Component) {
+    _inherits(Contract, _Component);
+
+    function Contract() {
+        _classCallCheck(this, Contract);
+
+        return _possibleConstructorReturn(this, (Contract.__proto__ || Object.getPrototypeOf(Contract)).apply(this, arguments));
+    }
+
+    _createClass(Contract, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'img-thumbnail col-md-12 col-sm-12 col-lg-12' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'about-section' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-md-12 col-sm-12 col-lg-12' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'about-title clearfix about-us' },
+                                _react2.default.createElement(
+                                    'h1',
+                                    null,
+                                    'Opanc.com ',
+                                    _react2.default.createElement(
+                                        'span',
+                                        null,
+                                        'Gizlilik S\xF6zle\u015Fmesi'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'about-paddingB' },
+                                    'Opanc.com olarak, t\xFCm Kullan\u0131c\u0131lar\u0131m\u0131z\u0131n gizlili\u011Fi bizim i\xE7in \xE7ok \xF6nemlidir. Bir Uygulama Kullan\u0131c\u0131s\u0131 olarak Hizmetimizi kulland\u0131\u011F\u0131n\u0131zda, biz(Uygulama Yay\u0131nc\u0131s\u0131 olarak) Ki\u015Fisel Verilerinizi i\u015Fleriz. Bu Gizlilik Bildirimi, Ki\u015Fisel Verilerinizi nas\u0131l korudu\u011Fumuzu ve i\u015Fleme koydu\u011Fumuzu a\xE7\u0131klar. Dikkatlice okuman\u0131z\u0131 \xF6neririz.'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Ki\u015Fisel verilerinizin kullan\u0131lma amac\u0131 ?'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Hizmetimizi daha iyi kullanabilmeniz i\xE7in'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Hizmetimizle ilgili bilgileri g\xFCncel tutmak i\xE7in'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Hizmetin iyile\u015Ftirilmesi veya \xF6zelle\u015Ftirilmesi i\xE7in'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Sizi tan\u0131mlamak veya hizmeti \xF6zelle\u015Ftirmek i\xE7in'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Sizi tan\u0131mak ve bilgilerinizi daha iyi koruyabilmek i\xE7in'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Sizi tan\u0131mak ve size daha \xF6zel imkanlar sa\u011Flayabilmek i\xE7in'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Ki\u015Fisel Verilerinizi, bizden bunu talep etti\u011Finiz takdirde veya yasal olarak y\xFCk\xFCml\xFC oldu\u011Fumuz durumlarda, \xFC\xE7\xFCnc\xFC \u015Fah\u0131slara iletmek.'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Ki\u015Fisel verilerinizin \xFC\xE7\xFCnc\xFC \u015Fah\u0131slara iletilmesi ? '
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Sizden \xF6nceden izin al\u0131nmaks\u0131z\u0131n Ki\u015Fisel Verilerinizi \xFC\xE7\xFCnc\xFC \u015Fah\u0131slara satmamaktay\u0131z, satm\u0131yor veya kiralam\u0131yoruz. \xDC\xE7\xFCnc\xFC bir tarafa ge\xE7ti\u011Fimiz veya bir \xFC\xE7\xFCnc\xFC tarafla birle\u015Fti\u011Fimiz veya bir yeniden yap\u0131land\u0131rmaya tabi oldu\u011Fumuz durumda, Ki\u015Fisel Verileriniz de \xFC\xE7\xFCnc\xFC ki\u015Filere a\xE7\u0131klanabilir ve / veya bu \xFC\xE7\xFCnc\xFC ki\u015Fiye devredilebilir. Bu \xFC\xE7\xFCnc\xFC taraf, Ki\u015Fisel Verileri ve bize sa\u011Flad\u0131\u011F\u0131n\u0131z di\u011Fer bilgileri kullanmaya devam etme hakk\u0131na sahip olacak. Ki\u015Fisel Verilerinizi, iyi niyetle, bir mahkeme karar\u0131, halen devam eden adli i\u015Flem, cezai veya sivil mahkeme celbi veya kolluk kuvveti makamlar\u0131 taraf\u0131ndan verilen di\u011Fer yasal i\u015Flem veya taleplere uyman\u0131z gerekti\u011Fine inand\u0131\u011F\u0131m\u0131z yerlerde if\u015Fa edebiliriz veya egzersiz yapabiliriz Yasal haklar\u0131 veya yasal iddialara kar\u015F\u0131 savunmak. '
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Ki\u015Fisel Verileri korumak i\xE7in hangi g\xFCvenlik \xF6nlemleri uygulanmaktad\u0131r? ? '
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Verilerinizin g\xFCvenli\u011Fi ve di\u011Fer Kullan\u0131c\u0131lar\u0131n g\xFCvenli\u011Fi bizim i\xE7in \xE7ok \xF6nemlidir. Ki\u015Fisel Verilerinizi kay\u0131p ya da herhangi bir yasad\u0131\u015F\u0131 i\u015Fleme kar\u015F\u0131 korumak i\xE7in teknik ve organizasyonel \xF6nlemler ald\u0131k. A\u015Fa\u011F\u0131daki tedbirleri uygulad\u0131k: sunucular\u0131m\u0131z\u0131 g\xFCvenlik duvarlar\u0131, SSL ba\u011Flant\u0131lar\u0131 ve hassas verilerin \u015Fifrelenmesi yoluyla koruma. Bu liste ayr\u0131nt\u0131l\u0131 de\u011Fildir.'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    '\xDC\xE7\xFCnc\xFC \u015Fah\u0131slarla ilgili sorumluluk s\u0131n\u0131rlar\u0131'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Hizmetimiz \xFC\xE7\xFCnc\xFC taraflar taraf\u0131ndan sunulan hizmetler ve \xFCr\xFCnler ve / veya ortaklar\u0131n, reklamverenlerin ve di\u011Fer \xFC\xE7\xFCnc\xFC taraflar\u0131n web sitelerine veya hizmetlerine k\xF6pr\xFCler i\xE7erebilir.Taraflar\u0131n, bu \xFC\xE7\xFCnc\xFC taraflar\u0131n i\xE7eri\u011Fi, web siteleri veya hizmetleri \xFCzerinde herhangi bir kontrol\xFC veya etkisi yoktur. \xDC\xE7\xFCnc\xFC ki\u015Fi web sitelerinin ve hizmetlerinin kullan\u0131m\u0131 i\xE7in farkl\u0131 gizlilik politikalar\u0131 uygulanabilir. Bu Gizlilik Beyan\u0131, yaln\u0131zca taraflar taraf\u0131ndan Hizmeti kendi ama\xE7lar\u0131 do\u011Frultusunda kullanman\u0131z yoluyla elde edilen Ki\u015Fisel Verilerle ilgilidir. Taraflar, \xFC\xE7\xFCnc\xFC taraf web sitelerinin ve hizmetlerin i\xE7eri\u011Fi, uygulamalar\u0131 veya i\u015Fletilmesi ile ilgili herhangi bir sorumluluk kabul etmez.'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Ki\u015Fisel Verileri G\xF6r\xFCnt\xFCleme ve Silme'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Uygulamay\u0131 kullanarak toplanan ki\u015Fisel bilgilere e-posta yoluyla bizimle ileti\u015Fime ge\xE7mek veya silmek i\xE7in bir istek g\xF6nderebilirsiniz. Kimli\u011Finizi do\u011Frulamak i\xE7in ek bilgi sa\u011Flaman\u0131z istenebilir.'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    '\xC7ocuk gizlili\u011Fi'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    '\xC7ocuklarla ilgili ki\u015Fisel bilgiler bilerek veya kas\u0131tl\u0131 olarak toplanmamaktad\u0131r.'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'G\xFCvenlik'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Ki\u015Fisel bilgilerinizin g\xFCvenli\u011Fini sa\u011Flamak, hasar riskini en aza indirmek, bilgi kayb\u0131 ve yetkisiz eri\u015Fimden veya bilgiyi kullanmak i\xE7in \xF6nlemler uygulanmaktad\u0131r. Bununla birlikte, bu tedbirler mutlak bilgi g\xFCvenli\u011Fi sa\u011Flayamamaktad\u0131r. Dolay\u0131s\u0131yla, ki\u015Fisel bilgilerinizin g\xFCvenli\u011Fini sa\u011Flamak i\xE7in \xE7aba sarf edilir, ancak bu garanti edilmez ve Uygulaman\u0131n ve ilgili veritabanlar\u0131n\u0131n herhangi bir haks\u0131z davran\u0131\u015F, ar\u0131za, izinsiz engeller veya eri\u015Fim veya di\u011Fer k\xF6t\xFCye kullan\u0131m ve k\xF6t\xFCye kullan\u0131mdan muaf olaca\u011F\u0131n\u0131 makul bir \u015Fekilde bekleyemezsiniz.'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Herhangi bir sorunuz ya da a\xE7\u0131klamalar\u0131n\u0131z varsa ne yapacaks\u0131n\u0131z?'
+                                ),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Bu Gizlilik Bildirimi ile ilgili herhangi bir sorunuz veya a\xE7\u0131klamalar\u0131n\u0131z varsa, l\xFCtfen ileti\u015Fim k\u0131sm\u0131m\u0131z\u0131 kullanarak bizimle ileti\u015Fime ge\xE7in. '
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Contract;
+}(_react.Component);
+
+exports.default = Contract;
 
 /***/ })
 /******/ ]);
