@@ -16,7 +16,7 @@ const postKind = [
         value:"write", 
     },
     {
-        name:"Resim paylaş",
+        name:"Resim veya gif paylaş",
         value:"picture",
     }
 ]

@@ -7,6 +7,7 @@ import Loading from './loading'
 import Loadable from 'react-loadable';
 import * as viewProfileActions from '../actions/users';
 import ScrollContainer from './ScrollContainer'
+import TopBestDes from './TopbestDes'
 import { dateTime } from '../myfunctions/myfunctions';
 import './TopBestpost.scss'
 
@@ -199,6 +200,7 @@ class TopBestPosts extends Component{
                     )
                     : 
                     <Loading/>
+                   
                     )}
     
                 </div>    

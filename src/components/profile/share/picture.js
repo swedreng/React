@@ -54,7 +54,7 @@ class Picture extends Component{
                         
                         </Dropzone>
                     </div>
-                  
+                        <p style={{textAlign:'center'}}>En fazla 16mb dosya yükleyebilirsin, gif yüklemeleri ortalama 1dk sürmektedir, boyutuna göre bu süre değişir.</p>
                         <form className="write">
                             <textarea onKeyDown={e => {
                                 if (e.keyCode == 13) this.postSubmit()
