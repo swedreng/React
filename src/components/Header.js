@@ -104,7 +104,7 @@ class Header extends Component {
                 </div>
               </form>
               </div>
-              <div className="linkS col-md-3">
+              <div className="linkS col-md-3"> 
                   <ul className="nav navbar-nav">
                     <li className=""><Link to="/"><span className="glyphicon glyphicon-home"></span> Ana Sayfa</Link></li>
                     <li className=""><Link to={isAuth ? "/topbestpost" : "/nologintopbest"}><span className="glyphicon glyphicon-fire"></span> Günün En iyileri</Link></li>
@@ -119,8 +119,8 @@ class Header extends Component {
                       {(isAuth ?  
                         [
                         <li key="1"><Link to="/profile">Profil</Link></li>,
-                        <li key="2">{role ? <Link to="/admin">Admin</Link>: null}</li>,
-                        <li key="2">{role ? <Link to="/createcontent">İçerik oluştur</Link>: null}</li>,
+                        <li key="2">{role == 1 ? <Link to="/admin">Admin</Link>: null}</li>,
+                        <li key="2">{role == 1 ? <Link to="/createcontent">İçerik oluştur</Link>: null}</li>,
                         <li key="3"className="divider"></li>,
                         <li key="4"><Link to="/logout">Cıkıs Yap</Link></li>
                         ]

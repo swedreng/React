@@ -71,7 +71,7 @@ class App extends Component {
               <Route exact path="/nologintopbest" component={NoLoginTopBestPosts} />
               <Route exact path="/createcontent" component={CreateContent} />
               <Route exact path="/contentdetail/:content_id" component={ContentDetail} />
-              <Route exact path="/contents" component={Contents} />
+              <Route exact path="/contents"  component={(props) => <AuthAccess roles={[1]} Comp={Contents} />} />
           </Layout>
           </Switch>
         </ConnectedRouter>
