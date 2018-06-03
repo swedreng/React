@@ -13,6 +13,7 @@ import password_token from "./password_token"
 import searchdata from "./searchdata"
 import categories from "./categories"
 import bestposts from "./bestpost"
+import contents from "./content"
 const appReducer = combineReducers({  
     routing,
     auth,
@@ -27,7 +28,8 @@ const appReducer = combineReducers({
     password_token, // bu silinip kaldırılacak..
     searchdata,
     categories,
-    bestposts
+    bestposts,
+    contents
 })
 
 export default appReducer

@@ -35,6 +35,9 @@ import NoLoginTopBestPosts from './NoLoginTopBestPosts'
 import sharePost from './sharePost'
 import AllPosts from './AllPosts'
 import Contract from './Contract'
+import CreateContent from './CreateContent'
+import ContentDetail from './contentdetail'
+import Contents from './Contents'
 class App extends Component {
 
   render() {
@@ -66,6 +69,9 @@ class App extends Component {
               <Route exact path="/bestpost/:post_id" component={NoLoginBestPosts} />
               <Route exact path="/topbestpost" component={TopBestPosts} />
               <Route exact path="/nologintopbest" component={NoLoginTopBestPosts} />
+              <Route exact path="/createcontent" component={CreateContent} />
+              <Route exact path="/contentdetail/:content_id" component={ContentDetail} />
+              <Route exact path="/contents" component={Contents} />
           </Layout>
           </Switch>
         </ConnectedRouter>

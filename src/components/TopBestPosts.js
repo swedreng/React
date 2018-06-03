@@ -178,9 +178,9 @@ class TopBestPosts extends Component{
                                             </div>
                                      </div>    
                                      </div>
-                                         <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' && this.state.width > 425 ? true : false))} post={post}/>
+                                         <Comment status={(this.state.comment[post.post_id] ?  true : (post.kind == 'write' && this.state.width > 425  && post.CommentLast.length > 0  ? true : false))} post={post}/>
                                      <div className="row Usercomment">
-                                         <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' && this.state.width > 425  ? true : false))} comments={post}/>
+                                         <UserComments  status={(this.state.comment[post.post_id] ? true : (post.kind == 'write' && this.state.width > 425  && post.CommentLast.length > 0  ? true : false))} comments={post}/>
                                      </div>
                                  </div> 
                                  <div className="col-xs-12 col-lg-5 col-md-5 commentbest">

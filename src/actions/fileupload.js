@@ -11,7 +11,7 @@ export function fileUpload(payload) {
 
     data.append('files', files)
     data.append('writing', writing)
-    
+    console.log(data,66)
    return axios(`${process.env.URL}/api/user/createpp`, {
       method: 'POST',
       headers: {

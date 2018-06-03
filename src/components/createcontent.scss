@@ -1,0 +1,26 @@
+.image-createcontent{
+    height:200px;
+    width:200px;
+    border:0px rgb(201, 181, 181) solid;
+    margin:0 auto;  
+    overflow: hidden;
+    .defaultP-createcontent{
+        width: 100%;
+        height:auto;
+        margin:0px auto;
+    }
+    img{
+        padding-top: 10px;
+        width: 100%;
+        height:auto;
+        margin:0px auto;
+        cursor:pointer;
+      }
+  
+}
+.write-create-content{
+    textarea{
+        width: 50%;
+        margin: 0 auto;
+    }
+}

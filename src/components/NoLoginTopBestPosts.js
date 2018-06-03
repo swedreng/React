@@ -98,7 +98,7 @@ class NoLoginTopBestPosts extends Component{
                             <div className="row">
                             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                 <span style={{padding:'8'}}> 
-                                    <div className={`like`}></div>
+                                    <div className={`like-NTBP`}></div>
                                     <b>Beğen</b>
                                 </span>
                             </div>
