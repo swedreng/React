@@ -104,7 +104,7 @@ class Header extends Component {
                 </div>
               </form>
               </div>
-              <div className="linkS col-md-4">
+              <div className="linkS col-md-3">
                   <ul className="nav navbar-nav">
                     <li className=""><Link to="/"><span className="glyphicon glyphicon-home"></span> Ana Sayfa</Link></li>
                     <li className=""><Link to={isAuth ? "/topbestpost" : "/nologintopbest"}><span className="glyphicon glyphicon-fire"></span> Günün En iyileri</Link></li>

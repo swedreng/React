@@ -19251,7 +19251,7 @@ var Header = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'linkS col-md-4' },
+              { className: 'linkS col-md-3' },
               _react2.default.createElement(
                 'ul',
                 { className: 'nav navbar-nav' },
