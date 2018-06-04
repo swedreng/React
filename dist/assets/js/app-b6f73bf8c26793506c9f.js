@@ -21040,7 +21040,7 @@ var SectionBestPosts = function (_Component) {
                     { to: '/about' },
                     _react2.default.createElement(
                         'a',
-                        { style: { cursor: 'pointer', marginRight: '10px', marginLeft: '30px', color: 'black' } },
+                        { style: { cursor: 'pointer', marginRight: '10px', marginLeft: '30px', color: '#b4b6bd' } },
                         'Hakk\u0131m\u0131zda'
                     )
                 ),
@@ -21049,7 +21049,7 @@ var SectionBestPosts = function (_Component) {
                     { to: '/contact' },
                     _react2.default.createElement(
                         'a',
-                        { style: { cursor: 'pointer', color: 'black' } },
+                        { style: { cursor: 'pointer', color: '#b4b6bd' } },
                         '\u0130leti\u015Fim'
                     )
                 )
