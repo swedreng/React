@@ -46,7 +46,7 @@ class SectionBestPosts extends Component{
                         }).slice(5,bestposttoday.length) : null}
                     <a onClick={() => this.getCategory()} className="list-group-item">Diğer</a>
               </div>
-              <Link to='/about'><a style={{cursor:'pointer', marginRight:'10px', marginLeft:'30px',color: 'black'}}>Hakkımızda</a></Link><Link to="/contact"><a style={{cursor:'pointer',color: 'black'}}>İletişim</a></Link>
+              <Link to='/about'><a style={{cursor:'pointer', marginRight:'10px', marginLeft:'30px',color: '#b4b6bd'}}>Hakkımızda</a></Link><Link to="/contact"><a style={{cursor:'pointer',color: '#b4b6bd'}}>İletişim</a></Link>
             </div>
         );
     }
