@@ -86,7 +86,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "js/" + {"0":"60acb9d33aa6264cc2d7","1":"8fd676e7488e73b98e34","2":"29f1a95a428db1c466ac","3":"30823cf0fe443997b57e","4":"cd628e2f6a00e34ac332","5":"a8111a153ab46df1d47f","6":"b97e1cec2e7fd68c7e37","7":"6336e354d26a09ddd15b","8":"9a5a08e28a5abc59ed3b","9":"3633f159272448decb84","10":"53109b5f4c99ca6a4f94","11":"8fcd3bf6a43f7224fefa","12":"31bc30ccf16520e9dc35","13":"f1b220d71feb2dc7b409","14":"70bf5380c26fe877e074","15":"228609ad098c5d14a424","16":"864115f81ffca1f0e643"}[chunkId] + ".min.js";
+/******/ 		script.src = __webpack_require__.p + "js/" + {"0":"eb0f2f5004f0aa1ddc44","1":"8fd676e7488e73b98e34","2":"0357ff89db6cc03265ca","3":"58c48c4e1b2a244e8364","4":"5ac101d9556e90324c32","5":"a8111a153ab46df1d47f","6":"b97e1cec2e7fd68c7e37","7":"6336e354d26a09ddd15b","8":"9a5a08e28a5abc59ed3b","9":"3633f159272448decb84","10":"d7ccb216f4eac8589a68","11":"8f118215463dcce22c27","12":"214256af26101766255a","13":"f1b220d71feb2dc7b409","14":"70bf5380c26fe877e074","15":"228609ad098c5d14a424","16":"864115f81ffca1f0e643"}[chunkId] + ".min.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -4978,13 +4978,13 @@ function routerMiddleware(history) {
 /* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "bdf3a54b054eb1f2e662c9bd47f169ca.png";
+module.exports = __webpack_require__.p + "1b1a27ca8cc684cea5b9c28f179b09f6.gif";
 
 /***/ }),
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "1b1a27ca8cc684cea5b9c28f179b09f6.gif";
+module.exports = __webpack_require__.p + "bdf3a54b054eb1f2e662c9bd47f169ca.png";
 
 /***/ }),
 /* 29 */
@@ -11292,7 +11292,7 @@ var Main = function (_Component) {
                     this.state.loadMore ? _react2.default.createElement(
                         "div",
                         { className: "Loading", style: { margin: '0 auto', display: 'table', marginBottom: '5px' } },
-                        _react2.default.createElement("img", { src: "" + __webpack_require__(28) })
+                        _react2.default.createElement("img", { src: "" + __webpack_require__(27) })
                     ) : null
                 ) : _react2.default.createElement(
                     "div",
@@ -13722,11 +13722,11 @@ var App = function (_Component) {
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/bestpost/:post_id', component: _NoLoginBestPosts2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/topbestpost', component: _TopBestPosts2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/nologintopbest', component: _NoLoginTopBestPosts2.default }),
-              _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/createcontent', component: _CreateContent2.default }),
+              _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/createcontent', component: function component(props) {
+                  return _react2.default.createElement(_AuthAccess2.default, { roles: [1], Comp: _CreateContent2.default });
+                } }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contentdetail/:content_id', component: _contentdetail2.default }),
-              _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contents', component: function component(props) {
-                  return _react2.default.createElement(_AuthAccess2.default, { roles: [1], Comp: _Contents2.default });
-                } })
+              _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contents', component: _Contents2.default })
             )
           )
         )
@@ -16652,7 +16652,7 @@ var Main = function (_Component) {
                     this.state.loadMore ? _react2.default.createElement(
                         "div",
                         { className: "Loading", style: { margin: '0 auto', display: 'table', marginBottom: '5px' } },
-                        _react2.default.createElement("img", { src: "" + __webpack_require__(28) })
+                        _react2.default.createElement("img", { src: "" + __webpack_require__(27) })
                     ) : null
                 ) : _react2.default.createElement(_loading2.default, null)
             );
@@ -17178,7 +17178,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".quality_user {\n  background-image: url(" + __webpack_require__(27) + ") !important;\n  width: 18px !important;\n  height: 18px !important;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 10px !important;\n  background-size: cover; }\n\n.confirmation-ADM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(33) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.confirmation_active-ADM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(18) + ");\n  background-size: cover; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-ADM {\n    margin-right: 7px !important;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n\n.userMenu {\n  padding: 0px 12px; }\n\n.postTime-ADM {\n  margin-top: 1px;\n  float: right !important;\n  color: #b4b6bd; }\n\n.like-ADM {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.active-ADM {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(24) + ");\n  background-size: cover;\n  cursor: pointer; }\n", ""]);
+exports.push([module.i, ".quality_user {\n  background-image: url(" + __webpack_require__(28) + ") !important;\n  width: 18px !important;\n  height: 18px !important;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 10px !important;\n  background-size: cover; }\n\n.confirmation-ADM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(33) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.confirmation_active-ADM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(18) + ");\n  background-size: cover; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-ADM {\n    margin-right: 7px !important;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n\n.userMenu {\n  padding: 0px 12px; }\n\n.postTime-ADM {\n  margin-top: 1px;\n  float: right !important;\n  color: #b4b6bd; }\n\n.like-ADM {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.active-ADM {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(24) + ");\n  background-size: cover;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -17659,7 +17659,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".like-MM {\n  width: 20px;\n  height: 20px;\n  float: left;\n  margin-top: 1px;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.active-MM {\n  width: 20px;\n  height: 20px;\n  float: left;\n  margin-top: 1px;\n  background-image: url(" + __webpack_require__(24) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.confirmation-MM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(33) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.confirmation_active-MM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-size: cover;\n  background-image: url(" + __webpack_require__(18) + "); }\n\n.confirmation_admin_active-MM {\n  background-image: url(" + __webpack_require__(18) + ");\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-size: cover; }\n\n.admin-picture-Mod {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(84) + ");\n  background-size: cover; }\n\n.userMenu {\n  padding: 0px 12px !important; }\n\n.quality_user {\n  background-image: url(" + __webpack_require__(27) + ");\n  width: 18px;\n  height: 18px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n.postTime-MM {\n  margin-top: 1px;\n  float: right !important;\n  color: #b4b6bd; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-MM {\n    margin-right: 7px !important;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n", ""]);
+exports.push([module.i, ".like-MM {\n  width: 20px;\n  height: 20px;\n  float: left;\n  margin-top: 1px;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.active-MM {\n  width: 20px;\n  height: 20px;\n  float: left;\n  margin-top: 1px;\n  background-image: url(" + __webpack_require__(24) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.confirmation-MM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(33) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.confirmation_active-MM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-size: cover;\n  background-image: url(" + __webpack_require__(18) + "); }\n\n.confirmation_admin_active-MM {\n  background-image: url(" + __webpack_require__(18) + ");\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-size: cover; }\n\n.admin-picture-Mod {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(84) + ");\n  background-size: cover; }\n\n.userMenu {\n  padding: 0px 12px !important; }\n\n.quality_user {\n  background-image: url(" + __webpack_require__(28) + ");\n  width: 18px;\n  height: 18px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n.postTime-MM {\n  margin-top: 1px;\n  float: right !important;\n  color: #b4b6bd; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-MM {\n    margin-right: 7px !important;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n", ""]);
 
 // exports
 
@@ -18071,7 +18071,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".admin-picture {\n  width: 18px;\n  height: 18px;\n  background-image: url(" + __webpack_require__(84) + ");\n  background-size: cover; }\n\n.commentdiv p {\n  margin-left: 8px; }\n\n.ALM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(33) + ");\n  background-size: cover; }\n\n.BLM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(18) + ");\n  background-size: cover; }\n\n.quality_user-LG {\n  background-image: url(" + __webpack_require__(27) + ");\n  width: 18px;\n  height: 18px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n.postTimeLG {\n  margin-top: 1px;\n  float: right !important;\n  color: #b4b6bd; }\n\n.likeLG {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.activeLG {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(24) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.MainTextLG p {\n  display: table;\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 17px;\n  padding-top: 11px !important;\n  margin-left: 10px; }\n\n.commentcount {\n  cursor: pointer !important; }\n\n.userMenu {\n  padding: 0px 12px !important; }\n\n@media only screen and (max-device-width: 425px) {\n  .MainTextLG p {\n    display: table;\n    font-family: \"Helvetica Neue\";\n    font-size: 18px;\n    font-weight: 400;\n    padding-top: 10px !important;\n    padding-bottom: 5px !important;\n    margin-left: 10px;\n    color: #333; }\n  .postTimeLG {\n    margin-right: 7px !important;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; }\n  .dropdown-menu {\n    left: -130px; } }\n\n.ana {\n  margin-bottom: 8px; }\n", ""]);
+exports.push([module.i, ".admin-picture {\n  width: 18px;\n  height: 18px;\n  background-image: url(" + __webpack_require__(84) + ");\n  background-size: cover; }\n\n.commentdiv p {\n  margin-left: 8px; }\n\n.ALM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(33) + ");\n  background-size: cover; }\n\n.BLM {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(18) + ");\n  background-size: cover; }\n\n.quality_user-LG {\n  background-image: url(" + __webpack_require__(28) + ");\n  width: 18px;\n  height: 18px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n.postTimeLG {\n  margin-top: 1px;\n  float: right !important;\n  color: #b4b6bd; }\n\n.likeLG {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.activeLG {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(24) + ");\n  background-size: cover;\n  cursor: pointer; }\n\n.MainTextLG p {\n  display: table;\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 17px;\n  padding-top: 11px !important;\n  margin-left: 10px; }\n\n.commentcount {\n  cursor: pointer !important; }\n\n.userMenu {\n  padding: 0px 12px !important; }\n\n@media only screen and (max-device-width: 425px) {\n  .MainTextLG p {\n    display: table;\n    font-family: \"Helvetica Neue\";\n    font-size: 18px;\n    font-weight: 400;\n    padding-top: 10px !important;\n    padding-bottom: 5px !important;\n    margin-left: 10px;\n    color: #333; }\n  .postTimeLG {\n    margin-right: 7px !important;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; }\n  .dropdown-menu {\n    left: -130px; } }\n\n.ana {\n  margin-bottom: 8px; }\n", ""]);
 
 // exports
 
@@ -18085,7 +18085,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".opanc {\n  padding-bottom: 10px;\n  margin-top: -15px; }\n  .opanc span {\n    padding: 5px;\n    margin-right: 0px !important;\n    display: table;\n    font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    font-size: 17px;\n    display: block; }\n\n.confirmation_active-NL {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(18) + ");\n  background-size: cover; }\n\n.quality_user-NL {\n  background-image: url(" + __webpack_require__(27) + ");\n  width: 18px;\n  height: 18px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n.MainText p {\n  display: table;\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 17px;\n  padding-top: 11px !important;\n  margin-left: 10px; }\n\n.nologinlike {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover; }\n\n.nologincommentcount {\n  cursor: pointer !important; }\n\n.nologinlikecount {\n  padding-right: 5px; }\n\n@media only screen and (max-device-width: 425px) {\n  .opanc {\n    padding-bottom: 10px;\n    margin-top: -15px; }\n    .opanc span {\n      display: table;\n      font-family: \"Helvetica Neue\";\n      font-weight: 400;\n      color: #333;\n      font-size: 15px; }\n  .postTimeNL {\n    margin-right: 7px;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; }\n  .MainText p {\n    display: table;\n    font-family: \"Helvetica Neue\";\n    font-weight: 400;\n    color: #333;\n    font-size: 18px;\n    padding-top: 10px !important;\n    padding-bottom: 5px !important;\n    margin-left: 10px; } }\n\n.postTimeNL {\n  margin-top: 1px;\n  float: right;\n  color: #b4b6bd; }\n", ""]);
+exports.push([module.i, ".opanc {\n  padding-bottom: 10px;\n  margin-top: -15px; }\n  .opanc span {\n    padding: 5px;\n    margin-right: 0px !important;\n    display: table;\n    font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    font-size: 17px;\n    display: block; }\n\n.confirmation_active-NL {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(18) + ");\n  background-size: cover; }\n\n.quality_user-NL {\n  background-image: url(" + __webpack_require__(28) + ");\n  width: 18px;\n  height: 18px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n.MainText p {\n  display: table;\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 17px;\n  padding-top: 11px !important;\n  margin-left: 10px; }\n\n.nologinlike {\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover; }\n\n.nologincommentcount {\n  cursor: pointer !important; }\n\n.nologinlikecount {\n  padding-right: 5px; }\n\n@media only screen and (max-device-width: 425px) {\n  .opanc {\n    padding-bottom: 10px;\n    margin-top: -15px; }\n    .opanc span {\n      display: table;\n      font-family: \"Helvetica Neue\";\n      font-weight: 400;\n      color: #333;\n      font-size: 15px; }\n  .postTimeNL {\n    margin-right: 7px;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; }\n  .MainText p {\n    display: table;\n    font-family: \"Helvetica Neue\";\n    font-weight: 400;\n    color: #333;\n    font-size: 18px;\n    padding-top: 10px !important;\n    padding-bottom: 5px !important;\n    margin-left: 10px; } }\n\n.postTimeNL {\n  margin-top: 1px;\n  float: right;\n  color: #b4b6bd; }\n", ""]);
 
 // exports
 
@@ -19176,6 +19176,15 @@ var Header = function (_Component) {
                   'li',
                   null,
                   _react2.default.createElement('i', { className: 'glyphicon glyphicon-fire' })
+                )
+              ),
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/contents' },
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement('i', { className: 'glyphicon glyphicon-list-alt' })
                 )
               ),
               _react2.default.createElement(
@@ -20646,7 +20655,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "ol, ul {\n  margin-top: 0px;\n  margin-bottom: 5px !important; }\n\n.searchImage {\n  width: 20px;\n  height: 20px;\n  background-image: url(" + __webpack_require__(208) + ");\n  background-size: cover; }\n\n.search-input {\n  width: 400px !important;\n  margin-right: 5px; }\n\n.symbol {\n  width: 25px;\n  height: 25px;\n  background-image: url(" + __webpack_require__(209) + ");\n  background-size: cover;\n  margin-left: 5px;\n  margin-bottom: 20px; }\n\n#header > div > div.navbar-header.col-md-offset-1 > a {\n  display: flex; }\n\n#bs-example-navbar-collapse-1 > div.dropDownMenu > ul > li > a {\n  background-color: #cc280b; }\n\n.mobile-search .mobile-search-input {\n  width: 160px;\n  margin-top: 10px !important; }\n\n.mobile-search .searchButton {\n  margin-bottom: 10px !important;\n  margin-top: 10px !important; }\n\n@media only screen and (min-device-width: 765px) {\n  .mobile-menu {\n    display: none; }\n  .mobile-search {\n    display: none; } }\n\n@media only screen and (min-device-width: 350px) and (max-device-width: 370px) {\n  .searchList {\n    width: 94px !important; }\n  .mobile-search .mobile-search-input {\n    width: 100px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul li {\n    display: table !important;\n    float: left;\n    padding-right: 44px; }\n    .mobile-menu-Login ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n.menuButton {\n  padding: 6px 10px; }\n\n@media only screen and (min-device-width: 330px) and (max-device-width: 340px) {\n  .searchList {\n    width: 119px !important; }\n  .mobile-search .mobile-search-input {\n    width: 125px !important;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul li {\n    display: table !important;\n    float: left;\n    padding-right: 38px; }\n    .mobile-menu-Login ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 340px) and (max-device-width: 350px) {\n  .searchList {\n    width: 129px !important; }\n  .mobile-search .mobile-search-input {\n    width: 135px !important;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul li {\n    display: table !important;\n    float: left;\n    padding-right: 40px; }\n    .mobile-menu-Login ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 330px) {\n  .searchList {\n    width: 106px !important; }\n  .mobile-menu-Login ul li {\n    display: table !important;\n    float: left;\n    padding-right: 35px; }\n    .mobile-menu-Login ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 350px) {\n  .mobile-search .mobile-search-input {\n    width: 110px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: none;\n    margin-top: 10px !important; } }\n\n@media only screen and (min-device-width: 371px) and (max-device-width: 400px) {\n  .searchList {\n    width: 105px !important; }\n  .mobile-search .mobile-search-input {\n    width: 110px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: inline;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul li {\n    display: table !important;\n    float: left;\n    padding-right: 49px; }\n    .mobile-menu-Login ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 401px) and (max-device-width: 415px) {\n  .searchList {\n    width: 134px !important; }\n  .mobile-search .mobile-search-input {\n    width: 140px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: inline;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul li {\n    display: table !important;\n    float: left;\n    padding-right: 57px; }\n    .mobile-menu-Login ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n@media only screen and (min-device-width: 416px) and (max-device-width: 765px) {\n  .searchList {\n    width: 157px !important; }\n  .mobile-menu-Login ul li {\n    display: table !important;\n    float: left;\n    padding-right: 61px; }\n    .mobile-menu-Login ul li .glyphicon {\n      font-size: 25px;\n      cursor: pointer; } }\n\n.mobile-menu-Login a {\n  color: #333; }\n\n.mobile-menu-Login a:hover {\n  text-decoration: underline;\n  color: #f3f3f3; }\n\n/*.linkS{\r\n    span{\r\n        color:#333\r\n    }\r\n    span:hover { \r\n        text-decoration: underline; \r\n        color: #f3f3f3; \r\n    } \r\n}\r\n*/\n.navbar-toggle {\n  margin-top: 10px !important; }\n", ""]);
+exports.push([module.i, "ol, ul {\n  margin-top: 0px;\n  margin-bottom: 5px !important; }\n\n.searchImage {\n  width: 20px;\n  height: 20px;\n  background-image: url(" + __webpack_require__(208) + ");\n  background-size: cover; }\n\n.search-input {\n  width: 400px !important;\n  margin-right: 5px; }\n\n.symbol {\n  width: 25px;\n  height: 25px;\n  background-image: url(" + __webpack_require__(209) + ");\n  background-size: cover;\n  margin-left: 5px;\n  margin-bottom: 20px; }\n\n#header > div > div.navbar-header.col-md-offset-1 > a {\n  display: flex; }\n\n#bs-example-navbar-collapse-1 > div.dropDownMenu > ul > li > a {\n  background-color: #cc280b; }\n\n.mobile-search .mobile-search-input {\n  width: 160px;\n  margin-top: 10px !important; }\n\n.mobile-search .searchButton {\n  margin-bottom: 10px !important;\n  margin-top: 10px !important; }\n\n@media only screen and (min-device-width: 765px) {\n  .mobile-menu {\n    display: none; }\n  .mobile-search {\n    display: none; } }\n\n@media only screen and (min-device-width: 350px) and (max-device-width: 370px) {\n  .searchList {\n    width: 94px !important; }\n  .mobile-search .mobile-search-input {\n    width: 100px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul {\n    margin: 0 auto !important; }\n    .mobile-menu-Login ul li {\n      display: table !important;\n      float: left;\n      padding-right: 32px;\n      margin-top: 5px; }\n      .mobile-menu-Login ul li .glyphicon {\n        font-size: 23px;\n        cursor: pointer; } }\n\n.menuButton {\n  padding: 6px 10px; }\n\n@media only screen and (min-device-width: 330px) and (max-device-width: 340px) {\n  .searchList {\n    width: 119px !important; }\n  .mobile-search .mobile-search-input {\n    width: 125px !important;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul {\n    margin: 0 auto !important; }\n    .mobile-menu-Login ul li {\n      display: table !important;\n      float: left;\n      padding-right: 26px;\n      margin-top: 5px; }\n      .mobile-menu-Login ul li .glyphicon {\n        font-size: 23px;\n        cursor: pointer; } }\n\n@media only screen and (min-device-width: 340px) and (max-device-width: 350px) {\n  .searchList {\n    width: 129px !important; }\n  .mobile-search .mobile-search-input {\n    width: 135px !important;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul {\n    margin: 0 auto !important; }\n    .mobile-menu-Login ul li {\n      display: table !important;\n      float: left;\n      padding-right: 30px;\n      margin-top: 5px; }\n      .mobile-menu-Login ul li .glyphicon {\n        font-size: 23px;\n        cursor: pointer; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 330px) {\n  .searchList {\n    width: 106px !important; }\n  .mobile-menu-Login ul {\n    margin: 0px auto !important; }\n    .mobile-menu-Login ul li {\n      display: table !important;\n      float: left;\n      padding-right: 26px;\n      margin-top: 5px; }\n      .mobile-menu-Login ul li .glyphicon {\n        font-size: 23px;\n        cursor: pointer; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 350px) {\n  .mobile-search .mobile-search-input {\n    width: 110px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: none;\n    margin-top: 10px !important; } }\n\n@media only screen and (min-device-width: 371px) and (max-device-width: 400px) {\n  .searchList {\n    width: 105px !important; }\n  .mobile-search .mobile-search-input {\n    width: 110px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: inline;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul {\n    margin: 0 auto !important; }\n    .mobile-menu-Login ul li {\n      display: table !important;\n      float: left;\n      padding-right: 36px;\n      margin-top: 5px; }\n      .mobile-menu-Login ul li .glyphicon {\n        font-size: 23px;\n        cursor: pointer; } }\n\n@media only screen and (min-device-width: 401px) and (max-device-width: 415px) {\n  .searchList {\n    width: 134px !important; }\n  .mobile-search .mobile-search-input {\n    width: 140px;\n    margin-top: 10px !important; }\n  .mobile-search .searchButton {\n    margin-bottom: 10px !important;\n    display: inline;\n    margin-top: 10px !important; }\n  .mobile-menu-Login ul {\n    margin: 0 auto !important; }\n    .mobile-menu-Login ul li {\n      display: table !important;\n      float: left;\n      padding-right: 42px;\n      margin-top: 5px; }\n      .mobile-menu-Login ul li .glyphicon {\n        font-size: 23px;\n        cursor: pointer; } }\n\n@media only screen and (min-device-width: 416px) and (max-device-width: 765px) {\n  .searchList {\n    width: 157px !important; }\n  .mobile-menu-Login ul {\n    margin: 0 auto !important; }\n    .mobile-menu-Login ul li {\n      display: table !important;\n      float: left;\n      padding-right: 45px;\n      margin-top: 5px; }\n      .mobile-menu-Login ul li .glyphicon {\n        font-size: 23px;\n        cursor: pointer; } }\n\n.mobile-menu-Login a {\n  color: #333; }\n\n.mobile-menu-Login a:hover {\n  text-decoration: underline;\n  color: #f3f3f3; }\n\n/*.linkS{\r\n    span{\r\n        color:#333\r\n    }\r\n    span:hover { \r\n        text-decoration: underline; \r\n        color: #f3f3f3; \r\n    } \r\n}\r\n*/\n.navbar-toggle {\n  margin-top: 10px !important; }\n", ""]);
 
 // exports
 
@@ -22561,7 +22570,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "/***\r\nUser Profile Sidebar by @keenthemes\r\nA component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme\r\nLicensed under MIT\r\n***/\nbody {\n  background: #F1F3FA; }\n\n.quality_user-profile {\n  background-image: url(" + __webpack_require__(27) + ");\n  width: 17px;\n  height: 17px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n/* Profile container */\n.profile {\n  margin: 0px; }\n\n/* Profile sidebar */\n.profile-sidebar {\n  padding: 20px 0 10px 0;\n  background: #fff; }\n\n.profile-usertitle {\n  text-align: center;\n  margin-top: 20px; }\n\n.profile-usertitle-name {\n  color: #5a7391;\n  font-size: 16px;\n  font-weight: 600;\n  margin-bottom: 7px; }\n\n.profile-usertitle-job {\n  text-transform: uppercase;\n  color: #5b9bd1;\n  font-size: 12px;\n  font-weight: 600;\n  margin-bottom: 15px; }\n\n.profile-userbuttons {\n  text-align: center;\n  margin-top: 10px; }\n\n.profile-userbuttons .btn {\n  text-transform: uppercase;\n  font-size: 11px;\n  font-weight: 600;\n  padding: 6px 15px;\n  margin-right: 5px; }\n\n.profile-userbuttons .btn:last-child {\n  margin-right: 10px; }\n\n.profile-usermenu {\n  margin-top: 30px; }\n\n.profile-usermenu ul li {\n  border-bottom: 1px solid #f0f4f7; }\n\n.profile-usermenu ul li:last-child {\n  border-bottom: none; }\n\n.profile-usermenu ul li span {\n  color: #93a3b5;\n  font-size: 14px;\n  font-weight: 400;\n  display: block;\n  padding: 10px;\n  cursor: pointer; }\n\n.profile-usermenu ul li span i {\n  margin-right: 8px;\n  font-size: 14px; }\n\n.profile-usermenu ul li span:hover {\n  background-color: #fafcfd;\n  color: #5b9bd1; }\n\n.profile-usermenu ul li.active {\n  border-bottom: none; }\n\n.profile-usermenu ul li.active span {\n  color: #5b9bd1;\n  background-color: #f6f9fb;\n  border-left: 2px solid #5b9bd1;\n  margin-left: -2px; }\n\n/* Profile Content */\n.profile-content {\n  padding: 10px;\n  background: #fff; }\n\n.imageB .defaultimage:hover {\n  cursor: pointer; }\n\n.imageB .activeimage {\n  cursor: pointer;\n  width: 50%;\n  margin-left: 25%;\n  height: auto;\n  -webkit-border-radius: 50% !important;\n  -moz-border-radius: 20% !important;\n  border-radius: 20% !important; }\n\n.profile-userpic img {\n  cursor: pointer;\n  width: 50%;\n  margin-left: 25%;\n  height: auto;\n  -webkit-border-radius: 50% !important;\n  -moz-border-radius: 20% !important;\n  border-radius: 20% !important; }\n\n@media screen and (min-width: 768px) {\n  .profile-sidebar {\n    padding: 20px 0 10px 0;\n    background: #fff;\n    width: 100%;\n    height: 100%;\n    -webkit-border-radius: 50% !important;\n    -moz-border-radius: 20% !important;\n    border-radius: 5% !important; }\n  .profile-content {\n    padding: 10px;\n    background: #fff;\n    min-height: 611px;\n    border-radius: 20px !important; } }\n", ""]);
+exports.push([module.i, "/***\r\nUser Profile Sidebar by @keenthemes\r\nA component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme\r\nLicensed under MIT\r\n***/\nbody {\n  background: #F1F3FA; }\n\n.quality_user-profile {\n  background-image: url(" + __webpack_require__(28) + ");\n  width: 17px;\n  height: 17px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n/* Profile container */\n.profile {\n  margin: 0px; }\n\n/* Profile sidebar */\n.profile-sidebar {\n  padding: 20px 0 10px 0;\n  background: #fff; }\n\n.profile-usertitle {\n  text-align: center;\n  margin-top: 20px; }\n\n.profile-usertitle-name {\n  color: #5a7391;\n  font-size: 16px;\n  font-weight: 600;\n  margin-bottom: 7px; }\n\n.profile-usertitle-job {\n  text-transform: uppercase;\n  color: #5b9bd1;\n  font-size: 12px;\n  font-weight: 600;\n  margin-bottom: 15px; }\n\n.profile-userbuttons {\n  text-align: center;\n  margin-top: 10px; }\n\n.profile-userbuttons .btn {\n  text-transform: uppercase;\n  font-size: 11px;\n  font-weight: 600;\n  padding: 6px 15px;\n  margin-right: 5px; }\n\n.profile-userbuttons .btn:last-child {\n  margin-right: 10px; }\n\n.profile-usermenu {\n  margin-top: 30px; }\n\n.profile-usermenu ul li {\n  border-bottom: 1px solid #f0f4f7; }\n\n.profile-usermenu ul li:last-child {\n  border-bottom: none; }\n\n.profile-usermenu ul li span {\n  color: #93a3b5;\n  font-size: 14px;\n  font-weight: 400;\n  display: block;\n  padding: 10px;\n  cursor: pointer; }\n\n.profile-usermenu ul li span i {\n  margin-right: 8px;\n  font-size: 14px; }\n\n.profile-usermenu ul li span:hover {\n  background-color: #fafcfd;\n  color: #5b9bd1; }\n\n.profile-usermenu ul li.active {\n  border-bottom: none; }\n\n.profile-usermenu ul li.active span {\n  color: #5b9bd1;\n  background-color: #f6f9fb;\n  border-left: 2px solid #5b9bd1;\n  margin-left: -2px; }\n\n/* Profile Content */\n.profile-content {\n  padding: 10px;\n  background: #fff; }\n\n.imageB .defaultimage:hover {\n  cursor: pointer; }\n\n.imageB .activeimage {\n  cursor: pointer;\n  width: 50%;\n  margin-left: 25%;\n  height: auto;\n  -webkit-border-radius: 50% !important;\n  -moz-border-radius: 20% !important;\n  border-radius: 20% !important; }\n\n.profile-userpic img {\n  cursor: pointer;\n  width: 50%;\n  margin-left: 25%;\n  height: auto;\n  -webkit-border-radius: 50% !important;\n  -moz-border-radius: 20% !important;\n  border-radius: 20% !important; }\n\n@media screen and (min-width: 768px) {\n  .profile-sidebar {\n    padding: 20px 0 10px 0;\n    background: #fff;\n    width: 100%;\n    height: 100%;\n    -webkit-border-radius: 50% !important;\n    -moz-border-radius: 20% !important;\n    border-radius: 5% !important; }\n  .profile-content {\n    padding: 10px;\n    background: #fff;\n    min-height: 611px;\n    border-radius: 20px !important; } }\n", ""]);
 
 // exports
 
@@ -23131,7 +23140,7 @@ var Search = function (_Component) {
                     this.state.loadMore ? _react2.default.createElement(
                         "div",
                         { className: "Loading" },
-                        _react2.default.createElement("img", { src: "" + __webpack_require__(28) })
+                        _react2.default.createElement("img", { src: "" + __webpack_require__(27) })
                     ) : null
                 ) : _react2.default.createElement(
                     "div",
@@ -23604,7 +23613,7 @@ var NoLoginSearch = function (_Component) {
                     this.state.loadMore ? _react2.default.createElement(
                         "div",
                         { className: "Loading" },
-                        _react2.default.createElement("img", { src: "" + __webpack_require__(28) })
+                        _react2.default.createElement("img", { src: "" + __webpack_require__(27) })
                     ) : null
                 ) : _react2.default.createElement(
                     "div",
@@ -23677,7 +23686,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".quality_user-ns {\n  background-image: url(" + __webpack_require__(27) + ");\n  width: 15px;\n  height: 15px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n.people-image {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(95) + ");\n  background-size: cover; }\n\n.person {\n  margin-bottom: 10px; }\n  .person .persons {\n    margin-bottom: 10px !important; }\n\n.posts .imageDiv {\n  margin-bottom: 10px; }\n\n.post-title {\n  margin-bottom: 10px; }\n\n.post-picture {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(96) + ");\n  background-size: cover; }\n\n.post-write {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.people-name {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\nhr {\n  margin-top: 0px !important;\n  margin-bottom: 0px !important; }\n\n.person-image .search-people-image {\n  width: 70px;\n  height: 70px;\n  margin-top: 7px;\n  float: left;\n  margin-bottom: 7px !important;\n  border-radius: 10% !important; }\n\n.person-info .person-firstname-lastname {\n  margin-top: 10px !important; }\n\n.person-info .role-info {\n  margin-left: 0px !important; }\n  .person-info .role-info p {\n    margin-left: 0px !important;\n    font-size: 13px; }\n\n.Loading img {\n  width: 100px;\n  height: 100px;\n  margin: 0 auto !important;\n  display: table !important; }\n\n.nologinsearchlike {\n  margin-top: 1px;\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover; }\n\n.nologincommentcount {\n  cursor: auto; }\n\n.confirmation-NLS {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(18) + ");\n  background-size: cover; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-NLS {\n    margin-right: 7px;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n\n.postTime-NLS {\n  margin-top: 1px;\n  float: right;\n  color: #b4b6bd; }\n", ""]);
+exports.push([module.i, ".quality_user-ns {\n  background-image: url(" + __webpack_require__(28) + ");\n  width: 15px;\n  height: 15px;\n  display: inline-flex;\n  margin-left: 5px;\n  margin-top: 5px;\n  background-size: cover; }\n\n.people-image {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(95) + ");\n  background-size: cover; }\n\n.person {\n  margin-bottom: 10px; }\n  .person .persons {\n    margin-bottom: 10px !important; }\n\n.posts .imageDiv {\n  margin-bottom: 10px; }\n\n.post-title {\n  margin-bottom: 10px; }\n\n.post-picture {\n  width: 30px;\n  height: 30px;\n  margin-top: 7px;\n  float: left;\n  background-image: url(" + __webpack_require__(96) + ");\n  background-size: cover; }\n\n.post-write {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.people-name {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  font-size: 18px;\n  margin-top: 10px; }\n\nhr {\n  margin-top: 0px !important;\n  margin-bottom: 0px !important; }\n\n.person-image .search-people-image {\n  width: 70px;\n  height: 70px;\n  margin-top: 7px;\n  float: left;\n  margin-bottom: 7px !important;\n  border-radius: 10% !important; }\n\n.person-info .person-firstname-lastname {\n  margin-top: 10px !important; }\n\n.person-info .role-info {\n  margin-left: 0px !important; }\n  .person-info .role-info p {\n    margin-left: 0px !important;\n    font-size: 13px; }\n\n.Loading img {\n  width: 100px;\n  height: 100px;\n  margin: 0 auto !important;\n  display: table !important; }\n\n.nologinsearchlike {\n  margin-top: 1px;\n  width: 20px;\n  height: 20px;\n  float: left;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-size: cover; }\n\n.nologincommentcount {\n  cursor: auto; }\n\n.confirmation-NLS {\n  width: 30px;\n  height: 30px;\n  float: right;\n  margin-left: 10px;\n  background-image: url(" + __webpack_require__(18) + ");\n  background-size: cover; }\n\n@media only screen and (max-device-width: 425px) {\n  .postTime-NLS {\n    margin-right: 7px;\n    margin-top: 1px;\n    float: right;\n    color: #b4b6bd; } }\n\n.postTime-NLS {\n  margin-top: 1px;\n  float: right;\n  color: #b4b6bd; }\n", ""]);
 
 // exports
 
@@ -25732,7 +25741,7 @@ var TopBestPosts = function (_Component) {
                     this.state.loadMore ? _react2.default.createElement(
                         "div",
                         { className: "Loading", style: { margin: '0 auto', display: 'table', marginBottom: '5px' } },
-                        _react2.default.createElement("img", { src: "" + __webpack_require__(28) })
+                        _react2.default.createElement("img", { src: "" + __webpack_require__(27) })
                     ) : null
                 ) : _react2.default.createElement(_loading2.default, null)
             );
@@ -26137,7 +26146,7 @@ var NoLoginTopBestPosts = function (_Component) {
                     this.state.loadMore ? _react2.default.createElement(
                         "div",
                         { className: "Loading", style: { margin: '0 auto', display: 'table', marginBottom: '5px' } },
-                        _react2.default.createElement("img", { src: "" + __webpack_require__(28) })
+                        _react2.default.createElement("img", { src: "" + __webpack_require__(27) })
                     ) : null
                 ) : _react2.default.createElement(_loading2.default, null)
             );
@@ -27593,17 +27602,17 @@ var contentdetail = function (_Component) {
                             { className: 'content img-thumbnail col-lg-6 col-xs-4', style: { margin: '0 auto', display: 'table' } },
                             _react2.default.createElement(
                                 'h2',
-                                { style: { margin: '0 auto', display: 'table', marginLeft: '0px', marginBottom: '10px' } },
+                                { style: { margin: '0 auto', display: 'table', marginLeft: '0px', marginBottom: '10px', padding: '5px' } },
                                 content.title
                             ),
                             _react2.default.createElement('hr', null),
                             content.image1 != null ? _react2.default.createElement(
                                 'div',
-                                null,
+                                { className: 'co' },
                                 _react2.default.createElement('img', { className: 'image1 img-thumbnail', src: content.image1 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write1', style: { margin: '0 auto', display: 'table', marginLeft: '5px' } },
+                                    { className: 'write1', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing1
                                 )
                             ) : null,
@@ -27613,7 +27622,7 @@ var contentdetail = function (_Component) {
                                 _react2.default.createElement('img', { className: 'image2 img-thumbnail', src: content.image2 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write2' },
+                                    { className: 'write2', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing2
                                 )
                             ) : null,
@@ -27623,27 +27632,27 @@ var contentdetail = function (_Component) {
                                 _react2.default.createElement('img', { className: 'image3 img-thumbnail', src: content.image3 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write3' },
+                                    { className: 'write3', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing3
                                 )
                             ) : null,
-                            content.image4 && content.writing4 != null ? _react2.default.createElement(
+                            content.image4 != null ? _react2.default.createElement(
                                 'div',
                                 null,
                                 _react2.default.createElement('img', { className: 'image4 img-thumbnail', src: content.image4 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write4' },
+                                    { className: 'write4', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing4
                                 )
                             ) : null,
-                            content.image5 && content.writing5 != null ? _react2.default.createElement(
+                            content.image5 != null ? _react2.default.createElement(
                                 'div',
                                 null,
                                 _react2.default.createElement('img', { className: 'image5 img-thumbnail', src: content.image5 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write5' },
+                                    { className: 'write5', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing5
                                 )
                             ) : null,
@@ -27653,7 +27662,7 @@ var contentdetail = function (_Component) {
                                 _react2.default.createElement('img', { className: 'image5 img-thumbnail', src: content.image6 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write5' },
+                                    { className: 'write5', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing6
                                 )
                             ) : null,
@@ -27663,7 +27672,7 @@ var contentdetail = function (_Component) {
                                 _react2.default.createElement('img', { className: 'image5 img-thumbnail', src: content.image7 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write5' },
+                                    { className: 'write5', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing7
                                 )
                             ) : null,
@@ -27673,7 +27682,7 @@ var contentdetail = function (_Component) {
                                 _react2.default.createElement('img', { className: 'image5 img-thumbnail', src: content.image8 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write5' },
+                                    { className: 'write5', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing8
                                 )
                             ) : null,
@@ -27683,7 +27692,7 @@ var contentdetail = function (_Component) {
                                 _react2.default.createElement('img', { className: 'image5 img-thumbnail', src: content.image9 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write5' },
+                                    { className: 'write5', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing9
                                 )
                             ) : null,
@@ -27693,17 +27702,30 @@ var contentdetail = function (_Component) {
                                 _react2.default.createElement('img', { className: 'image5 img-thumbnail', src: content.image10 }),
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'write5' },
+                                    { className: 'write5', style: { margin: '0 auto', display: 'table', padding: '10px' } },
                                     content.writing10
                                 )
                             ) : null,
                             _react2.default.createElement('hr', null),
                             _react2.default.createElement('br', null),
                             _react2.default.createElement(
-                                'span',
-                                { className: 'time' },
-                                'Yay\u0131nlanma Tarihi: ',
-                                content.created_at
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'time' },
+                                    'Yay\u0131nlanma Tarihi: ',
+                                    content.created_at
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'not' },
+                                    'Not: Hayat\u0131 fazla ciddiye almay\u0131n.'
+                                )
                             )
                         )
                     );
@@ -27770,7 +27792,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".content {\n  margin: 0 auto;\n  display: table;\n  width: 100%;\n  height: auto;\n  padding: 20px; }\n  .content span {\n    float: right;\n    margin-top: -17px !important;\n    margin-right: 2px; }\n\n.time {\n  margin-top: 1px;\n  float: right !important;\n  color: #b4b6bd; }\n\n@media only screen and (min-device-width: 769px) {\n  .content {\n    margin: 0 auto;\n    display: table;\n    width: 65%;\n    height: auto;\n    padding: 20px; }\n    .content h2 {\n      padding: 10px;\n      margin-top: -10px !important; }\n    .content p {\n      padding: 10px; }\n    .content img {\n      height: auto;\n      width: 100%;\n      margin-bottom: 10px;\n      overflow: hidden !important; } }\n", ""]);
+exports.push([module.i, ".content {\n  margin: 0 auto;\n  display: table;\n  width: 100%;\n  height: auto;\n  padding: 20px; }\n  .content span {\n    float: right;\n    margin-top: -17px !important;\n    margin-right: 2px; }\n\n.time {\n  margin-top: 1px;\n  float: right !important;\n  color: #b4b6bd; }\n\n.not {\n  margin-top: 1px;\n  float: right !important;\n  color: #b4b6bd; }\n\n@media only screen and (min-device-width: 769px) {\n  .content {\n    margin: 0 auto;\n    display: table;\n    width: 65%;\n    height: auto;\n    padding: 20px; }\n    .content h2 {\n      padding: 10px;\n      margin-top: -10px !important; }\n    .content img {\n      height: auto;\n      width: 100%;\n      margin-bottom: 10px;\n      overflow: hidden !important; } }\n", ""]);
 
 // exports
 
@@ -27834,7 +27856,7 @@ var Contents = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Contents.__proto__ || Object.getPrototypeOf(Contents)).call(this, props));
 
-        _this.state = { status: false, status_content: true };
+        _this.state = { status: false, status_content: true, loadMore: false };
         _this.onUpdate = _this.onUpdate.bind(_this);
         return _this;
     }
@@ -27866,13 +27888,12 @@ var Contents = function (_Component) {
             var getContent = this.props.categoryActions.getContent;
             var contentCount = this.props.contents.contentCount;
             var contents = this.props.contents.contents;
-            //console.log(this.props.contents.contents.length,contentCount,66)
 
             if (this.props.contents.contents.length < contentCount) {
                 if (this.state.status_content == true) {
-                    this.setState({ status_content: false });
+                    this.setState({ loadMore: true, status_content: false });
                     getContent(this.props.contents.contents.length > 0 ? { value: this.props.contents.contents.length, event: false } : { value: 0, event: false }).then(function () {
-                        _this2.setState({ status_content: true });
+                        _this2.setState({ status_content: true, loadMore: false });
                     });
                 }
             }
@@ -27888,8 +27909,8 @@ var Contents = function (_Component) {
                 null,
                 _react2.default.createElement(
                     'div',
-                    { className: 'section col-lg-6' },
-                    _react2.default.createElement(
+                    { className: 'contents col-lg-6 col-xs-12' },
+                    contents.length > 0 ? _react2.default.createElement(
                         _ScrollContainer2.default,
                         { onUpdate: this.onUpdate },
                         contents.map(function (content) {
@@ -27897,26 +27918,31 @@ var Contents = function (_Component) {
                                 'div',
                                 { style: { marginBottom: '7px' }, className: 'img-thumbnail' },
                                 _react2.default.createElement(
-                                    _reactRouterDom.Link,
-                                    { to: '/contentdetail/' + content.content_id },
-                                    _react2.default.createElement('img', { style: { width: '100%', height: 'auto' }, src: content.image1 })
-                                ),
-                                _react2.default.createElement(
                                     'h4',
-                                    null,
+                                    { style: { padding: '5px' } },
                                     _react2.default.createElement(
                                         _reactRouterDom.Link,
-                                        { to: '/contentdetail/' + content.content_id },
+                                        { to: '/contentdetail/' + content.contents_id },
                                         _react2.default.createElement(
                                             'a',
                                             { style: { color: 'black', cursor: 'pointer' } },
                                             content.title
                                         )
                                     )
+                                ),
+                                _react2.default.createElement(
+                                    _reactRouterDom.Link,
+                                    { to: '/contentdetail/' + content.contents_id },
+                                    _react2.default.createElement('img', { style: { width: '100%', height: 'auto' }, src: content.image1 })
                                 )
                             );
-                        })
-                    )
+                        }),
+                        this.state.loadMore ? _react2.default.createElement(
+                            'div',
+                            { className: 'Loading', style: { margin: '0 auto', display: 'table', marginBottom: '5px' } },
+                            _react2.default.createElement('img', { src: '' + __webpack_require__(27) })
+                        ) : null
+                    ) : _react2.default.createElement(_loading2.default, null)
                 )
             );
         }

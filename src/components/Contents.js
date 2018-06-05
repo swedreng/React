@@ -11,7 +11,7 @@ import './section.scss'
 class Contents extends Component{
     constructor(props){
         super(props)
-        this.state = {status : false, status_content: true}
+        this.state = {status : false, status_content: true,loadMore: false}
         this.onUpdate = this.onUpdate.bind(this)
     }
     componentWillMount(){
@@ -31,12 +31,11 @@ class Contents extends Component{
         let { getContent } = this.props.categoryActions
         let { contentCount } = this.props.contents
         let { contents } = this.props.contents
-        //console.log(this.props.contents.contents.length,contentCount,66)
         if(this.props.contents.contents.length < contentCount){
             if(this.state.status_content == true){
-                this.setState({status_content:false})
+                this.setState({loadMore:true,status_content:false})
                 getContent((this.props.contents.contents.length > 0 ? {value:this.props.contents.contents.length, event:false} : {value:0,event:false})).then(()=>{
-                    this.setState({status_content:true})
+                    this.setState({status_content:true,loadMore:false})
                 })
             }  
         } 
@@ -47,17 +46,26 @@ class Contents extends Component{
         const { contents } = this.props.contents
         return (
             <div>
-            <div className="section col-lg-6">
-            <ScrollContainer onUpdate={this.onUpdate}>
-                {contents.map( content => {
-                    return (
-                        <div style={{marginBottom:'7px'}} className="img-thumbnail">
-                        <Link to={`/contentdetail/${content.content_id}`}><img style={{width:'100%', height:'auto'}} src={content.image1}/></Link>
-                        <h4><Link to={`/contentdetail/${content.content_id}`}><a style= {{color: 'black', cursor: 'pointer'}}>{content.title}</a></Link></h4>
-                        </div>
-                    )
-                })}
-            </ScrollContainer>
+            <div className="contents col-lg-6 col-xs-12">
+            {contents.length > 0 ? (
+                   <ScrollContainer onUpdate={this.onUpdate}>
+                   {contents.map( content => {
+                       return (
+                           <div style={{marginBottom:'7px'}} className="img-thumbnail">
+                           <h4 style={{padding:'5px'}}><Link to={`/contentdetail/${content.contents_id}`}><a style= {{color: 'black', cursor: 'pointer'}}>{content.title}</a></Link></h4>
+                           <Link to={`/contentdetail/${content.contents_id}`}><img style={{width:'100%', height:'auto'}} src={content.image1}/></Link>
+                           </div>
+                       )
+                   })}
+                   {( this.state.loadMore ? (
+                                   <div className="Loading" style={{margin:'0 auto', display:'table', marginBottom:'5px'}}>
+                                       <img src={`${require('../images/loa.gif')}`}/>
+                                   </div>
+                   ) : null)}
+               </ScrollContainer>
+
+            ): <Loading/> }
+         
             </div>
             </div>
 

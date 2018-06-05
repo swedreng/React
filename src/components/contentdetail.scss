@@ -18,6 +18,11 @@
     float: right !important;
     color: #b4b6bd;
 }
+.not{
+    margin-top: 1px;
+    float: right !important;
+    color: #b4b6bd;
+}
 
 @media only screen and (min-device-width: 769px){
     .content{
@@ -30,9 +35,7 @@
             padding: 10px;
             margin-top: -10px !important;
         }
-        p{
-            padding: 10px;
-        }
+       
         img{
             height: auto;
             width: 100%;

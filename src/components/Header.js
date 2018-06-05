@@ -71,6 +71,7 @@ class Header extends Component {
               <ul>
                 <Link to="/"><li><i className="glyphicon glyphicon-home"></i></li></Link>
                 <Link to={ isAuth ? "/topbestpost" : "nologintopbest"}><li><i className="glyphicon glyphicon-fire"></i></li></Link>
+                <Link to="/contents"><li><i className="glyphicon glyphicon-list-alt"></i></li></Link>
                 <Link to="/profile"><li><i className="glyphicon glyphicon-user"></i></li></Link>
                 <Link to="/sharepost"><li><i className="glyphicon glyphicon-pencil"></i></li></Link>
               </ul>

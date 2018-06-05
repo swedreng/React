@@ -37,12 +37,12 @@ class contentdetail extends Component{
                     return (
                         <div>
                         <div className="content img-thumbnail col-lg-6 col-xs-4" style={{margin:'0 auto',display:'table'}}>
-                        <h2 style={{margin:'0 auto',display:'table',marginLeft:'0px',marginBottom:'10px'}}>{content.title}</h2>
+                        <h2 style={{margin:'0 auto',display:'table',marginLeft:'0px',marginBottom:'10px',padding:'5px'}}>{content.title}</h2>
                         <hr/>
                         {content.image1 != null ? (
-                            <div>
+                            <div className="co">
                                 <img className="image1 img-thumbnail" src={content.image1}/>
-                                <p className="write1" style={{margin:'0 auto',display:'table',marginLeft:'5px'}}>
+                                <p className="write1" style={{margin:'0 auto',display:'table',padding:'10px'}}>
                                     {content.writing1}
                                 </p>
                             </div>
@@ -50,60 +50,83 @@ class contentdetail extends Component{
                         {content.image2 != null ? (
                             <div>
                                 <img className="image2 img-thumbnail" src={content.image2}/>
-                                <p className="write2">{content.writing2}</p>
+                                <p className="write2" style={{margin:'0 auto',display:'table',padding:'10px'}}>
+                                    {content.writing2}
+                                </p>
                             </div>
                         ): null}
                         {content.image3 != null ? (
                             <div>
                                 <img className="image3 img-thumbnail" src={content.image3}/>
-                                <p className="write3">{content.writing3}</p>
+                                <p className="write3" style={{margin:'0 auto',display:'table',padding:'10px'}}>
+                                    {content.writing3}
+                                </p>
                             </div>
                         ): null}
-                        {content.image4 && content.writing4 != null ? (
+                        {content.image4 != null ? (
                             <div>
                                 <img className="image4 img-thumbnail" src={content.image4}/>
-                                <p className="write4">{content.writing4}</p>
+                                <p className="write4" style={{margin:'0 auto',display:'table',padding:'10px'}}>
+                                    {content.writing4}
+                                </p>
                             </div>
                         ): null}
-                        {content.image5 && content.writing5 != null ? (
+                        {content.image5 != null ? (
                             <div>
                                 <img className="image5 img-thumbnail" src={content.image5}/>
-                                <p className="write5">{content.writing5}</p>
+                                <p className="write5" style={{margin:'0 auto',display:'table',padding:'10px'}}>
+                                    {content.writing5}
+                                </p>
                             </div>
                         ): null}
                          {content.image6 != null ? (
                             <div>
                                 <img className="image5 img-thumbnail" src={content.image6}/>
-                                <p className="write5">{content.writing6}</p>
+                                <p className="write5" style={{margin:'0 auto',display:'table',padding:'10px'}}>
+                                    {content.writing6}
+                                </p>
                             </div>
                         ): null}
                          {content.image7 != null ? (
                             <div>
                                 <img className="image5 img-thumbnail" src={content.image7}/>
-                                <p className="write5">{content.writing7}</p>
+                                <p className="write5" style={{margin:'0 auto',display:'table',padding:'10px'}}>
+                                    {content.writing7}
+                                </p>
                             </div>
                         ): null}
                          {content.image8 != null ? (
                             <div>
                                 <img className="image5 img-thumbnail" src={content.image8}/>
-                                <p className="write5">{content.writing8}</p>
+                                <p className="write5" style={{margin:'0 auto',display:'table',padding:'10px'}}>
+                                    {content.writing8}
+                                </p>
                             </div>
                         ): null}
                          {content.image9 != null ? (
                             <div>
                                 <img className="image5 img-thumbnail" src={content.image9}/>
-                                <p className="write5">{content.writing9}</p>
+                                <p className="write5" style={{margin:'0 auto',display:'table',padding:'10px'}}>
+                                    {content.writing9}
+                                </p>
                             </div>
                         ): null}
                          {content.image10 != null ? (
                             <div>
                                 <img className="image5 img-thumbnail" src={content.image10}/>
-                                <p className="write5">{content.writing10}</p>
+                                <p className="write5" style={{margin:'0 auto',display:'table',padding:'10px'}}>
+                                    {content.writing10}
+                                </p>
                             </div>
                         ): null}
                         <hr/>
                         <br/>
+                        <div className="row">
                         <span className="time">Yayınlanma Tarihi: {content.created_at}</span>
+                        </div>
+                        <div className="row">
+                        <p className="not">Not: Hayatı fazla ciddiye almayın.</p>
+                        </div>
                     </div>
                    
                     </div>
