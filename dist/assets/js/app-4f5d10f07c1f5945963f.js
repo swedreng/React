@@ -27601,8 +27601,8 @@ var contentdetail = function (_Component) {
                             'div',
                             { className: 'content img-thumbnail col-lg-6 col-xs-4', style: { margin: '0 auto', display: 'table' } },
                             _react2.default.createElement(
-                                'h2',
-                                { style: { margin: '0 auto', display: 'table', marginLeft: '0px', marginBottom: '10px', padding: '5px' } },
+                                'h3',
+                                { style: { margin: '0 auto', display: 'table', marginLeft: '5px', marginBottom: '10px', padding: '10px', marginTop: '-10px' } },
                                 content.title
                             ),
                             _react2.default.createElement('hr', null),
@@ -27918,8 +27918,8 @@ var Contents = function (_Component) {
                                 'div',
                                 { style: { marginBottom: '7px' }, className: 'img-thumbnail' },
                                 _react2.default.createElement(
-                                    'h4',
-                                    { style: { padding: '5px' } },
+                                    'h3',
+                                    { style: { padding: '10px', marginTop: '0px' } },
                                     _react2.default.createElement(
                                         _reactRouterDom.Link,
                                         { to: '/contentdetail/' + content.contents_id },

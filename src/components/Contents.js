@@ -52,7 +52,7 @@ class Contents extends Component{
                    {contents.map( content => {
                        return (
                            <div style={{marginBottom:'7px'}} className="img-thumbnail">
-                           <h4 style={{padding:'5px'}}><Link to={`/contentdetail/${content.contents_id}`}><a style= {{color: 'black', cursor: 'pointer'}}>{content.title}</a></Link></h4>
+                           <h3 style={{padding:'10px',marginTop:'0px'}}><Link to={`/contentdetail/${content.contents_id}`}><a style= {{color: 'black', cursor: 'pointer'}}>{content.title}</a></Link></h3>
                            <Link to={`/contentdetail/${content.contents_id}`}><img style={{width:'100%', height:'auto'}} src={content.image1}/></Link>
                            </div>
                        )

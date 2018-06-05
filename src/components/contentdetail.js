@@ -37,7 +37,7 @@ class contentdetail extends Component{
                     return (
                         <div>
                         <div className="content img-thumbnail col-lg-6 col-xs-4" style={{margin:'0 auto',display:'table'}}>
-                        <h2 style={{margin:'0 auto',display:'table',marginLeft:'0px',marginBottom:'10px',padding:'5px'}}>{content.title}</h2>
+                        <h3 style={{margin:'0 auto',display:'table',marginLeft:'5px',marginBottom:'10px',padding:'10px',marginTop:'-10px'}}>{content.title}</h3>
                         <hr/>
                         {content.image1 != null ? (
                             <div className="co">
