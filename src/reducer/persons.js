@@ -11,7 +11,7 @@ export default (state = defaultState, action) => {
         return {...state, persons:action.payload.data, persons_count:action.payload.persons_count}
       break
     case LOCATION_CHANGE:
-      return defaulState
+      return state
    default:
      return state
   }

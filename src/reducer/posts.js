@@ -87,7 +87,7 @@ export default (state = defaulState, action = {}) => {
         }    
       break   
     case SS:
-        return defaulState
+        return state
     //case LOCATION_CHANGE:
       //return defaulState
       default:
