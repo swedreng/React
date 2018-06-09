@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
 import Loading from './loading'
 import Loadable from 'react-loadable';
+import MicrolinkCard from 'react-microlink'
 import './loginusermain.scss'
 import * as viewProfileActions from '../actions/users';
 import { dateTime } from '../myfunctions/myfunctions';
@@ -100,9 +101,17 @@ class LoginUserMain extends Component{
                                  </div>
                                  <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
                                  
-                                 <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>
-                                     <img src={post.image}/>
-                                 </div>
+                                {post.kind == 'image' && (
+                                    <div className="MainImage">
+                                        <img src={post.image} />
+                                    </div>
+                                )}
+
+                                {post.kind == 'link' && (
+                                    <div className="MainImage">
+                                        <MicrolinkCard url={post.link} sizes="large" />
+                                    </div>
+                                )}
                                  <hr />
                                  <div className="icon">
                                  <div className="row">

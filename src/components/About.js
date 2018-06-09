@@ -5,8 +5,7 @@ class AboutUs extends Component{
     render(){
         return(
                 <div className="img-thumbnail col-md-12 col-sm-12 col-lg-12">
-                    <div className="about-section ">
-                       
+                    <div className="about-section ">                       
                             <div className="row">
                                 <div className="col-md-12 col-sm-12 col-lg-12">
                                 <div className="about-title clearfix about-us">

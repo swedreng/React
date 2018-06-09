@@ -7,6 +7,7 @@ import users from "./users"
 import fileupload from "./fileupload"
 import posts from "./posts"
 import sharewrite from "./sharewrite"
+import sharelink from './sharelink'
 import persons from "./persons"
 import viewperson from "./viewperson"
 import password_token from "./password_token"
@@ -23,6 +24,7 @@ const appReducer = combineReducers({
     fileupload,
     posts,
     sharewrite,
+    sharelink,
     persons,
     viewperson,
     password_token, // bu silinip kaldırılacak..
