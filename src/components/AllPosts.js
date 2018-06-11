@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
 import * as searchActions from "../actions/users"
 import Loading from './loading'
+import Imagex from './imagex'
 import Loadable from 'react-loadable';
 import MicrolinkCard from 'react-microlink'
 import { dateTime } from '../myfunctions/myfunctions';
@@ -94,7 +95,7 @@ class AllPosts extends Component{
                             
                             { post.kind == 'image' && (
                                 <div className="MainImage">
-                                    <img src={post.image} />
+                                    <Imagex src={post.image} />
                                 </div>
                             ) }
 

@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import * as postsActions from "../../actions/posts"
 import Loading from '../loading'
+import Imagex from '../imagex'
 import Loadable from 'react-loadable'
 import MicrolinkCard from 'react-microlink'
 import ScrollContainer from '../ScrollContainer'
@@ -95,9 +96,9 @@ class posts extends Component{
                                     </div>
                                     <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
                                     
-                                    {post.kind == 'image' && (
+                                            {post.kind == 'picture' && (
                                         <div className="MainImage">
-                                            <img src={post.image} />
+                                            <Imagex src={post.image} />
                                         </div>
                                     )}
 
