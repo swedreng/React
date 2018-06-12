@@ -13,7 +13,7 @@ const postKind = [
         icon: 'fas fa-font' 
     },
     {
-        name:"Resim veya gif paylaş",
+        name:"Resim veya Gif paylaş",
         value:"picture",
         icon: 'fas fa-images'
     },
@@ -21,6 +21,11 @@ const postKind = [
         name: "Bağlantı Paylaş",
         kind: 'link',
         icon: 'fas fa-link'
+    },
+    {   
+        name: "Yotube video Paylaş",
+        kind: 'youtubelink',
+        icon : 'fab fa-youtube'
     }
 ]
 
@@ -64,6 +69,14 @@ class share extends Component{
                 })
                 return <Link />
                 break; 
+            case 3:
+                const Youtube = Loadable({
+                    loader: () => import('./share/youtube.js'),
+                    loading: Loading,
+                    delay: 3000
+                })
+                return <Youtube />
+                break; 
         }
     } 
 
@@ -78,17 +91,18 @@ class share extends Component{
                   <div className="form-group">
                       <div className="row">
                         {postKind.map((post, index) => {
-                            return <div className="col-lg-4">
-                                <div key={index} className={`post_type ${this.state.selectedPost == index ? 'post_type--active' : ''}`} onClick={e => this.changepostKind(index)}>
-                                  <i className={post.icon} />
+                            return <div className="col-lg-4 col-xs-6">
+                                <div style={{marginBottom:'9px'}} key={index} className={`post_type ${this.state.selectedPost == index ? 'post_type--active' : ''}`} onClick={e => this.changepostKind(index)}>
+                                  <i style={{margin:'0 auto',display:'table', marginTop:'35%'}}className={post.icon} />
                                   <div style={{ clear: 'both' }} />
-                                  <span>
+                                  <span style={{textAlign:"center"}}>
                                     {post.name}
                                   </span>
                                 </div>
                               </div>
                         })}
                       </div>
+                      <div className="row" style={{padding:'20px'}}>{this.renderTab()}</div>
                     </div> : <div className="">
                       <p>
                         Gönderi paylaşımınız adminler veya moderatorler
@@ -102,7 +116,7 @@ class share extends Component{
                 </fieldset>
               </form>
             </div>
-            <div className="row">{this.renderTab()}</div>
+            
           </div>
     }
 }

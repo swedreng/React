@@ -127,6 +127,7 @@ class ModeratorMain extends Component{
                                     <MicrolinkCard url={post.link} sizes="large" />
                                 </div>
                             )}
+                            
                             <hr />
                             <div className="icon">
                             <div className="row">

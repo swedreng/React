@@ -7,7 +7,7 @@ import * as shareLink from "../../../actions/sharelink"
 import './link.scss'
 
 
-class link extends PureComponent {
+class youtube extends PureComponent {
   constructor(props) {
     super(props)
     this.state = { write: '', link: '', status: true, urlPreview: false }
@@ -41,26 +41,17 @@ class link extends PureComponent {
 
     return (
       <div>
-        <div className="row" style={{ marginBottom: '20px' }}>
+        <div className="row" style={{ marginBottom: '20px'}}>
           <div className="form-group write">
-            <div className="form-group">
+            <div className="form-group" >
               <input
                 className="form-control"
                 value={this.state.link}
                 onChange={e => this.setUrl(e.target.value)}
                 type="text"
-                placeholder="Linki buraya yapıştır.."
+                placeholder="Youtube Linkini buraya yapıştır.."
               />
             </div>
-            {this.state.urlPreview && (
-              <MicrolinkCard
-                url={this.state.link}
-                sizes="large"
-                style={{
-                  marginBottom: 15
-                }}
-              />
-            )}
             <textarea
               onKeyDown={e => {
                 if (e.keyCode == 13) this.shareWrite()
@@ -112,4 +103,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(link)
+)(youtube)
