@@ -48,6 +48,8 @@ class LoginBestPosts extends Component{
     getData(nextProps){
         let {match:{ params :{post_id}}} = nextProps
         let { getBestPost } = this.props.bestpostActions
+        let { S } = this.props.postsActions
+        S()
         getBestPost({post_id:post_id})
     }
     actionComment(post_id){
@@ -71,7 +73,9 @@ class LoginBestPosts extends Component{
        
             return(
                 <div className="LoginUserMain">
-                    {data.map(post =>{
+                {data.length > 0 ? (
+                    <div>
+                        {data.map(post =>{
                         return (
                             <div>
                             
@@ -97,6 +101,13 @@ class LoginBestPosts extends Component{
                                          {post.kind == 'picture' && (
                                             <div className="MainImage">
                                                 <Imagex src={post.image} />
+                                            </div>
+                                         )}
+                                         {post.kind == 'youtube_link' && (
+                                            <div className="MainImage">
+                                                <iframe style={{width:'100%',height:'300px'}}
+                                                    src={`https://www.youtube.com/embed/${post.youtube_link}`}>
+                                                </iframe>
                                             </div>
                                          )}
                                          {post.kind == 'link' && (
@@ -139,6 +150,10 @@ class LoginBestPosts extends Component{
                         )
                         
                     })}
+                    </div>
+
+                ) : <Loading/>}
+                    
                     
                 </div>    
         )

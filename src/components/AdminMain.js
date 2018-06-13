@@ -115,6 +115,13 @@ class AdminMain extends Component{
                                         <Imagex src={post.image} />
                                     </div>
                                 )}
+                                {post.kind == 'youtube_link' && (
+                                    <div className="MainImage">
+                                        <iframe style={{width:'100%',height:'300px'}}
+                                            src={`https://www.youtube.com/embed/${post.youtube_link}`}>
+                                        </iframe>
+                                    </div>
+                                )}
 
                                 {post.kind == 'link' && (
                                     <div className="MainImage">

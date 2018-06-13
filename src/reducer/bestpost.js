@@ -1,5 +1,6 @@
 import { SET_BESTPOSTS, SET_BESTPOST } from "../constants"
 
+import { LOCATION_CHANGE } from 'react-router-redux'
 const defaultState = {
   bestposttoday: [],
   bestpost: null

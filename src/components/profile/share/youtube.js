@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import MicrolinkCard from 'react-microlink'
-import * as shareLink from "../../../actions/sharelink"
+import * as youtubeLink from "../../../actions/youtubeLink"
 import './link.scss'
 
 
@@ -14,11 +14,11 @@ class youtube extends PureComponent {
   }
 
   shareLink() {
-    let { shareLink } = this.props.shareLink
+    let { youtubeLink } = this.props.youtubeLink
 
     if (this.state.status == true) {
       this.setState({ status: false })
-      shareLink({
+      youtubeLink({
         write: this.state.write,
         link: this.state.link
       }).then(() => {
@@ -33,7 +33,7 @@ class youtube extends PureComponent {
 
   render() {
     const { write } = this.state
-    const { result } = this.props.sharelink
+    const { result } = this.props.share_youtube_link
     const isEnabled = write
     const { message } = this.props.description
     const alertTrue = 'alert alert-success'
@@ -92,12 +92,12 @@ class youtube extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ description, sharelink }) => ({
+const mapStateToProps = ({ description, share_youtube_link }) => ({
   description,
-  sharelink
+  share_youtube_link
 })
 const mapDispatchToProps = dispatch => ({
-  shareLink: bindActionCreators(shareLink, dispatch)
+  youtubeLink: bindActionCreators(youtubeLink, dispatch)
 })
 
 export default connect(

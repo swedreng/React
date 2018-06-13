@@ -15,6 +15,7 @@ import searchdata from "./searchdata"
 import categories from "./categories"
 import bestposts from "./bestpost"
 import contents from "./content"
+import share_youtube_link from './share_youtube_link'
 const appReducer = combineReducers({  
     routing,
     auth,
@@ -31,7 +32,8 @@ const appReducer = combineReducers({
     searchdata,
     categories,
     bestposts,
-    contents
+    contents,
+    share_youtube_link
 })
 
 export default appReducer

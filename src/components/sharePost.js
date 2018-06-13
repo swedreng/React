@@ -120,7 +120,7 @@ class sharePost extends Component{
                                     paylaşıma açmamız için iletişim kısmından bize
                                     mail gönderebilirsiniz, teşekkürler.
                                 </p>
-                                </div>}
+                            </div>}
                     </div>
                     
             </div>

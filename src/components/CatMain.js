@@ -34,7 +34,8 @@ class Main extends Component{
 
     getQuery(cat_id){
       
-        let { getPosts } = this.props.postsActions
+        let { getPosts,S } = this.props.postsActions
+        S()
         let { getNoLogin } = this.props.noLoginPostsActions
         let { category_id } = this.props
         this.setState({category_id:(cat_id ? cat_id : category_id)})
