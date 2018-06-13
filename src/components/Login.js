@@ -100,7 +100,7 @@ class Login extends Component{
                                                     <Link to="/passwordreset"><a className="passwordreset"><div className={'forgetpassword'}></div>Şifremi unuttum</a></Link>
                                                 </div>    
                                             </div>                    
-                                        <button type="button" disabled={!isEnabled} className="btn btn-lg btn-danger btn-block" onClick={this.loginSubmit}>Giris Yap</button>
+                                        <button type="button" className="btn btn-lg btn-danger btn-block" onClick={this.loginSubmit}>Giris Yap</button>
                                         </div>
                                     </fieldset>
                                     </form>
