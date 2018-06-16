@@ -23,7 +23,7 @@ const postKind = [
         icon: 'fas fa-link'
     },
     {   
-        name: "Yotube video Paylaş",
+        name: "Youtube video Paylaş",
         kind: 'youtubelink',
         icon : 'fab fa-youtube'
     }
