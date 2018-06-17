@@ -50,12 +50,23 @@ class Contents extends Component{
             {contents.length > 0 ? (
                    <ScrollContainer onUpdate={this.onUpdate}>
                    {contents.map( content => {
-                       return (
-                           <div style={{marginBottom:'7px'}} className="img-thumbnail">
-                           <h3 style={{padding:'10px',marginTop:'0px'}}><Link to={`/contentdetail/${content.contents_id}`}><a style= {{color: 'black', cursor: 'pointer'}}>{content.title}</a></Link></h3>
-                           <Link to={`/contentdetail/${content.contents_id}`}><img style={{width:'100%', height:'auto'}} src={content.image1}/></Link>
-                           </div>
-                       )
+                       return <div style={{ marginBottom: '7px' }} className="img-thumbnail">
+                           <h3 style={{ padding: '10px', marginTop: '0px' }}>
+                               <Link to={`/contentdetail/${(content.slug ? content.slug : content.contents_id)}`}>
+                               <a
+                                 style={{
+                                   color: 'black',
+                                   cursor: 'pointer'
+                                 }}
+                               >
+                                 {content.title}
+                               </a>
+                             </Link>
+                           </h3>
+                           <Link to={`/contentdetail/${(content.slug ? content.slug : content.contents_id)}`}>
+                             <img style={{ width: '100%', height: 'auto' }} src={content.image1} />
+                           </Link>
+                         </div>
                    })}
                    {( this.state.loadMore ? (
                                    <div className="Loading" style={{margin:'0 auto', display:'table', marginBottom:'5px'}}>

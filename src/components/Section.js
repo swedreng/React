@@ -73,9 +73,9 @@ class Section extends Component{
                 {contents.map( content => {
                     return (
                         <div style={{marginBottom:'7px'}} className="col-lg-12 img-thumbnail">
-                        <Link to={`/contentdetail/${content.contents_id}`}><img style={{width:'100%', height:'auto'}} src={content.image1}/></Link>
+                            <Link to={`/contentdetail/${(content.slug ? content.slug : content.contents_id)}`}><img style={{width:'100%', height:'auto'}} src={content.image1}/></Link>
                         <hr/>
-                        <h4><Link to={`/contentdetail/${content.contents_id}`}><a style= {{color: 'black', cursor: 'pointer'}}>{content.title}</a></Link></h4>
+                            <h4><Link to={`/contentdetail/${(content.slug ? content.slug : content.contents_id)}`}><a style= {{color: 'black', cursor: 'pointer'}}>{content.title}</a></Link></h4>
                         </div>
                     )
                 })}

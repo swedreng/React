@@ -122,7 +122,7 @@ class contentdetail extends Component{
                         <hr/>
                         <br/>
                         <div className="row">
-                        <span className="time">Yayınlanma Tarihi: {content.created_at}</span>
+                        <span className="time">Yayınlanma Tarihi: {content.Time}</span>
                         </div>
                         <div className="row">
                         <p className="not">Not: Hayatı fazla ciddiye almayın.</p>
