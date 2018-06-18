@@ -5,6 +5,8 @@ import * as searchActions from "../actions/users"
 import * as postsActions from "../actions/posts"
 import Loading from './loading'
 import Loadable from 'react-loadable'
+import Imagex from './imagex'
+import MicrolinkCard from 'react-microlink'
 import ScrollContainer from './ScrollContainer'
 import SearchPostsError from './searchPostsError'
 import SearchPostsPerson from './searchPostsPerson'
@@ -161,10 +163,24 @@ class NoLoginSearch extends Component{
                                         </div>       
                                     </div>
                                     <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
-                                    
-                                    <div className="MainImage" style={(post.kind == 'write' ? {display:'none'} : null)}>
-                                        <img src={post.image}/>
-                                    </div>
+
+                                    {post.kind == 'picture' && (
+                                        <div className="MainImage">
+                                            <Imagex src={post.image} />
+                                        </div>
+                                    )}
+                                    {post.kind == 'youtube_link' && (
+                                            <div className="MainImage">
+                                                <iframe style={{width:'100%',height:'300px'}}
+                                                    src={`https://www.youtube.com/embed/${post.youtube_link}`}>
+                                                </iframe>
+                                            </div>
+                                    )}
+                                    {post.kind == 'link' && (
+                                        <div className="MainImage">
+                                            <MicrolinkCard url={post.link} sizes="large" />
+                                        </div>
+                                    )}
                                     <hr />
                                     <div className="icon">
                                     <div className="row">

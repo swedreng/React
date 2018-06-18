@@ -4,8 +4,8 @@ import { bindActionCreators } from "redux"
 import * as postsActions from "../actions/posts"
 import * as viewProfileActions from "../actions/users"
 import Loading from './loading'
-import Imagex from './imagex'
 import Loadable from 'react-loadable'
+import Imagex from './imagex'
 import MicrolinkCard from 'react-microlink'
 import './moderatormain.scss'
 import { dateTime } from '../myfunctions/myfunctions';
@@ -116,7 +116,7 @@ class ModeratorMain extends Component{
                             </div>
                             <hr style={(post.kind == 'write' ? {display:'none'} : null)}/>
                             
-                                    {post.kind == 'picture' && (
+                            {post.kind == 'picture' && (
                                 <div className="MainImage">
                                     <Imagex src={post.image} />
                                 </div>
