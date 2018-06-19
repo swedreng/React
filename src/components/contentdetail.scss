@@ -46,3 +46,41 @@
     }
     
 }
+
+.slider{
+    position: relative;
+}
+
+.prev-slider{
+    position: absolute;
+    left:0;
+    top:180px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 50%;
+    width:30px;
+    height:30px;
+
+    i{
+        font-size:24px;
+        margin-top:3px;
+        margin-left:3px;
+    }
+}
+
+.next-slider{
+    position: absolute;
+    right:0;
+    top:180px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 50%;
+    width:30px;
+    height:30px;
+
+    i{
+        font-size:24px;
+        margin-top:3px;
+        margin-left:3px;
+    }
+}

@@ -44,6 +44,7 @@ class Contents extends Component{
     render(){
         const { categories } = this.props.categories
         const { contents } = this.props.contents
+        console.log(contents, 5555)
         return (
             <div>
             <div className="contents col-lg-6 col-xs-12">
@@ -64,7 +65,7 @@ class Contents extends Component{
                              </Link>
                            </h3>
                            <Link to={`/contentdetail/${(content.slug ? content.slug : content.contents_id)}`}>
-                             <img style={{ width: '100%', height: 'auto' }} src={content.image1} />
+                             <img style={{ width: '100%', height: 'auto' }} src={content.images[0].image} />
                            </Link>
                          </div>
                    })}

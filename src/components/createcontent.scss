@@ -24,3 +24,33 @@
         margin: 0 auto;
     }
 }
+
+.preview-block{
+    width:350px;
+    margin:0 auto;
+    position: relative;
+
+    textarea{
+        margin-top:15px;
+    }
+}
+
+.preview-image{
+    width:260px;
+    height:260px;
+    margin:0 auto;
+    display: block;
+}
+
+.preview-remove{
+    position: absolute;
+    right:0;
+    top:0;
+    width:30px;
+    height:30px;
+    background-color: #ffcc00;
+
+    i {
+        font-size:26px;
+    }
+}
