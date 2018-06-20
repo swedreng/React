@@ -3,8 +3,9 @@ import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 import { bindActionCreators } from "redux"
 import * as categoryActions from "../actions/category"
-import * as postActions from "../actions/posts"
+import * as postActions from "../actions/posts"0
 import Loading from './loading'
+import Imagex from './imagex'
 import ScrollContainer from './ScrollContainer'
 import './section.scss'
 
@@ -65,7 +66,7 @@ class Contents extends Component{
                              </Link>
                            </h3>
                            <Link to={`/contentdetail/${(content.slug ? content.slug : content.contents_id)}`}>
-                             <img style={{ width: '100%', height: 'auto' }} src={content.images[0].image} />
+                             <Imagex src={content.images[0].image} />
                            </Link>
                          </div>
                    })}
