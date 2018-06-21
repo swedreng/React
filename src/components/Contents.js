@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 import { bindActionCreators } from "redux"
 import * as categoryActions from "../actions/category"
-import * as postActions from "../actions/posts"0
+import * as postActions from "../actions/posts"
 import Loading from './loading'
 import Imagex from './imagex'
 import ScrollContainer from './ScrollContainer'

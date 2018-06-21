@@ -1,6 +1,7 @@
 
 const htmlWebpack = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 const webpack = require('webpack');
 const path = require('path');
 
@@ -66,6 +67,22 @@ module.exports = {
         warnings: false,
         screw_ie8: false
       }
+    }),
+    new WebpackPwaManifest({
+      filename: '../manifest.json',
+      name: 'Opanc',
+      short_name: 'Opanc',
+      description:
+        'Eleştirel mizahın tek adresi, Hayatı fazla ciddiye almayın.!',
+      background_color: '#d4462c',
+      fingerprints: false,
+      public_path: '.',
+      icons: [
+        {
+          src: path.resolve('src/images/opanc_logo.png'),
+          sizes: [96, 128, 192, 256, 384, 512]
+        }
+      ]
     })
   ]
 }
