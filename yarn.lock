@@ -4285,6 +4285,10 @@ react-microlink@^2.1.4:
   dependencies:
     nanoclamp "~1.2.7"
 
+react-onclickout@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/react-onclickout/-/react-onclickout-2.0.8.tgz#d178b13fb87a481356761b454aa60df7069b2da4"
+
 react-placeholder@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-placeholder/-/react-placeholder-2.0.0.tgz#5117b4758927dc5ae5fcbf62552ab98209f6666c"
