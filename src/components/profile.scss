@@ -123,10 +123,7 @@ body {
       width: 50%;
       margin-left: 25%;
       height: auto;
-
-      -webkit-border-radius: 50% !important;
-      -moz-border-radius: 20% !important;
-      border-radius: 20% !important;
+      border-radius: 50% !important;
 
     }
   }
@@ -145,8 +142,7 @@ body {
   }
  
   @media screen and (min-width:768px){ //768 pikselden küçükse Mobil ve Tablet
-    
-  
+      
     .profile-sidebar {
       padding: 20px 0 10px 0;
       background: #fff;
@@ -163,4 +159,71 @@ body {
       border-radius: 20px !important;
     }
     
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+   .profile-userpic{
+      float: left;
+      width: 25%;
+
+      img{
+        width:65px !important;
+        border: solid 1px #ffcc00;
+      }
+    }
+
+    .profile-usertitle{
+      width: 75%;
+      float: left;
+      height: 47px;
+      text-align: left;
+    }
+
+    .profile-usertitle-job{
+      margin-left: 20px;
+      margin-bottom:0;
+    }
+
+    .profile-usertitle-name{
+      margin-bottom: 0px;
+      margin-top: -5px;
+      margin-left: 20px;
+    }
+
+    .imageB{
+      position: relative;
+      cursor: pointer;
+    }
+
+    .imageup{
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 20px;
+          height: 20px;
+          background-color: #ffcc00;
+          border-radius: 50%;
+      i{
+        color: #fff;
+        font-size: 13px;
+        margin-left: 5px;
+        margin-top: 3px;
+        display: block;
+      }
+    }
+
+    .nav{
+      display: -webkit-inline-box;
+      width: 100%;
+      overflow-y: scroll;
+    }
+    
+
+    .profile-usermenu ul li.active span {
+      color: #5b9bd1;
+      background-color: #f6f9fb;
+      border-bottom: 2px solid #5b9bd1;
+      border-left:none;
+      margin-left: -2px;
+  }
 }

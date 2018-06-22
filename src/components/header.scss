@@ -73,7 +73,7 @@ ol, ul {
                     display:table !important;
                     float:left;
                     padding-right: 32px;
-                    margin-top: 5px;
+                    margin-top: 10px;
                     .glyphicon {
                         font-size: 23px;
                         cursor: pointer;
@@ -103,7 +103,7 @@ ol, ul {
                 display:table !important;
                 float:left;
                 padding-right: 26px;
-                margin-top: 5px;
+                margin-top: 10px;
                 .glyphicon {
                     font-size: 23px;
                     cursor: pointer;
@@ -130,7 +130,7 @@ ol, ul {
                 display:table !important;
                 float:left;
                 padding-right: 30px;
-                margin-top:5px;
+                margin-top:10px;
                 .glyphicon {
                     font-size: 23px;
                     cursor: pointer;
@@ -152,7 +152,7 @@ ol, ul {
                 display:table !important;
                 float:left;
                 padding-right: 26px;
-                margin-top: 5px;
+                margin-top: 10px;
                 .glyphicon {
                     font-size: 23px;
                     cursor: pointer;
@@ -204,7 +204,7 @@ ol, ul {
                         display:table !important;
                         float:left;
                         padding-right: 36px;
-                        margin-top: 5px;
+                        margin-top: 10px;
                         .glyphicon {
                             font-size: 23px;
                             cursor: pointer;
@@ -239,7 +239,7 @@ ol, ul {
                             display:table !important;
                             float:left;
                             padding-right: 42px;
-                            margin-top:5px;
+                            margin-top:10px;
                             .glyphicon {
                                 font-size: 23px;
                                 cursor: pointer;
@@ -262,7 +262,7 @@ ol, ul {
                             display:table !important;
                             float:left;
                             padding-right: 45px;
-                            margin-top: 5px;
+                            margin-top: 10px;
                             .glyphicon {
                                 font-size: 23px;
                                 cursor: pointer;
@@ -297,4 +297,39 @@ ol, ul {
 
 .navbar-toggle{
     margin-top: 10px !important
+}
+
+.navbar-brand{
+    font-family: fantasy;
+    font-size:21px;
+}
+
+.navbar{
+    border-radius: 0 !important;
+}
+
+.mobile-menu-Login{
+    background-color: #e03021;
+    width:100%;
+    height:45px;
+    
+    ul {
+        li{
+            &.active{
+                color: #fff;
+            }
+        }        
+    }
+}
+
+.navbar-header{
+    padding:5px;
+}
+
+.navbar-toggle{
+    border:none !important;
+}
+.menuicon{
+    color: #fff;
+    font-size:21px;
 }
