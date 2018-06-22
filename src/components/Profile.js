@@ -151,6 +151,10 @@ class Profile extends Component{
                                 {(
                                     <img className="activeimage" src={this.props.auth.user_pp}/>
                                 )}
+
+                                <div className="imageup hidden-lg hidden-md">
+                                            <i class="fas fa-hand-peace"></i>
+                                </div>
                                 
                                 </Dropzone>
                             </div>
@@ -169,7 +173,7 @@ class Profile extends Component{
                                 </div>
                                 
                             </div>
-                                
+                            <div style={{clear:'both'}} />
                             <div className="profile-usermenu">
                                 <ul className="nav">
                                     {tabs.map((tab, index) => {

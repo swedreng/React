@@ -79,13 +79,13 @@ class posts extends Component{
                                     <div className="img-thumbnail col-xs-12 col-lg-12 col-md-12 imagediv"> 
                                     <div className="caption MainText-PP">
                                         <div className="row">
-                                            <div className="col-lg-8 col-md-4 col-sm-4 col-xs-9">
+                                            <div className="col-lg-8 col-md-4 col-sm-4 col-xs-8">
                                                 <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                             </div>  
                                             <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
                                                <div className={`confirmationUser-PP ${post.confirmation == 1 ? 'confirmation_active-PP' : null}`}></div>
                                             </div>    
-                                            <div className="col-lg-3 col-md-4 col-sm-4 col-xs-2">
+                                            <div className="col-lg-3 col-md-4 col-sm-4 col-xs-3">
                                                 <span className="postTime-PP">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
                                             </div>   
                                            

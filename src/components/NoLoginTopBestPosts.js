@@ -78,13 +78,13 @@ class NoLoginTopBestPosts extends Component{
                         <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                             <div className="caption MainText">
                                 <div className="row">
-                                <div className="col-lg-8 col-md-7 col-sm-4 col-xs-9">
+                                <div className="col-lg-8 col-md-7 col-sm-4 col-xs-8">
                                     <img className="ppimage" src={post.user.pp}/><b> {post.user.firstname} {post.user.lastname}</b>
                                 </div>    
                                 <div className="col-lg-1 col-md-1 col-sm-2 col-xs-1" style={{float:'right'}}>
                                     <div className={'confirmation_active-NTB'}></div>                                                           
                                 </div>  
-                                <div className="col-lg-3 col-md-4 col-sm-6 col-xs-2">
+                                <div className="col-lg-3 col-md-4 col-sm-6 col-xs-3">
                                     <span className="postTime-NTB">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
                                 </div>    
                                  

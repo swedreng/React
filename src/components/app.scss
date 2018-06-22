@@ -97,8 +97,17 @@
 
 #footer .panel {
     margin: 0!important;
-    
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #footer {
+        .panel-footer, .panel{
+            border: none !important;
+            background-color: transparent !important;
+        } 
+    }
+}
+
 @media screen and (max-width:768px) { //768 pikselden küçükse Mobil ve Tablet
     
     .signup button{
@@ -156,8 +165,8 @@
     z-index: 9999;
     bottom:10px;
     right: 10px;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     float:right;
     cursor: pointer;
     margin-bottom: 40px;

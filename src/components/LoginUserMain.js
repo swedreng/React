@@ -86,13 +86,13 @@ class LoginUserMain extends Component{
                              <div className="img-thumbnail col-xs-12 col-lg-7 col-md-7 imagediv"> 
                                  <div className="caption MainTextLG">
                                      <div className="row"> 
-                                         <div className="col-lg-8 col-md-4 col-sm-4 col-xs-9" >
+                                         <div className="col-lg-8 col-md-4 col-sm-4 col-xs-8" >
                                              <img className="ppimage" src={post.user.pp}/><b><a style= {{color: 'black', cursor: 'pointer'}} onClick = {() => this.LoginviewProfile(post.user.username)}> {post.user.firstname} {post.user.lastname}</a></b>{post.user.rank == 4 ? <div className={'quality_user-LG'}></div> : null}
                                          </div>  
                                          <div className="col-lg-1 col-md-4 col-sm-4 col-xs-1" style={{float:'right'}}>
                                             {post.user.id == user_id ? (<div className={`ALM ${post.confirmation == 1 ? 'BLM' : null }`}></div>):(<div className={'BLM'}></div>)}
                                          </div>     
-                                         <div className="col-lg-3 col-md-4 col-sm-4 col-xs-2">
+                                         <div className="col-lg-3 col-md-4 col-sm-4 col-xs-3">
                                              <span className="postTimeLG">{this.state.width >= 425 ? post.Time : dateTime(post.Time)}</span>
                                          </div>   
                                      </div>

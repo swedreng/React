@@ -31,20 +31,10 @@ class Layout extends Component{
         }
     }
     scrollTop(){
-        
-            var avarege = window.scrollY / 5
-            var timer = setInterval(function(){
-                var value = window.scrollY - avarege
-                window.scrollTo(0,value)    
-                if(window.scrollY <= 0) {
-                    clearInterval(timer)
-                }
-            }, 100);
+      window.scrollTo(0, 0)
     }
     showNavbarMenu(){
-       
         this.setState({ status: !this.state.status })
-  
     }
 
     closeMenu(){
@@ -54,9 +44,10 @@ class Layout extends Component{
     render(){
         let { categories } = this.props.categories
         let { bestposts: {bestposttoday} } = this.props
-        const { auth:{isAuth} } = this.props
+      const { auth: { isAuth }, routing: { location: { pathname }} } = this.props
+
             return <div id="content">
-                <div className={`nav-menu-mask ${this.state.status ? 'nav-menu-mask--active' : 'nav-menu-mask--default'}`} />
+                  {this.state.status && (<div className={`nav-menu-mask nav-menu-mask--active`} onClick={this.closeMenu} />)}
                   <div className={`nav-menu ${this.state.status ? 'nav-menu--active' : 'nav-menu--default'}`} onClick={this.closeMenu}>
                     <div className="navbar-menu-item">
                       <ul className="nav nav-pills nav-stacked">
@@ -134,8 +125,8 @@ class Layout extends Component{
 
     }
 }
-const mapStateToProps = ({ categories,bestposts,auth }) => ({
-    categories,bestposts,auth
+const mapStateToProps = ({ categories,bestposts,auth,routing }) => ({
+  categories, bestposts, auth, routing
 })
 const mapDispatchToProps = dispatch => ({
     
